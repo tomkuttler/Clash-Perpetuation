@@ -26,16 +26,14 @@ public abstract class Enemy extends AnimatedCharacter
 
     private int oldX;                      //Used for collision
     private int oldY;                      //Used for collision
-
-    private boolean isColliding = false;   //Used for path finding
-    private String path = "rightDown";     //Used for path finding
-    private double collidingCooldown;      //Cooldown after a collision -> isColliding = false
-    private double lastCollisionTime;      //Stores the time of the last collision
+    
+    private String path = "priorityX";     //Used for path finding, priorityX = moves first in X and then in Y to player
+                                           //                       priorityY = moves first in Y and then in X to player                                           
 
     private double removeCooldown; //Enemy will be removed after Cooldown (after Health <= 0)
     private double deathTime;              //Stores the time then enemy died
 
-    public void setup(int health, int detectPlayerRange, int attackRange, int damage, double hitCooldown, double removeCooldown, double collidingCooldown)
+    public void setup(int health, int detectPlayerRange, int attackRange, int damage, double hitCooldown, double removeCooldown)
     {
         this.health = health;
         this.detectPlayerRange = detectPlayerRange;
@@ -43,7 +41,6 @@ public abstract class Enemy extends AnimatedCharacter
         this.damage = damage;
         this.hitCooldown = hitCooldown;
         this.removeCooldown = removeCooldown;
-        this.collidingCooldown = collidingCooldown;
     }
 
     public void act() 
@@ -74,7 +71,7 @@ public abstract class Enemy extends AnimatedCharacter
                     stopMoving();
                 }
 
-                if(!isColliding)
+                if(path == "priorityX")
                 {
                     if (getX() < playerX && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > 40)
                     {
@@ -144,20 +141,21 @@ public abstract class Enemy extends AnimatedCharacter
         }
     }
 
-    //If Player collides with someone/something -> teleports the player back to his old location
+    //If Player collides with someone/something -> teleports the player back to his old location -> changes x/y priority
     public void checkCollision()
     {
         if(myCollider.checkCollision())
         {
             setLocation(oldX, oldY);
-            isColliding = true;
-            lastCollisionTime = System.nanoTime();
-        }
-        else
-        {
-            if(System.nanoTime() - lastCollisionTime >= collidingCooldown)
+            
+            //Toggle path
+            if(path == "priorityX")
             {
-                isColliding = false;
+                path = "priorityY";
+            }
+            else if(path == "priorityY")
+            {
+                path = "priorityX";
             }
         }
     }
