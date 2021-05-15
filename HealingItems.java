@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class HealingItems extends Objects
+public abstract class HealingItems extends PickUpItems
 {
     /**
      * Act - do whatever the HealingItems wants to do. This method is called whenever

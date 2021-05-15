@@ -19,7 +19,7 @@ public class Player extends AnimatedCharacter
 
     private int moveX, moveY;
     private int xOffset, yOffset;          //Direction for attacking
-    
+
     private int oldX;                      //Used for collision
     private int oldY;                      //Used for collision
 
@@ -32,6 +32,8 @@ public class Player extends AnimatedCharacter
 
     private int bowDamage = 50;            //Ranged attack damage of the player
     private int bowRange = 200;            //Bow range of the player
+
+    private int pickUpRange = 50;          //How close the player needs to be to pick up a PickUpItem
 
     private String currentWeapon = "sword";
 
@@ -83,9 +85,9 @@ public class Player extends AnimatedCharacter
 
         //Set full health
         health = maxHealth;
-        
+
         setCollider(28, 55, 0, 4);
-        
+
         //Referenz to HealthBar
         bar = newBar;
     }
@@ -97,9 +99,11 @@ public class Player extends AnimatedCharacter
         attack();
 
         checkCollision();
-        
+
         storePosition();
-        
+
+        checkPickUp();
+
         changeMap();
 
         checkRemove();
@@ -107,7 +111,7 @@ public class Player extends AnimatedCharacter
         // Call superclass act() to perform animations and movement
         super.act();
     }    
-    
+
     //Player movement: move if w,a,s,d key is pressed    
     public void move()
     {
@@ -171,7 +175,7 @@ public class Player extends AnimatedCharacter
 
                             runTerminalAnimation("swordAttack", false, false, direction);
 
-                            // Look for an enemy 1 pixel away in the direction that I'm facing
+                            //Look for an Enemy 1 pixel away in the direction I'm facing
                             Enemy enemy = (Enemy)getOneObjectAtOffset(xOffset * (getImage().getWidth()/2 + 1), yOffset * (getImage().getWidth()/2 + 1), Enemy.class);
 
                             if(enemy != null)
@@ -215,7 +219,7 @@ public class Player extends AnimatedCharacter
             }
         }
     }
-    
+
     //If Player collides with someone/something -> teleports the player back to his old location
     public void checkCollision()
     {
@@ -224,14 +228,36 @@ public class Player extends AnimatedCharacter
             setLocation(oldX, oldY);
         }
     }
-    
+
     //Stores current X and Y position, used for collision
     public void storePosition() 
     {
         oldX = getX();
         oldY = getY();
     }
-    
+
+    public void checkPickUp()
+    {
+        if(Greenfoot.isKeyDown("e") && alive)
+        {
+            if(!getObjectsInRange(pickUpRange, PickUpItems.class).isEmpty())
+            {
+                //Look for an PickUpItem in the direction I'm facing
+                PickUpItems item = (PickUpItems)getObjectsInRange(pickUpRange, PickUpItems.class).get(0);
+
+                if(item != null)
+                {
+                    if(item instanceof Potion)
+                    {
+                        item.pickedUp();
+
+                        heal(item.getHealthPoints());
+                    }
+                }
+            }
+        }
+    }
+
     //Change the current map if walked to a specific place
     public void changeMap() 
     {
@@ -273,7 +299,7 @@ public class Player extends AnimatedCharacter
             deathTime = System.nanoTime();
         }
     }
-    
+
     //Called if object wants to know if Player is alive
     public boolean isAlive()
     {
