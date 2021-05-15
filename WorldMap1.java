@@ -27,6 +27,8 @@ public class WorldMap1 extends World
         //Spawn Objects
         addObject(new TestTree(), 400, 100);
         
+        addObject(new Potion(), 100, 300);
+        
         //Spawn Enemys
         addObject(new Cyclope(p), 100, 100);
 

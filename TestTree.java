@@ -11,7 +11,7 @@ public class TestTree extends Objects
     //Object picture:
     GreenfootImage tree = new GreenfootImage("testTree.png");
     
-    public TestTree () 
+    public TestTree() 
     {
         setImage(tree);
     }    
