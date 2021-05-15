@@ -8,12 +8,60 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Collider extends Actor
 {
+    //Instance variables
+    private int offsetX;
+    private int offsetY;
+    private int xSize;
+    private int ySize; 
+
+    private GreenfootImage blank;
+    private GreenfootImage highlight;
+
     /**
-     * Act - do whatever the Collider wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Constructor for objects of class Collider, for use when Collider is being
+     * used as an object on it's own
      */
-    public void act() 
+    public Collider(int xSize, int ySize, int offsetX, int offsetY)
     {
-        // Add your action code here.
-    }    
+        setup(xSize, ySize, offsetX, offsetY);
+    }
+
+    protected void setup(int xSize, int ySize, int offsetX, int offsetY) 
+    {
+        this.xSize = xSize;
+        this.ySize = ySize;
+        this.offsetX = offsetX;
+        this.offsetY = offsetY;
+
+        blank = new GreenfootImage (xSize, ySize);
+        highlight = new GreenfootImage (xSize, ySize);
+        highlight.setColor (Color.RED);
+        highlight.fill();
+        highlight.setTransparency (75);
+
+        setImage(blank);
+        setImage(highlight);
+    }
+
+    public int getXOffset() 
+    {
+        return offsetX;
+    }
+
+    public int getYOffset() 
+    {
+        return offsetY;
+    }
+
+    public boolean checkCollision ()
+    {
+        if(!getIntersectingObjects(Collider.class).isEmpty() || !getIntersectingObjects(Objects.class).isEmpty())
+        {
+            return true;            
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
