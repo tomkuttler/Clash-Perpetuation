@@ -9,10 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class TestTree extends Objects
 {
     //Object picture:
-    GreenfootImage potion = new GreenfootImage("testTree.png");
+    GreenfootImage tree = new GreenfootImage("testTree.png");
     
     public TestTree () 
     {
-        setImage(potion);
+        setImage(tree);
     }    
 }
