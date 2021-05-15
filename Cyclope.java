@@ -15,8 +15,9 @@ public class Cyclope extends Enemy
     private int health = 100;
 
     private int detectPlayerRange = 200;   //Detection range of the enemy    
-    private int attackRange = 45;          //Attack range of the enemy
-    private int damage = 20;               //Attack damage of the enemy    
+    private int attackRange = 47;          //Attack range of the enemy
+    private int damage = 20;               //Attack damage of the enemy
+    
     private double hitCooldown = 1000000000.0;  //Cooldown of 1 bilion nanosec (1sec) between hits
 
     private double removeCooldown = 2000000000.0; //Enemy will be removed after Cooldown of 2 bilion nanosec (2sec) (after Health <= 0)
@@ -50,7 +51,7 @@ public class Cyclope extends Enemy
         //For the starting image, grab the 0th frame from the current facing dirction
         setImage(primaryAnimation.getOneImage(direction, 0));
 
-        setCollider(28, 40, 0, 6);
+        setCollider(28, 35, 0, 6);
 
         //Set referenz to player
         player = newPlayer;

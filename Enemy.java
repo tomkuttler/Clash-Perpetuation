@@ -26,9 +26,9 @@ public abstract class Enemy extends AnimatedCharacter
 
     private int oldX;                      //Used for collision
     private int oldY;                      //Used for collision
-    
+
     private String path = "priorityX";     //Used for path finding, priorityX = moves first in X and then in Y to player
-                                           //                       priorityY = moves first in Y and then in X to player                                           
+    //                                                              priorityY = moves first in Y and then in X to player                                           
 
     private double removeCooldown; //Enemy will be removed after Cooldown (after Health <= 0)
     private double deathTime;              //Stores the time then enemy died
@@ -59,57 +59,57 @@ public abstract class Enemy extends AnimatedCharacter
         }
     }
 
-    //Enemy movement: move if distance to player < detectPlayerRange && > 40
+    //Enemy movement: move if distance to player < detectPlayerRange && > attackRange
     public void moveToPlayer()
     {
         if(alive)
         {
             if (Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) < detectPlayerRange) //If distance to player < detectPlayerRange
             {
-                if(Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) < 40) //If distance to player < 25 -> stop moving
+                if(Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) < attackRange) //If distance to player < attackRange -> stop moving
                 {
                     stopMoving();
                 }
 
                 if(path == "priorityX")
                 {
-                    if (getX() < playerX && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > 40)
+                    if (getX() < playerX && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (1, 0);
                     }
 
-                    else if (getX() > playerX && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > 40)
+                    else if (getX() > playerX && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (-1, 0);
                     }
 
-                    else if (getY() < playerY && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > 40)
+                    else if (getY() < playerY && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (0, 1);
                     }
 
-                    else if (getY() > playerY && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > 40)
+                    else if (getY() > playerY && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (0, -1);
                     }
                 }
                 else
                 {
-                    if (getY() < playerY && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > 40)
+                    if (getY() < playerY && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (0, 1);
                     }
 
-                    else if (getY() > playerY && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > 40)
+                    else if (getY() > playerY && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (0, -1);
                     }
-                    else if (getX() < playerX && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > 40)
+                    else if (getX() < playerX && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (1, 0);
                     }
 
-                    else if (getX() > playerX && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > 40)
+                    else if (getX() > playerX && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (-1, 0);
                     }
@@ -147,7 +147,7 @@ public abstract class Enemy extends AnimatedCharacter
         if(myCollider.checkCollision())
         {
             setLocation(oldX, oldY);
-            
+
             //Toggle path
             if(path == "priorityX")
             {

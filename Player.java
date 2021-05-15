@@ -84,7 +84,7 @@ public class Player extends AnimatedCharacter
         //Set full health
         health = maxHealth;
         
-        setCollider(28, 40, 0, 6);
+        setCollider(28, 55, 0, 4);
         
         //Referenz to HealthBar
         bar = newBar;
