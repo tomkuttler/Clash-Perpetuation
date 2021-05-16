@@ -8,6 +8,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Potion extends HealingItems
 {
+    private String name;
+    private int amount;
+    private int maxStackSize = 64;
+    
     public int healthPoints; //Number of health points that will be restored
     
     //Object pictures
@@ -17,34 +21,41 @@ public class Potion extends HealingItems
     GreenfootImage purplePotion = new GreenfootImage("objects/healingItems/purplePotion.png");
     GreenfootImage whitePotion = new GreenfootImage("objects/healingItems/whitePotion.png");
 
-    public Potion(String color) 
+    public Potion(String color, int amount) 
     {
         if(color == "green")
         {
             setImage(greenPotion);
             healthPoints = 10;
+            name = "greenPotion";
          }
         if(color == "red")
         {
             setImage(redPotion);
             healthPoints = 20;
+            name = "redPotion";
         }
         if(color == "blue")
         {
             setImage(bluePotion);
             healthPoints = 30;
+            name = "bluePotion";
         }
         if(color == "purple")
         {
             setImage(purplePotion);
             healthPoints = 40;
+            name = "purplePotion";
         }
         if(color == "white")
         {
             setImage(whitePotion);
             healthPoints = 50;
+            name = "whitePotion";
         }
         
-        setup(healthPoints);
+        this.amount = amount;
+        
+        setup(healthPoints, name, amount, maxStackSize);
     }    
 }

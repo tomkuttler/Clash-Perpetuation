@@ -21,17 +21,33 @@ public class WorldMap1 extends World
         addObject(bar, 103, 19);
         addObject(new HealthBarUI(), 85, 30);
         
+        //Store Inventory
+        InventoryUI iUI = new InventoryUI();        
+        Inventory inventory = new Inventory(iUI);        
+        
         //Spawn Player
-        Player p = new Player(bar);
+        Player p = new Player(bar, inventory);
         addObject(p, 300, 200);
         
         //Spawn Objects
         addObject(new TestTree(), 400, 100);
         
-        addObject(new Potion("red"), 100, 300);
+        addObject(new Potion("red", 1), 100, 300);
+        addObject(new Potion("red", 10), 200, 300);
+        addObject(new Potion("red", 50), 300, 300);
+        addObject(new Potion("red", 32), 400, 300);
+        addObject(new Potion("red", 32), 100, 350);
+        addObject(new Potion("red", 32), 150, 350);
+        addObject(new Potion("red", 32), 200, 350);
+        addObject(new Potion("red", 32), 250, 350);
+        addObject(new Potion("red", 32), 300, 350);
+        addObject(new Potion("red", 32), 350, 350);
         
         //Spawn Enemys
         addObject(new Cyclope(p), 100, 100);
-
+        
+        //Spawn Inventory
+        addObject(iUI, 300, 200);
+        addObject(inventory, 0, 0);
     }
 }

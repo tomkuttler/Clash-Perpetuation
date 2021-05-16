@@ -1,10 +1,16 @@
 #BlueJ class context
 comment0.target=PickUpItems
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ PickUpItems\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=healthPoints
-comment1.target=void\ setup(int)
+comment1.params=healthPoints\ name\ amount\ maxStackSize
+comment1.target=void\ setup(int,\ java.lang.String,\ int,\ int)
 comment2.params=
-comment2.target=int\ getHealthPoints()
+comment2.target=java.lang.String\ getName()
 comment3.params=
-comment3.target=void\ pickedUp()
-numComments=4
+comment3.target=int\ getAmount()
+comment4.params=
+comment4.target=int\ getMaxStackSize()
+comment5.params=
+comment5.target=int\ getHealthPoints()
+comment6.params=
+comment6.target=void\ pickedUp()
+numComments=7

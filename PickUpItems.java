@@ -8,11 +8,33 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public abstract class PickUpItems extends Objects
 {
+    private String name;
+    private int amount;
+    private int maxStackSize;
+    
     private int healthPoints;
     
-    public void setup(int healthPoints)
+    public void setup(int healthPoints, String name, int amount, int maxStackSize)
     {
         this.healthPoints = healthPoints;
+        this.name = name;
+        this.amount = amount;
+        this.maxStackSize = maxStackSize;
+    }
+    
+    public String getName()
+    {
+        return name;
+    }
+    
+    public int getAmount()
+    {
+        return amount;
+    }
+    
+    public int getMaxStackSize()
+    {
+        return maxStackSize;
     }
     
     public int getHealthPoints()

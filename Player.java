@@ -40,12 +40,16 @@ public class Player extends AnimatedCharacter
     private double hitCooldown = 1000000000.0;  //Cooldown of 1 bilion nanosec (1sec) between hits
     private double lastHit;                //Saves the time of the last hit  
 
+    private double pressCooldown = 250000000.0;  //Cooldown of 250 milion nanosec (0,25sec) between pressing a key
+    private double lastPressedKeyTime;         //Saves the time of the last key press
+
     private HealthBar bar;                 //Referenz HealthBar
+    private Inventory inventory;           //Referenz Inventory
 
     private double removeCooldown = 2000000000.0; //Object will be removed after Cooldown of 2 bilion nanosec (2sec) (after Health <= 0)
     private double deathTime;              //Stores the time then enemy died
 
-    public Player(HealthBar newBar) {        
+    public Player(HealthBar newBar, Inventory newInventory) {        
         //Set variables for speed 
         walkSpeed = 60;     // pixels to move per SECOND
         walkAnimSpeed = 20; // number of animations frames per SECOND 
@@ -90,6 +94,9 @@ public class Player extends AnimatedCharacter
 
         //Referenz to HealthBar
         bar = newBar;
+
+        //Referenz to Inventory
+        inventory = newInventory;
     }
 
     public void act() 
@@ -103,6 +110,8 @@ public class Player extends AnimatedCharacter
         storePosition();
 
         checkPickUp();
+
+        toggleInventory();
 
         changeMap();
 
@@ -242,17 +251,36 @@ public class Player extends AnimatedCharacter
         {
             if(!getObjectsInRange(pickUpRange, PickUpItems.class).isEmpty())
             {
-                //Look for an PickUpItem in the direction I'm facing
+                //Look for an PickUpItem in range
                 PickUpItems item = (PickUpItems)getObjectsInRange(pickUpRange, PickUpItems.class).get(0);
 
                 if(item != null)
                 {
-                    if(item instanceof Potion)
+                    if(inventory.addItem(item))
                     {
                         item.pickedUp();
-
-                        heal(item.getHealthPoints());
                     }
+                }
+            }
+        }
+    }
+
+    public void toggleInventory()
+    {
+        if(Greenfoot.isKeyDown("i") && alive)
+        {
+            double i = System.nanoTime();
+            if(i - lastPressedKeyTime >= pressCooldown)
+            {
+                if(inventory.isInventoryOpen())
+                {
+                    inventory.closeInventory();
+                    lastPressedKeyTime = System.nanoTime();
+                }
+                else
+                {
+                    inventory.openInventory();
+                    lastPressedKeyTime = System.nanoTime();
                 }
             }
         }
@@ -265,7 +293,7 @@ public class Player extends AnimatedCharacter
         {
             if(getX() > 580)
             {
-                Greenfoot.setWorld(new WorldMap2(this, bar));
+                Greenfoot.setWorld(new WorldMap2(this, bar, inventory, inventory.getInventoryUI()));
             }
         }
     }
@@ -317,7 +345,7 @@ public class Player extends AnimatedCharacter
         {
             health = maxHealth;
         }
-        
+
         bar.setValue(health);
     }
 
