@@ -308,9 +308,16 @@ public class Player extends AnimatedCharacter
 
     //Called if player picked up a healing item
     public void heal(int healthPointsToAdd)
-    {
-        health = health + healthPointsToAdd;
-
+    {        
+        if(health + healthPointsToAdd <= maxHealth)
+        {
+            health = health + healthPointsToAdd;
+        }
+        else
+        {
+            health = maxHealth;
+        }
+        
         bar.setValue(health);
     }
 
