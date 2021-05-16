@@ -64,6 +64,11 @@ public abstract class Enemy extends AnimatedCharacter
     {
         if(alive)
         {
+            if(Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > detectPlayerRange) //If distance to player < detectPlayerRange -> stop moving
+                {
+                    stopMoving();
+                }
+                        
             if (Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) < detectPlayerRange) //If distance to player < detectPlayerRange
             {
                 if(Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) < attackRange) //If distance to player < attackRange -> stop moving
