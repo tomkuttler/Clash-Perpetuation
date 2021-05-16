@@ -18,7 +18,8 @@ public class WorldMap1 extends World
         
         //Spawn Health bar: title, units used in bar, initial value, maximum value
         HealthBar bar = new HealthBar("", "HP", 100, 100);
-        addObject(bar, 150, 40);
+        addObject(bar, 103, 19);
+        addObject(new HealthBarUI(), 85, 30);
         
         //Spawn Player
         Player p = new Player(bar);

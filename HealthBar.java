@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class HealthBar extends Actor
+public class HealthBar extends UI
 {
     private int barWidth = 100; // the width of the color portion of the bar
     private int barHeight = 10; // the height of the color portion of the bar
@@ -57,7 +57,7 @@ public class HealthBar extends Actor
         barImg.setColor(backgroundColor);
         barImg.fill();
         barImg.setColor(textColor);
-        barImg.drawRect(0, 0, barImg.getWidth() - 1, barImg.getHeight() - 1);
+        //barImg.drawRect(0, 0, barImg.getWidth() - 1, barImg.getHeight() - 1);
         if (value > minimumValue)
         {
             if (breakLow)
