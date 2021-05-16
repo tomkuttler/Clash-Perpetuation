@@ -21,12 +21,15 @@ public class WorldMap1 extends World
         addObject(bar, 103, 19);
         addObject(new HealthBarUI(), 85, 30);
         
-        //Store Inventory
+        //Store Inventory and Hotbar
         InventoryUI iUI = new InventoryUI();        
         Inventory inventory = new Inventory(iUI);        
+        HotbarUI hUI = new HotbarUI();
+        HotbarHighlight hH = new HotbarHighlight();
+        Hotbar hotbar = new Hotbar(hUI, hH);
         
         //Spawn Player
-        Player p = new Player(bar, inventory);
+        Player p = new Player(bar, inventory, hotbar);
         addObject(p, 300, 200);
         
         //Spawn Objects
@@ -46,8 +49,11 @@ public class WorldMap1 extends World
         //Spawn Enemys
         addObject(new Cyclope(p), 100, 100);
         
-        //Spawn Inventory
+        //Spawn Inventory and Hotbar
         addObject(iUI, 300, 200);
         addObject(inventory, 0, 0);
+        addObject(hUI, 300, 377);
+        addObject(hotbar, 0, 0);
+        addObject(hH, 192, 384);
     }
 }

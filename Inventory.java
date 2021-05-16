@@ -18,6 +18,10 @@ public class Inventory extends UI
 
     private InventoryUI inventoryUI;          //Referenz to the InventoryUI
 
+    private boolean wasInitiated = false;      //Used to prevent multiple unnecessary initiasations
+    private double initCooldown = 100000000;   //100 milion nanosec (0,1s) after spawn slots will be initialised
+    private double spawnTime;                  //Stores the time when slots were spawned
+
     public Inventory(InventoryUI newInventoryUI)
     {
         setImage((GreenfootImage)null);
@@ -26,16 +30,67 @@ public class Inventory extends UI
         for(int i=0; i < 40; i++) 
         {
             slots[i] = new InventorySlot();
+            slots[i].setSlotNumber(i);
         }
-        
+
         inventoryUI = newInventoryUI;
+
+        spawnTime = System.nanoTime();
+    }
+
+    public void act()
+    {
+        init();
+    }
+
+    public void init()
+    {
+        if(!wasInitiated)
+        {
+            double t = System.nanoTime();
+            if(t - spawnTime >= initCooldown)
+            {
+                wasInitiated = true;
+
+                //Spawn the inventory slots
+                for(int i=0; i < 40; i++) 
+                {
+                    if(i <= 9)
+                    {
+                        getWorld().addObject(slots[i], 231 + i * 29, 132);
+                    }
+
+                    if(i <= 19)
+                    {
+                        getWorld().addObject(slots[i], 231 + (i - 10) * 29, 161);
+                    }
+
+                    if(i <= 29)
+                    {
+                        getWorld().addObject(slots[i], 231 + (i - 20) * 29, 190);
+                    }
+
+                    if(i <= 39)
+                    {
+                        getWorld().addObject(slots[i], 231 + (i - 30) * 29, 219);
+                    }
+                }
+
+                for(int i=0; i < 40; i++) 
+                {
+                    slots[i].setImage((GreenfootImage)null);
+
+                    slots[i].getWorld().showText(null, slots[i].getX() + 5, slots[i].getY() + 5);
+                }
+            }
+        }
     }
 
     public boolean isInventoryOpen()
     {
         return isInventoryOpen;
     }
-    
+
     public InventoryUI getInventoryUI()
     {
         return inventoryUI;
@@ -48,30 +103,6 @@ public class Inventory extends UI
 
         //Set inventory image visible
         inventoryUI.setImageVisible();        
-
-        //Spawn the inventory slots
-        for(int i=0; i < 40; i++) 
-        {
-            if(i <= 9)
-            {
-                getWorld().addObject(slots[i], 231 + i * 29, 132);
-            }
-
-            if(i <= 19)
-            {
-                getWorld().addObject(slots[i], 231 + (i - 10) * 29, 161);
-            }
-
-            if(i <= 29)
-            {
-                getWorld().addObject(slots[i], 231 + (i - 20) * 29, 190);
-            }
-
-            if(i <= 39)
-            {
-                getWorld().addObject(slots[i], 231 + (i - 30) * 29, 219);
-            }
-        }
 
         //Update inventory slots
         for(int i=0; i < 40; i++) 
@@ -92,7 +123,7 @@ public class Inventory extends UI
         for(int i=0; i < 40; i++) 
         {
             slots[i].setImage((GreenfootImage)null);
-            
+
             slots[i].getWorld().showText(null, slots[i].getX() + 5, slots[i].getY() + 5);
         }
     }
@@ -136,9 +167,9 @@ public class Inventory extends UI
                     //Fill up the Stack
                     int difference = maxStackSize - slots[i].getAmount();
                     int rest = amount - difference;
-                    
+
                     slots[i].addItem(itemToAdd, difference);
-                    
+
                     //Put the rest in an empty slot
                     if(addItemToFreeSlot(itemToAdd, rest))
                     {
@@ -157,6 +188,41 @@ public class Inventory extends UI
             if(slots[i].isEmpty())
             {
                 slots[i].addItem(itemToAdd, amount);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean addItemToSpecificSlot(String itemToAdd, int amount, int slotNumberToAdd, int slotNumberToRemove)
+    {
+        if(slots[slotNumberToAdd].isEmpty())
+        {
+            slots[slotNumberToAdd].addItem(itemToAdd, amount);
+
+            slots[slotNumberToRemove].removeItem(amount);
+
+            return true;
+        }
+        else if(slots[slotNumberToAdd].getName() == itemToAdd)
+        {
+            if(slots[slotNumberToAdd].getAmount() + amount <= maxStackSize)
+            {
+                slots[slotNumberToAdd].addItem(itemToAdd, amount);
+
+                slots[slotNumberToRemove].removeItem(amount);
+
+                return true;
+            }
+            else if(!(slots[slotNumberToAdd].getAmount() == maxStackSize))
+            {
+                //Fill up the Stack
+                int difference = maxStackSize - slots[slotNumberToAdd].getAmount();
+
+                slots[slotNumberToAdd].addItem(itemToAdd, difference);
+
+                //Leaves the rest in the old slot
+                slots[slotNumberToRemove].removeItem(difference); 
                 return true;
             }
         }

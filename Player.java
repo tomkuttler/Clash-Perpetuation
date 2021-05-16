@@ -45,11 +45,12 @@ public class Player extends AnimatedCharacter
 
     private HealthBar bar;                 //Referenz HealthBar
     private Inventory inventory;           //Referenz Inventory
+    private Hotbar hotbar;                 //Referenz Hotbar
 
     private double removeCooldown = 2000000000.0; //Object will be removed after Cooldown of 2 bilion nanosec (2sec) (after Health <= 0)
     private double deathTime;              //Stores the time then enemy died
 
-    public Player(HealthBar newBar, Inventory newInventory) {        
+    public Player(HealthBar newBar, Inventory newInventory, Hotbar newHotbar) {        
         //Set variables for speed 
         walkSpeed = 60;     // pixels to move per SECOND
         walkAnimSpeed = 20; // number of animations frames per SECOND 
@@ -97,6 +98,9 @@ public class Player extends AnimatedCharacter
 
         //Referenz to Inventory
         inventory = newInventory;
+        
+        //Referenz to Hotbar
+        hotbar = newHotbar;
     }
 
     public void act() 
@@ -167,7 +171,7 @@ public class Player extends AnimatedCharacter
     //Checks if cooldown -> if lmb is pressed -> updates lastHit, if enemy is in range -> call gotHit() on enemy 
     public void attack() 
     {
-        if(alive)
+        if(alive && !inventory.isInventoryOpen())
         {
             if(currentWeapon == "sword")
             {
