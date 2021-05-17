@@ -20,7 +20,7 @@ public class Inventory extends UI
 
     public Inventory(InventoryUI newInventoryUI)
     {
-        // setImage((GreenfootImage)null);
+        setImage((GreenfootImage)null);
 
         //Create 40 empty inventory slots
         for(int i=0; i < 40; i++) 
@@ -219,28 +219,28 @@ public class Inventory extends UI
 
             return true;
         }
-        // else if(slots[slotNumberToAdd].getName() == itemToAdd)
-        // {
-        // if(slots[slotNumberToAdd].getAmount() + amount <= maxStackSize)
-        // {
-        // slots[slotNumberToAdd].addItem(itemToAdd, amount);
+        else if(slots[slotNumberToAdd].getName() == itemToAdd)
+        {
+            if(slots[slotNumberToAdd].getAmount() + amount <= getMaxStackSize(itemToAdd))
+            {
+                slots[slotNumberToAdd].addItem(itemToAdd, amount);
 
-        // slots[slotNumberToRemove].removeItem(amount);
+                getWorld().getObjects(Hotbar.class).get(0).removeItemAtSpecificSlot(amount, slotNumberToRemove);
 
-        // return true;
-        // }
-        // else if(!(slots[slotNumberToAdd].getAmount() == maxStackSize))
-        // {
-        // //Fill up the Stack
-        // int difference = maxStackSize - slots[slotNumberToAdd].getAmount();
+                return true;
+            }
+            else if(!(slots[slotNumberToAdd].getAmount() == getMaxStackSize(itemToAdd)))
+            {
+                //Fill up the Stack
+                int difference = getMaxStackSize(itemToAdd) - slots[slotNumberToAdd].getAmount();
 
-        // slots[slotNumberToAdd].addItem(itemToAdd, difference);
+                slots[slotNumberToAdd].addItem(itemToAdd, difference);
 
-        // //Leaves the rest in the old slot
-        // slots[slotNumberToRemove].removeItem(difference); 
-        // return true;
-        // }
-        // }
+                //Leaves the rest in the old slot
+                getWorld().getObjects(Hotbar.class).get(0).removeItemAtSpecificSlot(difference, slotNumberToRemove);
+                return true;
+            }
+        }
         return false;
     }
     
@@ -261,7 +261,7 @@ public class Inventory extends UI
         {
             return 64;
         }
-        else
+        else //Standart StackSize
         {
             return 64;
         }

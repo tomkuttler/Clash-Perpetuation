@@ -143,28 +143,28 @@ public class Hotbar extends UI
 
             return true;
         }
-        // else if(slots[slotNumberToAdd].getName() == itemToAdd)
-        // {
-        // if(slots[slotNumberToAdd].getAmount() + amount <= maxStackSize)
-        // {
-        // slots[slotNumberToAdd].addItem(itemToAdd, amount);
+        else if(slots[slotNumberToAdd].getName() == itemToAdd)
+        {
+            if(slots[slotNumberToAdd].getAmount() + amount <= inventory.getMaxStackSize(itemToAdd))
+            {
+                slots[slotNumberToAdd].addItem(itemToAdd, amount);
 
-        // slots[slotNumberToRemove].removeItem(amount);
+                inventory.removeItemAtSpecificSlot(amount, slotNumberToRemove);
 
-        // return true;
-        // }
-        // else if(!(slots[slotNumberToAdd].getAmount() == maxStackSize))
-        // {
-        // //Fill up the Stack
-        // int difference = maxStackSize - slots[slotNumberToAdd].getAmount();
+                return true;
+            }
+            else if(!(slots[slotNumberToAdd].getAmount() == inventory.getMaxStackSize(itemToAdd)))
+            {
+                //Fill up the Stack
+                int difference = inventory.getMaxStackSize(itemToAdd) - slots[slotNumberToAdd].getAmount();
 
-        // slots[slotNumberToAdd].addItem(itemToAdd, difference);
+                slots[slotNumberToAdd].addItem(itemToAdd, difference);
 
-        // //Leaves the rest in the old slot
-        // slots[slotNumberToRemove].removeItem(difference); 
-        // return true;
-        // }
-        // }
+                //Leaves the rest in the old slot
+                inventory.removeItemAtSpecificSlot(difference, slotNumberToRemove);
+                return true;
+            }
+        }
         return false;
     }
     
