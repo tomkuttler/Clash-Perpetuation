@@ -1,16 +1,20 @@
 #BlueJ class context
 comment0.target=Hotbar
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Hotbar\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=newHotbarUI\ newHotbarHighlight
-comment1.target=Hotbar(HotbarUI,\ HotbarHighlight)
+comment1.params=newHotbarUI\ newHotbarHighlight\ newInventory
+comment1.target=Hotbar(HotbarUI,\ HotbarHighlight,\ Inventory)
 comment2.params=
 comment2.target=void\ act()
-comment3.params=
-comment3.target=void\ spawnSlots()
+comment3.params=w
+comment3.target=void\ addedToWorld(greenfoot.World)
 comment4.params=
 comment4.target=int\ getCurrentSlot()
 comment5.params=
 comment5.target=void\ updateCurrentSlot()
 comment6.params=itemToAdd\ amount\ slotNumberToAdd\ slotNumberToRemove
 comment6.target=boolean\ addItemToSpecificSlot(java.lang.String,\ int,\ int,\ int)
-numComments=7
+comment7.params=itemToAdd\ amount\ slotNumberToAdd\ slotNumberToRemove
+comment7.target=boolean\ addItemToSpecificSlotFromInventory(java.lang.String,\ int,\ int,\ int)
+comment8.params=amount\ slotNumberToRemove
+comment8.target=boolean\ removeItemAtSpecificSlot(int,\ int)
+numComments=9

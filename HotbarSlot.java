@@ -11,40 +11,17 @@ public class HotbarSlot extends UI
     private String item = null;
     private int amount = 0;
     private int slotNumber;
-    
+
     private boolean drag = false;
-    
-    private boolean wasInitiated = false;      //Used to prevent multiple unnecessary initiasations
-    private double initCooldown = 100000000;   //100 milion nanosec (0,1s) after spawn slots will be initialised
-    private double spawnTime;                  //Stores the time when slots were spawned
-    
-    public HotbarSlot()
-    {
-        spawnTime = System.nanoTime();
-    }
 
     public void act()
-    {
-        init();
-        
+    {        
         checkDrag();
     }
-    
-    public void init()
-    {
-        if(!wasInitiated)
-        {
-            double t = System.nanoTime();
-            if(t - spawnTime >= initCooldown)
-            {
-                wasInitiated = true;
-                update();
-            }
-        }
-    }
-    
+
     public void checkDrag()
     {
+        //Only check drag if inventory is open
         if(getWorld().getObjects(Inventory.class).get(0).isInventoryOpen() == true)
         {
             if(Greenfoot.mousePressed(this) && !drag)
@@ -76,17 +53,32 @@ public class HotbarSlot extends UI
                     if(intersectingSlot != null)
                     {
                         getWorld().getObjects(Hotbar.class).get(0).addItemToSpecificSlot(item, amount, intersectingSlot.getSlotNumber(), slotNumber);
-                        
+
+                        //Teleport back
                         setLocation(192 + slotNumber * 24, 384);                        
 
                         update();
                     }
                 }
-                else
+                else if(!getIntersectingObjects(InventorySlot.class).isEmpty())
+                {
+                    InventorySlot intersectingSlot = getIntersectingObjects(InventorySlot.class).get(0);
+
+                    if(intersectingSlot != null)
+                    {
+                        getWorld().getObjects(Inventory.class).get(0).addItemToSpecificSlotFromHotbar(item, amount, intersectingSlot.getSlotNumber(), slotNumber);
+                        
+                        //Teleport back
+                        setLocation(192 + slotNumber * 24, 384);                        
+
+                        update();
+                    }                    
+                    return;
+                }
+                else //Teleport back
                 {                    
                     setLocation(192 + slotNumber * 24, 384);                                       
                 }
-                return;
             }
         }
     }
@@ -129,12 +121,6 @@ public class HotbarSlot extends UI
         if(this.amount == 0)
         {
             this.item = null;
-        }
-
-        //Only update the image if inventory is open (if its closed it will be updated when its openen again)
-        if(getWorld().getObjects(Inventory.class).get(0).isInventoryOpen())
-        {
-            update();
         }
     }
 

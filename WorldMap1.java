@@ -26,7 +26,7 @@ public class WorldMap1 extends World
         Inventory inventory = new Inventory(iUI);        
         HotbarUI hUI = new HotbarUI();
         HotbarHighlight hH = new HotbarHighlight();
-        Hotbar hotbar = new Hotbar(hUI, hH);
+        Hotbar hotbar = new Hotbar(hUI, hH, inventory);
         
         //Spawn Player
         Player p = new Player(bar, inventory, hotbar);
@@ -53,7 +53,7 @@ public class WorldMap1 extends World
         addObject(iUI, 300, 200);
         addObject(inventory, 0, 0);
         addObject(hUI, 300, 377);
-        addObject(hotbar, 0, 0);
         addObject(hH, 192, 384);
+        addObject(hotbar, 0, 0);        
     }
 }

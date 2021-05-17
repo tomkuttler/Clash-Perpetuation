@@ -50,7 +50,8 @@ public class InventorySlot extends UI
                 if(intersectingSlot != null)
                 {
                     getWorld().getObjects(Inventory.class).get(0).addItemToSpecificSlot(item, amount, intersectingSlot.getSlotNumber(), slotNumber);
-
+                    
+                    //Teleport back
                     if(slotNumber <= 9)
                     {
                         setLocation(231 + slotNumber * 29, 132);
@@ -70,11 +71,43 @@ public class InventorySlot extends UI
                     {
                         setLocation(231 + (slotNumber - 30) * 29, 219);
                     }
-                    
+
                     update();
                 }
             }
-            else
+            else if(!getIntersectingObjects(HotbarSlot.class).isEmpty())
+            {
+                HotbarSlot intersectingSlot = getIntersectingObjects(HotbarSlot.class).get(0);
+
+                if(intersectingSlot != null)
+                {
+                    getWorld().getObjects(Hotbar.class).get(0).addItemToSpecificSlotFromInventory(item, amount, intersectingSlot.getSlotNumber(), slotNumber);
+                    
+                    //Teleport back
+                    if(slotNumber <= 9)
+                    {
+                        setLocation(231 + slotNumber * 29, 132);
+                    }
+
+                    else if(slotNumber <= 19)
+                    {
+                        setLocation(231 + (slotNumber - 10) * 29, 161);
+                    }
+
+                    else if(slotNumber <= 29)
+                    {
+                        setLocation(231 + (slotNumber - 20) * 29, 190);
+                    }
+
+                    else if(slotNumber <= 39)
+                    {
+                        setLocation(231 + (slotNumber - 30) * 29, 219);
+                    }
+
+                    update();
+                }
+            }
+            else //Teleport back
             {
                 if(slotNumber <= 9)
                 {
@@ -142,12 +175,6 @@ public class InventorySlot extends UI
         if(this.amount == 0)
         {
             this.item = null;
-        }
-
-        //Only update the image if inventory is open (if its closed it will be updated when its openen again)
-        if(getWorld().getObjects(Inventory.class).get(0).isInventoryOpen())
-        {
-            update();
         }
     }
 
