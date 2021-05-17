@@ -49,11 +49,23 @@ public class Hotbar extends UI
             getWorld().addObject(slots[i], 192 + i * 24, 384);
             slots[i].update();
         }
+        
+        hotbarHighlight.updatePosition(currentSlot);
     }
 
     public int getCurrentSlot()
     {
         return currentSlot;
+    }
+    
+    public HotbarUI getHotbarUI()
+    {
+        return hotbarUI;
+    }
+    
+    public HotbarHighlight getHighlight()
+    {
+        return hotbarHighlight;
     }
 
     public void updateCurrentSlot()

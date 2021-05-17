@@ -297,7 +297,7 @@ public class Player extends AnimatedCharacter
         {
             if(getX() > 580)
             {
-                Greenfoot.setWorld(new WorldMap2(this, bar, inventory, inventory.getInventoryUI()));
+                Greenfoot.setWorld(new WorldMap2(this, bar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
             }
         }
     }
