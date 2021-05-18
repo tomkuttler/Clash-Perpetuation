@@ -50,7 +50,7 @@ public class InventorySlot extends UI
                 if(intersectingSlot != null)
                 {
                     getWorld().getObjects(Inventory.class).get(0).addItemToSpecificSlot(item, amount, intersectingSlot.getSlotNumber(), slotNumber);
-                    
+
                     //Teleport back
                     if(slotNumber <= 9)
                     {
@@ -82,7 +82,7 @@ public class InventorySlot extends UI
                 if(intersectingSlot != null)
                 {
                     getWorld().getObjects(Hotbar.class).get(0).addItemToSpecificSlotFromInventory(item, amount, intersectingSlot.getSlotNumber(), slotNumber);
-                    
+
                     //Teleport back
                     if(slotNumber <= 9)
                     {
@@ -183,29 +183,25 @@ public class InventorySlot extends UI
         if(item == null)
         {
             setImage(new GreenfootImage("ui/testInventorySlot.png"));
-
-            if(amount > 1)
-            {
-                this.getWorld().showText(Integer.toString(amount), this.getX() + 5, this.getY() + 5);
-            }
-            else
-            {
-                this.getWorld().showText(null, this.getX() + 5, this.getY() + 5);
-            }
         }
 
         if(item == "redPotion")
         {
             setImage(new GreenfootImage("objects/healingItems/redPotion.png"));
+        }
 
-            if(amount > 1)
-            {
-                this.getWorld().showText(Integer.toString(amount), this.getX() + 5, this.getY() + 5);
-            }
-            else
-            {
-                this.getWorld().showText(null, this.getX() + 5, this.getY() + 5);
-            }
+        if(item == "longsword")
+        {
+            setImage(new GreenfootImage("objects/weapons/longswordIcon.png"));
+        }
+        
+        if(amount > 1)
+        {
+            this.getWorld().showText(Integer.toString(amount), this.getX() + 5, this.getY() + 5);
+        }
+        else
+        {
+            this.getWorld().showText(null, this.getX() + 5, this.getY() + 5);
         }
     }
 

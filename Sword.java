@@ -26,10 +26,13 @@ public class Sword extends Weapons
     {
         if(name == "longsword")
         {
+            setImage(longsword);
             this.name = name;
             
             damage = 30;
             hitCooldown = 1000000000.0;
         }
+        
+        setup(0, name, amount, maxStackSize);
     }
 }

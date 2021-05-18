@@ -261,6 +261,10 @@ public class Inventory extends UI
         {
             return 64;
         }
+        else if(itemName == "longsword")
+        {
+            return 1;
+        }
         else //Standart StackSize
         {
             return 64;
