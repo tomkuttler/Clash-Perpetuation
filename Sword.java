@@ -12,9 +12,6 @@ public class Sword extends Weapons
     private int amount = 1;
     private int maxStackSize = 1;
     
-    private int damage; 
-    private double hitCooldown; //Cooldown between hits
-    
     //Object pictures
     GreenfootImage longsword = new GreenfootImage("objects/weapons/longswordIcon.png");
     //GreenfootImage  = new GreenfootImage("objects/weapons/.png");
@@ -28,11 +25,8 @@ public class Sword extends Weapons
         {
             setImage(longsword);
             this.name = name;
-            
-            damage = 30;
-            hitCooldown = 1000000000.0;
         }
         
-        setup(0, name, amount, maxStackSize);
+        setup(name, amount, maxStackSize);
     }
 }

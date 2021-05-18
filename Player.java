@@ -30,13 +30,6 @@ public class Player extends AnimatedCharacter
     private int maxHealth = 100;           //Max health player
     private boolean alive = true;          //Is player alive
 
-    private int swordDamage = 100;         //Melee attack damage of the player
-    private double swordHitCooldown = 1000000000.0;  //Cooldown of 1 bilion nanosec (1sec) between hits
-
-    private int bowDamage = 50;            //Ranged attack damage of the player
-    private int bowRange = 200;            //Bow range of the player
-    private double bowHitCooldown = 1000000000.0;  //Cooldown of 1 bilion nanosec (1sec) between hits
-
     private int pickUpRange = 50;          //How close the player needs to be to pick up a PickUpItem
 
     private String currentWeapon;
@@ -109,7 +102,7 @@ public class Player extends AnimatedCharacter
         //Referenz to Hotbar
         hotbar = newHotbar;
     }
-
+    
     public void act() 
     {        
         move();
@@ -235,7 +228,7 @@ public class Player extends AnimatedCharacter
             if(currentWeapon == "sword")
             {
                 double t = System.nanoTime();
-                if(t - lastHit >= swordHitCooldown)
+                if(t - lastHit >= inventory.itemData.getHitCooldown(currentSlotItem))
                 {
                     MouseInfo mouse = Greenfoot.getMouseInfo();
                     if(mouse != null)
@@ -252,7 +245,7 @@ public class Player extends AnimatedCharacter
 
                             if(enemy != null)
                             {
-                                enemy.gotHit(swordDamage);
+                                enemy.gotHit(inventory.itemData.getDamage(currentSlotItem));
                             }
                         }
                     }
@@ -261,7 +254,7 @@ public class Player extends AnimatedCharacter
             else if(currentWeapon == "bow")
             {
                 double t = System.nanoTime();
-                if(t - lastHit >= bowHitCooldown)
+                if(t - lastHit >= inventory.itemData.getHitCooldown(currentSlotItem))
                 {
                     MouseInfo mouse = Greenfoot.getMouseInfo();
                     if(mouse != null)
@@ -275,15 +268,15 @@ public class Player extends AnimatedCharacter
 
                             if(direction == direction.RIGHT || direction == direction.LEFT)
                             {
-                                getWorld().addObject(new Arrow(direction, bowDamage, bowRange), getX() + 11, getY() - 1);
+                                getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem)), getX() + 11, getY() - 1);
                             }
                             else if(direction == direction.UP)
                             {
-                                getWorld().addObject(new Arrow(direction, bowDamage, bowRange), getX() - 4, getY() - 30);
+                                getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem)), getX() - 4, getY() - 30);
                             }
                             else if(direction == direction.DOWN)
                             {
-                                getWorld().addObject(new Arrow(direction, bowDamage, bowRange), getX() - 2, getY() + 20);
+                                getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem)), getX() - 2, getY() + 20);
                             }
                         }
                     }
@@ -356,6 +349,8 @@ public class Player extends AnimatedCharacter
         {
             if(getX() > 580)
             {
+                disableCollision();
+                
                 Greenfoot.setWorld(new WorldMap2(this, bar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
             }
         }

@@ -127,10 +127,8 @@ public abstract class AnimatedCharacter extends Actor
         currentAnimation = primaryAnimation;
 
         setCurrentImages (currentAnimation.getDirectionalImages()[direction.getDirection()]);
-        
-        if (collisionEnabled){
-            positionCollider();
-        }
+                
+        positionCollider();
     } 
     
     public void setCollider(int width, int height, int xOffset, int yOffset)
@@ -141,7 +139,7 @@ public abstract class AnimatedCharacter extends Actor
     
     public void positionCollider() 
     {
-        if (myCollider.getWorld() == null)
+        if(myCollider.getWorld() == null)
         {
             getWorld().addObject(myCollider, 0, 0);
         } 
@@ -463,9 +461,7 @@ public abstract class AnimatedCharacter extends Actor
         // update my location
         super.setLocation ((int)Math.round(xx), (int)Math.round(yy));
         
-        if (collisionEnabled){
-            positionCollider();
-        }
+        positionCollider();        
     }    
 
     public boolean isTerminal()

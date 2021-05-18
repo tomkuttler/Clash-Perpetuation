@@ -6,25 +6,74 @@
  */
 public class ItemData  
 {
-    // instance variables - replace the example below with your own
-    private int x;
+    //----- longsword -----
+    private int longswordDamage = 30;
+    private double longswordHitCooldown = 1000000000.0;
+    private int longswordStackSize = 1;
 
-    /**
-     * Constructor for objects of class ItemData
-     */
-    public ItemData()
+    //----- bow1 -----
+    private int bow1Damage = 30;
+    private double bow1HitCooldown = 1000000000.0;
+    private int bow1StackSize = 1;
+    private int bow1Range = 200;
+    
+    public int getDamage(String item)
     {
+        if(item == "longsword")
+        {
+            return longswordDamage;
+        }
+        else if(item == "bow1")
+        {
+            return bow1Damage;
+        }
+        else
+        {
+            return 0;
+        }
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
+    
+    public double getHitCooldown(String item)
     {
-        // put your code here
-        return x + y;
+        if(item == "longsword")
+        {
+            return longswordHitCooldown;
+        }
+        else if(item == "bow1")
+        {
+            return bow1HitCooldown;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    
+    public int getStackSize(String item)
+    {
+        if(item == "longsword")
+        {
+            return longswordStackSize;
+        }
+        else if(item == "bow1")
+        {
+            return bow1StackSize;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    
+    public int getRange(String item)
+    {
+        if(item == "bow1")
+        {
+            return bow1Range;
+        }
+        else
+        {
+            return 0;
+        }
     }
 }

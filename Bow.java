@@ -33,6 +33,6 @@ public class Bow extends Weapons
             hitCooldown = 1000000000.0;
         }
         
-        setup(0, name, amount, maxStackSize);
+        setup(name, amount, maxStackSize);
     }    
 }

@@ -18,6 +18,8 @@ public class Inventory extends UI
 
     private InventoryUI inventoryUI;          //Referenz to the InventoryUI
 
+    public ItemData itemData = new ItemData();
+    
     public Inventory(InventoryUI newInventoryUI)
     {
         setImage((GreenfootImage)null);

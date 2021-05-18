@@ -20,7 +20,7 @@ public class Hotbar extends UI
     private HotbarHighlight hotbarHighlight;
     private Inventory inventory;
 
-    int amount = 0;
+    int amount = 0;   
 
     public Hotbar(HotbarUI newHotbarUI, HotbarHighlight newHotbarHighlight, Inventory newInventory)
     {

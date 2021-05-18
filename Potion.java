@@ -56,6 +56,6 @@ public class Potion extends HealingItems
         
         this.amount = amount;
         
-        setup(healthPoints, name, amount, maxStackSize);
+        setup(name, amount, maxStackSize);
     }    
 }
