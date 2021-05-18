@@ -11,7 +11,8 @@ public class Hotbar extends UI
     private HotbarSlot[] slots = new HotbarSlot[40];   //Saves the hotbar slots
 
     private int currentSlot = 0;                       //Highlited slot
-
+    private String currentSlotItem;                    //Item in current slot
+        
     private double pressCooldown = 100000000.0;  //Cooldown of 100 milion nanosec (0,1sec) between pressing a key
     private double lastPressedKeyTime;         //Saves the time of the last key press
 
@@ -109,7 +110,12 @@ public class Hotbar extends UI
             }
         }
     }
-
+    
+    public String getCurrentSlotItem()
+    {
+        return slots[currentSlot].getName();
+    }
+    
     public boolean addItemToSpecificSlot(String itemToAdd, int amount, int slotNumberToAdd, int slotNumberToRemove)
     {
         if(slots[slotNumberToAdd].isEmpty())

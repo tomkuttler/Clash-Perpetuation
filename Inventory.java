@@ -265,6 +265,10 @@ public class Inventory extends UI
         {
             return 1;
         }
+        else if(itemName == "bow1")
+        {
+            return 1;
+        }
         else //Standart StackSize
         {
             return 64;

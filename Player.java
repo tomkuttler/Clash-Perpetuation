@@ -12,9 +12,11 @@ public class Player extends AnimatedCharacter
     private int walkSpeed;
     private int walkAnimSpeed;
 
-    private GreenfootImage sword1;
-    private GreenfootImage sword2;
-
+    private GreenfootImage longsword1;
+    private GreenfootImage longsword2;
+    private GreenfootImage bow1;
+    private GreenfootImage arrow;
+    
     private Animation playerWalk, playerSwing;
 
     private int moveX, moveY;
@@ -30,15 +32,17 @@ public class Player extends AnimatedCharacter
 
     private int swordDamage = 100;         //Melee attack damage of the player
     private double swordHitCooldown = 1000000000.0;  //Cooldown of 1 bilion nanosec (1sec) between hits
-    
+
     private int bowDamage = 50;            //Ranged attack damage of the player
     private int bowRange = 200;            //Bow range of the player
     private double bowHitCooldown = 1000000000.0;  //Cooldown of 1 bilion nanosec (1sec) between hits
-    
+
     private int pickUpRange = 50;          //How close the player needs to be to pick up a PickUpItem
 
-    private String currentWeapon = "sword";
-    
+    private String currentWeapon;
+
+    private String currentSlotItem = "";
+
     private double lastHit;                //Saves the time of the last hit  
 
     private double pressCooldown = 250000000.0;  //Cooldown of 250 milion nanosec (0,25sec) between pressing a key
@@ -59,17 +63,19 @@ public class Player extends AnimatedCharacter
         //Set the speed
         changeSpeed(walkSpeed, walkAnimSpeed);
 
-        //Store the sword images
-        sword1 = new GreenfootImage("weapons/longsword-universal.png");
-        sword2 = new GreenfootImage("weapons/longsword-attack.png");
+        //Store the layer images
+        longsword1 = new GreenfootImage("weapons/longsword-universal.png");
+        longsword2 = new GreenfootImage("weapons/longsword-attack.png");
+        bow1 = new GreenfootImage("weapons/bow1.png");
+        arrow = new GreenfootImage("weapons/arrow.png");
 
         //SETUP ANIMATIONS
         //Create sprite sheets
         setLayer(0, new GreenfootImage("player/goldenKnightNoWeapon.png"));
-        setLayer(1, new GreenfootImage("weapons/longsword-universal.png"));
-        setLayer(2, new GreenfootImage("weapons/longsword-attack.png"));
-        setLayer(3, new GreenfootImage("weapons/bow1.png"));
-        setLayer(4, new GreenfootImage("weapons/arrow.png"));
+        // setLayer(1, new GreenfootImage("weapons/longsword-universal.png"));
+        // setLayer(2, new GreenfootImage("weapons/longsword-attack.png"));
+        // setLayer(3, new GreenfootImage("weapons/bow1.png"));
+        // setLayer(4, new GreenfootImage("weapons/arrow.png"));
 
         //Build walking animation (primary animation)
         animations.put("move", Animation.createAnimation(getSpriteSheet(), 9, 4, 9, 64, 64));
@@ -99,7 +105,7 @@ public class Player extends AnimatedCharacter
 
         //Referenz to Inventory
         inventory = newInventory;
-        
+
         //Referenz to Hotbar
         hotbar = newHotbar;
     }
@@ -107,6 +113,8 @@ public class Player extends AnimatedCharacter
     public void act() 
     {        
         move();
+
+        updateLayers();
 
         attack();
 
@@ -167,6 +175,56 @@ public class Player extends AnimatedCharacter
                 stopMoving();
             }
         }
+    }
+
+    public void updateLayers()
+    {
+        if(currentSlotItem != hotbar.getCurrentSlotItem())
+        {
+            currentSlotItem = hotbar.getCurrentSlotItem();
+
+            if(currentSlotItem == null)
+            {
+                setLayer(1, null);
+                setLayer(2, null);
+                setLayer(3, null);
+                setLayer(4, null);
+
+                refresh(primaryAnimation);
+                refresh(animations.get("swordAttack"));
+                refresh(animations.get("bowAttack"));
+                
+                currentWeapon = null;
+            }
+
+            if(currentSlotItem == "longsword")
+            {
+                setLayer(1, longsword1);
+                setLayer(2, longsword2);
+                setLayer(3, null);
+                setLayer(4, null);
+                
+                refresh(primaryAnimation);
+                refresh(animations.get("swordAttack"));
+                refresh(animations.get("bowAttack"));
+                
+                currentWeapon = "sword";
+            }
+            
+            if(currentSlotItem == "bow1")
+            {
+                setLayer(1, null);
+                setLayer(2, null);
+                setLayer(3, bow1);
+                setLayer(4, arrow);
+                
+                refresh(primaryAnimation);
+                refresh(animations.get("swordAttack"));
+                refresh(animations.get("bowAttack"));
+                
+                currentWeapon = "bow";
+            }
+        }        
     }
 
     //Checks if cooldown -> if lmb is pressed -> updates lastHit, if enemy is in range -> call gotHit() on enemy 
@@ -362,8 +420,8 @@ public class Player extends AnimatedCharacter
             setLayer(2, null);
             refresh(primaryAnimation);
         } else if (Greenfoot.isKeyDown("2")){
-            setLayer(1, sword1);
-            setLayer(2, sword2);
+            setLayer(1, longsword1);
+            setLayer(2, longsword2);
             refresh(primaryAnimation);
         }
     }

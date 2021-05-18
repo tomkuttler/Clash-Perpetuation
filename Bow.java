@@ -1,12 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Sword here.
+ * Write a description of class Bows here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Sword extends Weapons
+public class Bow extends Weapons
 {
     private String name;
     private int amount = 1;
@@ -16,23 +16,23 @@ public class Sword extends Weapons
     private double hitCooldown; //Cooldown between hits
     
     //Object pictures
-    GreenfootImage longsword = new GreenfootImage("objects/weapons/longswordIcon.png");
+    GreenfootImage bow1 = new GreenfootImage("objects/weapons/bow1Icon.png");
     //GreenfootImage  = new GreenfootImage("objects/weapons/.png");
     //GreenfootImage  = new GreenfootImage("objects/weapons/.png");
     //GreenfootImage  = new GreenfootImage("objects/weapons/.png");
     //GreenfootImage  = new GreenfootImage("objects/weapons/.png");
     
-    public Sword(String name)
+    public Bow(String name)
     {
-        if(name == "longsword")
+        if(name == "bow1")
         {
-            setImage(longsword);
+            setImage(bow1);
             this.name = name;
-            
-            damage = 30;
+
+            damage = 50;
             hitCooldown = 1000000000.0;
         }
         
         setup(0, name, amount, maxStackSize);
-    }
+    }    
 }

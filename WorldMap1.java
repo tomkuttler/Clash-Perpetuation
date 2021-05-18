@@ -47,6 +47,7 @@ public class WorldMap1 extends World
         addObject(new Potion("red", 32), 350, 350);
         
         addObject(new Sword("longsword"), 400, 350);
+        addObject(new Bow("bow1"), 450, 350);
         
         //Spawn Enemys
         addObject(new Cyclope(p), 100, 100);
