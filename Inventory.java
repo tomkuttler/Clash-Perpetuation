@@ -12,7 +12,6 @@ public class Inventory extends UI
 
     private String itemToAdd;                 //Name of the item that is added to the inventory
     private int amountToAdd;                  //Amount of the item that is added to the inventory
-    private int maxStackSize;                 //MaxStackSize of a stack of the added item
 
     private InventorySlot[] slots = new InventorySlot[40];   //Saves the inventory slots 
 
@@ -116,10 +115,9 @@ public class Inventory extends UI
         //Get variables from picked up item
         itemToAdd = item.getName();
         amountToAdd = item.getAmount();
-        maxStackSize = item.getMaxStackSize();
 
         //If the item is stackable and there is already a stack of items in a slot, add the items to that slot 
-        if(addItemToFilledSlot(itemToAdd, amountToAdd, maxStackSize))
+        if(addItemToFilledSlot(itemToAdd, amountToAdd))
         {
             return true;
         }
@@ -133,21 +131,21 @@ public class Inventory extends UI
         return false;
     }
 
-    public boolean addItemToFilledSlot(String itemToAdd, int amount, int maxStackSize)
+    public boolean addItemToFilledSlot(String itemToAdd, int amount)
     {
         for(int i=0; i < 40; i++)
         {
             if(slots[i].getName() == itemToAdd)
             {
-                if(slots[i].getAmount() + amount <= maxStackSize)
+                if(slots[i].getAmount() + amount <= itemData.getMaxStackSize(itemToAdd))
                 {
                     slots[i].addItem(itemToAdd, amount);
                     return true;
                 }
-                else if(!(slots[i].getAmount() == maxStackSize))
+                else if(!(slots[i].getAmount() == itemData.getMaxStackSize(itemToAdd)))
                 {
                     //Fill up the Stack
-                    int difference = maxStackSize - slots[i].getAmount();
+                    int difference = itemData.getMaxStackSize(itemToAdd) - slots[i].getAmount();
                     int rest = amount - difference;
 
                     slots[i].addItem(itemToAdd, difference);
@@ -188,7 +186,7 @@ public class Inventory extends UI
         }
         else if(slots[slotNumberToAdd].getName() == itemToAdd)
         {
-            if(slots[slotNumberToAdd].getAmount() + amount <= getMaxStackSize(itemToAdd))
+            if(slots[slotNumberToAdd].getAmount() + amount <= itemData.getMaxStackSize(itemToAdd))
             {
                 slots[slotNumberToAdd].addItem(itemToAdd, amount);
 
@@ -196,10 +194,10 @@ public class Inventory extends UI
 
                 return true;
             }
-            else if(!(slots[slotNumberToAdd].getAmount() == getMaxStackSize(itemToAdd)))
+            else if(!(slots[slotNumberToAdd].getAmount() == itemData.getMaxStackSize(itemToAdd)))
             {
                 //Fill up the Stack
-                int difference = getMaxStackSize(itemToAdd) - slots[slotNumberToAdd].getAmount();
+                int difference = itemData.getMaxStackSize(itemToAdd) - slots[slotNumberToAdd].getAmount();
 
                 slots[slotNumberToAdd].addItem(itemToAdd, difference);
 
@@ -223,7 +221,7 @@ public class Inventory extends UI
         }
         else if(slots[slotNumberToAdd].getName() == itemToAdd)
         {
-            if(slots[slotNumberToAdd].getAmount() + amount <= getMaxStackSize(itemToAdd))
+            if(slots[slotNumberToAdd].getAmount() + amount <= itemData.getMaxStackSize(itemToAdd))
             {
                 slots[slotNumberToAdd].addItem(itemToAdd, amount);
 
@@ -231,10 +229,10 @@ public class Inventory extends UI
 
                 return true;
             }
-            else if(!(slots[slotNumberToAdd].getAmount() == getMaxStackSize(itemToAdd)))
+            else if(!(slots[slotNumberToAdd].getAmount() == itemData.getMaxStackSize(itemToAdd)))
             {
                 //Fill up the Stack
-                int difference = getMaxStackSize(itemToAdd) - slots[slotNumberToAdd].getAmount();
+                int difference = itemData.getMaxStackSize(itemToAdd) - slots[slotNumberToAdd].getAmount();
 
                 slots[slotNumberToAdd].addItem(itemToAdd, difference);
 
@@ -255,25 +253,5 @@ public class Inventory extends UI
             return true;
         }
         return false;
-    }
-    
-    public int getMaxStackSize(String itemName)
-    {
-        if(itemName == "redPotion")
-        {
-            return 64;
-        }
-        else if(itemName == "longsword")
-        {
-            return 1;
-        }
-        else if(itemName == "bow1")
-        {
-            return 1;
-        }
-        else //Standart StackSize
-        {
-            return 64;
-        }
     }
 }

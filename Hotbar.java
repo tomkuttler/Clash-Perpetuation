@@ -133,7 +133,7 @@ public class Hotbar extends UI
         }
         else if(slots[slotNumberToAdd].getName() == itemToAdd)
         {
-            if(slots[slotNumberToAdd].getAmount() + amount <= inventory.getMaxStackSize(itemToAdd))
+            if(slots[slotNumberToAdd].getAmount() + amount <= inventory.itemData.getMaxStackSize(itemToAdd))
             {
                 slots[slotNumberToAdd].addItem(itemToAdd, amount);
 
@@ -141,10 +141,10 @@ public class Hotbar extends UI
 
                 return true;
             }
-            else if(!(slots[slotNumberToAdd].getAmount() == inventory.getMaxStackSize(itemToAdd)))
+            else if(!(slots[slotNumberToAdd].getAmount() == inventory.itemData.getMaxStackSize(itemToAdd)))
             {
                 //Fill up the Stack
-                int difference = inventory.getMaxStackSize(itemToAdd) - slots[slotNumberToAdd].getAmount();
+                int difference = inventory.itemData.getMaxStackSize(itemToAdd) - slots[slotNumberToAdd].getAmount();
 
                 slots[slotNumberToAdd].addItem(itemToAdd, difference);
 
@@ -168,7 +168,7 @@ public class Hotbar extends UI
         }
         else if(slots[slotNumberToAdd].getName() == itemToAdd)
         {
-            if(slots[slotNumberToAdd].getAmount() + amount <= inventory.getMaxStackSize(itemToAdd))
+            if(slots[slotNumberToAdd].getAmount() + amount <= inventory.itemData.getMaxStackSize(itemToAdd))
             {
                 slots[slotNumberToAdd].addItem(itemToAdd, amount);
 
@@ -176,10 +176,10 @@ public class Hotbar extends UI
 
                 return true;
             }
-            else if(!(slots[slotNumberToAdd].getAmount() == inventory.getMaxStackSize(itemToAdd)))
+            else if(!(slots[slotNumberToAdd].getAmount() == inventory.itemData.getMaxStackSize(itemToAdd)))
             {
                 //Fill up the Stack
-                int difference = inventory.getMaxStackSize(itemToAdd) - slots[slotNumberToAdd].getAmount();
+                int difference = inventory.itemData.getMaxStackSize(itemToAdd) - slots[slotNumberToAdd].getAmount();
 
                 slots[slotNumberToAdd].addItem(itemToAdd, difference);
 

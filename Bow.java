@@ -10,7 +10,6 @@ public class Bow extends Weapons
 {
     private String name;
     private int amount = 1;
-    private int maxStackSize = 1;
     
     private int damage; 
     private double hitCooldown; //Cooldown between hits
@@ -33,6 +32,6 @@ public class Bow extends Weapons
             hitCooldown = 1000000000.0;
         }
         
-        setup(name, amount, maxStackSize);
+        setup(name, amount);
     }    
 }

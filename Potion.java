@@ -10,7 +10,6 @@ public class Potion extends HealingItems
 {
     private String name;
     private int amount;
-    private int maxStackSize = 64;
     
     //Object pictures
     GreenfootImage greenPotion = new GreenfootImage("objects/healingItems/greenPotion.png");
@@ -49,6 +48,6 @@ public class Potion extends HealingItems
         
         this.amount = amount;
         
-        setup(name, amount, maxStackSize);
+        setup(name, amount);
     }    
 }

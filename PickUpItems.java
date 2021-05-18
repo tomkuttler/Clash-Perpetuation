@@ -10,13 +10,11 @@ public abstract class PickUpItems extends Objects
 {
     private String name;
     private int amount;
-    private int maxStackSize;
     
-    public void setup(String name, int amount, int maxStackSize)
+    public void setup(String name, int amount)
     {
         this.name = name;
         this.amount = amount;
-        this.maxStackSize = maxStackSize;
     }
     
     public String getName()
@@ -27,11 +25,6 @@ public abstract class PickUpItems extends Objects
     public int getAmount()
     {
         return amount;
-    }
-    
-    public int getMaxStackSize()
-    {
-        return maxStackSize;
     }
     
     public void pickedUp()

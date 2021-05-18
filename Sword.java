@@ -10,7 +10,6 @@ public class Sword extends Weapons
 {
     private String name;
     private int amount = 1;
-    private int maxStackSize = 1;
     
     //Object pictures
     GreenfootImage longsword = new GreenfootImage("objects/weapons/longswordIcon.png");
@@ -27,6 +26,6 @@ public class Sword extends Weapons
             this.name = name;
         }
         
-        setup(name, amount, maxStackSize);
+        setup(name, amount);
     }
 }
