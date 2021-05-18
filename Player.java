@@ -29,15 +29,16 @@ public class Player extends AnimatedCharacter
     private boolean alive = true;          //Is player alive
 
     private int swordDamage = 100;         //Melee attack damage of the player
-
+    private double swordHitCooldown = 1000000000.0;  //Cooldown of 1 bilion nanosec (1sec) between hits
+    
     private int bowDamage = 50;            //Ranged attack damage of the player
     private int bowRange = 200;            //Bow range of the player
-
+    private double bowHitCooldown = 1000000000.0;  //Cooldown of 1 bilion nanosec (1sec) between hits
+    
     private int pickUpRange = 50;          //How close the player needs to be to pick up a PickUpItem
 
     private String currentWeapon = "sword";
-
-    private double hitCooldown = 1000000000.0;  //Cooldown of 1 bilion nanosec (1sec) between hits
+    
     private double lastHit;                //Saves the time of the last hit  
 
     private double pressCooldown = 250000000.0;  //Cooldown of 250 milion nanosec (0,25sec) between pressing a key
@@ -121,7 +122,7 @@ public class Player extends AnimatedCharacter
 
         checkRemove();
 
-        // Call superclass act() to perform animations and movement
+        //Call superclass act() to perform animations and movement
         super.act();
     }    
 
@@ -176,7 +177,7 @@ public class Player extends AnimatedCharacter
             if(currentWeapon == "sword")
             {
                 double t = System.nanoTime();
-                if(t - lastHit >= hitCooldown)
+                if(t - lastHit >= swordHitCooldown)
                 {
                     MouseInfo mouse = Greenfoot.getMouseInfo();
                     if(mouse != null)
@@ -202,7 +203,7 @@ public class Player extends AnimatedCharacter
             else if(currentWeapon == "bow")
             {
                 double t = System.nanoTime();
-                if(t - lastHit >= hitCooldown)
+                if(t - lastHit >= bowHitCooldown)
                 {
                     MouseInfo mouse = Greenfoot.getMouseInfo();
                     if(mouse != null)

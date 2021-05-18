@@ -12,7 +12,7 @@ public class Potion extends HealingItems
     private int amount;
     private int maxStackSize = 64;
     
-    public int healthPoints; //Number of health points that will be restored
+    private int healthPoints; //Number of health points that will be restored
     
     //Object pictures
     GreenfootImage greenPotion = new GreenfootImage("objects/healingItems/greenPotion.png");
