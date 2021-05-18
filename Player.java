@@ -16,7 +16,7 @@ public class Player extends AnimatedCharacter
     private GreenfootImage longsword2;
     private GreenfootImage bow1;
     private GreenfootImage arrow;
-    
+
     private Animation playerWalk, playerSwing;
 
     private int moveX, moveY;
@@ -32,11 +32,10 @@ public class Player extends AnimatedCharacter
 
     private int pickUpRange = 50;          //How close the player needs to be to pick up a PickUpItem
 
-    private String currentWeapon;
-
     private String currentSlotItem = "";
+    private String currentSlotItemType = "";
 
-    private double lastHit;                //Saves the time of the last hit  
+    private double lastUse;                //Saves the time of the last use of an item 
 
     private double pressCooldown = 250000000.0;  //Cooldown of 250 milion nanosec (0,25sec) between pressing a key
     private double lastPressedKeyTime;         //Saves the time of the last key press
@@ -76,6 +75,8 @@ public class Player extends AnimatedCharacter
         animations.put("swordAttack", Animation.createAnimation(getSpriteSheet(), 8, 4, 6, 192, 192));
         //Build a shoot animation for shooting a ammo
         animations.put("bowAttack", Animation.createAnimation(getSpriteSheet(), 17, 4, 13, 64, 64));
+        //Build a slash animation for taking a potion
+        animations.put("slash", Animation.createAnimation(getSpriteSheet(), 13, 4, 6, 64, 64));
         //Build dying animation
         animations.put("die", Animation.createAnimation(getSpriteSheet(), 21, 1, 6, 64, 64));
 
@@ -102,7 +103,7 @@ public class Player extends AnimatedCharacter
         //Referenz to Hotbar
         hotbar = newHotbar;
     }
-    
+
     public void act() 
     {        
         move();
@@ -186,8 +187,9 @@ public class Player extends AnimatedCharacter
                 refresh(primaryAnimation);
                 refresh(animations.get("swordAttack"));
                 refresh(animations.get("bowAttack"));
-                
-                currentWeapon = null;
+                refresh(animations.get("slash"));
+
+                currentSlotItemType = null;
             }
 
             if(currentSlotItem == "longsword")
@@ -196,26 +198,43 @@ public class Player extends AnimatedCharacter
                 setLayer(2, longsword2);
                 setLayer(3, null);
                 setLayer(4, null);
-                
+
                 refresh(primaryAnimation);
                 refresh(animations.get("swordAttack"));
                 refresh(animations.get("bowAttack"));
-                
-                currentWeapon = "sword";
+                refresh(animations.get("slash"));
+
+                currentSlotItemType = "sword";
             }
-            
+
             if(currentSlotItem == "bow1")
             {
                 setLayer(1, null);
                 setLayer(2, null);
                 setLayer(3, bow1);
                 setLayer(4, arrow);
-                
+
                 refresh(primaryAnimation);
                 refresh(animations.get("swordAttack"));
                 refresh(animations.get("bowAttack"));
-                
-                currentWeapon = "bow";
+                refresh(animations.get("slash"));
+
+                currentSlotItemType = "bow";
+            }
+
+            if(currentSlotItem == "redPotion")
+            {
+                setLayer(1, null);
+                setLayer(2, null);
+                setLayer(3, null);
+                setLayer(4, null);
+
+                refresh(primaryAnimation);
+                refresh(animations.get("swordAttack"));
+                refresh(animations.get("bowAttack"));
+                refresh(animations.get("slash"));
+
+                currentSlotItemType = "healingItem";
             }
         }        
     }
@@ -225,10 +244,10 @@ public class Player extends AnimatedCharacter
     {
         if(alive && !inventory.isInventoryOpen())
         {
-            if(currentWeapon == "sword")
+            if(currentSlotItemType == "sword")
             {
                 double t = System.nanoTime();
-                if(t - lastHit >= inventory.itemData.getHitCooldown(currentSlotItem))
+                if(t - lastUse >= inventory.itemData.getUseCooldown(currentSlotItem))
                 {
                     MouseInfo mouse = Greenfoot.getMouseInfo();
                     if(mouse != null)
@@ -236,7 +255,7 @@ public class Player extends AnimatedCharacter
                         int buttonNumber = mouse.getButton();
                         if(buttonNumber == 1) //1 = lmb, 3 = rmb
                         {
-                            lastHit = t;
+                            lastUse = t;
 
                             runTerminalAnimation("swordAttack", false, false, direction);
 
@@ -251,10 +270,10 @@ public class Player extends AnimatedCharacter
                     }
                 }
             }
-            else if(currentWeapon == "bow")
+            else if(currentSlotItemType == "bow")
             {
                 double t = System.nanoTime();
-                if(t - lastHit >= inventory.itemData.getHitCooldown(currentSlotItem))
+                if(t - lastUse >= inventory.itemData.getUseCooldown(currentSlotItem))
                 {
                     MouseInfo mouse = Greenfoot.getMouseInfo();
                     if(mouse != null)
@@ -262,7 +281,7 @@ public class Player extends AnimatedCharacter
                         int buttonNumber = mouse.getButton();
                         if(buttonNumber == 1) //1 = lmb, 3 = rmb
                         {
-                            lastHit = t;
+                            lastUse = t;
 
                             runTerminalAnimation("bowAttack", false, false, direction);
 
@@ -277,6 +296,32 @@ public class Player extends AnimatedCharacter
                             else if(direction == direction.DOWN)
                             {
                                 getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem), inventory.itemData.getSpeed(currentSlotItem)), getX() - 2, getY() + 20);
+                            }
+                        }
+                    }
+                }
+            }
+            else if(currentSlotItemType == "healingItem")
+            {                
+                double t = System.nanoTime();
+                if(t - lastUse >= inventory.itemData.getUseCooldown(currentSlotItem))
+                {
+                    MouseInfo mouse = Greenfoot.getMouseInfo();
+                    if(mouse != null)
+                    {
+                        int buttonNumber = mouse.getButton();
+                        if(buttonNumber == 1) //1 = lmb, 3 = rmb
+                        {
+                            if(health != maxHealth)
+                            {
+                                lastUse = t;
+
+                                runTerminalAnimation("slash", false, false, direction);
+
+                                heal(inventory.itemData.getHealthPoints(currentSlotItem));
+
+                                hotbar.removeItemAtSpecificSlot(1, hotbar.getCurrentSlot());
+                                hotbar.updateSpecificSlot(hotbar.getCurrentSlot());
                             }
                         }
                     }
@@ -349,8 +394,6 @@ public class Player extends AnimatedCharacter
         {
             if(getX() > 580)
             {
-                //disableCollision();
-                
                 Greenfoot.setWorld(new WorldMap2(this, bar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
             }
         }

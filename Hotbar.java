@@ -53,7 +53,12 @@ public class Hotbar extends UI
         
         hotbarHighlight.updatePosition(currentSlot);
     }
-
+    
+    public void updateSpecificSlot(int slotNumberToUpdate)
+    {
+        slots[slotNumberToUpdate].update();
+    }
+    
     public int getCurrentSlot()
     {
         return currentSlot;
