@@ -68,10 +68,10 @@ public abstract class AnimatedCharacter extends Actor
     private GreenfootImage[] currentImages; 
     private GreenfootImage[] spriteSheetLayers;
     private GreenfootImage spriteSheet;
-    
+
     protected Collider myCollider;
     private boolean collisionEnabled = false; 
-    
+
     // for time-keeping to keep animation going at consistent speed
     private long lastFrame;         // Keep track of when the last animation was updated
     private long current;           // Keep track of time between frames for movement
@@ -94,7 +94,7 @@ public abstract class AnimatedCharacter extends Actor
         dirY = 0;
         idle = false;
         stopAtEnd = false;
-        
+
         // VALUES FOR ANIMATION 
         tolerance = 0.5; // See superclass for description
         maxFrameLength = 0.10;
@@ -123,40 +123,43 @@ public abstract class AnimatedCharacter extends Actor
         yy = getY();
         prevX = getX();
         prevY = getY();
-        
+
         currentAnimation = primaryAnimation;
 
         setCurrentImages (currentAnimation.getDirectionalImages()[direction.getDirection()]);
-                
-        positionCollider();
+
+        if(collisionEnabled)
+        {
+            positionCollider();
+        }
     } 
-    
+
     public void setCollider(int width, int height, int xOffset, int yOffset)
     {
         myCollider = new Collider(width, height, xOffset, yOffset);
         collisionEnabled = true;
     }
-    
+
     public void positionCollider() 
     {
-        if(myCollider.getWorld() == null)
+        if(myCollider.getWorld() != getWorld())
         {
             getWorld().addObject(myCollider, 0, 0);
         } 
-        
+
         myCollider.setLocation(getX() + myCollider.getXOffset(), getY() + myCollider.getYOffset());
     }
-    
+
     public void disableCollision() 
     {
         if (myCollider != null && myCollider.getWorld() != null)
         {
             getWorld().removeObject(myCollider);
         }
-        
+
         collisionEnabled = false;
     }    
-    
+
     public GreenfootImage getSpriteSheet() 
     {
         return spriteSheet;
@@ -460,8 +463,11 @@ public abstract class AnimatedCharacter extends Actor
 
         // update my location
         super.setLocation ((int)Math.round(xx), (int)Math.round(yy));
-        
-        positionCollider();        
+
+        if(collisionEnabled)
+        {
+            positionCollider();
+        }
     }    
 
     public boolean isTerminal()

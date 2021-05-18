@@ -9,4 +9,6 @@ comment3.params=item
 comment3.target=int\ getStackSize(java.lang.String)
 comment4.params=item
 comment4.target=int\ getRange(java.lang.String)
-numComments=5
+comment5.params=item
+comment5.target=int\ getSpeed(java.lang.String)
+numComments=6

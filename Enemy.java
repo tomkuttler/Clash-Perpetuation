@@ -149,7 +149,7 @@ public abstract class Enemy extends AnimatedCharacter
     //If Player collides with someone/something -> teleports the player back to his old location -> changes x/y priority
     public void checkCollision()
     {
-        if(myCollider.checkCollision())
+        if(alive && myCollider.checkCollision())
         {
             setLocation(oldX, oldY);
 

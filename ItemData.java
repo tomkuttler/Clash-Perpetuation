@@ -16,6 +16,7 @@ public class ItemData
     private double bow1HitCooldown = 1000000000.0;
     private int bow1StackSize = 1;
     private int bow1Range = 200;
+    private int bow1Speed = 3;
     
     public int getDamage(String item)
     {
@@ -70,6 +71,18 @@ public class ItemData
         if(item == "bow1")
         {
             return bow1Range;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+    
+    public int getSpeed(String item)
+    {
+        if(item == "bow1")
+        {
+            return bow1Speed;
         }
         else
         {

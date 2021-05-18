@@ -11,6 +11,7 @@ public class Arrow extends AnimatedCharacter
     private Direction direction;
     private int damage;    
     private int range;
+    private int speed;
 
     private int spawnX;
     private int spawnY;
@@ -26,13 +27,14 @@ public class Arrow extends AnimatedCharacter
     private GreenfootImage arrowUp = new GreenfootImage("bullets/arrowUp.png");
     private GreenfootImage arrowDown = new GreenfootImage("bullets/arrowDown.png");
 
-    public Arrow(Direction d, int damage, int range)
+    public Arrow(Direction d, int damage, int range, int speed)
     {
         setImage((GreenfootImage)null);
 
         direction = d;
         this.damage = damage;
         this.range = range;
+        this.speed = speed;
     }
 
     public void addedToWorld(World w)
@@ -68,8 +70,6 @@ public class Arrow extends AnimatedCharacter
 
             if (actor instanceof Objects)
             {
-                Object object = getIntersectingObjects(Object.class).get(0);
-
                 getWorld().removeObject(this);
                 alive = false;
             }
@@ -89,7 +89,7 @@ public class Arrow extends AnimatedCharacter
             {
                 if(getX() >  spawnX - range)
                 {
-                    setLocation(getX() - 5, getY());
+                    setLocation(getX() - speed, getY());
                 }
                 else
                 {
@@ -102,7 +102,7 @@ public class Arrow extends AnimatedCharacter
             {
                 if(getX() < spawnX + range)
                 {
-                    setLocation(getX() + 5, getY());
+                    setLocation(getX() + speed, getY());
                 }
                 else
                 {
@@ -115,7 +115,7 @@ public class Arrow extends AnimatedCharacter
             {
                 if(getY() > spawnY - range)
                 {
-                    setLocation(getX(), getY() - 5);
+                    setLocation(getX(), getY() - speed);
                 }
                 else
                 {
@@ -128,7 +128,7 @@ public class Arrow extends AnimatedCharacter
             {
                 if(getY() < spawnY + range)
                 {
-                    setLocation(getX(), getY() + 5);
+                    setLocation(getX(), getY() + speed);
                 }
                 else
                 {

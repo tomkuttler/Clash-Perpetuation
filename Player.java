@@ -268,15 +268,15 @@ public class Player extends AnimatedCharacter
 
                             if(direction == direction.RIGHT || direction == direction.LEFT)
                             {
-                                getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem)), getX() + 11, getY() - 1);
+                                getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem), inventory.itemData.getSpeed(currentSlotItem)), getX() + 11, getY() - 1);
                             }
                             else if(direction == direction.UP)
                             {
-                                getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem)), getX() - 4, getY() - 30);
+                                getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem), inventory.itemData.getSpeed(currentSlotItem)), getX() - 4, getY() - 30);
                             }
                             else if(direction == direction.DOWN)
                             {
-                                getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem)), getX() - 2, getY() + 20);
+                                getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem), inventory.itemData.getSpeed(currentSlotItem)), getX() - 2, getY() + 20);
                             }
                         }
                     }
@@ -349,7 +349,7 @@ public class Player extends AnimatedCharacter
         {
             if(getX() > 580)
             {
-                disableCollision();
+                //disableCollision();
                 
                 Greenfoot.setWorld(new WorldMap2(this, bar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
             }
