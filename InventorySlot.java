@@ -184,19 +184,11 @@ public class InventorySlot extends UI
         {
             setImage(new GreenfootImage("ui/testInventorySlot.png"));
         }
-        if(item == "redPotion")
+        else
         {
-            setImage(new GreenfootImage("objects/healingItems/redPotion.png"));
+            setImage(getWorld().getObjects(Inventory.class).get(0).itemData.getIcon(item));
         }
-        if(item == "longsword")
-        {
-            setImage(new GreenfootImage("objects/weapons/longswordIcon.png"));
-        }        
-        if(item == "bow1")
-        {
-            setImage(new GreenfootImage("objects/weapons/bow1Icon.png"));
-        }
-        
+            
         if(amount > 1)
         {
             this.getWorld().showText(Integer.toString(amount), this.getX() + 5, this.getY() + 5);

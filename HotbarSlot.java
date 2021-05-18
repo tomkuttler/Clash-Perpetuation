@@ -130,17 +130,9 @@ public class HotbarSlot extends UI
         {
             setImage(new GreenfootImage("ui/testInventorySlot.png"));
         }
-        if(item == "redPotion")
+        else
         {
-            setImage(new GreenfootImage("objects/healingItems/redPotion.png"));            
-        }        
-        if(item == "longsword")
-        {
-            setImage(new GreenfootImage("objects/weapons/longswordIcon.png"));
-        }
-        if(item == "bow1")
-        {
-            setImage(new GreenfootImage("objects/weapons/bow1Icon.png"));
+            setImage(getWorld().getObjects(Inventory.class).get(0).itemData.getIcon(item));
         }
         
         if(amount > 1)

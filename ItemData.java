@@ -1,3 +1,5 @@
+import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
+
 /**
  * Write a description of class ItemData here.
  * 
@@ -11,6 +13,7 @@ public class ItemData
     private int longswordDamage = 30;
     private double longswordUseCooldown = 1000000000.0;
     private int longswordMaxStackSize = 1;
+    private GreenfootImage longswordIcon = new GreenfootImage("objects/weapons/longswordIcon.png");
     
     //----- RANGED WEAPONS -----
     //----- bow1 -----
@@ -19,12 +22,14 @@ public class ItemData
     private int bow1MaxStackSize = 1;
     private int bow1Range = 200;
     private int bow1Speed = 3;
+    private GreenfootImage bow1Icon = new GreenfootImage("objects/weapons/bow1Icon.png");
     
     //----- HEALING ITEMS -----
     //----- redPotion -----
     private int redPotionMaxStackSize = 64;
     private int redPotionHealthPoints = 10;
     private double redPotionUseCooldown = 1000000000.0;
+    private GreenfootImage redPotionIcon = new GreenfootImage("objects/healingItems/redPotion.png");
     
     public int getDamage(String item)
     {
@@ -115,6 +120,26 @@ public class ItemData
         else
         {
             return 0;
+        }
+    }
+    
+    public GreenfootImage getIcon(String item)
+    {
+        if(item == "longsword")
+        {
+            return longswordIcon;
+        }
+        else if(item == "bow1")
+        {
+            return bow1Icon;
+        }
+        else if(item == "redPotion")
+        {
+            return redPotionIcon;
+        }
+        else
+        {
+            return null;
         }
     }
 }

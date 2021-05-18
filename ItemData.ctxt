@@ -13,4 +13,6 @@ comment5.params=item
 comment5.target=int\ getSpeed(java.lang.String)
 comment6.params=item
 comment6.target=int\ getHealthPoints(java.lang.String)
-numComments=7
+comment7.params=item
+comment7.target=greenfoot.GreenfootImage\ getIcon(java.lang.String)
+numComments=8
