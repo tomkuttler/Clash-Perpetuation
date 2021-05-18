@@ -15,4 +15,6 @@ comment6.params=item
 comment6.target=int\ getHealthPoints(java.lang.String)
 comment7.params=item
 comment7.target=greenfoot.GreenfootImage\ getIcon(java.lang.String)
-numComments=8
+comment8.params=item\ hotbar
+comment8.target=void\ spawnItem(java.lang.String,\ Hotbar)
+numComments=9

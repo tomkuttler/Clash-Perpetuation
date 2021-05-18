@@ -38,11 +38,6 @@ public class Hotbar extends UI
         inventory = newInventory;
     }
 
-    public void act() 
-    {
-        updateCurrentSlot();
-    }
-
     public void addedToWorld(World w)
     {
         for(int i=0; i < 10; i++) 
@@ -53,27 +48,14 @@ public class Hotbar extends UI
         
         hotbarHighlight.updatePosition(currentSlot);
     }
-    
-    public void updateSpecificSlot(int slotNumberToUpdate)
-    {
-        slots[slotNumberToUpdate].update();
-    }
-    
-    public int getCurrentSlot()
-    {
-        return currentSlot;
-    }
-    
-    public HotbarUI getHotbarUI()
-    {
-        return hotbarUI;
-    }
-    
-    public HotbarHighlight getHighlight()
-    {
-        return hotbarHighlight;
-    }
 
+    public void act() 
+    {
+        updateCurrentSlot();
+        
+        ckeckDrop();
+    }
+    
     public void updateCurrentSlot()
     {
         if(Greenfoot.isKeyDown("left"))
@@ -114,6 +96,46 @@ public class Hotbar extends UI
                 lastPressedKeyTime = System.nanoTime();
             }
         }
+    }
+    
+    public void ckeckDrop()
+    {
+        if(Greenfoot.isKeyDown("q"))
+        {
+            double t = System.nanoTime();
+            if(t - lastPressedKeyTime >= pressCooldown)
+            {
+                if(getCurrentSlotItem() != null)
+                {
+                    inventory.itemData.spawnItem(getCurrentSlotItem(), this);
+                                        
+                    removeItemAtSpecificSlot(1, currentSlot);
+                    updateSpecificSlot(currentSlot);
+                                                            
+                    lastPressedKeyTime = System.nanoTime();
+                }
+            }
+        }
+    }
+    
+    public void updateSpecificSlot(int slotNumberToUpdate)
+    {
+        slots[slotNumberToUpdate].update();
+    }
+    
+    public int getCurrentSlot()
+    {
+        return currentSlot;
+    }
+    
+    public HotbarUI getHotbarUI()
+    {
+        return hotbarUI;
+    }
+    
+    public HotbarHighlight getHighlight()
+    {
+        return hotbarHighlight;
     }
     
     public String getCurrentSlotItem()
