@@ -13,11 +13,12 @@ public class HotbarHighlight extends UI
     
     public HotbarHighlight()
     {
+        hotbarHighlight.scale(hotbarHighlight.getWidth() * 2, hotbarHighlight.getHeight() * 2);
         setImage(hotbarHighlight);
     }
     
     public void updatePosition(int slotNumber)
     {
-        setLocation(192 + slotNumber * 24, 384);
+        setLocation(632 + slotNumber * 48, 897); 
     }
 }

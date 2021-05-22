@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class HealthBar extends UI
 {
-    private int barWidth = 100; // the width of the color portion of the bar
+    private int barWidth = 200; // the width of the color portion of the bar
     private int barHeight = 10; // the height of the color portion of the bar
     private int breakPercent = 20; // the percentage amount that changes the color of the bar
     private int breakValue = 20; // in tandem with breakPercent

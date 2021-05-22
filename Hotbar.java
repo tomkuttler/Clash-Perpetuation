@@ -42,7 +42,7 @@ public class Hotbar extends UI
     {
         for(int i=0; i < 10; i++) 
         {            
-            getWorld().addObject(slots[i], 192 + i * 24, 384);
+            getWorld().addObject(slots[i], 632 + i * 48, 897);
             slots[i].update();
         }
         

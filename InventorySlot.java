@@ -54,22 +54,22 @@ public class InventorySlot extends UI
                     //Teleport back
                     if(slotNumber <= 9)
                     {
-                        setLocation(231 + slotNumber * 29, 132);
+                        setLocation(710 + slotNumber * 58, 329);
                     }
 
                     else if(slotNumber <= 19)
                     {
-                        setLocation(231 + (slotNumber - 10) * 29, 161);
+                        setLocation(710 + (slotNumber - 10) * 58, 387);
                     }
 
                     else if(slotNumber <= 29)
                     {
-                        setLocation(231 + (slotNumber - 20) * 29, 190);
+                        setLocation(710 + (slotNumber - 20) * 58, 445);
                     }
 
                     else if(slotNumber <= 39)
                     {
-                        setLocation(231 + (slotNumber - 30) * 29, 219);
+                        setLocation(710 + (slotNumber - 30) * 58, 503);
                     }
 
                     update();
@@ -86,22 +86,22 @@ public class InventorySlot extends UI
                     //Teleport back
                     if(slotNumber <= 9)
                     {
-                        setLocation(231 + slotNumber * 29, 132);
+                        setLocation(710 + slotNumber * 58, 329);
                     }
 
                     else if(slotNumber <= 19)
                     {
-                        setLocation(231 + (slotNumber - 10) * 29, 161);
+                        setLocation(710 + (slotNumber - 10) * 58, 387);
                     }
 
                     else if(slotNumber <= 29)
                     {
-                        setLocation(231 + (slotNumber - 20) * 29, 190);
+                        setLocation(710 + (slotNumber - 20) * 58, 445);
                     }
 
                     else if(slotNumber <= 39)
                     {
-                        setLocation(231 + (slotNumber - 30) * 29, 219);
+                        setLocation(710 + (slotNumber - 30) * 58, 503);
                     }
 
                     update();
@@ -111,22 +111,22 @@ public class InventorySlot extends UI
             {
                 if(slotNumber <= 9)
                 {
-                    setLocation(231 + slotNumber * 29, 132);
+                    setLocation(710 + slotNumber * 58, 329);
                 }
 
                 else if(slotNumber <= 19)
                 {
-                    setLocation(231 + (slotNumber - 10) * 29, 161);
+                    setLocation(710 + (slotNumber - 10) * 58, 387);
                 }
 
                 else if(slotNumber <= 29)
                 {
-                    setLocation(231 + (slotNumber - 20) * 29, 190);
+                    setLocation(710 + (slotNumber - 20) * 58, 445);
                 }
 
                 else if(slotNumber <= 39)
                 {
-                    setLocation(231 + (slotNumber - 30) * 29, 219);
+                    setLocation(710 + (slotNumber - 30) * 58, 503);
                 }
             }
             return;
@@ -188,7 +188,7 @@ public class InventorySlot extends UI
         {
             setImage(getWorld().getObjects(Inventory.class).get(0).itemData.getIcon(item));
         }
-            
+
         if(amount > 1)
         {
             this.getWorld().showText(Integer.toString(amount), this.getX() + 5, this.getY() + 5);

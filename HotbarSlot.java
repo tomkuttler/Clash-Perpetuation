@@ -55,7 +55,7 @@ public class HotbarSlot extends UI
                         getWorld().getObjects(Hotbar.class).get(0).addItemToSpecificSlot(item, amount, intersectingSlot.getSlotNumber(), slotNumber);
 
                         //Teleport back
-                        setLocation(192 + slotNumber * 24, 384);                        
+                        setLocation(632 + slotNumber * 48, 897);                        
 
                         update();
                     }
@@ -69,7 +69,7 @@ public class HotbarSlot extends UI
                         getWorld().getObjects(Inventory.class).get(0).addItemToSpecificSlotFromHotbar(item, amount, intersectingSlot.getSlotNumber(), slotNumber);
 
                         //Teleport back
-                        setLocation(192 + slotNumber * 24, 384);                        
+                        setLocation(632 + slotNumber * 48, 897);                        
 
                         update();
                     }                    
@@ -77,7 +77,7 @@ public class HotbarSlot extends UI
                 }
                 else //Teleport back
                 {                    
-                    setLocation(192 + slotNumber * 24, 384);                                       
+                    setLocation(632 + slotNumber * 48, 897);                                       
                 }
             }
         }

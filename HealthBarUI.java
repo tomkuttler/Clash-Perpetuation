@@ -13,6 +13,7 @@ public class HealthBarUI extends UI
     
     public HealthBarUI() 
     {
+        bar.scale(bar.getWidth() * 2, bar.getHeight() * 2);
         setImage(bar);
     }
 }

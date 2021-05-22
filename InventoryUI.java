@@ -13,6 +13,7 @@ public class InventoryUI extends UI
     
     public InventoryUI()
     {
+        inventory.scale(inventory.getWidth() * 2, inventory.getHeight() * 2);
         setImage((GreenfootImage)null);
     }
     

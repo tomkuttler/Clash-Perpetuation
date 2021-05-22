@@ -40,22 +40,22 @@ public class Inventory extends UI
         {
             if(i <= 9)
             {
-                getWorld().addObject(slots[i], 231 + i * 29, 132);
+                getWorld().addObject(slots[i], 710 + i * 58, 329);
             }
 
             if(i <= 19)
             {
-                getWorld().addObject(slots[i], 231 + (i - 10) * 29, 161);
+                getWorld().addObject(slots[i], 710 + (i - 10) * 58, 387);
             }
 
             if(i <= 29)
             {
-                getWorld().addObject(slots[i], 231 + (i - 20) * 29, 190);
+                getWorld().addObject(slots[i], 710 + (i - 20) * 58, 445);
             }
 
             if(i <= 39)
             {
-                getWorld().addObject(slots[i], 231 + (i - 30) * 29, 219);
+                getWorld().addObject(slots[i], 710 + (i - 30) * 58, 503);
             }
         }
 

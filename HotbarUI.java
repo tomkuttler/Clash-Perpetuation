@@ -13,6 +13,7 @@ public class HotbarUI extends UI
     
     public HotbarUI()
     {
+        hotbar.scale(hotbar.getWidth() * 2, hotbar.getHeight() * 2);
         setImage(hotbar);
     }
 }

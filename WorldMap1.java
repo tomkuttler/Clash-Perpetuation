@@ -12,14 +12,14 @@ public class WorldMap1 extends World
     
     public WorldMap1()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
-        super(600, 400, 1);
+        // Create a new world with 1696x928 cells with a cell size of 1x1 pixels.
+        super(1696, 928, 1);
         setBackground(map1);
         
         //Spawn Health bar: title, units used in bar, initial value, maximum value
         HealthBar bar = new HealthBar("", "HP", 100, 100);
-        addObject(bar, 103, 19);
-        addObject(new HealthBarUI(), 85, 30);
+        addObject(bar, 186, 29);
+        addObject(new HealthBarUI(), 150, 50);
         
         //Store Inventory and Hotbar
         InventoryUI iUI = new InventoryUI();        
@@ -32,9 +32,7 @@ public class WorldMap1 extends World
         Player p = new Player(bar, inventory, hotbar);
         addObject(p, 300, 200);
         
-        //Spawn Objects
-        addObject(new TestTree(), 400, 100);
-        
+        //Spawn Objects        
         addObject(new Potion("red", 1), 100, 300);
         addObject(new Potion("red", 10), 200, 300);
         addObject(new Potion("red", 50), 300, 300);
@@ -53,10 +51,10 @@ public class WorldMap1 extends World
         addObject(new Cyclope(p), 100, 100);
         
         //Spawn Inventory and Hotbar
-        addObject(iUI, 300, 200);
+        addObject(iUI, 848, 464);
         addObject(inventory, 0, 0);
-        addObject(hUI, 300, 377);
-        addObject(hH, 192, 384);
+        addObject(hUI, 848, 882);
+        addObject(hH, 632, 897);
         addObject(hotbar, 0, 0);        
     }
 }
