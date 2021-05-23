@@ -55,6 +55,14 @@ public class WorldMap1 extends World
         addObject(inventory, 0, 0);
         addObject(hUI, 848, 882);
         addObject(hH, 632, 897);
-        addObject(hotbar, 0, 0);        
+        addObject(hotbar, 0, 0);
+        
+        //Spawn Collider
+        //Fence
+        addObject(new Collider(7, 150, 0, 0), 367, 175);
+        addObject(new Collider(7, 214, 0, 0), 975, 143);
+        addObject(new Collider(615, 22, 0, 0), 672, 238);
+        addObject(new Collider(551, 22, 0, 0), 703, 46);
+        addObject(new Collider(39, 22, 0, 0), 416, 79);
     }
 }
