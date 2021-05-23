@@ -63,7 +63,7 @@ public class Inventory extends UI
         {
             slots[i].setImage((GreenfootImage)null);
 
-            slots[i].getWorld().showText(null, slots[i].getX() + 5, slots[i].getY() + 5);
+            slots[i].getWorld().showText(null, slots[i].getX() + 15, slots[i].getY() + 15);
         }
     }
     
@@ -105,7 +105,7 @@ public class Inventory extends UI
         {
             slots[i].setImage((GreenfootImage)null);
 
-            slots[i].getWorld().showText(null, slots[i].getX() + 5, slots[i].getY() + 5);
+            slots[i].getWorld().showText(null, slots[i].getX() + 15, slots[i].getY() + 15);
         }
     }
 

@@ -31,6 +31,11 @@ public class ItemData
     private double redPotionUseCooldown = 1000000000.0;
     private GreenfootImage redPotionIcon = new GreenfootImage("objects/healingItems/redPotion.png");
 
+    public ItemData()
+    {
+        redPotionIcon.scale(redPotionIcon.getWidth() * 2, redPotionIcon.getHeight() * 2);
+    }
+    
     public int getDamage(String item)
     {
         if(item == "longsword")

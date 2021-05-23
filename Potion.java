@@ -20,6 +20,12 @@ public class Potion extends HealingItems
 
     public Potion(String color, int amount) 
     {
+        greenPotion.scale(greenPotion.getWidth() * 2, greenPotion.getHeight() * 2);
+        redPotion.scale(redPotion.getWidth() * 2, redPotion.getHeight() * 2);
+        bluePotion.scale(bluePotion.getWidth() * 2, bluePotion.getHeight() * 2);
+        purplePotion.scale(purplePotion.getWidth() * 2, purplePotion.getHeight() * 2);
+        whitePotion.scale(whitePotion.getWidth() * 2, whitePotion.getHeight() * 2);
+        
         if(color == "green")
         {
             setImage(greenPotion);

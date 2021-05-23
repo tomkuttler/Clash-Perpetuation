@@ -191,11 +191,11 @@ public class InventorySlot extends UI
 
         if(amount > 1)
         {
-            this.getWorld().showText(Integer.toString(amount), this.getX() + 5, this.getY() + 5);
+            this.getWorld().showText(Integer.toString(amount), this.getX() + 15, this.getY() + 15);
         }
         else
         {
-            this.getWorld().showText(null, this.getX() + 5, this.getY() + 5);
+            this.getWorld().showText(null, this.getX() + 15, this.getY() + 15);
         }
     }
 
