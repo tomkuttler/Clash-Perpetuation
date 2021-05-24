@@ -141,17 +141,14 @@ public class Player extends AnimatedCharacter
             {
                 moveY = -1;
             }
-
             else if(Greenfoot.isKeyDown("s"))
             {
                 moveY = 1;
             }
-
             else if(Greenfoot.isKeyDown("d"))
             {
                 moveX = 1;
             }
-
             else if(Greenfoot.isKeyDown("a"))
             {
                 moveX = -1;
@@ -163,8 +160,10 @@ public class Player extends AnimatedCharacter
                 // which direction the player is facing, to be used in collision detection
                 xOffset = moveX;
                 yOffset = moveY;
+                
                 moveInDirection (moveX, moveY);
-            } else if(!Greenfoot.isKeyDown("w") && !Greenfoot.isKeyDown("a") && !Greenfoot.isKeyDown("s") && !Greenfoot.isKeyDown("d")) 
+            } 
+            else 
             {
                 stopMoving();
             }
