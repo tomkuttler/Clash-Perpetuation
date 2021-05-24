@@ -363,6 +363,25 @@ public class Player extends AnimatedCharacter
                     }
                 }
             }
+
+            if(!getObjectsInRange(pickUpRange, Chest.class).isEmpty())
+            {
+                //Look for a Chest in range
+                Chest chest = (Chest)getObjectsInRange(pickUpRange, Chest.class).get(0);
+
+                if(chest != null && chest.isClosed())
+                {
+                    String[] items = chest.getItems();
+                    int[] amount = chest.getAmount();
+
+                    for(int i = 0; i < chest.getMaxSlots(); i++)
+                    {
+                        inventory.addItemFromChest(items[i], amount[i]);
+                    }
+
+                    chest.open();
+                }
+            }
         }
     }
 

@@ -18,13 +18,13 @@ public class Inventory extends UI
     private InventoryUI inventoryUI;          //Referenz to the InventoryUI
 
     public ItemData itemData = new ItemData();
-    
+
     public Inventory(InventoryUI newInventoryUI)
     {
         setImage((GreenfootImage)null);
 
         //Create 40 empty inventory slots
-        for(int i=0; i < 40; i++) 
+        for(int i = 0; i < 40; i++) 
         {
             slots[i] = new InventorySlot();
             slots[i].setSlotNumber(i);
@@ -36,7 +36,7 @@ public class Inventory extends UI
     public void addedToWorld(World w)
     {
         //Spawn the inventory slots
-        for(int i=0; i < 40; i++) 
+        for(int i = 0; i < 40; i++) 
         {
             if(i <= 9)
             {
@@ -59,14 +59,14 @@ public class Inventory extends UI
             }
         }
 
-        for(int i=0; i < 40; i++) 
+        for(int i = 0; i < 40; i++) 
         {
             slots[i].setImage((GreenfootImage)null);
 
             slots[i].getWorld().showText(null, slots[i].getX() + 15, slots[i].getY() + 15);
         }
     }
-    
+
     public boolean isInventoryOpen()
     {
         return isInventoryOpen;
@@ -86,7 +86,7 @@ public class Inventory extends UI
         inventoryUI.setImageVisible();        
 
         //Update inventory slots
-        for(int i=0; i < 40; i++) 
+        for(int i = 0; i < 40; i++) 
         {
             slots[i].update();
         }
@@ -101,7 +101,7 @@ public class Inventory extends UI
         inventoryUI.setImage((GreenfootImage)null);
 
         //Remove the picture and amount of the inventory slots
-        for(int i=0; i < 40; i++) 
+        for(int i = 0; i < 40; i++) 
         {
             slots[i].setImage((GreenfootImage)null);
 
@@ -131,9 +131,31 @@ public class Inventory extends UI
         return false;
     }
 
+    //Called if player opened a chest
+    public boolean addItemFromChest(String item, int amount)
+    {
+        //Get variables from chest        
+        itemToAdd = item;
+        amountToAdd = amount;
+
+        //If the item is stackable and there is already a stack of items in a slot, add the items to that slot 
+        if(addItemToFilledSlot(itemToAdd, amountToAdd))
+        {
+            return true;
+        }
+
+        //Add the item to the first empty slot
+        if(addItemToFreeSlot(itemToAdd, amountToAdd))
+        {
+            return true;
+        }
+
+        return false;
+    }
+
     public boolean addItemToFilledSlot(String itemToAdd, int amount)
     {
-        for(int i=0; i < 40; i++)
+        for(int i = 0; i < 40; i++)
         {
             if(slots[i].getName() == itemToAdd)
             {
@@ -163,7 +185,7 @@ public class Inventory extends UI
 
     public boolean addItemToFreeSlot(String itemToAdd, int amount)
     {
-        for(int i=0; i < 40; i++)
+        for(int i = 0; i < 40; i++)
         {
             if(slots[i].isEmpty())
             {
@@ -208,7 +230,7 @@ public class Inventory extends UI
         }
         return false;
     }
-    
+
     public boolean addItemToSpecificSlotFromHotbar(String itemToAdd, int amount, int slotNumberToAdd, int slotNumberToRemove)
     {
         if(slots[slotNumberToAdd].isEmpty())
@@ -243,7 +265,7 @@ public class Inventory extends UI
         }
         return false;
     }
-    
+
     public boolean removeItemAtSpecificSlot(int amount, int slotNumberToRemove)
     {
         if(!slots[slotNumberToRemove].isEmpty())

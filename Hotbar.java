@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Hotbar extends UI 
 {
-    private HotbarSlot[] slots = new HotbarSlot[40];   //Saves the hotbar slots
+    private HotbarSlot[] slots = new HotbarSlot[10];   //Saves the hotbar slots
 
     private int currentSlot = 0;                       //Highlited slot
     private String currentSlotItem;                    //Item in current slot
@@ -27,7 +27,7 @@ public class Hotbar extends UI
         setImage((GreenfootImage)null);
 
         //Create 10 empty hotbar slots
-        for(int i=0; i < 10; i++) 
+        for(int i = 0; i < 10; i++) 
         {
             slots[i] = new HotbarSlot();
             slots[i].setSlotNumber(i);
@@ -40,7 +40,7 @@ public class Hotbar extends UI
 
     public void addedToWorld(World w)
     {
-        for(int i=0; i < 10; i++) 
+        for(int i = 0; i < 10; i++) 
         {            
             getWorld().addObject(slots[i], 632 + i * 48, 897);
             slots[i].update();
