@@ -161,7 +161,7 @@ public class Player extends AnimatedCharacter
                 xOffset = moveX;
                 yOffset = moveY;
                 
-                moveInDirection (moveX, moveY);
+                moveInDirection(moveX, moveY);
             } 
             else 
             {
