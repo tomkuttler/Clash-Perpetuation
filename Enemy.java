@@ -10,8 +10,6 @@ public abstract class Enemy extends AnimatedCharacter
 {
     private boolean alive = true;
 
-    private Direction d;
-
     private int health;
 
     private int detectPlayerRange;   //Detection range of the enemy    

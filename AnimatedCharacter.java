@@ -4,21 +4,9 @@ import java.util.HashMap;
  * The Animated Character superclass is designed to help manage animations for 2d sprites
  * in Greenfoot. It implements TIME-BASED (rather than Greenfoot act-based) 
  * frame changing and moving to create both smoothness and preciseness. 
- *  <li>Now uses a Hashmap to organize named animations</li>
- *  <li> Now divides animations into two types:<ol>
- *  <li>Primary Animation: Usually movement - this is the base animation.</li>
- *  <li>Terminal Animations - animations that run, then end, and return to the primary animation,
- *                  or remove itself from the World as specified</li>
- * </ul>
- * 
- * <p><b>v0.8.0:</b> (April 2020)</p>
- * <ul>
- *  <li> Import code is completely revamped, now imports spritesheets direction, not 
- *  individual images.</li>
- *  <li> Adding an optional layering system.</li>
- *  <li> Adding the result of many lessons learned from Greentree Chronicles code</li>
- *  <li> Trying to move as much functionality as possible out of the subclasses and into here</li>
- * </ul> 
+ *  
+ * Primary Animation: Usually movement - this is the base animation.</li>
+ * Terminal Animations: Animations that run, then end, and return to the primary animation,
  */
 
 public abstract class AnimatedCharacter extends Actor
@@ -35,8 +23,7 @@ public abstract class AnimatedCharacter extends Actor
     protected Animation primaryAnimation;
     protected Animation currentAnimation;
 
-    protected Direction direction; // Direction is 0-Right, 1-Left, 2-Up, 3-Down
-    // And is based on a public Enum below
+    protected int direction; // Direction is 0-Right, 1-Left, 2-Up, 3-Down
 
     // ======== Private variables ========
     private double framesPerSecond;   // animation speed
@@ -79,7 +66,7 @@ public abstract class AnimatedCharacter extends Actor
         animations = new HashMap<String, Animation>();
 
         // Set initial direction and speed. Override this in your constructor.
-        direction = Direction.RIGHT;
+        direction = 0;
         changeSpeed (15, 20);
 
         // Start values for private variables
@@ -120,7 +107,7 @@ public abstract class AnimatedCharacter extends Actor
 
         currentAnimation = primaryAnimation;
 
-        setCurrentImages (currentAnimation.getDirectionalImages()[direction.getDirection()]);
+        setCurrentImages (currentAnimation.getDirectionalImages()[direction]);
 
         if(collisionEnabled)
         {
@@ -193,7 +180,7 @@ public abstract class AnimatedCharacter extends Actor
     public void refresh(Animation anim, GreenfootImage spriteSheet)
     {
         anim.refresh(spriteSheet);
-        setCurrentImages (currentAnimation.getDirectionalImages()[direction.getDirection()]);
+        setCurrentImages (currentAnimation.getDirectionalImages()[direction]);
     }
 
     /**
@@ -208,7 +195,7 @@ public abstract class AnimatedCharacter extends Actor
     public void refresh(Animation anim)
     {
         anim.refresh(this.spriteSheet);
-        setCurrentImages (currentAnimation.getDirectionalImages()[direction.getDirection()]);
+        setCurrentImages (currentAnimation.getDirectionalImages()[direction]);
     }
 
     public void setPrimaryAnimation(String anim)
@@ -267,22 +254,22 @@ public abstract class AnimatedCharacter extends Actor
                 idle = true; 
                 lastFrame = System.nanoTime(); // reset animation timer to start fresh
                 frame = 0; // 0 is the idle frame
-                setImage (currentAnimation.getDirectionalImages()[direction.getDirection()][frame]);
+                setImage (currentAnimation.getDirectionalImages()[direction][frame]);
             } else {
                 idle = false; 
                 //frame = 1; // set to first frame if dir has changed
                 // set the facing direction if direction has changed
                 if (dirX == 1){
-                    direction = Direction.RIGHT;
+                    direction = 0;
                 } else if (dirX == -1){
-                    direction = Direction.LEFT;
+                    direction = 1;
                 } else if (dirY == 1){
-                    direction = Direction.DOWN;
+                    direction = 3;
                 } else if (dirY == -1){
-                    direction = Direction.UP;
+                    direction = 2;
                 }
             }
-            setCurrentImages (currentAnimation.getDirectionalImages()[direction.getDirection()]);
+            setCurrentImages (currentAnimation.getDirectionalImages()[direction]);
             // set these variables so that I can check for changes next time
             this.dirX = dirX;
             this.dirY = dirY;
@@ -292,29 +279,29 @@ public abstract class AnimatedCharacter extends Actor
     /**
      * 
      */
-    public void moveInDirection(Direction direction)
+    public void moveInDirection(int direction)
     {
         dirX = 0;
         dirY = 0;
         idle = false;
         this.direction = direction;
-        if (direction == direction.RIGHT){
+        if (direction == 0){
             dirX = 1;
-        } else if (direction == direction.LEFT){
+        } else if (direction == 1){
             dirX = -1;
-        } else if (direction == direction.DOWN){
+        } else if (direction == 3){
             dirY = 1;
-        } else if (direction == direction. UP){
+        } else if (direction == 2){
             dirY = -1;
         }
-        setCurrentImages (currentAnimation.getDirectionalImages()[direction.getDirection()]);
+        setCurrentImages (currentAnimation.getDirectionalImages()[direction]);
     }
 
     // This method if you want to set an idle facing direction
-    public void stopMoving(Direction direction)
+    public void stopMoving(int direction)
     {
         this.direction = direction;
-        idle=true;
+        idle = true;
         stopMoving();
     }
 
@@ -323,7 +310,9 @@ public abstract class AnimatedCharacter extends Actor
     {
         dirX = 0;
         dirY = 0;
-        if (!stopAtEnd){
+        
+        if (!stopAtEnd)
+        {
             lastFrame = System.nanoTime();
         }
     }
@@ -350,7 +339,7 @@ public abstract class AnimatedCharacter extends Actor
      * @param stopMoving    Should this AnimatedCharacter stop moving BEFORE performing this operation?
      * @param d     What direction is this Animation currently facing?
      */  
-    public void runTerminalAnimation (String animationName, boolean removeAfterAnimation, boolean stopMoving, Direction d)
+    public void runTerminalAnimation (String animationName, boolean removeAfterAnimation, boolean stopMoving, int direction)
     {
         this.removeAfterAnimation = removeAfterAnimation;
         stopAtEnd = true;
@@ -358,19 +347,19 @@ public abstract class AnimatedCharacter extends Actor
         frame = 0;
 
         currentAnimation = animations.get(animationName);
-        direction = d;
+        this.direction = direction;
 
         if (currentAnimation.isDirectional()){
             //setCurrentImages (anim.getDirectionalImages()[d.getDirection()]);
 
-            setCurrentImages (currentAnimation.getDirectionalImages()[direction.getDirection()]);
+            setCurrentImages (currentAnimation.getDirectionalImages()[direction]);
         } else {
             //setCurrentImages (anim.getNonDirectionalImages());            
             setCurrentImages (currentAnimation.getNonDirectionalImages());
         }
 
         if (stopMoving){
-            stopMoving (d);
+            stopMoving (direction);
         }
     }
 
@@ -428,7 +417,7 @@ public abstract class AnimatedCharacter extends Actor
                         // if a terminal animation is finished, return to primary
                         currentAnimation = primaryAnimation;
                         stopAtEnd = false;
-                        setCurrentImages (currentAnimation.getDirectionalImages()[direction.getDirection()]);
+                        setCurrentImages (currentAnimation.getDirectionalImages()[direction]);
 
                         frame = 1;
                     }
@@ -467,45 +456,6 @@ public abstract class AnimatedCharacter extends Actor
     public boolean isTerminal()
     {
         return stopAtEnd;
-    }
-
-    // ENUM to keep direction related code clean.
-    public enum Direction {
-        RIGHT(0), 
-
-        LEFT(1), 
-
-        UP(2), 
-
-        DOWN(3);
-
-        private final int dirCode;
-
-        private Direction(int dirCode)
-        {
-            this.dirCode = dirCode;
-        }
-
-        public int getDirection()
-        {
-            return this.dirCode;
-        }
-
-        public static Direction fromInteger(int x)
-        {
-            switch(x) {
-                case 0:
-                return RIGHT;
-                case 1:
-                return LEFT;
-                case 2:
-                return UP;
-                case 3: 
-                return DOWN;
-            }
-            return null;
-        }
-        public final static int size = Direction.values().length;
     }
 }
 
@@ -615,8 +565,8 @@ class Animation {
         return this.directional;
     }
 
-    public GreenfootImage getOneImage(AnimatedCharacter.Direction d, int frame){
-        return directionalImages[d.getDirection()][frame];
+    public GreenfootImage getOneImage(int direction, int frame){
+        return directionalImages[direction][frame];
     }
 
     public GreenfootImage[][] getDirectionalImages(){
@@ -728,36 +678,5 @@ class Animation {
         }
 
         return spriteSheet;
-    }
-
-    /**
-     *  Crop a whole animation stripping a specified number of pixels from each of the sides. This can be called manually
-     *  on an Animation, or used by a procedural crop method.
-     *  
-     *  @param leftTrim     number of pixels to trim from the left
-     *  @param rightTrim    number of pixels to trim from the right
-     *  @param topTrim      number of pixels to trim from the top
-     *  @param bottomTrim   number of pixels to trim from the bottom
-     *  @return Animation   a new Animation consisting of the same, but nownewly trimmed, images.
-     */
-    public static void trim(Animation anim, int leftTrim, int rightTrim, int topTrim, int bottomTrim)
-    {
-
-        if (anim.isDirectional()){
-            GreenfootImage[][] images = anim.getDirectionalImages();
-            for (int direction = 0; direction < images.length; direction++){
-                for (int frame = 0; frame < images[direction].length; frame++){
-                    images[direction][frame] = getSlice(images[direction][frame], leftTrim, topTrim, images[direction][frame].getWidth() - rightTrim - leftTrim, images[direction][frame].getHeight() - bottomTrim - topTrim);
-                }
-            }
-
-            anim.setImages(images);
-        } else {
-            GreenfootImage[] images = anim.getNonDirectionalImages();
-            for (int frame = 0; frame < images.length; frame++){
-                images[frame] = getSlice(images[frame], leftTrim, topTrim, rightTrim - leftTrim, bottomTrim - topTrim);
-            }
-            anim.setImages(images);
-        }
     }
 }

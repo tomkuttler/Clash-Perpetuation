@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Arrow extends AnimatedCharacter
 {    
-    private Direction direction;
+    private int direction;
     private int damage;    
     private int range;
     private int speed;
@@ -27,11 +27,11 @@ public class Arrow extends AnimatedCharacter
     private GreenfootImage arrowUp = new GreenfootImage("bullets/arrowUp.png");
     private GreenfootImage arrowDown = new GreenfootImage("bullets/arrowDown.png");
 
-    public Arrow(Direction d, int damage, int range, int speed)
+    public Arrow(int direction, int damage, int range, int speed)
     {
         setImage((GreenfootImage)null);
 
-        direction = d;
+        this.direction = direction;
         this.damage = damage;
         this.range = range;
         this.speed = speed;
@@ -85,20 +85,7 @@ public class Arrow extends AnimatedCharacter
     {
         if(flying && alive)
         {
-            if(direction == Direction.LEFT)
-            {
-                if(getX() >  spawnX - range)
-                {
-                    setLocation(getX() - speed, getY());
-                }
-                else
-                {
-                    getWorld().removeObject(this);
-                    alive = false;
-                }
-            }
-
-            if(direction == Direction.RIGHT)
+            if(direction == 0)
             {
                 if(getX() < spawnX + range)
                 {
@@ -111,7 +98,20 @@ public class Arrow extends AnimatedCharacter
                 }
             }
 
-            if(direction == Direction.UP)
+            if(direction == 1)
+            {
+                if(getX() >  spawnX - range)
+                {
+                    setLocation(getX() - speed, getY());
+                }
+                else
+                {
+                    getWorld().removeObject(this);
+                    alive = false;
+                }
+            }
+            
+            if(direction == 2)
             {
                 if(getY() > spawnY - range)
                 {
@@ -124,7 +124,7 @@ public class Arrow extends AnimatedCharacter
                 }
             }
 
-            if(direction == Direction.DOWN)
+            if(direction == 3)
             {
                 if(getY() < spawnY + range)
                 {
@@ -139,24 +139,24 @@ public class Arrow extends AnimatedCharacter
         }
         else if(System.nanoTime() - spawnTime >= flyCooldown)
         {
-            flying = true;
+            flying = true;            
 
-            if(direction == Direction.LEFT)
-            {
-                setImage(arrowLeft);
-            }
-
-            if(direction == Direction.RIGHT)
+            if(direction == 0)
             {
                 setImage(arrowRight);
             }
-
-            if(direction == Direction.UP)
+            
+            if(direction == 1)
+            {
+                setImage(arrowLeft);
+            }
+            
+            if(direction == 2)
             {
                 setImage(arrowUp);
             }
 
-            if(direction == Direction.DOWN)
+            if(direction == 3)
             {
                 setImage(arrowDown);
             }

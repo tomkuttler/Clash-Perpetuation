@@ -81,7 +81,7 @@ public class Player extends AnimatedCharacter
         primaryAnimation = animations.get("move");
 
         //Start: facing downward
-        direction = Direction.DOWN;
+        direction = 3;
 
         //For the starting image, grab the 0th frame from the current facing dirction
         setImage(primaryAnimation.getOneImage(direction, 0));
@@ -291,15 +291,15 @@ public class Player extends AnimatedCharacter
 
                                 runTerminalAnimation("bowAttack", false, false, direction);
 
-                                if(direction == direction.RIGHT || direction == direction.LEFT)
+                                if(direction == 0 || direction == 1)
                                 {
                                     getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem), inventory.itemData.getSpeed(currentSlotItem)), getX() + 11, getY() - 1);
                                 }
-                                else if(direction == direction.UP)
+                                else if(direction == 2)
                                 {
                                     getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem), inventory.itemData.getSpeed(currentSlotItem)), getX() - 4, getY() - 30);
                                 }
-                                else if(direction == direction.DOWN)
+                                else if(direction == 3)
                                 {
                                     getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem), inventory.itemData.getSpeed(currentSlotItem)), getX() - 2, getY() + 20);
                                 }

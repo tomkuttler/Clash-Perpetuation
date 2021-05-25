@@ -46,7 +46,7 @@ public class Cyclope extends Enemy
         primaryAnimation = animations.get("move");
 
         //Start: facing downward
-        direction = Direction.DOWN;
+        direction = 3;
 
         //For the starting image, grab the 0th frame from the current facing dirction
         setImage(primaryAnimation.getOneImage(direction, 0));
