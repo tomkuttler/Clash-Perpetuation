@@ -1,31 +1,33 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Bows here.
+ * Write a description of class ArrowInventory here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Bow extends Weapons
+public class ArrowItem extends Weapons
 {
     private String name;
-    private int amount = 1;
+    private int amount;
     
     //Object pictures
-    GreenfootImage bow1 = new GreenfootImage("objects/weapons/bow1Icon.png");
+    GreenfootImage arrow1 = new GreenfootImage("objects/arrows/arrow1.png");
     //GreenfootImage  = new GreenfootImage("objects/weapons/.png");
     //GreenfootImage  = new GreenfootImage("objects/weapons/.png");
     //GreenfootImage  = new GreenfootImage("objects/weapons/.png");
     //GreenfootImage  = new GreenfootImage("objects/weapons/.png");
     
-    public Bow(String name)
+    public ArrowItem(String name, int amount)
     {
-        if(name == "bow1")
+        if(name == "arrow1")
         {
-            setImage(bow1);
+            setImage(arrow1);
             
             this.name = name;
         }
+        
+        this.amount = amount;
         
         setup(name, amount);
     }    

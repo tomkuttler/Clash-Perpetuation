@@ -213,6 +213,21 @@ public class Hotbar extends UI
         return false;
     }
     
+    public boolean removeItem(String item, int amount)
+    {
+        for(int i = 0; i < 10; i++)
+        {
+            if(slots[i].getName() == item)
+            {
+                slots[i].removeItem(amount);
+                slots[i].update();
+                
+                return true;
+            }
+        }
+        return false;
+    }
+    
     public boolean removeItemAtSpecificSlot(int amount, int slotNumberToRemove)
     {
         if(!slots[slotNumberToRemove].isEmpty())
@@ -220,6 +235,18 @@ public class Hotbar extends UI
             slots[slotNumberToRemove].removeItem(amount);
 
             return true;
+        }
+        return false;
+    }
+    
+    public boolean isInHotbar(String item)
+    {
+        for(int i = 0; i < 10; i++)
+        {
+            if(slots[i].getName() == item)
+            {
+                return true;
+            }
         }
         return false;
     }

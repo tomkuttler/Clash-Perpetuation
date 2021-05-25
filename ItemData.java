@@ -31,6 +31,11 @@ public class ItemData
     private double redPotionUseCooldown = 1000000000.0;
     private GreenfootImage redPotionIcon = new GreenfootImage("objects/healingItems/redPotion.png");
 
+    //----- ARROWS -----
+    //----- arrow1 -----
+    private int arrow1MaxStackSize = 64;
+    private GreenfootImage arrow1Icon = new GreenfootImage("objects/arrows/arrow1.png");
+    
     public ItemData()
     {
         redPotionIcon.scale(redPotionIcon.getWidth() * 2, redPotionIcon.getHeight() * 2);
@@ -85,6 +90,10 @@ public class ItemData
         else if(item == "redPotion")
         {
             return redPotionMaxStackSize;
+        }
+        else if(item == "arrow1")
+        {
+            return arrow1MaxStackSize;
         }
         else
         {
@@ -142,6 +151,10 @@ public class ItemData
         {
             return redPotionIcon;
         }
+        else if(item == "arrow1")
+        {
+            return arrow1Icon;
+        }
         else
         {
             return null;
@@ -161,6 +174,10 @@ public class ItemData
         else if(item == "redPotion")
         {
             hotbar.getWorld().addObject(new Potion("red", 1), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
+        else if(item == "arrow1")
+        {
+            hotbar.getWorld().addObject(new ArrowItem("arrow1", 1), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
         }
     }
 }

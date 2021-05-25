@@ -26,7 +26,7 @@ public class Player extends AnimatedCharacter
     private int health;                    //Player health
     private int maxHealth = 100;           //Max health player
     private boolean alive = true;          //Is player alive   
-    
+
     private int pickUpRange = 50;          //How close the player needs to be to pick up a PickUpItem
 
     private String currentSlotItem = "";
@@ -285,21 +285,26 @@ public class Player extends AnimatedCharacter
                         int buttonNumber = mouse.getButton();
                         if(buttonNumber == 1) //1 = lmb, 3 = rmb
                         {
-                            lastUse = t;
+                            if(hotbar.isInHotbar("arrow1"))
+                            {
+                                lastUse = t;
 
-                            runTerminalAnimation("bowAttack", false, false, direction);
+                                runTerminalAnimation("bowAttack", false, false, direction);
 
-                            if(direction == direction.RIGHT || direction == direction.LEFT)
-                            {
-                                getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem), inventory.itemData.getSpeed(currentSlotItem)), getX() + 11, getY() - 1);
-                            }
-                            else if(direction == direction.UP)
-                            {
-                                getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem), inventory.itemData.getSpeed(currentSlotItem)), getX() - 4, getY() - 30);
-                            }
-                            else if(direction == direction.DOWN)
-                            {
-                                getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem), inventory.itemData.getSpeed(currentSlotItem)), getX() - 2, getY() + 20);
+                                if(direction == direction.RIGHT || direction == direction.LEFT)
+                                {
+                                    getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem), inventory.itemData.getSpeed(currentSlotItem)), getX() + 11, getY() - 1);
+                                }
+                                else if(direction == direction.UP)
+                                {
+                                    getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem), inventory.itemData.getSpeed(currentSlotItem)), getX() - 4, getY() - 30);
+                                }
+                                else if(direction == direction.DOWN)
+                                {
+                                    getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem), inventory.itemData.getSpeed(currentSlotItem)), getX() - 2, getY() + 20);
+                                }
+                                
+                                hotbar.removeItem("arrow1", 1);
                             }
                         }
                     }

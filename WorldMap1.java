@@ -47,6 +47,8 @@ public class WorldMap1 extends World
         addObject(new Sword("longsword"), 400, 350);
         addObject(new Bow("bow1"), 450, 350);
         
+        addObject(new ArrowItem("arrow1", 5), 200, 700);
+        
         addObject(new Chest(1, new String[] {"redPotion", "longsword", null, null, null, null, null, null, null, null}, new int[] {5, 1, 0, 0, 0, 0, 0, 0, 0, 0}), 200, 600);
         addObject(new Chest(2, new String[] {"redPotion", "longsword", null, null, null, null, null, null, null, null}, new int[] {5, 1, 0, 0, 0, 0, 0, 0, 0, 0}), 250, 600);
         
