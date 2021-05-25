@@ -11,7 +11,7 @@ public class ItemData
     //----- MELEE WEAPONS -----
     //----- longsword -----
     private int longswordDamage = 30;
-    private double longswordUseCooldown = 1000000000.0;
+    private double longswordUseCooldown = 750000000.0;
     private int longswordMaxStackSize = 1;
     private GreenfootImage longswordIcon = new GreenfootImage("objects/weapons/longswordIcon.png");
 

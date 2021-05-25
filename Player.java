@@ -16,7 +16,7 @@ public class Player extends AnimatedCharacter
     private GreenfootImage longsword2;
     private GreenfootImage bow1;
     private GreenfootImage arrow;
-    
+
     private int moveX, moveY;
     private int xOffset, yOffset;          //Direction for attacking
 
@@ -25,14 +25,14 @@ public class Player extends AnimatedCharacter
 
     private int health;                    //Player health
     private int maxHealth = 100;           //Max health player
-    private boolean alive = true;          //Is player alive
-
+    private boolean alive = true;          //Is player alive   
+    
     private int pickUpRange = 50;          //How close the player needs to be to pick up a PickUpItem
 
     private String currentSlotItem = "";
     private String currentSlotItemType = "";
 
-    private double lastUse;                //Saves the time of the last use of an item 
+    private double lastUse;                //Saves the time of the last use of an item     
 
     private double pressCooldown = 250000000.0;  //Cooldown of 250 milion nanosec (0,25sec) between pressing a key
     private double lastPressedKeyTime;         //Saves the time of the last key press
@@ -41,7 +41,7 @@ public class Player extends AnimatedCharacter
     private Inventory inventory;           //Referenz Inventory
     private Hotbar hotbar;                 //Referenz Hotbar
 
-    private double removeCooldown = 2000000000.0; //Object will be removed after Cooldown of 2 bilion nanosec (2sec) (after Health <= 0)
+    private double removeCooldown = 2000000000.0; //Player will be removed after Cooldown of 2 bilion nanosec (2sec) (after Health <= 0)
     private double deathTime;              //Stores the time then enemy died
 
     public Player(HealthBar newBar, Inventory newInventory, Hotbar newHotbar) {        
@@ -107,7 +107,7 @@ public class Player extends AnimatedCharacter
 
         updateLayers();
 
-        attack();
+        useItem();
 
         checkCollision();
 
@@ -130,37 +130,45 @@ public class Player extends AnimatedCharacter
     {
         if(alive)
         {
-            // Each tick, movement is reset
-            moveX = 0; 
-            moveY = 0;
+            double t = System.nanoTime();
+            if(t - lastUse >= inventory.itemData.getUseCooldown(currentSlotItem))
+            {
+                // Each tick, movement is reset
+                moveX = 0; 
+                moveY = 0;
 
-            if(Greenfoot.isKeyDown("w"))
-            {
-                moveY = -1;
-            }
-            else if(Greenfoot.isKeyDown("s"))
-            {
-                moveY = 1;
-            }
-            else if(Greenfoot.isKeyDown("d"))
-            {
-                moveX = 1;
-            }
-            else if(Greenfoot.isKeyDown("a"))
-            {
-                moveX = -1;
-            }
+                if(Greenfoot.isKeyDown("w"))
+                {
+                    moveY = -1;
+                }
+                else if(Greenfoot.isKeyDown("s"))
+                {
+                    moveY = 1;
+                }
+                else if(Greenfoot.isKeyDown("d"))
+                {
+                    moveX = 1;
+                }
+                else if(Greenfoot.isKeyDown("a"))
+                {
+                    moveX = -1;
+                }
 
-            if(moveX != 0 || moveY != 0)
-            {
-                // set sides/directions for attacking. -1, 0 or 1 for each axis to represent
-                // which direction the player is facing, to be used in collision detection
-                xOffset = moveX;
-                yOffset = moveY;
-                
-                moveInDirection(moveX, moveY);
-            } 
-            else 
+                if(moveX != 0 || moveY != 0)
+                {
+                    // set sides/directions for attacking. -1, 0 or 1 for each axis to represent
+                    // which direction the player is facing, to be used in collision detection
+                    xOffset = moveX;
+                    yOffset = moveY;
+
+                    moveInDirection(moveX, moveY);
+                } 
+                else 
+                {
+                    stopMoving();
+                }
+            }
+            else
             {
                 stopMoving();
             }
@@ -236,7 +244,7 @@ public class Player extends AnimatedCharacter
     }
 
     //Checks if cooldown -> if lmb is pressed -> updates lastHit, if enemy is in range -> call gotHit() on enemy 
-    public void attack() 
+    public void useItem() 
     {
         if(alive && !inventory.isInventoryOpen())
         {
