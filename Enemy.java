@@ -135,7 +135,7 @@ public abstract class Enemy extends AnimatedCharacter
                     {            
                         lastHit = t;
 
-                        runTerminalAnimation("attack", false, false, direction);
+                        runTerminalAnimation("attack", false, direction);
 
                         player.gotHit(damage);
                     }
@@ -194,7 +194,7 @@ public abstract class Enemy extends AnimatedCharacter
             {
                 stopMoving();
                 changeSpeed (0, 3);                
-                runTerminalAnimation("die", false, false, direction);
+                runTerminalAnimation("die", false, direction);
                 alive = false;
                 deathTime = System.nanoTime();
             }

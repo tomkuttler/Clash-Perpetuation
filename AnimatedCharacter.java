@@ -1,37 +1,31 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.HashMap;
+
 /**
- * The Animated Character superclass is designed to help manage animations for 2d sprites
- * in Greenfoot. It implements TIME-BASED (rather than Greenfoot act-based) 
- * frame changing and moving to create both smoothness and preciseness. 
+ * The AnimatedCharacter superclass is designed to manage animations for 2d sprites
+ * It implements TIME-BASED frame changing and moving to create both smoothness and preciseness. 
  *  
- * Primary Animation: Usually movement - this is the base animation.</li>
- * Terminal Animations: Animations that run, then end, and return to the primary animation,
+ * Primary Animation: Usually movement - this is the base animation.
+ * Terminal Animations: Animations that run, then end, and return to the primary animation.
  */
 
 public abstract class AnimatedCharacter extends Actor
 {
-    // Change this if you need more layers for your sprite sheet
     public final static int MAX_LAYERS = 12;
 
-    // ========== Protected Variables,  for sublcasses to share ===
-    // Many of these will be abstracted away from the subclass in later versions
+    //----- Protected variables -----
     protected HashMap<String, Animation> animations;
 
-    // The primary animation is generally movement - it's what gets
-    // defaulted to when no terminal animation is playing
-    protected Animation primaryAnimation;
-    protected Animation currentAnimation;
+    protected Animation primaryAnimation; //The primary animation is generally movement - this is the base animation
+    protected Animation currentAnimation; //The animation currenty playing
 
-    protected int direction; // Direction is 0-Right, 1-Left, 2-Up, 3-Down
+    protected int direction; //Direction: 0 = Right, 1 = Left, 2 = Up, 3 = Down
 
-    // ======== Private variables ========
+    //----- Private variables -----
     private double framesPerSecond;   // animation speed
     private double secondsPerFrame;   // calculated fraction of second per frame
-
-    private double tolerance;         // how close to target to stop
     private double maxFrameLength;    // Used to avoid "jumping" if lag or GF pause.
-    // What fraction of a second is max dead time?
+    //What fraction of a second is max dead time?
 
     private int frame;          // current frame counter
     private double xx, yy;      // internal, double representation of coordinates
@@ -39,13 +33,11 @@ public abstract class AnimatedCharacter extends Actor
     private int prevX, prevY;   // previous rounded X and Y values
     private boolean idle;       // used to specify idle frame
     private boolean stopAtEnd;  // is this a TERMINAL animation?
-    private boolean removeAfterAnimation; // After stopAtEnd animation completes, remove myself?
 
-    private double moveSpeed;   // how many pixels per SECOND (not per act)
+    private double moveSpeed;   // how many pixels per SECOND
 
-    // Current set of images, loaded from one of the above arrays.
-    // This is one dimension of an Animation, and will be cycled
-    // through in the animation code.
+    //Current set of images
+    //This is one dimension of an Animation, and will be cycled through in the animation code.
     private GreenfootImage[] currentImages; 
     private GreenfootImage[] spriteSheetLayers;
     private GreenfootImage spriteSheet;
@@ -53,36 +45,24 @@ public abstract class AnimatedCharacter extends Actor
     protected Collider myCollider;
     private boolean collisionEnabled = false; 
 
-    // for time-keeping to keep animation going at consistent speed
+    //for time-keeping to keep animation going at consistent speed
     private long lastFrame;         // Keep track of when the last animation was updated
     private long current;           // Keep track of time between frames for movement
     private long elapsed;           // how long a frame was
 
-    /**
-     * Default constructor - must be called via super() in your object's Constructor.
-     */
     public AnimatedCharacter()
     {
         animations = new HashMap<String, Animation>();
 
-        // Set initial direction and speed. Override this in your constructor.
-        direction = 0;
-        changeSpeed (15, 20);
-
-        // Start values for private variables
+        //Start values for private variables
         frame = 0;
         dirX = 0;
         dirY = 0;
         idle = false;
         stopAtEnd = false;
 
-        // VALUES FOR ANIMATION 
-        tolerance = 0.5; // See superclass for description
+        //VALUES FOR ANIMATION 
         maxFrameLength = 0.10;
-
-        // How close, in pixels, should character have to get to it's intended
-        // target in clickToMove mode before movement is automatically ended
-        tolerance = 2.0;
 
         // In case program is too laggy, this determines the max time per frame.
         // In other words, if a frame takes longer than maxFrameLength to render,
@@ -99,7 +79,7 @@ public abstract class AnimatedCharacter extends Actor
 
     public void addedToWorld(World w)
     {
-        // When I get added to world, set my internal double variables 
+        //When I get added to world, set my internal double variables 
         xx = getX();
         yy = getY();
         prevX = getX();
@@ -167,7 +147,7 @@ public abstract class AnimatedCharacter extends Actor
     public void setLayer(int layer, GreenfootImage image)
     {
         spriteSheetLayers[layer] = image;
-        spriteSheet = Animation.updateSpriteSheet (spriteSheetLayers);
+        spriteSheet = Animation.updateSpriteSheet(spriteSheetLayers);
     }
 
     /**
@@ -198,14 +178,14 @@ public abstract class AnimatedCharacter extends Actor
         setCurrentImages (currentAnimation.getDirectionalImages()[direction]);
     }
 
-    public void setPrimaryAnimation(String anim)
+    public void setPrimaryAnimation(String animation)
     {
-        setPrimaryAnimation (animations.get(anim));
+        setPrimaryAnimation (animations.get(animation));
     }
 
-    public void setPrimaryAnimation(Animation anim)
+    public void setPrimaryAnimation(Animation animation)
     {
-        primaryAnimation = anim;
+        primaryAnimation = animation;
     }
 
     /**
@@ -249,13 +229,14 @@ public abstract class AnimatedCharacter extends Actor
     {
         // If there has been a change in direction
         if (this.dirX != dirX || this.dirY != dirY){
-
             if (dirX == 0 && dirY == 0){
                 idle = true; 
                 lastFrame = System.nanoTime(); // reset animation timer to start fresh
                 frame = 0; // 0 is the idle frame
                 setImage (currentAnimation.getDirectionalImages()[direction][frame]);
-            } else {
+            } 
+            else 
+            {
                 idle = false; 
                 //frame = 1; // set to first frame if dir has changed
                 // set the facing direction if direction has changed
@@ -276,27 +257,6 @@ public abstract class AnimatedCharacter extends Actor
         } 
     }
 
-    /**
-     * 
-     */
-    public void moveInDirection(int direction)
-    {
-        dirX = 0;
-        dirY = 0;
-        idle = false;
-        this.direction = direction;
-        if (direction == 0){
-            dirX = 1;
-        } else if (direction == 1){
-            dirX = -1;
-        } else if (direction == 3){
-            dirY = 1;
-        } else if (direction == 2){
-            dirY = -1;
-        }
-        setCurrentImages (currentAnimation.getDirectionalImages()[direction]);
-    }
-
     // This method if you want to set an idle facing direction
     public void stopMoving(int direction)
     {
@@ -310,7 +270,7 @@ public abstract class AnimatedCharacter extends Actor
     {
         dirX = 0;
         dirY = 0;
-        
+
         if (!stopAtEnd)
         {
             lastFrame = System.nanoTime();
@@ -335,13 +295,11 @@ public abstract class AnimatedCharacter extends Actor
      * Runs an animation that will come to an end when it's finished doing it's thing.
      * 
      * @param animationName The name of the Animation (it must have been added to animations already)
-     * @param removeAfterAnimation  Should this AnimatedCharacter delete itself when this Animation is complete?
      * @param stopMoving    Should this AnimatedCharacter stop moving BEFORE performing this operation?
-     * @param d     What direction is this Animation currently facing?
+     * @param direction     What direction is this Animation currently facing?
      */  
-    public void runTerminalAnimation (String animationName, boolean removeAfterAnimation, boolean stopMoving, int direction)
+    public void runTerminalAnimation (String animationName, boolean stopMoving, int direction)
     {
-        this.removeAfterAnimation = removeAfterAnimation;
         stopAtEnd = true;
         idle = false;
         frame = 0;
@@ -349,12 +307,12 @@ public abstract class AnimatedCharacter extends Actor
         currentAnimation = animations.get(animationName);
         this.direction = direction;
 
-        if (currentAnimation.isDirectional()){
-            //setCurrentImages (anim.getDirectionalImages()[d.getDirection()]);
-
+        if (currentAnimation.isDirectional())
+        {
             setCurrentImages (currentAnimation.getDirectionalImages()[direction]);
-        } else {
-            //setCurrentImages (anim.getNonDirectionalImages());            
+        } 
+        else 
+        {          
             setCurrentImages (currentAnimation.getNonDirectionalImages());
         }
 
@@ -366,12 +324,13 @@ public abstract class AnimatedCharacter extends Actor
     private void setCurrentImages (GreenfootImage[] images)
     {
         currentImages = new GreenfootImage[images.length];
+        
         for (int i = 0; i < images.length; i++){
             currentImages[i] = images[i];
         }
     }
 
-    // Act method - manages animation. MUST be called by subclass at end of subclass' own act() method with super.act().
+    //Act method - manages animation. Must be called by subclass at the end of own act() method.
     public void act() 
     {
         long lastAct = current;
@@ -382,57 +341,52 @@ public abstract class AnimatedCharacter extends Actor
         // Find elapsed time since last act, for movement
         long deltaTime = (current - lastAct) / 1000000;
 
-        // === ANIMATION ===
+        //----- Animation -----
 
-        if ((dirX == 0 && dirY == 0) && !stopAtEnd)
-        { // if not moving, and not playing a terminal animation, switch to idle
-
+        if ((dirX == 0 && dirY == 0) && !stopAtEnd) //If not moving, and not playing a terminal animation, switch to idle
+        { 
             idle = true;
             lastFrame = current;
-            // reset animation timer so it always starts fresh in next frame if
-            // next frame is animated
+            
+            //Reset animation timer 
             frame = 0;
 
             setImage (currentImages[frame]);
-        } else {
-            // Check if ready to show next frame, and if so, advance frame
-            if (elapsed > secondsPerFrame * 1000 || idle)
+        } 
+        else 
+        {            
+            if (elapsed > secondsPerFrame * 1000 || idle) //Check if ready to show next frame
             {
-                // note - the use of the idle variable here is to avoid restarting the animation
-                // timer after idle. This way, the first frame after idle starts instantly
-
                 lastFrame = current;
                 frame++;
 
                 idle = false;
             }
 
-            if (frame > currentImages.length - 1){ // IF THIS IS THE LAST FRAME:
-                if(stopAtEnd){ // if this is a terminal animation:
+            if (frame > currentImages.length - 1) //If this is the last frame
+            { 
+                if(stopAtEnd) //If this is a terminal animation
+                { 
+                    //If a terminal animation is finished, return to primary
+                    currentAnimation = primaryAnimation;
+                    stopAtEnd = false;
+                    setCurrentImages (currentAnimation.getDirectionalImages()[direction]);
 
-                    if(removeAfterAnimation){ // if this is supposed to be removed from world after it finishes
-                        frame = currentImages.length - 1; // keep it on the last image to avoid out of bounds
-                    } else {
-
-                        // if a terminal animation is finished, return to primary
-                        currentAnimation = primaryAnimation;
-                        stopAtEnd = false;
-                        setCurrentImages (currentAnimation.getDirectionalImages()[direction]);
-
-                        frame = 1;
-                    }
-                } else { // if this is just a regular animation, just go back to frame 1
-                    frame = 1; // 0th frame is idle frame only, so count 1..last, not 0..last
+                    frame = 1;
+                } 
+                else //If this is no terminal animation, go back to frame 1
+                { 
+                    frame = 1; //0th frame is the idle frame only, so count 1..last, not 0..last
                 }
-
             }
-            // now that the calculations are done, set the correct image
+            
+            //Set the correct image
             setImage (currentImages[frame]);
         }
 
-        // === MOVEMENT ===
+        //----- Movement -----
 
-        // calculate delta time - how many seconds have passed since the last act (I.e. 30 fps, dT = 0.0333)
+        //Calculate delta time - how many seconds have passed since the last act (I.e. 30 fps, dT = 0.0333)
         double dT = (current-lastAct) / 1000000000.0;
 
         if (dT > maxFrameLength)
@@ -444,19 +398,15 @@ public abstract class AnimatedCharacter extends Actor
         xx += ((double)(dirX) * moveSpeed) * dT;
         yy += ((double)(dirY) * moveSpeed) * dT;
 
-        // update my location
-        super.setLocation ((int)Math.round(xx), (int)Math.round(yy));
-
+        //Update my location
+        super.setLocation((int)Math.round(xx), (int)Math.round(yy));
+        
+        //Set the position of my collider to my new location
         if(collisionEnabled)
         {
             positionCollider();
         }
     }    
-
-    public boolean isTerminal()
-    {
-        return stopAtEnd;
-    }
 }
 
 /**
@@ -464,14 +414,12 @@ public abstract class AnimatedCharacter extends Actor
  *  
  *  This is a 1d or 2d array of images. 
  *  
- *  For Animations that are directional (can face in more than one direction), 
- *  this class will store as 2d array. For animations with more than one direction,
- *  this class will store as 1d array. If you need to determine what sort of animation
- *  you are working with, you can call isDirectional() to see which one this is.
+ *  For Animations that are directional, this class will store the animation as a 2d array. 
+ *  For animations with one direction, this class will store the animation as 1d array. 
  *  
- *  Includes a number of static helper methods to assist in creating Animations.
  */
-class Animation {
+class Animation 
+{
     private GreenfootImage[][] directionalImages;
     private GreenfootImage[] nonDirectionalImages;
 
@@ -486,10 +434,9 @@ class Animation {
     private int directions;
 
     /**
-     * Constructor for directional animations - should be a 2d array of GreenfootImage with 
-     * 4 directions (dimension 1) and at least one image per direction (dimension 2)
+     * Constructor for directional animations
      * 
-     * @param images    2d array of images as described above
+     * @param images    2d array of GreenfootImage with 4 directions and at least one image per direction
      * @param terminal  true if this animation is not intended to repeat
      */ 
     public Animation(GreenfootImage[][] images, int startRow, int numRows, int numFrames, int width, int height)
@@ -506,10 +453,9 @@ class Animation {
     }
 
     /**
-     * Constructor for directional animations - should be a 2d array of GreenfootImage with 
-     * 4 directions (dimension 1) and at least one image per direction (dimension 2)
+     * Constructor for non directional animations 
      * 
-     * @param images    2d array of images as described above
+     * @param images    1d array of GreenfootImage with 1 direction and at least one image
      * @param terminal  true if this animation is not intended to repeat
      */ 
     public Animation(GreenfootImage[] images, int startRow, int numRows, int numFrames, int width, int height)
@@ -527,20 +473,22 @@ class Animation {
 
     public void refresh (GreenfootImage spriteSheet) 
     {
-        if (directional){
-            GreenfootImage[][] temp = processImages (spriteSheet, startRow, numRows, numFrames, width, height);
+        if (directional)
+        {
+            GreenfootImage[][] temp = processImages(spriteSheet, startRow, numRows, numFrames, width, height);
             setImages (temp);
-        } else {
-            GreenfootImage[]temp = processImages(spriteSheet, startRow, numRows, numFrames, width, height)[0];
+        } 
+        else 
+        {
+            GreenfootImage[] temp = processImages(spriteSheet, startRow, numRows, numFrames, width, height)[0];
             setImages (temp);
         }
     }
 
     /**
-     * Use this to change the images in an existing Animation. You will have to provide
-     * a new array.
+     * Change the images in an existing directional Animation. 
      * 
-     * @param   images  2d Array of GreenfootImages.
+     * @param   images  2d Array of GreenfootImages
      */
     public void setImages(GreenfootImage[][] images)
     {
@@ -548,80 +496,92 @@ class Animation {
     }
 
     /**
-     * Use this to change the images in an existing Animation. You will have to provide
-     * a new array.
+     * Change the images in an existing non directional Animation
      * 
-     * @param   images  2d Array of GreenfootImages.
+     * @param   images  1d Array of GreenfootImages
      */
-    public void setImages(GreenfootImage[] images){
+    public void setImages(GreenfootImage[] images)
+    {
         nonDirectionalImages = images;
     }    
 
-    public int getDirectionCount() {
+    public int getDirectionCount() 
+    {
         return directions;
     }
 
-    public boolean isDirectional(){
+    public boolean isDirectional()
+    {
         return this.directional;
     }
 
-    public GreenfootImage getOneImage(int direction, int frame){
+    public GreenfootImage getOneImage(int direction, int frame)
+    {
         return directionalImages[direction][frame];
     }
 
-    public GreenfootImage[][] getDirectionalImages(){
+    public GreenfootImage[][] getDirectionalImages()
+    {
         return directionalImages;
     }
 
-    public GreenfootImage[] getNonDirectionalImages(){
+    public GreenfootImage[] getNonDirectionalImages()
+    {
         return nonDirectionalImages;
     }
 
-    /**  This will allow for importing armor etc to make the character dynamic! Without spritefoot work!
-     *  Rows must be 4 (directional) or 1 (non-directional). This is designed to work with spritesheets from
-     *  LPC but could be tailored to work with other source material.
+    /** Create a new animation.
      *  
      *  @param spriteSheet  the Spritesheet to pull frames from
-     *  @param startRow     the row on which the desired sprites are located (not x,y coordinate)
-     *  @param numRows      the number of rows to import, which will correspond with the number of directions (currently,
-     *                      only supports 1 or 4 directions)
+     *  @param startRow     the row on which the desired sprites are located
+     *  @param numRows      the number of rows to import, which will correspond with the number of directions (1 or 4 directions)
      *  @param numFrames    the number of frames in the animation
      *  @param width        the width of each frame
      *  @param height       the height of each frame
-     *  @return Animation   an appropriate Animation object that is either 1 direction or 4 direction.
+     *  
+     *  @return Animation   Animation object that is either 1 direction or 4 direction.
      *  
      */
-    protected static Animation createAnimation(GreenfootImage spriteSheet, int startRow, int numRows, int numFrames, int width, int height){
+    protected static Animation createAnimation(GreenfootImage spriteSheet, int startRow, int numRows, int numFrames, int width, int height)
+    {
         GreenfootImage[][] images = processImages(spriteSheet, startRow, numRows, numFrames, width, height);
 
-        if (numRows == 1){ //If this only has one dimension, create a 1 dimension Animation
-
+        if (numRows == 1) //If this only has one dimension, create a 1 dimension Animation
+        { 
             GreenfootImage[] img1d = new GreenfootImage[images[0].length];
 
-            for (int i = 0; i < img1d.length; i++){
+            for (int i = 0; i < img1d.length; i++)
+            {
                 img1d[i] = images[0][i];
             }
 
-            Animation anim = new Animation(img1d, startRow, numRows, numFrames, width, height);
-            return anim;
-
-        } else { //If this is directional
-            Animation anim = new Animation (images, startRow, numRows, numFrames, width, height);
-            return anim;
+            Animation animation = new Animation(img1d, startRow, numRows, numFrames, width, height);
+            return animation;
+        } 
+        else //If this is directional
+        { 
+            Animation animation = new Animation (images, startRow, numRows, numFrames, width, height);
+            return animation;
         }
     }
 
-    private static GreenfootImage[][] processImages(GreenfootImage spriteSheet, int startRow, int numRows, int numFrames, int width, int height){
+    private static GreenfootImage[][] processImages(GreenfootImage spriteSheet, int startRow, int numRows, int numFrames, int width, int height)
+    {
         GreenfootImage[][] images = new GreenfootImage[numRows][numFrames];
-        for (int row = 0; row < numRows; row++){
+        
+        for (int row = 0; row < numRows; row++)
+        {
             int dir = -1;
 
-            if (numRows == 1){ // for single direction animationsAnimation.createAnimation(spriteSheet, 9, 4, 9, 64, 64)
+            if (numRows == 1)
+            { 
                 dir = 0;
-            } else { 
+            } 
+            else 
+            { 
                 switch (row) 
                 { 
-                    // translate between Direction values and the order in which the frames are organized in LPC sheets
+                    //translate between Direction values and the order in which the frames are organized in sprite sheets
                     case 0: dir = 2;  break;
                     case 1: dir = 1;  break;
                     case 2: dir = 3;  break;
@@ -634,7 +594,8 @@ class Animation {
                 return null;
             }
 
-            for (int frame = 0; frame < numFrames; frame++){
+            for (int frame = 0; frame < numFrames; frame++)
+            {
                 images[dir][frame] = new GreenfootImage (getSlice(spriteSheet, frame * width, (startRow + row - 1) * height, width, height));
             }
         }
@@ -642,8 +603,7 @@ class Animation {
     }
 
     /**
-     * Grabs a part of a sprite sheet (or any other GreenfootImage) and returns it as a new
-     * GreenfootImage. The sprite sheet must be larger than the resulting image.
+     * Grabs a part of a sprite sheet and returns it as a new GreenfootImage. (The sprite sheet must be larger than the resulting image.)
      * 
      * @param spriteSheet   the larger spritesheet to pull images from
      * @param xPos  the x position (of the left) of the desired spot to draw from
@@ -654,14 +614,12 @@ class Animation {
      */
     private static GreenfootImage getSlice(GreenfootImage spriteSheet, int xPos, int yPos, int frameWidth, int frameHeight)
     {
-        if (frameWidth > spriteSheet.getWidth() || frameHeight > spriteSheet.getHeight()){
-
-            System.out.println("Error in AnimationManager: GetSlice: You specified a SpriteSheet that was smaller than your desired output");
+        if (frameWidth > spriteSheet.getWidth() || frameHeight > spriteSheet.getHeight())
+        {
             return null;
         }
+        
         GreenfootImage small = new GreenfootImage (frameWidth, frameHeight);
-        // negatively offset the larger sprite sheet image so that a correct, small portion
-        // of it is drawn onto the smaller, resulting image.
         small.drawImage (spriteSheet, -xPos, -yPos);
         return small;
     }
@@ -671,8 +629,10 @@ class Animation {
     {
         GreenfootImage spriteSheet = new GreenfootImage (layers[0].getWidth(), layers[0].getHeight());
 
-        for (int i = 0; i < layers.length; i++){
-            if (layers[i] != null){
+        for (int i = 0; i < layers.length; i++)
+        {
+            if (layers[i] != null)
+            {
                 spriteSheet.drawImage(layers[i], 0, 0);
             }
         }

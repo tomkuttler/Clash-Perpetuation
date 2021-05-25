@@ -261,7 +261,7 @@ public class Player extends AnimatedCharacter
                         {
                             lastUse = t;
 
-                            runTerminalAnimation("swordAttack", false, false, direction);
+                            runTerminalAnimation("swordAttack", false, direction);
 
                             //Look for an Enemy 1 pixel away in the direction I'm facing
                             Enemy enemy = (Enemy)getOneObjectAtOffset(xOffset * (getImage().getWidth()/2 + 1), yOffset * (getImage().getWidth()/2 + 1), Enemy.class);
@@ -289,7 +289,7 @@ public class Player extends AnimatedCharacter
                             {
                                 lastUse = t;
 
-                                runTerminalAnimation("bowAttack", false, false, direction);
+                                runTerminalAnimation("bowAttack", false, direction);
 
                                 if(direction == 0 || direction == 1)
                                 {
@@ -325,7 +325,7 @@ public class Player extends AnimatedCharacter
                             {
                                 lastUse = t;
 
-                                runTerminalAnimation("slash", false, false, direction);
+                                runTerminalAnimation("slash", false, direction);
 
                                 heal(inventory.itemData.getHealthPoints(currentSlotItem));
 
@@ -452,7 +452,7 @@ public class Player extends AnimatedCharacter
             alive = false;
             stopMoving();
             changeSpeed (0, 3);
-            runTerminalAnimation ("die", false, false, direction);
+            runTerminalAnimation ("die", false, direction);
             deathTime = System.nanoTime();
         }
     }
