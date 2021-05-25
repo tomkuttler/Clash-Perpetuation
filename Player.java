@@ -16,16 +16,13 @@ public class Player extends AnimatedCharacter
     private GreenfootImage longsword2;
     private GreenfootImage bow1;
     private GreenfootImage arrow;
-
-    private Animation playerWalk, playerSwing;
-
+    
     private int moveX, moveY;
     private int xOffset, yOffset;          //Direction for attacking
 
     private int oldX;                      //Used for collision
     private int oldY;                      //Used for collision
 
-    //Attributes
     private int health;                    //Player health
     private int maxHealth = 100;           //Max health player
     private boolean alive = true;          //Is player alive
