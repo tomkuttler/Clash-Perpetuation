@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=AnimatedCharacter
-comment0.text=\r\n\ The\ AnimatedCharacter\ superclass\ is\ designed\ to\ manage\ animations\ for\ 2d\ sprites\r\n\ It\ implements\ TIME-BASED\ frame\ changing\ and\ moving\ to\ create\ both\ smoothness\ and\ preciseness.\ \r\n\ \ \r\n\ Primary\ Animation\:\ Usually\ movement\ -\ this\ is\ the\ base\ animation.\r\n\ Terminal\ Animations\:\ Animations\ that\ run,\ then\ end,\ and\ return\ to\ the\ primary\ animation.\r\n
+comment0.text=\r\n\ The\ AnimatedCharacter\ superclass\ is\ designed\ to\ manage\ animations\ for\ 2d\ sprites.\r\n\ It\ implements\ time\ based\ frame\ changing\ and\ moving\ to\ create\ both\ smoothness\ and\ preciseness.\ \r\n\ \ \r\n\ Primary\ Animation\:\ Usually\ movement\ -\ this\ is\ the\ base\ animation.\r\n\ Terminal\ Animations\:\ Animations\ that\ run,\ then\ end,\ and\ return\ to\ the\ primary\ animation.\r\n
 comment1.params=
 comment1.target=AnimatedCharacter()
 comment10.params=anim
@@ -12,10 +12,10 @@ comment12.params=animation
 comment12.target=void\ setPrimaryAnimation(Animation)
 comment13.params=moveSpeed\ framesPerSecond
 comment13.target=void\ changeSpeed(int,\ int)
-comment13.text=\r\n\ Set\ the\ movement\ speed\ (in\ pixels\ per\ second)\ and\ the\ animation\ rate\r\n\ (in\ frames\ per\ second)\r\n
+comment13.text=\r\n\ Set\ the\ movement\ speed\ (in\ pixels\ per\ second)\ and\ the\ animation\ rate\ (in\ frames\ per\ second)\r\n
 comment14.params=dirX\ dirY
 comment14.target=void\ moveInDirection(int,\ int)
-comment14.text=\r\n\ <p>Make\ this\ AnimatedCharacter\ move\ in\ a\ specified\ direction.</p>\r\n\ \r\n\ <p><b>Instructions\:</b></p>\r\n\ <ol>\r\n\ <li>Subclasses\ can\ just\ set\ direction\ once\ and\ the\ animated\ character\r\n\ will\ keep\ moving\ until\ stopped\ or\ direction\ changes.</li>\r\n\ <li>Subclasses\ can\ call\ this\ repeatedly\ -\ if\ direction\ doesn't\ change,\r\n\ these\ method\ calls\ will\ be\ ignored</li>\r\n\ <li>\ This\ method\ does\ not\ actually\ perform\ movement\ -\ only\ set\ direction\r\n\ variables.\ This\ is\ intended\ -\ the\ super.act()\ call\ in\ the\ subclass\ will\ run\r\n\ last\ in\ the\ subclass'\ act()\ method\ and\ perform\ the\ actual\ movement.</li>\r\n\r\n\ <li>Intended\ to\ receive\ a\ 1\ or\ -1\ for\ for\ ONE\ of\ the\ parameters,\ and\ a\ \r\n\ zero\ (0)\ for\ the\ other.\ This\ method\ does\ not\ allow\ diagonal\ movement.</li>\r\n\ </ol>\r\n\ @param\ dirX\ \ The\ direction\ for\ x\ movement.\ Should\ be\ -1,\ 0\ or\ 1.\r\n\ @param\ dirY\ \ The\ direction\ for\ y\ movement.\ Should\ be\ -1,\ 0\ or\ 1.\ \r\n
+comment14.text=\r\n\ Make\ this\ AnimatedCharacter\ move\ in\ a\ specified\ direction.\r\n\ \r\n\ Subclasses\ can\ just\ set\ direction\ once\ and\ the\ animated\ character\ will\ keep\ moving\ until\ stopped\ or\ direction\ changes.\r\n\ This\ method\ does\ not\ actually\ perform\ movement.\ It\ only\ sets\ the\ direction\ variables.\ \r\n\ The\ super.act()\ call\ in\ the\ subclass\ will\ run\ last\ in\ the\ subclass'\ act()\ method\ and\ perform\ the\ actual\ movement.\r\n\r\n\ Intended\ to\ receive\ a\ 1\ or\ -1\ for\ for\ ONE\ of\ the\ parameters,\ and\ a\ zero\ (0)\ for\ the\ other.\ This\ method\ does\ not\ allow\ diagonal\ movement.\r\n\ \r\n\ @param\ dirX\ \ The\ direction\ for\ x\ movement.\ (-1,\ 0\ or\ 1)\r\n\ @param\ dirY\ \ The\ direction\ for\ y\ movement.\ (-1,\ 0\ or\ 1)\r\n
 comment15.params=direction
 comment15.target=void\ stopMoving(int)
 comment16.params=

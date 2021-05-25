@@ -2,8 +2,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.HashMap;
 
 /**
- * The AnimatedCharacter superclass is designed to manage animations for 2d sprites
- * It implements TIME-BASED frame changing and moving to create both smoothness and preciseness. 
+ * The AnimatedCharacter superclass is designed to manage animations for 2d sprites.
+ * It implements time based frame changing and moving to create both smoothness and preciseness. 
  *  
  * Primary Animation: Usually movement - this is the base animation.
  * Terminal Animations: Animations that run, then end, and return to the primary animation.
@@ -11,44 +11,44 @@ import java.util.HashMap;
 
 public abstract class AnimatedCharacter extends Actor
 {
-    public final static int MAX_LAYERS = 12;
-
     //----- Protected variables -----
     protected HashMap<String, Animation> animations;
 
     protected Animation primaryAnimation; //The primary animation is generally movement - this is the base animation
     protected Animation currentAnimation; //The animation currenty playing
 
-    protected int direction; //Direction: 0 = Right, 1 = Left, 2 = Up, 3 = Down
+    protected int direction;              //Direction: 0 = Right, 1 = Left, 2 = Up, 3 = Down
 
+    protected Collider myCollider;
+    
     //----- Private variables -----
-    private double framesPerSecond;   // animation speed
-    private double secondsPerFrame;   // calculated fraction of second per frame
-    private double maxFrameLength;    // Used to avoid "jumping" if lag or GF pause.
-    //What fraction of a second is max dead time?
+    private double framesPerSecond;       //Animation speed
+    private double secondsPerFrame;       //Calculated fraction of second per frame
+    private double maxFrameLength;        //Used to avoid jumping animations if lag
 
-    private int frame;          // current frame counter
-    private double xx, yy;      // internal, double representation of coordinates
-    private int dirX, dirY;     // variables used to control direction
-    private int prevX, prevY;   // previous rounded X and Y values
-    private boolean idle;       // used to specify idle frame
-    private boolean stopAtEnd;  // is this a TERMINAL animation?
+    private int frame;          //Current frame counter
+    private double xx, yy;      //Internal, double representation of coordinates
+    private int dirX, dirY;     //Variables used to control direction
+    private int prevX, prevY;   //Previous rounded X and Y values
+    private boolean idle;       //Used to specify idle frame
+    private boolean stopAtEnd;  //Is this a TERMINAL animation?
 
-    private double moveSpeed;   // how many pixels per SECOND
+    private double moveSpeed;   //How many pixels per SECOND
 
+    private final static int MAX_LAYERS = 12;
+    
     //Current set of images
     //This is one dimension of an Animation, and will be cycled through in the animation code.
     private GreenfootImage[] currentImages; 
     private GreenfootImage[] spriteSheetLayers;
     private GreenfootImage spriteSheet;
 
-    protected Collider myCollider;
     private boolean collisionEnabled = false; 
 
-    //for time-keeping to keep animation going at consistent speed
-    private long lastFrame;         // Keep track of when the last animation was updated
-    private long current;           // Keep track of time between frames for movement
-    private long elapsed;           // how long a frame was
+    //Keep animation going at consistent speed
+    private long lastFrame;         //Update of the last animation
+    private long current;           //Time between frames for movement
+    private long elapsed;           //How long a frame was
 
     public AnimatedCharacter()
     {
@@ -61,19 +61,12 @@ public abstract class AnimatedCharacter extends Actor
         idle = false;
         stopAtEnd = false;
 
-        //VALUES FOR ANIMATION 
+        //In case program is too laggy, this is the max time per frame.
         maxFrameLength = 0.10;
-
-        // In case program is too laggy, this determines the max time per frame.
-        // In other words, if a frame takes longer than maxFrameLength to render,
-        // or the program is paused for more time, the animation will place the
-        // object at the point at the distance that would have been covered in
-        // maxFrameLength time.
-        maxFrameLength = 1/30.0; // aboutn 1/60th of a second, 60 FPS  
 
         spriteSheetLayers = new GreenfootImage[MAX_LAYERS];
 
-        // Set the initial timestamp for animation timer
+        //Set the initial timestamp for animation timer
         lastFrame = System.nanoTime();
     }
 
@@ -189,8 +182,7 @@ public abstract class AnimatedCharacter extends Actor
     }
 
     /**
-     * Set the movement speed (in pixels per second) and the animation rate
-     * (in frames per second)
+     * Set the movement speed (in pixels per second) and the animation rate (in frames per second)
      */
     protected void changeSpeed(int moveSpeed, int framesPerSecond)
     {
@@ -199,59 +191,58 @@ public abstract class AnimatedCharacter extends Actor
             this.framesPerSecond = framesPerSecond;
             this.moveSpeed = moveSpeed;
 
-            // Figure out how many seconds per frame
+            //Figure out how many seconds per frame
             secondsPerFrame = 1.0 / this.framesPerSecond;
-            // Reset animation timer
+            //Reset animation timer
             lastFrame = System.nanoTime();
         }
     }
 
     /**
-     * <p>Make this AnimatedCharacter move in a specified direction.</p>
+     * Make this AnimatedCharacter move in a specified direction.
      * 
-     * <p><b>Instructions:</b></p>
-     * <ol>
-     * <li>Subclasses can just set direction once and the animated character
-     * will keep moving until stopped or direction changes.</li>
-     * <li>Subclasses can call this repeatedly - if direction doesn't change,
-     * these method calls will be ignored</li>
-     * <li> This method does not actually perform movement - only set direction
-     * variables. This is intended - the super.act() call in the subclass will run
-     * last in the subclass' act() method and perform the actual movement.</li>
+     * Subclasses can just set direction once and the animated character will keep moving until stopped or direction changes.
+     * This method does not actually perform movement. It only sets the direction variables. 
+     * The super.act() call in the subclass will run last in the subclass' act() method and perform the actual movement.
      *
-     * <li>Intended to receive a 1 or -1 for for ONE of the parameters, and a 
-     * zero (0) for the other. This method does not allow diagonal movement.</li>
-     * </ol>
-     * @param dirX  The direction for x movement. Should be -1, 0 or 1.
-     * @param dirY  The direction for y movement. Should be -1, 0 or 1. 
+     * Intended to receive a 1 or -1 for for ONE of the parameters, and a zero (0) for the other. This method does not allow diagonal movement.
+     * 
+     * @param dirX  The direction for x movement. (-1, 0 or 1)
+     * @param dirY  The direction for y movement. (-1, 0 or 1)
      */
     protected void moveInDirection(int dirX, int dirY)
-    {
-        // If there has been a change in direction
-        if (this.dirX != dirX || this.dirY != dirY){
-            if (dirX == 0 && dirY == 0){
+    {        
+        if (this.dirX != dirX || this.dirY != dirY) //If there has been a change in direction
+        {
+            if (dirX == 0 && dirY == 0)
+            {
                 idle = true; 
-                lastFrame = System.nanoTime(); // reset animation timer to start fresh
-                frame = 0; // 0 is the idle frame
+                lastFrame = System.nanoTime(); //Reset animation timer to start fresh
+                frame = 0; //0 is the idle frame
                 setImage (currentAnimation.getDirectionalImages()[direction][frame]);
             } 
             else 
             {
                 idle = false; 
-                //frame = 1; // set to first frame if dir has changed
-                // set the facing direction if direction has changed
-                if (dirX == 1){
+                
+                //Set the facing direction if direction has changed
+                if (dirX == 1)
+                {
                     direction = 0;
-                } else if (dirX == -1){
+                } else if (dirX == -1)
+                {
                     direction = 1;
-                } else if (dirY == 1){
+                } else if (dirY == 1)
+                {
                     direction = 3;
-                } else if (dirY == -1){
+                } else if (dirY == -1)
+                {
                     direction = 2;
                 }
             }
             setCurrentImages (currentAnimation.getDirectionalImages()[direction]);
-            // set these variables so that I can check for changes next time
+            
+            //Set these variables so that they can be checked next frame for changes
             this.dirX = dirX;
             this.dirY = dirY;
         } 
@@ -316,7 +307,8 @@ public abstract class AnimatedCharacter extends Actor
             setCurrentImages (currentAnimation.getNonDirectionalImages());
         }
 
-        if (stopMoving){
+        if (stopMoving)
+        {
             stopMoving (direction);
         }
     }
@@ -325,7 +317,8 @@ public abstract class AnimatedCharacter extends Actor
     {
         currentImages = new GreenfootImage[images.length];
         
-        for (int i = 0; i < images.length; i++){
+        for (int i = 0; i < images.length; i++)
+        {
             currentImages[i] = images[i];
         }
     }
