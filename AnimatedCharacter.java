@@ -18,12 +18,6 @@ import java.util.HashMap;
  *  <li> Adding an optional layering system.</li>
  *  <li> Adding the result of many lessons learned from Greentree Chronicles code</li>
  *  <li> Trying to move as much functionality as possible out of the subclasses and into here</li>
- * </ul>
- * 
- * <p><b>v0.9.0:</b> (April 2020)</p>
- * <ul>
- *  <li> Collision system implemented. SimplePlayer still works without it, ComplexPlayer now uses it.</li>
- *  <li> Continuing small improvements</li>
  * </ul> 
  */
 
