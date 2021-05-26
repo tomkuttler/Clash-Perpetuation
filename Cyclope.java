@@ -13,7 +13,7 @@ public class Cyclope extends Enemy
     private int walkAnimSpeed = 15;
 
     private int health;
-    private int maxHealth = 100;           //Max health player
+    private int maxHealth = 100;           //Max health of the enemy
 
     private int detectPlayerRange = 200;   //Detection range of the enemy    
     private int attackRange = 47;          //Attack range of the enemy
