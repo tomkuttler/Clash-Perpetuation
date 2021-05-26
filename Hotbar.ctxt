@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=Hotbar
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Hotbar\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ Hotbar\ class\ stores\ the\ items\ in\ the\ hotbar\ and\ manages\ the\ selection\ of\ the\ current\ hotbar\ slot\ by\ clicking\ /\ pressing\ the\ left\ or\ right\ key.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=newHotbarUI\ newHotbarHighlight\ newInventory
 comment1.target=Hotbar(HotbarUI,\ HotbarHighlight,\ Inventory)
+comment1.text=\r\n\ Hotbar\ Constructor\:\ Sets\ the\ hotbar\ image\ to\ null,\ because\ this\ class\ just\ manages\ the\ hotbar\ and\ is\ not\ the\ image\ of\ the\ hotbar,\r\n\ creates\ 10\ new\ empty\ hotbar\ slots\ and\ sets\ the\ references.\r\n\ \r\n\ @param\ 'newHotbarUI'\:\ Reference\ to\ the\ background\ image\ of\ the\ hotbar\r\n\ @param\ 'newHotbarHighlight'\:\ Reference\ to\ the\ image\ that\ indicates\ the\ currently\ selected\ hotbar\ slot\r\n\ @param\ 'newInventory'\:\ Reference\ to\ the\ inventory\ manager\r\n
 comment10.params=
 comment10.target=java.lang.String\ getCurrentSlotItem()
 comment11.params=itemToAdd\ amount\ slotNumberToAdd\ slotNumberToRemove
@@ -17,6 +18,7 @@ comment15.params=item
 comment15.target=boolean\ isInHotbar(java.lang.String)
 comment2.params=w
 comment2.target=void\ addedToWorld(greenfoot.World)
+comment2.text=\r\n\ Method\ 'addedToWorld'\:\ Is\ called\ when\ the\ hotbar\ object\ is\ placed\ in\ the\ world.\r\n\ It\ sets\ the\ location\ of\ the\ hotbar\ slots\ and\ updates\ them.\ It\ updates\ the\ HotbarHighlight\ too.\ \r\n\ \r\n\ @param\ 'World\ w'\:\ The\ world\ in\ which\ the\ hotbar\ object\ will\ be\ placed\ in.\r\n
 comment3.params=
 comment3.target=void\ act()
 comment4.params=

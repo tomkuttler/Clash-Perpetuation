@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class HotbarUI extends UI
 {
-    //Object picture:
+    //Object image
     GreenfootImage hotbar = new GreenfootImage("ui/hotbar.png");
     
     public HotbarUI()

@@ -1,34 +1,31 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class EnemyHealthBar here.
+ * The EnemyHealthBar class is used as a health bar to show the health points of the enemys over their heads.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
 public class EnemyHealthBar extends UI
 {
-    private int barWidth = 40;                            //The width of the color portion of the bar
-    private int barHeight = 5;                            //The height of the color portion of the bar
-    private int breakValue = 20;                           //The amount that changes the color of the bar
+    private int barWidth = 40;                             //The width of the color portion of the bar
+    private int barHeight = 5;                             //The height of the color portion of the bar
+    private int breakValue = 20;                           //The amount at which the color of the bar changes
     
     private Color backgroundColor = new Color(0, 0, 0, 0); //The background color of the entire object (Transparent)
-    private Color textColor = Color.BLACK;                 //The color of all text and the frame of the bar itself
+    private Color textColor = Color.BLACK;                 //The color of all text and the rectangle frame of the bar
     private Color safeColor = Color.GREEN;                 //The color of the bar while in the safe range
     private Color dangerColor = Color.RED;                 //The color of the bar while in the danger range
     
     private float fontSize = 18.0f;                        //The size of the text
     private int value = 0;                                 //The current value of the bar
     private int maximumValue;                              //The maximum value of the bar
-    private int minimumValue = 0;                          //The minimum value of the bar
-    private String unitOfMeasure;                          //The unit of measure of the bar (here: "HP") 
-    private boolean showTextualUnits = false;               //Determines whether or not the textual quantity of the bar is to show
+    private int minimumValue = 0;                          //The minimum value of the bar 
 
     /**
-     * HealthBar Constructor: saves the initial values that are brought in and creates the bar image through the 'add(initValue)' call,
+     * EnemyHealthBar Constructor: saves the initial values that are brought in and creates the bar image through the 'add(initValue)' call,
      * which sets the initial value of the bar and calls the 'newImage' method to build and set a new image for the bar.
      *
-     * @param 'unitType': a text string to specify what measure is being used in the bar (here: "HP")
      * @param 'initValue': the value the bar should be initially set to
      * @param 'maxValue': the highest value the bar is allowed to hold
      */
@@ -45,13 +42,16 @@ public class EnemyHealthBar extends UI
     {
         int barValue = (int) (barWidth * (value - minimumValue) / (maximumValue - minimumValue));
         GreenfootImage leftImg = new GreenfootImage("", (int) fontSize, textColor, backgroundColor);
-        GreenfootImage rightImg = (showTextualUnits) ? new GreenfootImage(" " + value + " " + unitOfMeasure, (int) fontSize, textColor, backgroundColor) : new GreenfootImage(1, 1);
+        GreenfootImage rightImg = new GreenfootImage(1, 1);
         int maxX = (leftImg.getWidth() > rightImg.getWidth()) ? leftImg.getWidth() : rightImg.getWidth();
         GreenfootImage barImg = new GreenfootImage(barWidth + 4, barHeight + 4);
         barImg.setColor(backgroundColor);
         barImg.fill();
         barImg.setColor(textColor);
+        
+        //Draw a rectangle around the health bar
         barImg.drawRect(0, 0, barImg.getWidth() - 1, barImg.getHeight() - 1);
+        
         if (value > minimumValue)
         {            
             if (value > breakValue) 

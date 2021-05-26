@@ -1,27 +1,33 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Hotbar here.
+ * The Hotbar class stores the items in the hotbar and manages the selection of the current hotbar slot by clicking / pressing the left or right key.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
 public class Hotbar extends UI 
 {
-    private HotbarSlot[] slots = new HotbarSlot[10];   //Saves the hotbar slots
+    private HotbarSlot[] slots = new HotbarSlot[10];   //This array contains the 10 hotbar slots
 
-    private int currentSlot = 0;                       //Highlited slot
-    private String currentSlotItem;                    //Item in current slot
+    private int currentSlot = 0;                       //This is the currently selected slot of the hotbar
+    private String currentSlotItem;                    //The item that is in the currently selected slot of the hotbar
         
-    private double pressCooldown = 100000000.0;  //Cooldown of 100 milion nanosec (0,1sec) between pressing a key
-    private double lastPressedKeyTime;         //Saves the time of the last key press
+    private double pressCooldown = 100000000.0;        //Cooldown of 100 milion nanosec (0,1sec) between pressing a key (Prevents "jumping" over hotbar slots)
+    private double lastPressedKeyTime;                 //Saves the time of the last key press (left / right key)
 
-    private HotbarUI hotbarUI;
-    private HotbarHighlight hotbarHighlight;
-    private Inventory inventory;
+    private HotbarUI hotbarUI;                         //Reference to the background image of the hotbar
+    private HotbarHighlight hotbarHighlight;           //Reference to the image that indicates the currently selected hotbar slot
+    private Inventory inventory;                       //Reference to the inventory manager
 
-    int amount = 0;   
-
+    /**
+     * Hotbar Constructor: Sets the hotbar image to null, because this class just manages the hotbar and is not the image of the hotbar,
+     * creates 10 new empty hotbar slots and sets the references.
+     * 
+     * @param 'newHotbarUI': Reference to the background image of the hotbar
+     * @param 'newHotbarHighlight': Reference to the image that indicates the currently selected hotbar slot
+     * @param 'newInventory': Reference to the inventory manager
+     */ 
     public Hotbar(HotbarUI newHotbarUI, HotbarHighlight newHotbarHighlight, Inventory newInventory)
     {
         setImage((GreenfootImage)null);
@@ -38,6 +44,12 @@ public class Hotbar extends UI
         inventory = newInventory;
     }
 
+    /**
+     * Method 'addedToWorld': Is called when the hotbar object is placed in the world.
+     * It sets the location of the hotbar slots and updates them. It updates the HotbarHighlight too. 
+     * 
+     * @param 'World w': The world in which the hotbar object will be placed in.
+     */
     public void addedToWorld(World w)
     {
         for(int i = 0; i < 10; i++) 

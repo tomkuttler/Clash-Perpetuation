@@ -17,7 +17,7 @@ public class WorldMap1 extends World
         setBackground(map1);
         
         //Spawn Health bar: title, units used in bar, initial value, maximum value
-        PlayerHealthBar bar = new PlayerHealthBar("HP", 100, 100);
+        PlayerHealthBar bar = new PlayerHealthBar(100, 100);
         addObject(bar, 186, 29);
         addObject(new HealthBarUI(), 150, 50);
         

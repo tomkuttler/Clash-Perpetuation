@@ -8,12 +8,14 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Inventory extends UI
 {
+    private InventorySlot[] slots = new InventorySlot[40];   //This array contains the 40 inventory slots
+    
     private boolean isInventoryOpen = false;  //Stores if inventory is open or closed
 
     private String itemToAdd;                 //Name of the item that is added to the inventory
     private int amountToAdd;                  //Amount of the item that is added to the inventory
 
-    private InventorySlot[] slots = new InventorySlot[40];   //Saves the inventory slots 
+    
 
     private InventoryUI inventoryUI;          //Referenz to the InventoryUI
 

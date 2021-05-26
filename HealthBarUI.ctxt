@@ -1,6 +1,7 @@
 #BlueJ class context
 comment0.target=HealthBarUI
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ HealthBarUI\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ HealthBarUI\ class\ is\ used\ to\ display\ a\ health\ bar\ image\ on\ top\ the\ "real"\ PlayerHealthBar.\ All\ functionality\ is\ located\ in\ the\ PlayerHealthBar\ class.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=HealthBarUI()
+comment1.text=\r\n\ HealthBarUI\ Constructor\:\ Makes\ the\ image\ 2\ times\ bigger\ and\ sets\ it.\r\n
 numComments=2

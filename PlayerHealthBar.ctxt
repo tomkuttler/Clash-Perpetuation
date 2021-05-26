@@ -1,9 +1,9 @@
 #BlueJ class context
 comment0.target=PlayerHealthBar
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ HealthBar\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=unitType\ initValue\ maxValue
-comment1.target=PlayerHealthBar(java.lang.String,\ int,\ int)
-comment1.text=\r\n\ HealthBar\ Constructor\:\ saves\ the\ initial\ values\ that\ are\ brought\ in\ and\ creates\ the\ bar\ image\ through\ the\ 'add(initValue)'\ call,\r\n\ which\ sets\ the\ initial\ value\ of\ the\ bar\ and\ calls\ the\ 'newImage'\ method\ to\ build\ and\ set\ a\ new\ image\ for\ the\ bar.\r\n\r\n\ @param\ 'unitType'\:\ a\ text\ string\ to\ specify\ what\ measure\ is\ being\ used\ in\ the\ bar\ (here\:\ "HP")\r\n\ @param\ 'initValue'\:\ the\ value\ the\ bar\ should\ be\ initially\ set\ to\r\n\ @param\ 'maxValue'\:\ the\ highest\ value\ the\ bar\ is\ allowed\ to\ hold\r\n
+comment0.text=\r\n\ The\ PlayerHealthBar\ class\ is\ used\ as\ a\ health\ bar\ to\ show\ the\ health\ points\ of\ the\ player\ in\ the\ top\ left\ corner.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=initValue\ maxValue
+comment1.target=PlayerHealthBar(int,\ int)
+comment1.text=\r\n\ PlayerHealthBar\ Constructor\:\ saves\ the\ initial\ values\ that\ are\ brought\ in\ and\ creates\ the\ bar\ image\ through\ the\ 'add(initValue)'\ call,\r\n\ which\ sets\ the\ initial\ value\ of\ the\ bar\ and\ calls\ the\ 'newImage'\ method\ to\ build\ and\ set\ a\ new\ image\ for\ the\ bar.\r\n\r\n\ @param\ 'initValue'\:\ the\ value\ the\ bar\ should\ be\ initially\ set\ to\r\n\ @param\ 'maxValue'\:\ the\ highest\ value\ the\ bar\ is\ allowed\ to\ hold\r\n
 comment2.params=
 comment2.target=void\ newImage()
 comment2.text=\r\n\ Method\ 'newImage'\:\ builds\ a\ new\ image\ for\ the\ bar,\ determined\ by\ the\ values\ set\ for\ it\r\n

@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class InventoryUI extends UI
 {
-    //Object picture:
+    //Object image
     GreenfootImage inventory = new GreenfootImage("ui/inventory.png");
     
     public InventoryUI()
