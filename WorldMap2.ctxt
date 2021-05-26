@@ -2,5 +2,5 @@
 comment0.target=WorldMap2
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ WorldMap2\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=p\ bar\ inventory\ iUI\ hotbar\ hUI\ hH
-comment1.target=WorldMap2(Player,\ HealthBar,\ Inventory,\ InventoryUI,\ Hotbar,\ HotbarUI,\ HotbarHighlight)
+comment1.target=WorldMap2(Player,\ PlayerHealthBar,\ Inventory,\ InventoryUI,\ Hotbar,\ HotbarUI,\ HotbarHighlight)
 numComments=2

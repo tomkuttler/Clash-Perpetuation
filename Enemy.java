@@ -11,6 +11,7 @@ public abstract class Enemy extends AnimatedCharacter
     private boolean alive = true;
 
     private int health;
+    private int maxHealth;           //Max health enemy
 
     private int detectPlayerRange;   //Detection range of the enemy    
     private int attackRange;          //Attack range of the enemy
@@ -30,10 +31,13 @@ public abstract class Enemy extends AnimatedCharacter
 
     private double removeCooldown; //Enemy will be removed after Cooldown (after Health <= 0)
     private double deathTime;              //Stores the time then enemy died
+    
+    private EnemyHealthBar bar;            //Referenz HealthBar
 
-    public void setup(int health, int detectPlayerRange, int attackRange, int damage, double hitCooldown, double removeCooldown)
+    public void setup(int health, int maxHealth, int detectPlayerRange, int attackRange, int damage, double hitCooldown, double removeCooldown)
     {
         this.health = health;
+        this.maxHealth = maxHealth;
         this.detectPlayerRange = detectPlayerRange;
         this.attackRange = attackRange;
         this.damage = damage;
@@ -47,6 +51,28 @@ public abstract class Enemy extends AnimatedCharacter
         super.act();
     }    
 
+    //Spawnes new EnemyHealthbar if no one exists
+    public void updateHealthBar()
+    {
+        if(bar == null)
+        {
+            //Spawn HealthBar
+            bar = new EnemyHealthBar(health, maxHealth); 
+            getWorld().addObject(bar, getX(), getY() - 30);
+        }
+        else
+        {
+            if(Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > detectPlayerRange) //If distance to player < detectPlayerRange -> stop moving
+            {
+                bar.setImage((GreenfootImage)null);
+            }
+            else
+            {
+                bar.newImage();
+            }
+        }
+    }
+    
     //Updates the Player Position Variables
     public void updatePlayerPosition(Player player)
     {
@@ -56,17 +82,17 @@ public abstract class Enemy extends AnimatedCharacter
             playerY = player.getY();
         }
     }
-
+    
     //Enemy movement: move if distance to player < detectPlayerRange && > attackRange
     public void moveToPlayer()
     {
         if(alive)
         {
             if(Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > detectPlayerRange) //If distance to player < detectPlayerRange -> stop moving
-                {
-                    stopMoving();
-                }
-                        
+            {
+                stopMoving();
+            }
+
             if (Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) < detectPlayerRange) //If distance to player < detectPlayerRange
             {
                 if(Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) < attackRange) //If distance to player < attackRange -> stop moving
@@ -79,21 +105,25 @@ public abstract class Enemy extends AnimatedCharacter
                     if (getX() < playerX && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (1, 0);
+                        bar.setLocation(getX(), getY() - 30);
                     }
 
                     else if (getX() > playerX && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (-1, 0);
+                        bar.setLocation(getX(), getY() - 30);
                     }
 
                     else if (getY() < playerY && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (0, 1);
+                        bar.setLocation(getX(), getY() - 30);
                     }
 
                     else if (getY() > playerY && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (0, -1);
+                        bar.setLocation(getX(), getY() - 30);
                     }
                 }
                 else
@@ -101,20 +131,24 @@ public abstract class Enemy extends AnimatedCharacter
                     if (getY() < playerY && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (0, 1);
+                        bar.setLocation(getX(), getY() - 30);
                     }
 
                     else if (getY() > playerY && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (0, -1);
+                        bar.setLocation(getX(), getY() - 30);
                     }
                     else if (getX() < playerX && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (1, 0);
+                        bar.setLocation(getX(), getY() - 30);
                     }
 
                     else if (getX() > playerX && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (-1, 0);
+                        bar.setLocation(getX(), getY() - 30);
                     }
                 }                                
             }
@@ -178,6 +212,7 @@ public abstract class Enemy extends AnimatedCharacter
             if(System.nanoTime() - deathTime >= removeCooldown)
             {
                 disableCollision();
+                getWorld().removeObject(bar);
                 getWorld().removeObject(this);
             }
         }
@@ -188,6 +223,8 @@ public abstract class Enemy extends AnimatedCharacter
     {
         health = health - damage;
 
+        bar.setValue(health);
+        
         if(health <= 0)
         {
             if(alive)

@@ -10,7 +10,7 @@ public class WorldMap2 extends World
 {
     GreenfootImage map1 = new GreenfootImage("WorldMap2.png");
     
-    public WorldMap2(Player p, HealthBar bar, Inventory inventory, InventoryUI iUI, Hotbar hotbar, HotbarUI hUI, HotbarHighlight hH)
+    public WorldMap2(Player p, PlayerHealthBar bar, Inventory inventory, InventoryUI iUI, Hotbar hotbar, HotbarUI hUI, HotbarHighlight hH)
     {    
         // Create a new world with 1696x928 cells with a cell size of 1x1 pixels.
         super(1696, 928, 1);

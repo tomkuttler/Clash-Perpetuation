@@ -37,14 +37,14 @@ public class Player extends AnimatedCharacter
     private double pressCooldown = 250000000.0;  //Cooldown of 250 milion nanosec (0,25sec) between pressing a key
     private double lastPressedKeyTime;         //Saves the time of the last key press
 
-    private HealthBar bar;                 //Referenz HealthBar
+    private PlayerHealthBar bar;                 //Referenz HealthBar
     private Inventory inventory;           //Referenz Inventory
     private Hotbar hotbar;                 //Referenz Hotbar
 
     private double removeCooldown = 2000000000.0; //Player will be removed after Cooldown of 2 bilion nanosec (2sec) (after Health <= 0)
     private double deathTime;              //Stores the time then enemy died
 
-    public Player(HealthBar newBar, Inventory newInventory, Hotbar newHotbar) {        
+    public Player(PlayerHealthBar newBar, Inventory newInventory, Hotbar newHotbar) {        
         //Set variables for speed 
         walkSpeed = 60;     // pixels to move per SECOND
         walkAnimSpeed = 20; // number of animations frames per SECOND 

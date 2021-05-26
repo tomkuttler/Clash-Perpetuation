@@ -12,7 +12,8 @@ public class Cyclope extends Enemy
     private int walkSpeed = 20;
     private int walkAnimSpeed = 15;
 
-    private int health = 100;
+    private int health;
+    private int maxHealth = 100;           //Max health player
 
     private int detectPlayerRange = 200;   //Detection range of the enemy    
     private int attackRange = 47;          //Attack range of the enemy
@@ -29,7 +30,10 @@ public class Cyclope extends Enemy
         //Set the speed
         changeSpeed(walkSpeed, walkAnimSpeed);
 
-        setup(health, detectPlayerRange, attackRange, damage, hitCooldown, removeCooldown);
+        //Set full health
+        health = maxHealth;
+        
+        setup(health, maxHealth, detectPlayerRange, attackRange, damage, hitCooldown, removeCooldown);
 
         //SETUP ANIMATIONS
         //Create sprite sheets
@@ -49,18 +53,20 @@ public class Cyclope extends Enemy
         direction = 3;
 
         //For the starting image, grab the 0th frame from the current facing dirction
-        setImage(primaryAnimation.getOneImage(direction, 0));
-
+        setImage(primaryAnimation.getOneImage(direction, 0));        
+        
         setCollider(28, 35, 0, 6);
 
         //Set referenz to player
-        player = newPlayer;
+        player = newPlayer;        
     }
-
+   
     public void act() 
     {
-        updatePlayerPosition(player);
-
+        updateHealthBar();
+        
+        updatePlayerPosition(player);        
+        
         moveToPlayer();
 
         hit(player);

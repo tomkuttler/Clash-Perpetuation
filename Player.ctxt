@@ -2,7 +2,7 @@
 comment0.target=Player
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Player\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=newBar\ newInventory\ newHotbar
-comment1.target=Player(HealthBar,\ Inventory,\ Hotbar)
+comment1.target=Player(PlayerHealthBar,\ Inventory,\ Hotbar)
 comment10.params=
 comment10.target=void\ changeMap()
 comment11.params=
