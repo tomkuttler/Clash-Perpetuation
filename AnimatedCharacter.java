@@ -2,7 +2,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 import java.util.HashMap;
 
 /**
- * The AnimatedCharacter superclass is designed to manage animations for 2d sprites.
+ * The AnimatedCharacter superclass manages animations for 2d sprites.
  * It implements time based frame changing and moving to create both smoothness and preciseness. 
  *  
  * Primary Animation: Usually movement - this is the base animation.
@@ -12,67 +12,65 @@ import java.util.HashMap;
 public abstract class AnimatedCharacter extends Actor
 {
     //----- Protected variables -----
-    protected HashMap<String, Animation> animations;
+    protected HashMap<String, Animation> animations; //This HashMap stores the animations
 
-    protected Animation primaryAnimation; //The primary animation is generally movement - this is the base animation
-    protected Animation currentAnimation; //The animation currenty playing
+    protected Animation primaryAnimation;            //The primary animation is generally movement - this is the base animation
+    protected Animation currentAnimation;            //The animation currenty playing
 
-    protected int direction;              //Direction: 0 = Right, 1 = Left, 2 = Up, 3 = Down
+    protected int direction;                         //Direction: 0 = Right, 1 = Left, 2 = Up, 3 = Down
 
-    protected Collider myCollider;
+    protected Collider myCollider;                   //Reference to my collider
     
     //----- Private variables -----
-    private double framesPerSecond;       //Animation speed
-    private double secondsPerFrame;       //Calculated fraction of second per frame
-    private double maxFrameLength;        //Used to avoid jumping animations if lag
+    private double framesPerSecond;                  //Animation speed
+    private double secondsPerFrame;                  //Calculated fraction of second per frame
+    private double maxFrameLength = 0.10;            //Used to avoid "jumping" animations if lag
 
-    private int frame;          //Current frame counter
-    private double xx, yy;      //Internal, double representation of coordinates
-    private int dirX, dirY;     //Variables used to control direction
-    private int prevX, prevY;   //Previous rounded X and Y values
-    private boolean idle;       //Used to specify idle frame
-    private boolean stopAtEnd;  //Is this a TERMINAL animation?
+    private int frame = 0;                           //Current frame counter
+    private double xx, yy;                           //Internal, double representation of coordinates
+    private int dirX = 0;                            //Variable used to control direction
+    private int dirY = 0;                            //Variable used to control direction
+    private int prevX, prevY;                        //Previous rounded X and Y values
+    private boolean idle = false;                    //Used to specify idle frame
+    private boolean stopAtEnd = false;               //Is this a TERMINAL animation?
 
-    private double moveSpeed;   //How many pixels per SECOND
+    private double moveSpeed;                        //How many pixels per SECOND
 
-    private final static int MAX_LAYERS = 12;
+    private final static int maxLayers = 12;         //How many layers can be rendered together to one spriteSheet
     
-    //Current set of images
-    //This is one dimension of an Animation, and will be cycled through in the animation code.
-    private GreenfootImage[] currentImages; 
-    private GreenfootImage[] spriteSheetLayers;
-    private GreenfootImage spriteSheet;
+    private GreenfootImage[] currentImages;          //Current set of images. This is one dimension of an Animation, and will be cycled through in the animation code.
+    private GreenfootImage[] spriteSheetLayers;      //Array that contains the layers of the spriteSheet
+    private GreenfootImage spriteSheet;              //The final spriteSheet
 
     private boolean collisionEnabled = false; 
 
     //Keep animation going at consistent speed
-    private long lastFrame;         //Update of the last animation
-    private long current;           //Time between frames for movement
-    private long elapsed;           //How long a frame was
+    private long lastFrame;                          //Update of the last animation
+    private long current;                            //Time between frames for movement
+    private long elapsed;                            //How long a frame was
 
+    /**
+     * AnimatedCharacter Constructor: Creates a new HashMap for all animations and a new array for the layers of the spritesheet and sets the first lastFrame.
+     */ 
     public AnimatedCharacter()
     {
         animations = new HashMap<String, Animation>();
 
-        //Start values for private variables
-        frame = 0;
-        dirX = 0;
-        dirY = 0;
-        idle = false;
-        stopAtEnd = false;
-
-        //In case program is too laggy, this is the max time per frame.
-        maxFrameLength = 0.10;
-
-        spriteSheetLayers = new GreenfootImage[MAX_LAYERS];
+        spriteSheetLayers = new GreenfootImage[maxLayers];
 
         //Set the initial timestamp for animation timer
         lastFrame = System.nanoTime();
     }
 
+    /**
+     * Method 'addedToWorld': Is called when the hotbar object is placed in the world.
+     * It sets the internal double variables, the currentAnimation, the first character image (based on the starting direction) and calls the 'positionCollider' method, if collision is enabled.
+     * 
+     * @param 'World w': The world in which the hotbar object will be placed in
+     */
     public void addedToWorld(World w)
     {
-        //When I get added to world, set my internal double variables 
+        //Set the internal double variables 
         xx = getX();
         yy = getY();
         prevX = getX();
@@ -80,7 +78,7 @@ public abstract class AnimatedCharacter extends Actor
 
         currentAnimation = primaryAnimation;
 
-        setCurrentImages (currentAnimation.getDirectionalImages()[direction]);
+        setCurrentImages(currentAnimation.getDirectionalImages()[direction]);
 
         if(collisionEnabled)
         {
@@ -88,6 +86,15 @@ public abstract class AnimatedCharacter extends Actor
         }
     } 
 
+    /**
+     * Method 'setCollider': Is called in every constructor of a character that needs a collider.
+     * It sets creates a new Collider and enables the collision.
+     * 
+     * @param 'width': The width in pixel of the new Collider
+     * @param 'height': The height in pixel of the new Collider
+     * @param 'xOffset': The offset in pixel of the new Collider in x direction 
+     * @param 'yOffset': The offset in pixel of the new Collider in y direction
+     */
     public void setCollider(int width, int height, int xOffset, int yOffset)
     {
         myCollider = new Collider(width, height, xOffset, yOffset);

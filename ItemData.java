@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The ItemData stores all important item attributes, that can be accessed by other objects.
+ * The ItemData class stores all important item attributes, that can be accessed by other objects.
  * 
  * @author (your name) 
  * @version (a version number or a date)

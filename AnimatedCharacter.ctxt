@@ -1,8 +1,9 @@
 #BlueJ class context
 comment0.target=AnimatedCharacter
-comment0.text=\r\n\ The\ AnimatedCharacter\ superclass\ is\ designed\ to\ manage\ animations\ for\ 2d\ sprites.\r\n\ It\ implements\ time\ based\ frame\ changing\ and\ moving\ to\ create\ both\ smoothness\ and\ preciseness.\ \r\n\ \ \r\n\ Primary\ Animation\:\ Usually\ movement\ -\ this\ is\ the\ base\ animation.\r\n\ Terminal\ Animations\:\ Animations\ that\ run,\ then\ end,\ and\ return\ to\ the\ primary\ animation.\r\n
+comment0.text=\r\n\ The\ AnimatedCharacter\ superclass\ manages\ animations\ for\ 2d\ sprites.\r\n\ It\ implements\ time\ based\ frame\ changing\ and\ moving\ to\ create\ both\ smoothness\ and\ preciseness.\ \r\n\ \ \r\n\ Primary\ Animation\:\ Usually\ movement\ -\ this\ is\ the\ base\ animation.\r\n\ Terminal\ Animations\:\ Animations\ that\ run,\ then\ end,\ and\ return\ to\ the\ primary\ animation.\r\n
 comment1.params=
 comment1.target=AnimatedCharacter()
+comment1.text=\r\n\ AnimatedCharacter\ Constructor\:\ Creates\ a\ new\ HashMap\ for\ all\ animations\ and\ a\ new\ array\ for\ the\ layers\ of\ the\ spritesheet\ and\ sets\ the\ first\ lastFrame.\r\n
 comment10.params=anim
 comment10.target=void\ refresh(Animation)
 comment10.text=\r\n\ Standard\ refresh\ -\ uses\ the\ spritesheet\ built\ into\ this\ AnimatedCharacter.\ This\ should\r\n\ be\ called\ after\ making\ changes\ to\ the\ SpriteSheet,\ so\ that\ they\ will\ change\ in\ the\ \r\n\ active\ Animation.\ Remember\ to\ apply\ trim()\ after,\ if\ required,\ \ as\ this\ does\ not\ trim\ the\ images.\r\n\ \r\n\ @param\ \ \ anim\ \ \ \ The\ Animation\ object\ that\ you\ wish\ to\ refresh.\ This\ will\ use\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ the\ default\ /\ built-in\ spriteSheet,\ which\ you\ may\ have\ just\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ changed\ using\ setLayer,\ or\ otherwise.\r\n
@@ -30,10 +31,12 @@ comment19.params=images
 comment19.target=void\ setCurrentImages(greenfoot.GreenfootImage[])
 comment2.params=w
 comment2.target=void\ addedToWorld(greenfoot.World)
+comment2.text=\r\n\ Method\ 'addedToWorld'\:\ Is\ called\ when\ the\ hotbar\ object\ is\ placed\ in\ the\ world.\r\n\ It\ sets\ the\ internal\ double\ variables,\ the\ currentAnimation,\ the\ first\ character\ image\ (based\ on\ the\ starting\ direction)\ and\ calls\ the\ 'positionCollider'\ method,\ if\ collision\ is\ enabled.\r\n\ \r\n\ @param\ 'World\ w'\:\ The\ world\ in\ which\ the\ hotbar\ object\ will\ be\ placed\ in\r\n
 comment20.params=
 comment20.target=void\ act()
 comment3.params=width\ height\ xOffset\ yOffset
 comment3.target=void\ setCollider(int,\ int,\ int,\ int)
+comment3.text=\r\n\ Method\ 'setCollider'\:\ Is\ called\ in\ every\ constructor\ of\ a\ character\ that\ needs\ a\ collider.\r\n\ It\ sets\ creates\ a\ new\ Collider\ and\ enables\ the\ collision.\r\n\ \r\n\ @param\ 'width'\:\ The\ width\ in\ pixel\ of\ the\ new\ Collider\r\n\ @param\ 'height'\:\ The\ height\ in\ pixel\ of\ the\ new\ Collider\r\n\ @param\ 'xOffset'\:\ The\ offset\ in\ pixel\ of\ the\ new\ Collider\ in\ x\ direction\ \r\n\ @param\ 'yOffset'\:\ The\ offset\ in\ pixel\ of\ the\ new\ Collider\ in\ y\ direction\r\n
 comment4.params=
 comment4.target=void\ positionCollider()
 comment5.params=

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=ItemData
-comment0.text=\r\n\ The\ ItemData\ stores\ all\ important\ item\ attributes,\ that\ can\ be\ accessed\ by\ other\ objects.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ ItemData\ class\ stores\ all\ important\ item\ attributes,\ that\ can\ be\ accessed\ by\ other\ objects.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=ItemData()
 comment1.text=\r\n\ ItemData\ Constructor\:\ Scales\ all\ item\ icons\ to\ the\ right\ size.\r\n
