@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class HealthBarUI extends UI
 {
-    //Object image
+    //----- Object image -----
     GreenfootImage bar = new GreenfootImage("ui/healthUI.png");
     
     /**

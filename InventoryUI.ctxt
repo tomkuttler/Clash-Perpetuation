@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.target=InventoryUI
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Inventory\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ InventoryUI\ class\ is\ used\ to\ display\ a\ inventory\ image\ under\ the\ inventory\ slots.\ All\ functionality\ is\ located\ in\ the\ Inventory\ class\ and\ the\ InventorySlot\ class.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=InventoryUI()
+comment1.text=\r\n\ InventoryUI\ Constructor\:\ Makes\ the\ image\ 2\ times\ bigger\ and\ sets\ it.\r\n
 comment2.params=
 comment2.target=void\ setImageVisible()
+comment2.text=\r\n\ Method\ 'setImageVisible'\:\ Is\ called\ by\ 'openInventory'\ in\ Inventory\ class\ if\ player\ pressed\ the\ 'i'\ to\ open\ the\ inventory.\r\n\ It\ sets\ image\ visible.\r\n
 numComments=3

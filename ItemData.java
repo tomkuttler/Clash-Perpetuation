@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class ItemData here.
+ * The ItemData stores all important item attributes, that can be accessed by other objects.
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -36,11 +36,21 @@ public class ItemData
     private int arrow1MaxStackSize = 64;
     private GreenfootImage arrow1Icon = new GreenfootImage("objects/arrows/arrow1.png");
     
+    /**
+     * ItemData Constructor: Scales all item icons to the right size.
+     */
     public ItemData()
     {
         redPotionIcon.scale(redPotionIcon.getWidth() * 2, redPotionIcon.getHeight() * 2);
     }
     
+    /**
+     * Method 'getDamage': Is called by an object, which wants to know the damage of an item.
+     * 
+     * @param 'item': The name of the item
+     * 
+     * @return: The damage of the item
+     */
     public int getDamage(String item)
     {
         if(item == "longsword")
@@ -57,6 +67,13 @@ public class ItemData
         }
     }
 
+    /**
+     * Method 'getUseCooldown': Is called by an object, which wants to know the UseCooldown of an item.
+     * 
+     * @param 'item': The name of the item
+     * 
+     * @return: The UseCooldown of the item
+     */
     public double getUseCooldown(String item)
     {
         if(item == "longsword")
@@ -77,6 +94,13 @@ public class ItemData
         }
     }
 
+    /**
+     * Method 'getMaxStackSize': Is called by an object, which wants to know the MaxStackSize of an item.
+     * 
+     * @param 'item': The name of the item
+     * 
+     * @return: The MaxStackSize of the item
+     */
     public int getMaxStackSize(String item)
     {
         if(item == "longsword")
@@ -101,6 +125,13 @@ public class ItemData
         }
     }
 
+    /**
+     * Method 'getRange': Is called by an object, which wants to know the Range of an item.
+     * 
+     * @param 'item': The name of the item
+     * 
+     * @return: The Range of the item
+     */
     public int getRange(String item)
     {
         if(item == "bow1")
@@ -113,6 +144,13 @@ public class ItemData
         }
     }
 
+    /**
+     * Method 'getSpeed': Is called by an object, which wants to know the Speed of an item.
+     * 
+     * @param 'item': The name of the item
+     * 
+     * @return: The Speed of the item
+     */
     public int getSpeed(String item)
     {
         if(item == "bow1")
@@ -125,6 +163,13 @@ public class ItemData
         }
     }
 
+    /**
+     * Method 'getHealthPoints': Is called by an object, which wants to know the HealthPoints of an item.
+     * 
+     * @param 'item': The name of the item
+     * 
+     * @return: The HealthPoints of the item
+     */
     public int getHealthPoints(String item)
     {
         if(item == "redPotion")
@@ -137,6 +182,13 @@ public class ItemData
         }
     }
 
+    /**
+     * Method 'getIcon': Is called by an object, which wants to know the Icon of an item.
+     * 
+     * @param 'item': The name of the item
+     * 
+     * @return: The Icon of the item
+     */
     public GreenfootImage getIcon(String item)
     {
         if(item == "longsword")
@@ -161,6 +213,13 @@ public class ItemData
         }
     }
 
+    /**
+     * Method 'spawnItem': Is called by 'ckeckDrop' method in Hotbar class, if player wants to drop an item.
+     * Spawns the item as a new PickUpActor under the player.
+     * 
+     * @param 'item': The name of the item
+     * @param 'hotbar': The reference to the hotbar
+     */
     public void spawnItem(String item, Hotbar hotbar)
     {
         if(item == "longsword")

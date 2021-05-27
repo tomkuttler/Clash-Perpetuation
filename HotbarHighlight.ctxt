@@ -6,5 +6,5 @@ comment1.target=HotbarHighlight()
 comment1.text=\r\n\ HotbarHighlight\ Constructor\:\ Makes\ the\ object\ image\ 2\ times\ bigger\ and\ sets\ it.\r\n
 comment2.params=slotNumber
 comment2.target=void\ updatePosition(int)
-comment2.text=\r\n\ Method\ 'updatePosition'\:\ Is\ called\ by\ 'updateCurrentSlot()'\ in\ Hotbar\ class\ if\ player\ pressed\ the\ right\ or\ left\ key\ to\ scroll\ through\ the\ hotbar.\r\n\ It\ sets\ the\ location\ of\ the\ hotbarHighlight\ image\ over\ the\ currently\ selected\ hotbar\ slot.\r\n\ \r\n\ @param\ 'slotNumber'\:\ The\ number\ of\ the\ currently\ selected\ slot\ (must\ be\ 0\ -\ 9)\r\n
+comment2.text=\r\n\ Method\ 'updatePosition'\:\ Is\ called\ by\ 'updateCurrentSlot'\ in\ Hotbar\ class\ if\ player\ pressed\ the\ right\ or\ left\ key\ to\ scroll\ through\ the\ hotbar.\r\n\ It\ sets\ the\ location\ of\ the\ hotbarHighlight\ image\ over\ the\ currently\ selected\ hotbar\ slot.\r\n\ \r\n\ @param\ 'slotNumber'\:\ The\ number\ of\ the\ currently\ selected\ slot\ (must\ be\ 0\ -\ 9)\r\n
 numComments=3

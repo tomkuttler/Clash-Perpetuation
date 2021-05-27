@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class HotbarHighlight extends UI
 {
-    //Object image
+    //----- Object image -----
     GreenfootImage hotbarHighlight = new GreenfootImage("ui/hotbarHighlight.png");
     
     /**
@@ -21,7 +21,7 @@ public class HotbarHighlight extends UI
     }
     
     /**
-     * Method 'updatePosition': Is called by 'updateCurrentSlot()' in Hotbar class if player pressed the right or left key to scroll through the hotbar.
+     * Method 'updatePosition': Is called by 'updateCurrentSlot' in Hotbar class if player pressed the right or left key to scroll through the hotbar.
      * It sets the location of the hotbarHighlight image over the currently selected hotbar slot.
      * 
      * @param 'slotNumber': The number of the currently selected slot (must be 0 - 9)
