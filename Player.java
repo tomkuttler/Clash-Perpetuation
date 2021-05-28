@@ -1,71 +1,74 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Player here.
+ * The Player class is the main character the golden knight.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
 public class Player extends AnimatedCharacter
 {
-    //Animation
-    private int walkSpeed;
-    private int walkAnimSpeed;
+    //----- Animation -----    
+    private int animationSpeed = 20;              //Number of animation frames per second
 
-    private GreenfootImage longsword1;
-    private GreenfootImage longsword2;
-    private GreenfootImage bow1;
-    private GreenfootImage arrow;
+    //----- Movement -----
+    private int walkSpeed = 60;                   //Move 60 pixel per second
+    private int moveX;                            //The direction for x movement. (-1, 0 or 1)
+    private int moveY;                            //The direction for y movement. (-1, 0 or 1)
+    private int xOffset, yOffset;                 //Direction for attacking
 
-    private int moveX, moveY;
-    private int xOffset, yOffset;          //Direction for attacking
+    //----- Collision -----
+    private int oldX;                             //Stores the x position from the last tick. Used for collision
+    private int oldY;                             //Stores the y position from the last tick. Used for collision
 
-    private int oldX;                      //Used for collision
-    private int oldY;                      //Used for collision
+    //----- Health -----
+    private int health;                           //Player health
+    private int maxHealth = 100;                  //Max health player
+    private boolean alive = true;                 //True if player is alive, false if dead  
 
-    private int health;                    //Player health
-    private int maxHealth = 100;           //Max health player
-    private boolean alive = true;          //Is player alive   
+    //----- Pick up items -----
+    private int pickUpRange = 50;                 //How close the player needs to be to pick up a PickUpItem
 
-    private int pickUpRange = 50;          //How close the player needs to be to pick up a PickUpItem
+    //----- Hotbar -----
+    private String currentSlotItem = "";          //Stores the name of the item that is in the current slot
+    private String currentSlotItemType = "";      //Stores the type of the item that is in the current slot
+    
+    //----- Cooldowns -----
+    private double lastUse;                       //Stores the time of the last use of an item     
 
-    private String currentSlotItem = "";
-    private String currentSlotItemType = "";
-
-    private double lastUse;                //Saves the time of the last use of an item     
-
-    private double pressCooldown = 250000000.0;  //Cooldown of 250 milion nanosec (0,25sec) between pressing a key
-    private double lastPressedKeyTime;         //Saves the time of the last key press
-
-    private PlayerHealthBar bar;                 //Referenz HealthBar
-    private Inventory inventory;           //Referenz Inventory
-    private Hotbar hotbar;                 //Referenz Hotbar
+    private double pressCooldown = 250000000.0;   //Cooldown of 250 milion nanosec (0,25sec) between pressing a key
+    private double lastPressedKeyTime;            //Stores the time of the last key press
 
     private double removeCooldown = 2000000000.0; //Player will be removed after Cooldown of 2 bilion nanosec (2sec) (after Health <= 0)
-    private double deathTime;              //Stores the time then enemy died
+    private double deathTime;                     //Stores the time the player died
+    
+    //----- References -----
+    private PlayerHealthBar bar;                  //Reference to the health bar manager
+    private Inventory inventory;                  //Reference to the inventory manager
+    private Hotbar hotbar;                        //Reference to the hotbar manager    
+    
+    //----- Layer images -----
+    private GreenfootImage longsword1 = new GreenfootImage("weapons/longsword-universal.png");           
+    private GreenfootImage longsword2 = new GreenfootImage("weapons/longsword-attack.png");
+    private GreenfootImage bow1 = new GreenfootImage("weapons/bow1.png");
+    private GreenfootImage arrow = new GreenfootImage("weapons/arrow.png");
 
-    public Player(PlayerHealthBar newBar, Inventory newInventory, Hotbar newHotbar) {        
-        //Set variables for speed 
-        walkSpeed = 60;     // pixels to move per SECOND
-        walkAnimSpeed = 20; // number of animations frames per SECOND 
-
+    /**
+     * Player Constructor: Sets the speed, creates the spriteSheet of the character, creates the animations and sets variables.
+     * 
+     * @param 'newBar': Reference to the health bar manager
+     * @param 'newInventory': Reference to the inventory manager
+     * @param 'newHotbar': Reference to the hotbar manager
+     */ 
+    public Player(PlayerHealthBar newBar, Inventory newInventory, Hotbar newHotbar) 
+    {        
         //Set the speed
-        changeSpeed(walkSpeed, walkAnimSpeed);
+        changeSpeed(walkSpeed, animationSpeed);
 
-        //Store the layer images
-        longsword1 = new GreenfootImage("weapons/longsword-universal.png");
-        longsword2 = new GreenfootImage("weapons/longsword-attack.png");
-        bow1 = new GreenfootImage("weapons/bow1.png");
-        arrow = new GreenfootImage("weapons/arrow.png");
-
-        //SETUP ANIMATIONS
-        //Create sprite sheets
+        //Create spriteSheet
         setLayer(0, new GreenfootImage("player/goldenKnightNoWeapon.png"));
-        // setLayer(1, new GreenfootImage("weapons/longsword-universal.png"));
-        // setLayer(2, new GreenfootImage("weapons/longsword-attack.png"));
-        // setLayer(3, new GreenfootImage("weapons/bow1.png"));
-        // setLayer(4, new GreenfootImage("weapons/arrow.png"));
 
+        //----- BUILD ANIMATIONS -----
         //Build walking animation (primary animation)
         animations.put("move", Animation.createAnimation(getSpriteSheet(), 9, 4, 9, 64, 64));
         //Build a swing animation for swinging a weapon
@@ -89,18 +92,19 @@ public class Player extends AnimatedCharacter
         //Set full health
         health = maxHealth;
 
+        //Spawn new Collider
         setCollider(28, 55, 0, 4);
 
-        //Referenz to HealthBar
+        //Set References
         bar = newBar;
-
-        //Referenz to Inventory
         inventory = newInventory;
-
-        //Referenz to Hotbar
         hotbar = newHotbar;
     }
 
+    /**
+     * Method 'act': Is called every tick or whenever the 'Act' or 'Run' button gets pressed in the environment.
+     * It calls the 'act' method of the AnimatedCharacter superclass to perform animations and movement.
+     */
     public void act() 
     {        
         move();
@@ -125,7 +129,11 @@ public class Player extends AnimatedCharacter
         super.act();
     }    
 
-    //Player movement: move if w,a,s,d key is pressed    
+    /**
+     * Method 'move': Is called every tick by the 'act' method.
+     * It sets the move variables if 'w', 's', 'd' or 'a' is pressed.
+     * If an item was used, it checks if the use cooldown of that item has expired, because the character is not able to move while using an item / attacking.
+     */    
     public void move()
     {
         if(alive)
@@ -133,7 +141,7 @@ public class Player extends AnimatedCharacter
             double t = System.nanoTime();
             if(t - lastUse >= inventory.itemData.getUseCooldown(currentSlotItem))
             {
-                // Each tick, movement is reset
+                //Each tick, movement is reset
                 moveX = 0; 
                 moveY = 0;
 
@@ -175,6 +183,12 @@ public class Player extends AnimatedCharacter
         }
     }
 
+    /**
+     * Method 'updateLayers': Is called every tick by the 'act' method.
+     * It sets the currentSlotItem variable to the name of the item in the current hotbar slot, if the item changed.
+     * If the item changed the layers of the spriteSheet will be updated and the animations will be refreshed to show the correct item in the current hotbar slot.
+     * To get the currentSlotItemType, the mothod 'getItemType' in ItemData class will be called.
+     */
     public void updateLayers()
     {
         if(currentSlotItem != hotbar.getCurrentSlotItem())
@@ -208,7 +222,7 @@ public class Player extends AnimatedCharacter
                 refresh(animations.get("bowAttack"));
                 refresh(animations.get("slash"));
 
-                currentSlotItemType = "sword";
+                currentSlotItemType = inventory.itemData.getItemType(currentSlotItem);
             }
 
             if(currentSlotItem == "bow1")
@@ -223,7 +237,7 @@ public class Player extends AnimatedCharacter
                 refresh(animations.get("bowAttack"));
                 refresh(animations.get("slash"));
 
-                currentSlotItemType = "bow";
+                currentSlotItemType = inventory.itemData.getItemType(currentSlotItem);
             }
 
             if(currentSlotItem == "redPotion")
@@ -238,17 +252,21 @@ public class Player extends AnimatedCharacter
                 refresh(animations.get("bowAttack"));
                 refresh(animations.get("slash"));
 
-                currentSlotItemType = "healingItem";
+                currentSlotItemType = inventory.itemData.getItemType(currentSlotItem);
             }
         }        
     }
 
-    //Checks if cooldown -> if lmb is pressed -> updates lastHit, if enemy is in range -> call gotHit() on enemy 
+    /**
+     * Method 'useItem': Is called every tick by the 'act' method.
+     * If an item was used already, it checks if the use cooldown of that item has expired.
+     * If the cooldown has expired, and if the left mouse button is pressed, it plays the corresponding animation and checks if an enemy was hit / spwans an arrow / heals the player.
+     */ 
     public void useItem() 
     {
         if(alive && !inventory.isInventoryOpen())
         {
-            if(currentSlotItemType == "sword")
+            if(currentSlotItemType == "meleeWeapon")
             {
                 double t = System.nanoTime();
                 if(t - lastUse >= inventory.itemData.getUseCooldown(currentSlotItem))
@@ -339,7 +357,10 @@ public class Player extends AnimatedCharacter
         }
     }
 
-    //If Player collides with someone/something -> teleports the player back to his old location
+    /**
+     * Method 'checkCollision': Is called every tick by the 'act' method.
+     * If the collder of the player intersects another collider or an object, teleports the player back to his position of the last tick.
+     */
     public void checkCollision()
     {
         if(myCollider.checkCollision())
@@ -348,13 +369,22 @@ public class Player extends AnimatedCharacter
         }
     }
 
-    //Stores current X and Y position, used for collision
+    /**
+     * Method 'storePosition': Is called every tick by the 'act' method.
+     * It stores the current position of the player, so that information can be used next tick in the 'checkCollision' method, if the player collides with something.
+     */
     public void storePosition() 
     {
         oldX = getX();
         oldY = getY();
     }
 
+    /**
+     * Method 'checkPickUp': Is called every tick by the 'act' method.
+     * If 'e' is pressed, it will look for the the nearest PickUpItem thats in pickUpRange or it will look for the nearest Chest in pickUpRange.
+     * The PickUpItem will be picked up and added to the inventory.
+     * The Chest will be opened and the items in the chest will be added to the inventory.
+     */
     public void checkPickUp()
     {
         if(Greenfoot.isKeyDown("e") && alive)
@@ -394,6 +424,11 @@ public class Player extends AnimatedCharacter
         }
     }
 
+    /**
+     * Method 'toggleInventory': Is called every tick by the 'act' method.
+     * If 'i' is pressed, it checks if the cooldown of the last key press has expired.
+     * If the cooldown has expired, the inventory will be closed if it was open and opened if it was closed.
+     */
     public void toggleInventory()
     {
         if(Greenfoot.isKeyDown("i") && alive)
@@ -415,7 +450,10 @@ public class Player extends AnimatedCharacter
         }
     }
 
-    //Change the current map if walked to a specific place
+    /**
+     * Method 'changeMap': Is called every tick by the 'act' method.
+     * If the player walked to a specific place, change the map.
+     */
     public void changeMap() 
     {
         if(this.getWorld().getClass() == WorldMap1.class)
@@ -427,7 +465,10 @@ public class Player extends AnimatedCharacter
         }
     }
 
-    //If !alive -> wait removeTimer -> removeObject
+    /**
+     * Method 'checkRemove': Is called every tick by the 'act' method.
+     * If the player is dead and the remove cooldown has expired, the player and his collider will be removed from the world.
+     */
     public void checkRemove()
     {
         if(!alive)
@@ -440,10 +481,16 @@ public class Player extends AnimatedCharacter
         }
     }
 
-    //Called if enemy attacked and hit the player
+    /**
+     * Method 'gotHit': Is called by the 'hit' method in Enemy class, if the enemy hit the player.
+     * It subtracts the damage from the health and updates the health bar.
+     * If the health is <= 0 the player is dead and the die animation will be played.
+     * 
+     * @param 'damage': The damage that the enemy deals
+     */    
     public void gotHit(int damage)
     {
-        health = health - damage;
+        health -= damage;
 
         bar.setValue(health);
 
@@ -457,13 +504,22 @@ public class Player extends AnimatedCharacter
         }
     }
 
-    //Called if object wants to know if Player is alive
+    /**
+     * Method 'isAlive': Is called by the 'hit' method in Enemy class, if the enemy wants to know if the player is alive.
+     * 
+     * @return: True if player is alive, false if dead
+     */
     public boolean isAlive()
     {
         return alive;
     }
 
-    //Called if player picked up a healing item
+    /**
+     * Method 'heal': Is called by the 'useItem' method, if the player used a healing item.
+     * It adds the health points that the item heals to the health of the player and updates the health bar.
+     * 
+     * @param 'healthPointsToAdd': The health points that the healing item restores
+     */  
     public void heal(int healthPointsToAdd)
     {        
         if(health + healthPointsToAdd <= maxHealth)
@@ -476,19 +532,5 @@ public class Player extends AnimatedCharacter
         }
 
         bar.setValue(health);
-    }
-
-    //Demo how to add/remove layers
-    public void changeLayers()
-    {
-        if (Greenfoot.isKeyDown("1")){
-            setLayer(1, null);
-            setLayer(2, null);
-            refresh(primaryAnimation);
-        } else if (Greenfoot.isKeyDown("2")){
-            setLayer(1, longsword1);
-            setLayer(2, longsword2);
-            refresh(primaryAnimation);
-        }
     }
 }

@@ -10,6 +10,7 @@ public class ItemData
 {
     //----- MELEE WEAPONS -----
     //----- longsword -----
+    private String longswordItemType = "meleeWeapon";
     private int longswordDamage = 30;
     private double longswordUseCooldown = 750000000.0;
     private int longswordMaxStackSize = 1;
@@ -17,6 +18,7 @@ public class ItemData
 
     //----- RANGED WEAPONS -----
     //----- bow1 -----
+    private String bow1ItemType = "bow";
     private int bow1Damage = 30;
     private double bow1UseCooldown = 1000000000.0;
     private int bow1MaxStackSize = 1;
@@ -26,6 +28,7 @@ public class ItemData
 
     //----- HEALING ITEMS -----
     //----- redPotion -----
+    private String redPotionItemType = "healingItem";
     private int redPotionMaxStackSize = 64;
     private int redPotionHealthPoints = 10;
     private double redPotionUseCooldown = 1000000000.0;
@@ -33,6 +36,7 @@ public class ItemData
 
     //----- ARROWS -----
     //----- arrow1 -----
+    private String arrow1ItemType = "arrow";
     private int arrow1MaxStackSize = 64;
     private GreenfootImage arrow1Icon = new GreenfootImage("objects/arrows/arrow1.png");
     
@@ -42,6 +46,37 @@ public class ItemData
     public ItemData()
     {
         redPotionIcon.scale(redPotionIcon.getWidth() * 2, redPotionIcon.getHeight() * 2);
+    }
+    
+    /**
+     * Method 'getItemType': Is called by an object, which wants to know the type of an item.
+     * 
+     * @param 'item': The name of the item
+     * 
+     * @return: The type of the item
+     */
+    public String getItemType(String item)
+    {
+        if(item == "longsword")
+        {
+            return longswordItemType;
+        }
+        else if(item == "bow1")
+        {
+            return bow1ItemType;
+        }
+        else if(item == "redPotion")
+        {
+            return redPotionItemType;
+        }
+        else if(item == "arrow1")
+        {
+            return arrow1ItemType;
+        }
+        else
+        {
+            return null;
+        }
     }
     
     /**
