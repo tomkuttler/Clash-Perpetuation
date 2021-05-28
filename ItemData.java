@@ -11,7 +11,7 @@ public class ItemData
     //----- MELEE WEAPONS -----
     //----- longsword -----
     private String longswordItemType = "meleeWeapon";
-    private int longswordDamage = 30;
+    private int longswordDamage = 100;
     private double longswordUseCooldown = 750000000.0;
     private int longswordMaxStackSize = 1;
     private GreenfootImage longswordIcon = new GreenfootImage("objects/weapons/longswordIcon.png");
@@ -255,7 +255,7 @@ public class ItemData
      * @param 'item': The name of the item
      * @param 'hotbar': The reference to the hotbar
      */
-    public void spawnItem(String item, Hotbar hotbar)
+    public void spawnDroppedItem(String item, Hotbar hotbar)
     {
         if(item == "longsword")
         {
@@ -272,6 +272,33 @@ public class ItemData
         else if(item == "arrow1")
         {
             hotbar.getWorld().addObject(new ArrowItem("arrow1", 1), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
+    }
+    
+    /**
+     * Method 'spawnItem': Is called by 'checkRemove' method in Enemy class, if the killed enemy drops an item.
+     * Spawns the item as a new PickUpActor at the place where the enemy died.
+     * 
+     * @param 'item': The name of the item
+     * @param 'enemy': The reference to the enemy
+     */
+    public void spawnDroppedItemFromEnemy(String item, Enemy enemy)
+    {
+        if(item == "longsword")
+        {
+            enemy.getWorld().addObject(new Sword("longsword"), enemy.getX(), enemy.getY());
+        }
+        else if(item == "bow1")
+        {
+            enemy.getWorld().addObject(new Bow("bow1"), enemy.getX(), enemy.getY());
+        }
+        else if(item == "redPotion")
+        {
+            enemy.getWorld().addObject(new Potion("red", 1), enemy.getX(), enemy.getY());
+        }
+        else if(item == "arrow1")
+        {
+            enemy.getWorld().addObject(new ArrowItem("arrow1", 1), enemy.getX(), enemy.getY());
         }
     }
 }

@@ -133,7 +133,7 @@ public class Hotbar extends UI
                 if(getCurrentSlotItem() != null)
                 {
                     //Spawn a new pick up item in the world
-                    inventory.itemData.spawnItem(getCurrentSlotItem(), this);
+                    inventory.itemData.spawnDroppedItem(getCurrentSlotItem(), this);
                     
                     //Remove the dropped item from the current slot
                     removeItemAtSpecificSlot(1, currentSlot);

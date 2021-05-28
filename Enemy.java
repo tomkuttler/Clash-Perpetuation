@@ -31,7 +31,7 @@ public abstract class Enemy extends AnimatedCharacter
 
     private double removeCooldown; //Enemy will be removed after Cooldown (after Health <= 0)
     private double deathTime;              //Stores the time then enemy died
-    
+
     private EnemyHealthBar bar;            //Referenz HealthBar
 
     public void setup(int health, int maxHealth, int detectPlayerRange, int attackRange, int damage, double hitCooldown, double removeCooldown)
@@ -72,7 +72,7 @@ public abstract class Enemy extends AnimatedCharacter
             }
         }
     }
-    
+
     //Updates the Player Position Variables
     public void updatePlayerPosition(Player player)
     {
@@ -82,7 +82,7 @@ public abstract class Enemy extends AnimatedCharacter
             playerY = player.getY();
         }
     }
-    
+
     //Enemy movement: move if distance to player < detectPlayerRange && > attackRange
     public void moveToPlayer()
     {
@@ -205,7 +205,7 @@ public abstract class Enemy extends AnimatedCharacter
     }
 
     //If !alive -> wait removeTimer -> removeObject
-    public void checkRemove()
+    public void checkRemove(Player player, String[] dropItems, int[] probability)
     {
         if(!alive)
         {
@@ -213,7 +213,20 @@ public abstract class Enemy extends AnimatedCharacter
             {
                 disableCollision();
                 getWorld().removeObject(bar);
-                getWorld().removeObject(this);
+
+                //----- Drop item -----
+                int randomNumber = Greenfoot.getRandomNumber(101); //Random number between 0 (inclusive) and 100 (inclusive)
+
+                for(int i = 0; i < 5; i++)
+                {
+                    if(randomNumber <= probability[i])
+                    {
+                        player.inventory.itemData.spawnDroppedItemFromEnemy(dropItems[i], this);
+                        return;
+                    }
+                }
+
+                getWorld().removeObject(this);                
             }
         }
     }
@@ -224,7 +237,7 @@ public abstract class Enemy extends AnimatedCharacter
         health = health - damage;
 
         bar.setValue(health);
-        
+
         if(health <= 0)
         {
             if(alive)

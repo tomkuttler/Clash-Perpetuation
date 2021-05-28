@@ -44,8 +44,8 @@ public class Player extends AnimatedCharacter
     
     //----- References -----
     private PlayerHealthBar bar;                  //Reference to the health bar manager
-    private Inventory inventory;                  //Reference to the inventory manager
-    private Hotbar hotbar;                        //Reference to the hotbar manager    
+    public Inventory inventory;                   //Reference to the inventory manager
+    public Hotbar hotbar;                         //Reference to the hotbar manager    
     
     //----- Layer images -----
     private GreenfootImage longsword1 = new GreenfootImage("weapons/longsword-universal.png");           

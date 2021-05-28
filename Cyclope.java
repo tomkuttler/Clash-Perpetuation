@@ -22,6 +22,9 @@ public class Cyclope extends Enemy
     private double hitCooldown = 1000000000.0;  //Cooldown of 1 bilion nanosec (1sec) between hits
 
     private double removeCooldown = 2000000000.0; //Enemy will be removed after Cooldown of 2 bilion nanosec (2sec) (after Health <= 0)
+    
+    private String[] dropItems = new String[] {"redPotion", "arrow1", null, null, null};
+    private int[] probability = new int[] {20, 50, 0, 0, 0};
 
     private Player player;                 //Referenz player
 
@@ -75,7 +78,7 @@ public class Cyclope extends Enemy
 
         storePosition();
 
-        checkRemove();
+        checkRemove(player, dropItems, probability);
 
         //Call superclass act() to perform animations and movement
         super.act();
