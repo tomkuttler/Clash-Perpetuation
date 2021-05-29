@@ -62,6 +62,8 @@ public class WorldMap1 extends World
         addObject(new Cyclope(p, 2), 700, 800);
         addObject(new Cyclope(p, 2), 800, 800);
         
+        addObject(new Skeleton(p, 3), 600, 400);
+        
         //Spawn Inventory and Hotbar
         addObject(iUI, 848, 464);
         addObject(inventory, 0, 0);

@@ -14,6 +14,8 @@ public abstract class Enemy extends AnimatedCharacter
     
     private String path = "priorityX"; //Used for path finding, "priorityX" = moves first in x direction and then in y direction to player, "priorityY" = moves first in y direction and then in x direction to player                                                          
     
+    private int minDistance;           //Minimum distance between the enemy and the player
+    
     //----- Collision -----
     private int oldX;                  //Stores the x position from the last tick. Used for collision
     private int oldY;                  //Stores the y position from the last tick. Used for collision
@@ -50,7 +52,8 @@ public abstract class Enemy extends AnimatedCharacter
      * 
      * @param 'maxHealth': Max health of the enemy
      * @param 'enemyType': "melee" (if the enemy has a sword or dagger,...) or "ranged" (if the enemy has a bow) 
-     * @param 'detectPlayerRange': Player detection range of the enemy (in pixel)   
+     * @param 'detectPlayerRange': Player detection range of the enemy (in pixel) 
+     * @param 'minDistance': Minimum distance between the enemy and the player
      * @param 'attackRange': Attack range of the enemy
      * @param 'bowRange': The range of the bow if the enemy has a bow
      * @param 'bowSpeed': The speed of the bow if the enemy has a bow
@@ -58,11 +61,12 @@ public abstract class Enemy extends AnimatedCharacter
      * @param 'hitCooldown': Cooldown between hits
      * @param 'removeCooldown': Enemy will be removed after Cooldown (after Health <= 0)
      */
-    public void setup(int maxHealth, String enemyType, int detectPlayerRange, int attackRange, int bowRange, int bowSpeed, int damage, double hitCooldown, double removeCooldown)
+    public void setup(int maxHealth, String enemyType, int detectPlayerRange, int minDistance, int attackRange, int bowRange, int bowSpeed, int damage, double hitCooldown, double removeCooldown)
     {
         this.maxHealth = maxHealth;
         this.enemyType = enemyType;
         this.detectPlayerRange = detectPlayerRange;
+        this.minDistance = minDistance;
         this.attackRange = attackRange;
         this.bowRange = bowRange;
         this.bowSpeed = bowSpeed;
@@ -143,7 +147,7 @@ public abstract class Enemy extends AnimatedCharacter
 
             if (Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) < detectPlayerRange) //If distance to player < detectPlayerRange
             {
-                if(Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) < attackRange) //If distance to player < attackRange -> stop moving
+                if(Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) < minDistance) //If distance to player < minDistance -> stop moving
                 {
                     stopMoving();
                 }

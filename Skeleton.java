@@ -1,12 +1,12 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The Cyclopes are giant one-eyed creatures.
+ * Write a description of class Skeleton here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Cyclope extends Enemy
+public class Skeleton extends Enemy
 {
     //----- Animation -----     
     private int animationSpeed = 15;              //Number of animation frames per second
@@ -14,21 +14,21 @@ public class Cyclope extends Enemy
     //----- Movement -----
     private int walkSpeed = 20;                   //Move 20 pixel per second
     
-    private int minDistance = 47;                 //Minimum distance between the enemy and the player
+    private int minDistance = 180;                //Minimum distance between the enemy and the player
     
     //----- Health -----
     private int maxHealth = 100;                  //Max health of the enemy
     
     //----- Attack -----
-    private String enemyType = "melee";           //"melee" (if the enemy has a sword or dagger,...) or "ranged" (if the enemy has a bow) 
+    private String enemyType = "ranged";          //"melee" (if the enemy has a sword or dagger,...) or "ranged" (if the enemy has a bow) 
     
-    private int bowRange = 0;                     //The range of the bow if this enemy has a bow
-    private int bowSpeed = 0;                     //The speed of the bow if this enemy has a bow
+    private int bowRange = 200;                   //The range of the bow if this enemy has a bow
+    private int bowSpeed = 4;                     //The speed of the bow if this enemy has a bow
     
-    private int detectPlayerRange = 200;          //Player detection range of this enemy    
-    private int attackRange = 47;                 //Attack range of this enemy 
+    private int detectPlayerRange = 300;          //Player detection range of this enemy    
+    private int attackRange = 180;                //Attack range of this enemy 
     
-    private int damage = 20;                      //Attack damage of this enemy   
+    private int damage = 30;                      //Attack damage of this enemy   
     
     //----- Cooldowns -----
     private double hitCooldown = 1000000000.0;    //Cooldown of 1 bilion nanosec (1sec) between hits
@@ -44,12 +44,12 @@ public class Cyclope extends Enemy
     private Player player;                        //Reference to the player
 
     /**
-     * Cyclope Constructor: Sets the speed, creates the spriteSheet of the character, creates the animations and sets variables.
+     * Skeleton Constructor: Sets the speed, creates the spriteSheet of the character, creates the animations and sets variables.
      * 
      * @param 'newPlayer': Reference to the player
      * @param 'startDirection': The direction in which the character will face at the start (0 = Right, 1 = Left, 2 = Up, 3 = Down)
      */ 
-    public Cyclope(Player newPlayer, int startDirection)
+    public Skeleton(Player newPlayer, int startDirection)
     {
         //Set the speed
         changeSpeed(walkSpeed, animationSpeed);
@@ -58,13 +58,13 @@ public class Cyclope extends Enemy
         setup(maxHealth, enemyType, detectPlayerRange, minDistance, attackRange, bowRange, bowSpeed, damage, hitCooldown, removeCooldown);
 
         //Create spriteSheet
-        setLayer(0, new GreenfootImage("enemys/cyclope.png"));
+        setLayer(0, new GreenfootImage("enemys/skeleton.png"));
 
         //----- BUILD ANIMATIONS -----
         //Build walking animation (primary animation)                
         animations.put("move", Animation.createAnimation(getSpriteSheet(), 9, 4, 9, 64, 64));
         //Build a swing animation for attacking
-        animations.put("attack", Animation.createAnimation(getSpriteSheet(), 8, 4, 6, 192, 192));
+        animations.put("attack", Animation.createAnimation(getSpriteSheet(), 17, 4, 13, 64, 64));
         //Build dying animation
         animations.put("die", Animation.createAnimation(getSpriteSheet(), 21, 1, 6, 64, 64));
 

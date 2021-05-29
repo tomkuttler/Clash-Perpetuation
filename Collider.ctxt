@@ -1,15 +1,16 @@
 #BlueJ class context
 comment0.target=Collider
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Collider\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=xSize\ ySize\ offsetX\ offsetY
+comment0.text=\r\n\ The\ Collider\ class\ manages\ collision\ between\ characters\ and\ objects.\ Red\ debug\ image\ can\ be\ shown\ for\ debugging.\ \r\n\ Otherwise,\ colliders\ have\ a\ transparent\ image\ (necessary\ for\ Greenfoot\ intersecting\ detection).\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=xSize\ ySize\ xOffset\ yOffset
 comment1.target=Collider(int,\ int,\ int,\ int)
-comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Collider,\ for\ use\ when\ Collider\ is\ being\r\n\ used\ as\ an\ object\ on\ it's\ own\r\n
-comment2.params=xSize\ ySize\ offsetX\ offsetY
-comment2.target=void\ setup(int,\ int,\ int,\ int)
+comment1.text=\r\n\ Collider\ Constructor\:\ Sets\ the\ collider\ variables\ and\ creates\ the\ collider\ image.\r\n\ \r\n\ @param\ 'xSize'\:\ The\ width\ in\ pixel\ of\ the\ new\ Collider\r\n\ @param\ 'ySize'\:\ The\ height\ in\ pixel\ of\ the\ new\ Collider\r\n\ @param\ 'xOffset'\:\ The\ offset\ in\ pixel\ of\ the\ new\ Collider\ in\ x\ direction\ \r\n\ @param\ 'yOffset'\:\ The\ offset\ in\ pixel\ of\ the\ new\ Collider\ in\ y\ direction\r\n
+comment2.params=
+comment2.target=int\ getXOffset()
+comment2.text=\r\n\ Method\ 'getXOffset'\:\ Is\ called\ in\ the\ 'positionCollider'\ method\ in\ AnimatedCharacter\ class\ to\ set\ the\ correct\ position.\r\n\ \r\n\ @return\:\ The\ offset\ in\ pixel\ of\ the\ Collider\ in\ x\ direction\ \r\n
 comment3.params=
-comment3.target=int\ getXOffset()
+comment3.target=int\ getYOffset()
+comment3.text=\r\n\ Method\ 'getYOffset'\:\ Is\ called\ in\ the\ 'positionCollider'\ method\ in\ AnimatedCharacter\ class\ to\ set\ the\ correct\ position.\r\n\ \r\n\ @return\:\ The\ offset\ in\ pixel\ of\ the\ Collider\ in\ y\ direction\ \r\n
 comment4.params=
-comment4.target=int\ getYOffset()
-comment5.params=
-comment5.target=boolean\ checkCollision()
-numComments=6
+comment4.target=boolean\ checkCollision()
+comment4.text=\r\n\ Method\ 'checkCollision'\:\ Is\ called\ in\ every\ subclass\ of\ AnimatedCharacter\ class\ that\ wants\ to\ know\ if\ they\ are\ colliding\ with\ another\ collider\ or\ an\ object.\r\n\ \r\n\ @return\:\ True\ if\ the\ owner\ of\ this\ collider\ is\ intersecting\ another\ character\ or\ an\ object,\ false\ if\ not\r\n
+numComments=5

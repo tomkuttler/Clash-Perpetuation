@@ -1,12 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Objects here.
+ * The Objects class is the superclass of all Objects in the world.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Objects extends Actor
-{
-    
+public abstract class Objects extends Actor
+{    
 }

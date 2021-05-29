@@ -1,59 +1,82 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Collider here.
+ * The Collider class manages collision between characters and objects. Red debug image can be shown for debugging. 
+ * Otherwise, colliders have a transparent image (necessary for Greenfoot intersecting detection).
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
 public class Collider extends Actor
 {
-    //Instance variables
-    private int offsetX;
-    private int offsetY;
+    //----- Collider variables -----
+    private int xOffset;
+    private int yOffset;
     private int xSize;
     private int ySize; 
 
-    private GreenfootImage blank;
-    private GreenfootImage highlight;
+    //----- Object image -----
+    private GreenfootImage transparent;
+    
+    //----- Debug image -----
+    private GreenfootImage debug;
 
     /**
-     * Constructor for objects of class Collider, for use when Collider is being
-     * used as an object on it's own
-     */
-    public Collider(int xSize, int ySize, int offsetX, int offsetY)
-    {
-        setup(xSize, ySize, offsetX, offsetY);
-    }
-
-    protected void setup(int xSize, int ySize, int offsetX, int offsetY) 
+     * Collider Constructor: Sets the collider variables and creates the collider image.
+     * 
+     * @param 'xSize': The width in pixel of the new Collider
+     * @param 'ySize': The height in pixel of the new Collider
+     * @param 'xOffset': The offset in pixel of the new Collider in x direction 
+     * @param 'yOffset': The offset in pixel of the new Collider in y direction
+     */ 
+    public Collider(int xSize, int ySize, int xOffset, int yOffset)
     {
         this.xSize = xSize;
         this.ySize = ySize;
-        this.offsetX = offsetX;
-        this.offsetY = offsetY;
+        this.xOffset = xOffset;
+        this.yOffset = yOffset;
 
-        blank = new GreenfootImage (xSize, ySize);
-        highlight = new GreenfootImage (xSize, ySize);
-        highlight.setColor (Color.RED);
-        highlight.fill();
-        highlight.setTransparency (75);
+        transparent = new GreenfootImage (xSize, ySize);
+        
+        //----- Debug image -----
+        debug = new GreenfootImage (xSize, ySize);
+        debug.setColor (Color.RED);
+        debug.fill();
+        debug.setTransparency (75);
 
-        setImage(blank);
-        setImage(highlight);
+        setImage(transparent);
+        
+        //----- Debug image -----
+        //Uncomment the line below
+        //setImage(debug);
     }
 
+    /**
+     * Method 'getXOffset': Is called in the 'positionCollider' method in AnimatedCharacter class to set the correct position.
+     * 
+     * @return: The offset in pixel of the Collider in x direction 
+     */
     public int getXOffset() 
     {
-        return offsetX;
+        return xOffset;
     }
 
+    /**
+     * Method 'getYOffset': Is called in the 'positionCollider' method in AnimatedCharacter class to set the correct position.
+     * 
+     * @return: The offset in pixel of the Collider in y direction 
+     */
     public int getYOffset() 
     {
-        return offsetY;
+        return yOffset;
     }
 
-    public boolean checkCollision ()
+    /**
+     * Method 'checkCollision': Is called in every subclass of AnimatedCharacter class that wants to know if they are colliding with another collider or an object.
+     * 
+     * @return: True if the owner of this collider is intersecting another character or an object, false if not
+     */
+    public boolean checkCollision()
     {
         if(!getIntersectingObjects(Collider.class).isEmpty() || !getIntersectingObjects(Objects.class).isEmpty())
         {
