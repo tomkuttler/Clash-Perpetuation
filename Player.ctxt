@@ -12,7 +12,7 @@ comment11.target=void\ checkRemove()
 comment11.text=\r\n\ Method\ 'checkRemove'\:\ Is\ called\ every\ tick\ by\ the\ 'act'\ method.\r\n\ If\ the\ player\ is\ dead\ and\ the\ remove\ cooldown\ has\ expired,\ the\ player\ and\ his\ collider\ will\ be\ removed\ from\ the\ world.\r\n
 comment12.params=damage
 comment12.target=void\ gotHit(int)
-comment12.text=\r\n\ Method\ 'gotHit'\:\ Is\ called\ by\ the\ 'hit'\ method\ in\ Enemy\ class,\ if\ the\ enemy\ hit\ the\ player.\r\n\ It\ subtracts\ the\ damage\ from\ the\ health\ and\ updates\ the\ health\ bar.\r\n\ If\ the\ health\ is\ <\=\ 0\ the\ player\ is\ dead\ and\ the\ die\ animation\ will\ be\ played.\r\n\ \r\n\ @param\ 'damage'\:\ The\ damage\ that\ the\ enemy\ deals\r\n
+comment12.text=\r\n\ Method\ 'gotHit'\:\ Is\ called\ by\ the\ 'hit'\ method\ in\ Enemy\ class\ or\ the\ 'checkHit'\ method\ in\ Arrow\ class,\ \r\n\ if\ the\ enemy\ hit\ the\ player\ or\ an\ arrow\ hit\ the\ player.\r\n\ It\ subtracts\ the\ damage\ from\ the\ health\ and\ updates\ the\ health\ bar.\r\n\ If\ the\ health\ is\ <\=\ 0\ the\ player\ is\ dead\ and\ the\ die\ animation\ will\ be\ played.\r\n\ \r\n\ @param\ 'damage'\:\ The\ damage\ that\ the\ enemy\ deals\r\n
 comment13.params=
 comment13.target=boolean\ isAlive()
 comment13.text=\r\n\ Method\ 'isAlive'\:\ Is\ called\ by\ the\ 'hit'\ method\ in\ Enemy\ class,\ if\ the\ enemy\ wants\ to\ know\ if\ the\ player\ is\ alive.\r\n\ \r\n\ @return\:\ True\ if\ player\ is\ alive,\ false\ if\ dead\r\n

@@ -22,8 +22,8 @@ public class Player extends AnimatedCharacter
     private int oldY;                             //Stores the y position from the last tick. Used for collision
 
     //----- Health -----
-    private int health;                           //Player health
-    private int maxHealth = 100;                  //Max health player
+    private int health;                           //Current health of the player
+    private int maxHealth = 100;                  //Max health of the player
     private boolean alive = true;                 //True if player is alive, false if dead  
 
     //----- Pick up items -----
@@ -164,8 +164,7 @@ public class Player extends AnimatedCharacter
 
                 if(moveX != 0 || moveY != 0)
                 {
-                    // set sides/directions for attacking. -1, 0 or 1 for each axis to represent
-                    // which direction the player is facing, to be used in collision detection
+                    //Set directions for attacking. -1, 0 or 1 for each axis to represent which direction the player is facing
                     xOffset = moveX;
                     yOffset = moveY;
 
@@ -311,15 +310,15 @@ public class Player extends AnimatedCharacter
 
                                 if(direction == 0 || direction == 1)
                                 {
-                                    getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem), inventory.itemData.getSpeed(currentSlotItem)), getX() + 11, getY() - 1);
+                                    getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem), inventory.itemData.getSpeed(currentSlotItem), "enemy"), getX() + 11, getY() - 1);
                                 }
                                 else if(direction == 2)
                                 {
-                                    getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem), inventory.itemData.getSpeed(currentSlotItem)), getX() - 4, getY() - 30);
+                                    getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem), inventory.itemData.getSpeed(currentSlotItem), "enemy"), getX() - 4, getY() - 30);
                                 }
                                 else if(direction == 3)
                                 {
-                                    getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem), inventory.itemData.getSpeed(currentSlotItem)), getX() - 2, getY() + 20);
+                                    getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem), inventory.itemData.getSpeed(currentSlotItem), "enemy"), getX() - 2, getY() + 20);
                                 }
                                 
                                 hotbar.removeItem("arrow1", 1);
@@ -482,7 +481,8 @@ public class Player extends AnimatedCharacter
     }
 
     /**
-     * Method 'gotHit': Is called by the 'hit' method in Enemy class, if the enemy hit the player.
+     * Method 'gotHit': Is called by the 'hit' method in Enemy class or the 'checkHit' method in Arrow class, 
+     * if the enemy hit the player or an arrow hit the player.
      * It subtracts the damage from the health and updates the health bar.
      * If the health is <= 0 the player is dead and the die animation will be played.
      * 

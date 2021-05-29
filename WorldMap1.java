@@ -53,14 +53,14 @@ public class WorldMap1 extends World
         addObject(new Chest(2, new String[] {"redPotion", "longsword", null, null, null, null, null, null, null, null}, new int[] {5, 1, 0, 0, 0, 0, 0, 0, 0, 0}), 250, 600);
         
         //Spawn Enemys
-        addObject(new Cyclope(p), 100, 800);
-        addObject(new Cyclope(p), 200, 800);
-        addObject(new Cyclope(p), 300, 800);
-        addObject(new Cyclope(p), 400, 800);
-        addObject(new Cyclope(p), 500, 800);
-        addObject(new Cyclope(p), 600, 800);
-        addObject(new Cyclope(p), 700, 800);
-        addObject(new Cyclope(p), 800, 800);
+        addObject(new Cyclope(p, 2), 100, 800);
+        addObject(new Cyclope(p, 2), 200, 800);
+        addObject(new Cyclope(p, 2), 300, 800);
+        addObject(new Cyclope(p, 2), 400, 800);
+        addObject(new Cyclope(p, 2), 500, 800);
+        addObject(new Cyclope(p, 2), 600, 800);
+        addObject(new Cyclope(p, 2), 700, 800);
+        addObject(new Cyclope(p, 2), 800, 800);
         
         //Spawn Inventory and Hotbar
         addObject(iUI, 848, 464);

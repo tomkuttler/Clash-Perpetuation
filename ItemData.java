@@ -282,7 +282,7 @@ public class ItemData
      * @param 'item': The name of the item
      * @param 'enemy': The reference to the enemy
      */
-    public void spawnDroppedItemFromEnemy(String item, Enemy enemy)
+    public void spawnDroppedItemFromEnemy(String item, int amount, Enemy enemy)
     {
         if(item == "longsword")
         {
@@ -294,11 +294,11 @@ public class ItemData
         }
         else if(item == "redPotion")
         {
-            enemy.getWorld().addObject(new Potion("red", 1), enemy.getX(), enemy.getY());
+            enemy.getWorld().addObject(new Potion("red", amount), enemy.getX(), enemy.getY());
         }
         else if(item == "arrow1")
         {
-            enemy.getWorld().addObject(new ArrowItem("arrow1", 1), enemy.getX(), enemy.getY());
+            enemy.getWorld().addObject(new ArrowItem("arrow1", amount), enemy.getX(), enemy.getY());
         }
     }
 }

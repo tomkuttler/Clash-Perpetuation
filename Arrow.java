@@ -20,14 +20,16 @@ public class Arrow extends AnimatedCharacter
 
     private boolean flying = false;
     private double flyCooldown = 500000000.0; //Object will fly after Cooldown of 500 milion nanosec (0,5sec)
-    private double spawnTime;  
+    private double spawnTime; 
+    
+    private String target; //"enemy" if player shoot the arrow, "player" if enemy shoot the arrow
 
     private GreenfootImage arrowLeft = new GreenfootImage("bullets/arrowLeft.png");
     private GreenfootImage arrowRight = new GreenfootImage("bullets/arrowRight.png");
     private GreenfootImage arrowUp = new GreenfootImage("bullets/arrowUp.png");
     private GreenfootImage arrowDown = new GreenfootImage("bullets/arrowDown.png");
 
-    public Arrow(int direction, int damage, int range, int speed)
+    public Arrow(int direction, int damage, int range, int speed, String target)
     {
         setImage((GreenfootImage)null);
 
@@ -35,6 +37,7 @@ public class Arrow extends AnimatedCharacter
         this.damage = damage;
         this.range = range;
         this.speed = speed;
+        this.target = target;
     }
 
     public void addedToWorld(World w)
@@ -58,7 +61,7 @@ public class Arrow extends AnimatedCharacter
         {
             Actor actor = getIntersectingObjects(Actor.class).get(0);
 
-            if (actor instanceof Enemy)
+            if(target == "enemy" && actor instanceof Enemy)
             {
                 Enemy enemy = getIntersectingObjects(Enemy.class).get(0);
 
@@ -67,8 +70,18 @@ public class Arrow extends AnimatedCharacter
                 getWorld().removeObject(this);
                 alive = false;
             }
+            
+            if(target == "player" && actor instanceof Player)
+            {
+                Player player = getIntersectingObjects(Player.class).get(0);
 
-            if (actor instanceof Objects)
+                player.gotHit(damage);
+
+                getWorld().removeObject(this);
+                alive = false;
+            }
+
+            if(actor instanceof Objects)
             {
                 getWorld().removeObject(this);
                 alive = false;
