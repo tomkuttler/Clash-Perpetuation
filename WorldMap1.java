@@ -44,7 +44,7 @@ public class WorldMap1 extends World
         addObject(new Potion("red", 32), 300, 350);
         addObject(new Potion("red", 32), 350, 350);
         
-        addObject(new Sword("longsword"), 400, 350);
+        addObject(new MeleeWeapon("longsword"), 400, 350);
         addObject(new Bow("bow1"), 450, 350);
         
         addObject(new ArrowItem("arrow1", 5), 200, 700);

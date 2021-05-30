@@ -1,19 +1,11 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class HealingItems here.
+ * The HealingItems class is the superclass of all items that will heal the player.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
 public abstract class HealingItems extends PickUpItems
-{
-    /**
-     * Act - do whatever the HealingItems wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
-     */
-    public void act() 
-    {
-        // Add your action code here.
-    }    
+{   
 }

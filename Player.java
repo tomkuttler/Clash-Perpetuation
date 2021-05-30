@@ -48,10 +48,13 @@ public class Player extends AnimatedCharacter
     public Hotbar hotbar;                         //Reference to the hotbar manager    
 
     //----- Layer images -----
-    private GreenfootImage longsword1 = new GreenfootImage("weapons/longsword-universal.png");           
-    private GreenfootImage longsword2 = new GreenfootImage("weapons/longsword-attack.png");
-    private GreenfootImage bow1 = new GreenfootImage("weapons/bow1.png");
-    private GreenfootImage arrow = new GreenfootImage("weapons/arrow.png");
+    private GreenfootImage longsword1 = new GreenfootImage("weapons/melee/longsword-universal.png");           
+    private GreenfootImage longsword2 = new GreenfootImage("weapons/melee/longsword-attack.png");
+    private GreenfootImage dagger = new GreenfootImage("weapons/melee/dagger.png");
+    private GreenfootImage axe = new GreenfootImage("weapons/melee/axe.png");
+    private GreenfootImage warhammer = new GreenfootImage("weapons/melee/warhammer.png");
+    private GreenfootImage bow1 = new GreenfootImage("weapons/ranged/bow1.png");
+    private GreenfootImage arrow = new GreenfootImage("weapons/ranged/arrow.png");
 
     /**
      * Player Constructor: Sets the speed, creates the spriteSheet of the character, creates the animations and sets variables.
@@ -70,18 +73,18 @@ public class Player extends AnimatedCharacter
 
         //----- BUILD ANIMATIONS -----
         //Build walking animation (primary animation)
-        animations.put("move", Animation.createAnimation(getSpriteSheet(), 9, 4, 9, 64, 64));
-        //Build a swing animation for swinging a weapon
-        animations.put("swordAttack", Animation.createAnimation(getSpriteSheet(), 8, 4, 6, 192, 192));
-        //Build a shoot animation for shooting a ammo
-        animations.put("bowAttack", Animation.createAnimation(getSpriteSheet(), 17, 4, 13, 64, 64));
-        //Build a slash animation for taking a potion
+        animations.put("walk", Animation.createAnimation(getSpriteSheet(), 9, 4, 9, 64, 64));                
+        //Build a slash animation for swinging a weapon or taking a potion
         animations.put("slash", Animation.createAnimation(getSpriteSheet(), 13, 4, 6, 64, 64));
+        //Build a swing animation for swinging a weapon (oversize = 192 * 192 pixel)
+        animations.put("slashOversize", Animation.createAnimation(getSpriteSheet(), 8, 4, 6, 192, 192));
+        //Build a shoot animation for shooting with a bow
+        animations.put("shoot", Animation.createAnimation(getSpriteSheet(), 17, 4, 13, 64, 64));
         //Build dying animation
         animations.put("die", Animation.createAnimation(getSpriteSheet(), 21, 1, 6, 64, 64));
 
         //Set primary animation (default animation)
-        primaryAnimation = animations.get("move");
+        primaryAnimation = animations.get("walk");
 
         //Start: facing downward
         direction = 3;
@@ -198,12 +201,10 @@ public class Player extends AnimatedCharacter
             {
                 setLayer(1, null);
                 setLayer(2, null);
-                setLayer(3, null);
-                setLayer(4, null);
 
                 refresh(primaryAnimation);
-                refresh(animations.get("swordAttack"));
-                refresh(animations.get("bowAttack"));
+                refresh(animations.get("slashOversize"));
+                refresh(animations.get("shoot"));
                 refresh(animations.get("slash"));
 
                 currentSlotItemType = null;
@@ -213,12 +214,49 @@ public class Player extends AnimatedCharacter
             {
                 setLayer(1, longsword1);
                 setLayer(2, longsword2);
-                setLayer(3, null);
-                setLayer(4, null);
 
                 refresh(primaryAnimation);
-                refresh(animations.get("swordAttack"));
-                refresh(animations.get("bowAttack"));
+                refresh(animations.get("slashOversize"));
+                refresh(animations.get("shoot"));
+                refresh(animations.get("slash"));
+
+                currentSlotItemType = inventory.itemData.getItemType(currentSlotItem);
+            }
+
+            if(currentSlotItem == "dagger")
+            {
+                setLayer(1, dagger);
+                setLayer(2, null);
+
+                refresh(primaryAnimation);
+                refresh(animations.get("slashOversize"));
+                refresh(animations.get("shoot"));
+                refresh(animations.get("slash"));
+
+                currentSlotItemType = inventory.itemData.getItemType(currentSlotItem);
+            }
+
+            if(currentSlotItem == "axe")
+            {
+                setLayer(1, axe);
+                setLayer(2, null);
+
+                refresh(primaryAnimation);
+                refresh(animations.get("slashOversize"));
+                refresh(animations.get("shoot"));
+                refresh(animations.get("slash"));
+
+                currentSlotItemType = inventory.itemData.getItemType(currentSlotItem);
+            }
+
+            if(currentSlotItem == "warhammer")
+            {
+                setLayer(1, warhammer);
+                setLayer(2, null);
+
+                refresh(primaryAnimation);
+                refresh(animations.get("slashOversize"));
+                refresh(animations.get("shoot"));
                 refresh(animations.get("slash"));
 
                 currentSlotItemType = inventory.itemData.getItemType(currentSlotItem);
@@ -226,29 +264,25 @@ public class Player extends AnimatedCharacter
 
             if(currentSlotItem == "bow1")
             {
-                setLayer(1, null);
-                setLayer(2, null);
-                setLayer(3, bow1);
-                setLayer(4, arrow);
+                setLayer(1, bow1);
+                setLayer(2, arrow);
 
                 refresh(primaryAnimation);
-                refresh(animations.get("swordAttack"));
-                refresh(animations.get("bowAttack"));
+                refresh(animations.get("slashOversize"));
+                refresh(animations.get("shoot"));
                 refresh(animations.get("slash"));
 
                 currentSlotItemType = inventory.itemData.getItemType(currentSlotItem);
             }
 
-            if(currentSlotItem == "redPotion")
+            if(currentSlotItem == "greenPotion" || currentSlotItem == "redPotion" || currentSlotItem == "bluePotion" || currentSlotItem == "purplePotion" || currentSlotItem == "whitePotion")
             {
                 setLayer(1, null);
                 setLayer(2, null);
-                setLayer(3, null);
-                setLayer(4, null);
 
                 refresh(primaryAnimation);
-                refresh(animations.get("swordAttack"));
-                refresh(animations.get("bowAttack"));
+                refresh(animations.get("slashOversize"));
+                refresh(animations.get("shoot"));
                 refresh(animations.get("slash"));
 
                 currentSlotItemType = inventory.itemData.getItemType(currentSlotItem);
@@ -278,8 +312,15 @@ public class Player extends AnimatedCharacter
                         {
                             lastUse = t;
 
-                            runTerminalAnimation("swordAttack", direction);
-
+                            if(currentSlotItem == "dagger" || currentSlotItem == "axe" || currentSlotItem == "warhammer")
+                            {
+                                runTerminalAnimation("slash", direction);
+                            }
+                            else
+                            {
+                                runTerminalAnimation("slashOversize", direction);
+                            }
+                            
                             //Look for an Enemy 1 pixel away in the direction I'm facing
                             Enemy enemy = (Enemy)getOneObjectAtOffset(xOffset * (getImage().getWidth()/2 + 1), yOffset * (getImage().getWidth()/2 + 1), Enemy.class);
 
@@ -306,7 +347,7 @@ public class Player extends AnimatedCharacter
                             {
                                 lastUse = t;
 
-                                runTerminalAnimation("bowAttack", direction);
+                                runTerminalAnimation("shoot", direction);
 
                                 if(direction == 0 || direction == 1)
                                 {

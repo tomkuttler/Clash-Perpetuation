@@ -3,7 +3,7 @@ comment0.target=Skeleton
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ Skeleton\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=newPlayer\ newBar\ startDirection
 comment1.target=Skeleton(Player,\ EnemyHealthBar,\ int)
-comment1.text=\r\n\ Skeleton\ Constructor\:\ Sets\ the\ speed,\ creates\ the\ spriteSheet\ of\ the\ character,\ creates\ the\ animations\ and\ sets\ variables.\r\n\ \r\n\ @param\ 'newPlayer'\:\ Reference\ to\ the\ player\r\n\ \r\n\ @param\ 'startDirection'\:\ The\ direction\ in\ which\ the\ character\ will\ face\ at\ the\ start\ (0\ \=\ Right,\ 1\ \=\ Left,\ 2\ \=\ Up,\ 3\ \=\ Down)\r\n
+comment1.text=\r\n\ Skeleton\ Constructor\:\ Sets\ the\ speed,\ creates\ the\ spriteSheet\ of\ the\ character,\ creates\ the\ animations\ and\ sets\ variables.\r\n\ \r\n\ @param\ 'newPlayer'\:\ Reference\ to\ the\ player\r\n\ @param\ 'newBar'\:\ Reference\ to\ the\ health\ bar\ of\ the\ enemy\r\n\ @param\ 'startDirection'\:\ The\ direction\ in\ which\ the\ character\ will\ face\ at\ the\ start\ (0\ \=\ Right,\ 1\ \=\ Left,\ 2\ \=\ Up,\ 3\ \=\ Down)\r\n
 comment2.params=
 comment2.target=void\ act()
 comment2.text=\r\n\ Method\ 'act'\:\ Is\ called\ every\ tick\ or\ whenever\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n\ It\ calls\ the\ 'act'\ method\ of\ the\ AnimatedCharacter\ superclass\ to\ perform\ animations\ and\ movement.\r\n

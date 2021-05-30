@@ -1,12 +1,16 @@
 #BlueJ class context
 comment0.target=PickUpItems
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ PickUpItems\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ PickUpItems\ is\ the\ superclass\ of\ all\ items\ that\ can\ be\ picked\ up.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=name\ amount
 comment1.target=void\ setup(java.lang.String,\ int)
+comment1.text=\r\n\ Method\ 'setup'\:\ Is\ called\ in\ the\ constructor\ in\ every\ PickUpItems\ subclass,\ to\ pass\ the\ important\ variables.\r\n\ \r\n\ @param\ 'name'\:\ The\ name\ of\ the\ item\ that\ can\ be\ picked\ up\r\n\ @param\ 'amount'\:\ The\ amount\ of\ items\ that\ can\ be\ picked\ up\r\n
 comment2.params=
 comment2.target=java.lang.String\ getName()
+comment2.text=\r\n\ Method\ 'getName'\:\ Is\ called\ in\ the\ 'addItem'\ method\ in\ inventory\ class,\ to\ add\ the\ correct\ item\ to\ the\ inventory,\ if\ the\ item\ was\ picked\ up.\r\n\ \r\n\ @return\:\ The\ name\ of\ the\ item\ that\ was\ picked\ up\r\n
 comment3.params=
 comment3.target=int\ getAmount()
+comment3.text=\r\n\ Method\ 'getAmount'\:\ Is\ called\ in\ the\ 'addItem'\ method\ in\ inventory\ class,\ to\ add\ the\ correct\ amount\ to\ the\ inventory,\ if\ the\ item\ was\ picked\ up.\r\n\ \r\n\ @return\:\ The\ amount\ of\ the\ item\ that\ was\ picked\ up\r\n
 comment4.params=
 comment4.target=void\ pickedUp()
+comment4.text=\r\n\ Method\ 'pickedUp'\:\ Is\ called\ in\ the\ 'checkPickUp'\ method\ in\ player\ class,\ to\ remove\ the\ item\ from\ the\ world,\ if\ the\ item\ was\ picked\ up.\r\n
 numComments=5

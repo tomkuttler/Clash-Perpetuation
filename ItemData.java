@@ -11,10 +11,31 @@ public class ItemData
     //----- MELEE WEAPONS -----
     //----- longsword -----
     private String longswordItemType = "meleeWeapon";
-    private int longswordDamage = 100;
+    private int longswordDamage = 30;
     private double longswordUseCooldown = 750000000.0;
     private int longswordMaxStackSize = 1;
     private GreenfootImage longswordIcon = new GreenfootImage("objects/weapons/longswordIcon.png");
+    
+    //----- dagger -----
+    private String daggerItemType = "meleeWeapon";
+    private int daggerDamage = 10;
+    private double daggerUseCooldown = 250000000.0;
+    private int daggerMaxStackSize = 1;
+    private GreenfootImage daggerIcon = new GreenfootImage("objects/weapons/daggerIcon.png");
+    
+    //----- axe -----
+    private String axeItemType = "meleeWeapon";
+    private int axeDamage = 40;
+    private double axeUseCooldown = 1500000000.0;
+    private int axeMaxStackSize = 1;
+    private GreenfootImage axeIcon = new GreenfootImage("objects/weapons/axeIcon.png");
+    
+    //----- warhammer -----
+    private String warhammerItemType = "meleeWeapon";
+    private int warhammerDamage = 50;
+    private double warhammerUseCooldown = 2000000000.0;
+    private int warhammerMaxStackSize = 1;
+    private GreenfootImage warhammerIcon = new GreenfootImage("objects/weapons/warhammerIcon.png");
 
     //----- RANGED WEAPONS -----
     //----- bow1 -----
@@ -27,12 +48,40 @@ public class ItemData
     private GreenfootImage bow1Icon = new GreenfootImage("objects/weapons/bow1Icon.png");
 
     //----- HEALING ITEMS -----
+    //----- greenPotion -----
+    private String greenPotionItemType = "healingItem";
+    private int greenPotionMaxStackSize = 64;
+    private int greenPotionHealthPoints = 5;
+    private double greenPotionUseCooldown = 1000000000.0;
+    private GreenfootImage greenPotionIcon = new GreenfootImage("objects/healingItems/greenPotion.png");
+    
     //----- redPotion -----
     private String redPotionItemType = "healingItem";
     private int redPotionMaxStackSize = 64;
     private int redPotionHealthPoints = 10;
     private double redPotionUseCooldown = 1000000000.0;
     private GreenfootImage redPotionIcon = new GreenfootImage("objects/healingItems/redPotion.png");
+    
+    //----- bluePotion -----
+    private String bluePotionItemType = "healingItem";
+    private int bluePotionMaxStackSize = 64;
+    private int bluePotionHealthPoints = 15;
+    private double bluePotionUseCooldown = 1000000000.0;
+    private GreenfootImage bluePotionIcon = new GreenfootImage("objects/healingItems/bluePotion.png");
+    
+    //----- purplePotion -----
+    private String purplePotionItemType = "healingItem";
+    private int purplePotionMaxStackSize = 64;
+    private int purplePotionHealthPoints = 20;
+    private double purplePotionUseCooldown = 1000000000.0;
+    private GreenfootImage purplePotionIcon = new GreenfootImage("objects/healingItems/purplePotion.png");
+    
+    //----- whitePotion -----
+    private String whitePotionItemType = "healingItem";
+    private int whitePotionMaxStackSize = 64;
+    private int whitePotionHealthPoints = 25;
+    private double whitePotionUseCooldown = 1000000000.0;
+    private GreenfootImage whitePotionIcon = new GreenfootImage("objects/healingItems/whitePotion.png");
 
     //----- ARROWS -----
     //----- arrow1 -----
@@ -45,7 +94,13 @@ public class ItemData
      */
     public ItemData()
     {
+        daggerIcon.scale(daggerIcon.getWidth() * 2, daggerIcon.getHeight() * 2);
+        
+        greenPotionIcon.scale(greenPotionIcon.getWidth() * 2, greenPotionIcon.getHeight() * 2);
         redPotionIcon.scale(redPotionIcon.getWidth() * 2, redPotionIcon.getHeight() * 2);
+        bluePotionIcon.scale(bluePotionIcon.getWidth() * 2, bluePotionIcon.getHeight() * 2);
+        purplePotionIcon.scale(purplePotionIcon.getWidth() * 2, purplePotionIcon.getHeight() * 2);
+        whitePotionIcon.scale(whitePotionIcon.getWidth() * 2, whitePotionIcon.getHeight() * 2);
     }
     
     /**
@@ -61,13 +116,41 @@ public class ItemData
         {
             return longswordItemType;
         }
+        else if(item == "dagger")
+        {
+            return daggerItemType;
+        }
+        else if(item == "axe")
+        {
+            return axeItemType;
+        }
+        else if(item == "warhammer")
+        {
+            return warhammerItemType;
+        }
         else if(item == "bow1")
         {
             return bow1ItemType;
         }
+        else if(item == "greenPotion")
+        {
+            return greenPotionItemType;
+        }
         else if(item == "redPotion")
         {
             return redPotionItemType;
+        }
+        else if(item == "bluePotion")
+        {
+            return bluePotionItemType;
+        }
+        else if(item == "purplePotion")
+        {
+            return purplePotionItemType;
+        }
+        else if(item == "whitePotion")
+        {
+            return whitePotionItemType;
         }
         else if(item == "arrow1")
         {
@@ -92,6 +175,18 @@ public class ItemData
         {
             return longswordDamage;
         }
+        else if(item == "dagger")
+        {
+            return daggerDamage;
+        }
+        else if(item == "axe")
+        {
+            return axeDamage;
+        }
+        else if(item == "warhammer")
+        {
+            return warhammerDamage;
+        }
         else if(item == "bow1")
         {
             return bow1Damage;
@@ -115,13 +210,41 @@ public class ItemData
         {
             return longswordUseCooldown;
         }
+        else if(item == "dagger")
+        {
+            return daggerUseCooldown;
+        }
+        else if(item == "axe")
+        {
+            return axeUseCooldown;
+        }
+        else if(item == "warhammer")
+        {
+            return warhammerUseCooldown;
+        }
         else if(item == "bow1")
         {
             return bow1UseCooldown;
         }
+        else if(item == "greenPotion")
+        {
+            return greenPotionUseCooldown;
+        }
         else if(item == "redPotion")
         {
             return redPotionUseCooldown;
+        }
+        else if(item == "bluePotion")
+        {
+            return bluePotionUseCooldown;
+        }
+        else if(item == "purplePotion")
+        {
+            return purplePotionUseCooldown;
+        }
+        else if(item == "whitePotion")
+        {
+            return whitePotionUseCooldown;
         }
         else
         {
@@ -142,13 +265,41 @@ public class ItemData
         {
             return longswordMaxStackSize;
         }
+        else if(item == "dagger")
+        {
+            return daggerMaxStackSize;
+        }
+        else if(item == "axe")
+        {
+            return axeMaxStackSize;
+        }
+        else if(item == "warhammer")
+        {
+            return warhammerMaxStackSize;
+        }
         else if(item == "bow1")
         {
             return bow1MaxStackSize;
         }
+        else if(item == "greenPotion")
+        {
+            return greenPotionMaxStackSize;
+        }
         else if(item == "redPotion")
         {
             return redPotionMaxStackSize;
+        }
+        else if(item == "bluePotion")
+        {
+            return bluePotionMaxStackSize;
+        }
+        else if(item == "purplePotion")
+        {
+            return purplePotionMaxStackSize;
+        }
+        else if(item == "whitePotion")
+        {
+            return whitePotionMaxStackSize;
         }
         else if(item == "arrow1")
         {
@@ -207,9 +358,25 @@ public class ItemData
      */
     public int getHealthPoints(String item)
     {
-        if(item == "redPotion")
+        if(item == "greenPotion")
+        {
+            return greenPotionHealthPoints;
+        }
+        else if(item == "redPotion")
         {
             return redPotionHealthPoints;
+        }
+        else if(item == "bluePotion")
+        {
+            return bluePotionHealthPoints;
+        }
+        else if(item == "purplePotion")
+        {
+            return purplePotionHealthPoints;
+        }
+        else if(item == "whitePotion")
+        {
+            return whitePotionHealthPoints;
         }
         else
         {
@@ -230,13 +397,41 @@ public class ItemData
         {
             return longswordIcon;
         }
+        else if(item == "dagger")
+        {
+            return daggerIcon;
+        }
+        else if(item == "axe")
+        {
+            return axeIcon;
+        }
+        else if(item == "warhammer")
+        {
+            return warhammerIcon;
+        }
         else if(item == "bow1")
         {
             return bow1Icon;
         }
+        else if(item == "greenPotion")
+        {
+            return greenPotionIcon;
+        }
         else if(item == "redPotion")
         {
             return redPotionIcon;
+        }
+        else if(item == "bluePotion")
+        {
+            return bluePotionIcon;
+        }
+        else if(item == "purplePotion")
+        {
+            return purplePotionIcon;
+        }
+        else if(item == "whitePotion")
+        {
+            return whitePotionIcon;
         }
         else if(item == "arrow1")
         {
@@ -259,15 +454,43 @@ public class ItemData
     {
         if(item == "longsword")
         {
-            hotbar.getWorld().addObject(new Sword("longsword"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+            hotbar.getWorld().addObject(new MeleeWeapon("longsword"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
+        else if(item == "dagger")
+        {
+            hotbar.getWorld().addObject(new MeleeWeapon("dagger"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
+        else if(item == "axe")
+        {
+            hotbar.getWorld().addObject(new MeleeWeapon("axe"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
+        else if(item == "warhammer")
+        {
+            hotbar.getWorld().addObject(new MeleeWeapon("warhammer"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
         }
         else if(item == "bow1")
         {
             hotbar.getWorld().addObject(new Bow("bow1"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
         }
+        else if(item == "greenPotion")
+        {
+            hotbar.getWorld().addObject(new Potion("green", 1), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
         else if(item == "redPotion")
         {
             hotbar.getWorld().addObject(new Potion("red", 1), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
+        else if(item == "bluePotion")
+        {
+            hotbar.getWorld().addObject(new Potion("blue", 1), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
+        else if(item == "purplePotion")
+        {
+            hotbar.getWorld().addObject(new Potion("purple", 1), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
+        else if(item == "whitePotion")
+        {
+            hotbar.getWorld().addObject(new Potion("white", 1), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
         }
         else if(item == "arrow1")
         {
@@ -286,15 +509,43 @@ public class ItemData
     {
         if(item == "longsword")
         {
-            enemy.getWorld().addObject(new Sword("longsword"), enemy.getX(), enemy.getY());
+            enemy.getWorld().addObject(new MeleeWeapon("longsword"), enemy.getX(), enemy.getY());
+        }
+        else if(item == "dagger")
+        {
+            enemy.getWorld().addObject(new MeleeWeapon("dagger"), enemy.getX(), enemy.getY());
+        }
+        else if(item == "axe")
+        {
+            enemy.getWorld().addObject(new MeleeWeapon("axe"), enemy.getX(), enemy.getY());
+        }
+        else if(item == "warhammer")
+        {
+            enemy.getWorld().addObject(new MeleeWeapon("warhammer"), enemy.getX(), enemy.getY());
         }
         else if(item == "bow1")
         {
             enemy.getWorld().addObject(new Bow("bow1"), enemy.getX(), enemy.getY());
         }
+        else if(item == "greenPotion")
+        {
+            enemy.getWorld().addObject(new Potion("green", amount), enemy.getX(), enemy.getY());
+        }
         else if(item == "redPotion")
         {
             enemy.getWorld().addObject(new Potion("red", amount), enemy.getX(), enemy.getY());
+        }
+        else if(item == "bluePotion")
+        {
+            enemy.getWorld().addObject(new Potion("blue", amount), enemy.getX(), enemy.getY());
+        }
+        else if(item == "purplePotion")
+        {
+            enemy.getWorld().addObject(new Potion("purple", amount), enemy.getX(), enemy.getY());
+        }
+        else if(item == "whitePotion")
+        {
+            enemy.getWorld().addObject(new Potion("white", amount), enemy.getX(), enemy.getY());
         }
         else if(item == "arrow1")
         {
