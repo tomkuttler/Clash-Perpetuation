@@ -151,19 +151,16 @@ public abstract class Enemy extends AnimatedCharacter
                         moveInDirection (1, 0);
                         bar.setLocation(getX(), getY() - 30);
                     }
-
                     else if (getX() > playerX && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (-1, 0);
                         bar.setLocation(getX(), getY() - 30);
                     }
-
                     else if (getY() < playerY && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (0, 1);
                         bar.setLocation(getX(), getY() - 30);
                     }
-
                     else if (getY() > playerY && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (0, -1);
@@ -177,7 +174,6 @@ public abstract class Enemy extends AnimatedCharacter
                         moveInDirection (0, 1);
                         bar.setLocation(getX(), getY() - 30);
                     }
-
                     else if (getY() > playerY && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (0, -1);
@@ -188,7 +184,6 @@ public abstract class Enemy extends AnimatedCharacter
                         moveInDirection (1, 0);
                         bar.setLocation(getX(), getY() - 30);
                     }
-
                     else if (getX() > playerX && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (-1, 0);
