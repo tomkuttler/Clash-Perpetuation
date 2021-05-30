@@ -24,7 +24,9 @@ public class WorldMap2 extends World
         addObject(p, 30, 200);
         
         //Spawn Enemys
-        addObject(new Cyclope(p, 3), 100, 100);
+        EnemyHealthBar bar1 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        addObject(bar1, 0, 0);
+        addObject(new Cyclope(p, bar1, 3), 100, 100);
         
         //Add Inventory and Hotbar
         addObject(iUI, 848, 464);

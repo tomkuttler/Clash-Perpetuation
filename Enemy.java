@@ -44,6 +44,7 @@ public abstract class Enemy extends AnimatedCharacter
     private double deathTime;          //Stores the time when the enemy died
 
     //----- Reference -----
+    private Player player;             //Reference to the player
     private EnemyHealthBar bar;        //Reference to the HealthBar of the enemy
 
     /**
@@ -60,8 +61,10 @@ public abstract class Enemy extends AnimatedCharacter
      * @param 'damage': Attack damage of the enemy
      * @param 'hitCooldown': Cooldown between hits
      * @param 'removeCooldown': Enemy will be removed after Cooldown (after Health <= 0)
+     * @param 'bar': Reference to the HealthBar of the enemy
+     * @param 'player': Reference to the player
      */
-    public void setup(int maxHealth, String enemyType, int detectPlayerRange, int minDistance, int attackRange, int bowRange, int bowSpeed, int damage, double hitCooldown, double removeCooldown)
+    public void setup(int maxHealth, String enemyType, int detectPlayerRange, int minDistance, int attackRange, int bowRange, int bowSpeed, int damage, double hitCooldown, double removeCooldown, EnemyHealthBar bar, Player player)
     {
         this.maxHealth = maxHealth;
         this.enemyType = enemyType;
@@ -73,6 +76,8 @@ public abstract class Enemy extends AnimatedCharacter
         this.damage = damage;
         this.hitCooldown = hitCooldown;
         this.removeCooldown = removeCooldown;
+        this.bar = bar;
+        this.player = player;
 
         //Set full health
         health = maxHealth;
@@ -90,38 +95,25 @@ public abstract class Enemy extends AnimatedCharacter
 
     /**
      * Method 'updateHealthBar': Is called every tick by the 'act' method in every Enemy subclass.
-     * It spawnes a new health bar at the start.
      * It shows the health bar if the player is in the detectPlayerRange and hides it if the player is too far away.
      */ 
     public void updateHealthBar()
     {
-        if(bar == null)
+        if(Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > detectPlayerRange) //If distance to player > detectPlayerRange -> hide health bar
         {
-            //Spawn HealthBar
-            bar = new EnemyHealthBar(health, maxHealth); 
-            getWorld().addObject(bar, getX(), getY() - 30);
             bar.setImage((GreenfootImage)null);
         }
         else
         {
-            if(Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > detectPlayerRange) //If distance to player > detectPlayerRange -> hide health bar
-            {
-                bar.setImage((GreenfootImage)null);
-            }
-            else
-            {
-                bar.newImage();
-            }
+            bar.newImage();
         }
     }
 
     /**
      * Method 'updatePlayerPosition': Is called every tick by the 'act' method in every Enemy subclass.
      * It stores the current position of the player, so that information can be used in the 'moveToPlayer' method, if the player is in range.
-     * 
-     * @param 'player': Reference to the player
      */
-    public void updatePlayerPosition(Player player)
+    public void updatePlayerPosition()
     {
         if(player.getWorld() != null)
         {
@@ -248,10 +240,8 @@ public abstract class Enemy extends AnimatedCharacter
     /**
      * Method 'hit': Is called every tick by the 'act' method in every Enemy subclass.
      * The enemy will attack the player if both are alive, the player is in attack range and enough time passed since the last hit.
-     * 
-     * @param 'player': Reference to the player
      */
-    public void hit(Player player)
+    public void hit()
     {
         if(alive)
         {
@@ -303,8 +293,6 @@ public abstract class Enemy extends AnimatedCharacter
      * Method 'checkCollision': Is called every tick by the 'act' method in every Enemy subclass.
      * If the collder of the enemy intersects another collider or an object, teleports the enemy back to his position of the last tick.
      * It toogles the path, so the enemy will try to walk in another direction to walk closer to the player if he is in range.
-     * 
-     * @param 'player': Reference to the player
      */
     public void checkCollision()
     {
@@ -339,12 +327,11 @@ public abstract class Enemy extends AnimatedCharacter
      * If the enemy is dead and the remove cooldown has expired, the enemy and his collider will be removed from the world.
      * The enemy will drop an item randomly according to given rules.
      * 
-     * @param 'player': Reference to the player
      * @param 'dropItems': Array that contins the items that will be dropped if this enemy dies
      * @param 'dropAmount': Array that contins the amount of items that will be dropped if this enemy dies
      * @param 'probability': Array that contins the probability of dropping that item
      */
-    public void checkRemove(Player player, String[] dropItems, int[] dropAmount, int[] probability)
+    public void checkRemove(String[] dropItems, int[] dropAmount, int[] probability)
     {
         if(!alive)
         {

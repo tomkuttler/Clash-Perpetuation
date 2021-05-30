@@ -17,7 +17,7 @@ public class Skeleton extends Enemy
     private int minDistance = 180;                //Minimum distance between the enemy and the player
     
     //----- Health -----
-    private int maxHealth = 100;                  //Max health of the enemy
+    public final static int maxHealth = 100;      //Max health of the enemy
     
     //----- Attack -----
     private String enemyType = "ranged";          //"melee" (if the enemy has a sword or dagger,...) or "ranged" (if the enemy has a bow) 
@@ -42,21 +42,20 @@ public class Skeleton extends Enemy
 
     //----- Reference -----
     private Player player;                        //Reference to the player
+    private EnemyHealthBar bar;                   //Reference to the HealthBar of the enemy
 
     /**
      * Skeleton Constructor: Sets the speed, creates the spriteSheet of the character, creates the animations and sets variables.
      * 
      * @param 'newPlayer': Reference to the player
+     * @param 'newBar': Reference to the health bar of the enemy
      * @param 'startDirection': The direction in which the character will face at the start (0 = Right, 1 = Left, 2 = Up, 3 = Down)
      */ 
-    public Skeleton(Player newPlayer, int startDirection)
+    public Skeleton(Player newPlayer, EnemyHealthBar newBar, int startDirection)
     {
         //Set the speed
         changeSpeed(walkSpeed, animationSpeed);
         
-        //Set the variables in superclass
-        setup(maxHealth, enemyType, detectPlayerRange, minDistance, attackRange, bowRange, bowSpeed, damage, hitCooldown, removeCooldown);
-
         //Create spriteSheet
         setLayer(0, new GreenfootImage("enemys/skeleton.png"));
 
@@ -80,8 +79,15 @@ public class Skeleton extends Enemy
         //Spawn new Collider
         setCollider(28, 35, 0, 6);
 
-        //Set Reference
-        player = newPlayer;        
+        //Set References
+        player = newPlayer;  
+        bar = newBar;
+        
+        //Hide bar at start
+        bar.setImage((GreenfootImage)null);
+        
+        //Set the variables in superclass
+        setup(maxHealth, enemyType, detectPlayerRange, minDistance, attackRange, bowRange, bowSpeed, damage, hitCooldown, removeCooldown, bar, player);
     }
    
     /**
@@ -92,19 +98,19 @@ public class Skeleton extends Enemy
     {
         updateHealthBar();
         
-        updatePlayerPosition(player);        
+        updatePlayerPosition();        
         
         moveToPlayer();
         
         turnToPlayer();
 
-        hit(player);
+        hit();
 
         checkCollision();
 
         storePosition();
 
-        checkRemove(player, dropItems, dropAmount, probability);
+        checkRemove(dropItems, dropAmount, probability);
 
         //Call superclass act() to perform animations and movement
         super.act();

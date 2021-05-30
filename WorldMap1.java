@@ -51,18 +51,43 @@ public class WorldMap1 extends World
         
         addObject(new Chest(1, new String[] {"redPotion", "longsword", null, null, null, null, null, null, null, null}, new int[] {5, 1, 0, 0, 0, 0, 0, 0, 0, 0}), 200, 600);
         addObject(new Chest(2, new String[] {"redPotion", "longsword", null, null, null, null, null, null, null, null}, new int[] {5, 1, 0, 0, 0, 0, 0, 0, 0, 0}), 250, 600);
+                
+        //Spawn Enemys and health bars 
+        EnemyHealthBar bar1 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        addObject(bar1, 0, 0);
+        addObject(new Cyclope(p, bar1, 2), 100, 800);
         
-        //Spawn Enemys
-        addObject(new Cyclope(p, 2), 100, 800);
-        addObject(new Cyclope(p, 2), 200, 800);
-        addObject(new Cyclope(p, 2), 300, 800);
-        addObject(new Cyclope(p, 2), 400, 800);
-        addObject(new Cyclope(p, 2), 500, 800);
-        addObject(new Cyclope(p, 2), 600, 800);
-        addObject(new Cyclope(p, 2), 700, 800);
-        addObject(new Cyclope(p, 2), 800, 800);
+        EnemyHealthBar bar2 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        addObject(bar2, 0, 0);
+        addObject(new Cyclope(p, bar2, 2), 200, 800);
         
-        addObject(new Skeleton(p, 3), 600, 400);
+        EnemyHealthBar bar3 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        addObject(bar3, 0, 0);
+        addObject(new Cyclope(p, bar3, 2), 300, 800);
+        
+        EnemyHealthBar bar4 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        addObject(bar4, 0, 0);
+        addObject(new Cyclope(p, bar4, 2), 400, 800);
+        
+        EnemyHealthBar bar5 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        addObject(bar5, 0, 0);
+        addObject(new Cyclope(p, bar5, 2), 500, 800);
+        
+        EnemyHealthBar bar6 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        addObject(bar6, 0, 0);
+        addObject(new Cyclope(p, bar6, 2), 600, 800);
+        
+        EnemyHealthBar bar7 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        addObject(bar7, 0, 0);
+        addObject(new Cyclope(p, bar7, 2), 700, 800);
+        
+        EnemyHealthBar bar8 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        addObject(bar8, 0, 0);
+        addObject(new Cyclope(p, bar8, 2), 800, 800);
+        
+        EnemyHealthBar bar9 = new EnemyHealthBar(Skeleton.maxHealth, Skeleton.maxHealth);
+        addObject(bar9, 0, 0);
+        addObject(new Skeleton(p, bar9, 3), 600, 400);
         
         //Spawn Inventory and Hotbar
         addObject(iUI, 848, 464);
