@@ -95,6 +95,8 @@ public class Cyclope extends Enemy
         updatePlayerPosition(player);        
         
         moveToPlayer();
+        
+        turnToPlayer();
 
         hit(player);
 

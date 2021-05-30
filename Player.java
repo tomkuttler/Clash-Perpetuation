@@ -27,12 +27,12 @@ public class Player extends AnimatedCharacter
     private boolean alive = true;                 //True if player is alive, false if dead  
 
     //----- Pick up items -----
-    private int pickUpRange = 50;                 //How close the player needs to be to pick up a PickUpItem
+    private int pickUpRange = 65;                 //How close the player needs to be to pick up a PickUpItem
 
     //----- Hotbar -----
     private String currentSlotItem = "";          //Stores the name of the item that is in the current slot
     private String currentSlotItemType = "";      //Stores the type of the item that is in the current slot
-    
+
     //----- Cooldowns -----
     private double lastUse;                       //Stores the time of the last use of an item     
 
@@ -41,12 +41,12 @@ public class Player extends AnimatedCharacter
 
     private double removeCooldown = 2000000000.0; //Player will be removed after Cooldown of 2 bilion nanosec (2sec) (after Health <= 0)
     private double deathTime;                     //Stores the time the player died
-    
+
     //----- References -----
     private PlayerHealthBar bar;                  //Reference to the health bar manager
     public Inventory inventory;                   //Reference to the inventory manager
     public Hotbar hotbar;                         //Reference to the hotbar manager    
-    
+
     //----- Layer images -----
     private GreenfootImage longsword1 = new GreenfootImage("weapons/longsword-universal.png");           
     private GreenfootImage longsword2 = new GreenfootImage("weapons/longsword-attack.png");
@@ -320,7 +320,7 @@ public class Player extends AnimatedCharacter
                                 {
                                     getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem), inventory.itemData.getSpeed(currentSlotItem), "enemy"), getX() - 2, getY() + 20);
                                 }
-                                
+
                                 hotbar.removeItem("arrow1", 1);
                             }
                         }
@@ -484,7 +484,7 @@ public class Player extends AnimatedCharacter
      * Method 'gotHit': Is called by the 'hit' method in Enemy class or the 'checkHit' method in Arrow class, 
      * if the enemy hit the player or an arrow hit the player.
      * It subtracts the damage from the health and updates the health bar.
-     * If the health is <= 0 the player is dead and the die animation will be played.
+     * If the health is <= 0 the player is dead the inventory wil be closed and the die animation will be played.
      * 
      * @param 'damage': The damage that the enemy deals
      */    
@@ -497,9 +497,17 @@ public class Player extends AnimatedCharacter
         if(health <= 0)
         {
             alive = false;
+
             stopMoving();
             changeSpeed (0, 3);
+
+            if(inventory.isInventoryOpen())
+            {
+                inventory.closeInventory();
+            }
+
             runTerminalAnimation ("die", direction);
+
             deathTime = System.nanoTime();
         }
     }

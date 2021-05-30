@@ -11,15 +11,15 @@ public abstract class Enemy extends AnimatedCharacter
     //----- Movement -----
     private int playerX;               //Current x position of the Player. Used for movement
     private int playerY;               //Current y position of the Player. Used for movement
-    
+
     private String path = "priorityX"; //Used for path finding, "priorityX" = moves first in x direction and then in y direction to player, "priorityY" = moves first in y direction and then in x direction to player                                                          
-    
+
     private int minDistance;           //Minimum distance between the enemy and the player
-    
+
     //----- Collision -----
     private int oldX;                  //Stores the x position from the last tick. Used for collision
     private int oldY;                  //Stores the y position from the last tick. Used for collision
-    
+
     //----- Health -----    
     private int health;                //Current health of the enemy
     private int maxHealth;             //Max health of the enemy
@@ -27,13 +27,13 @@ public abstract class Enemy extends AnimatedCharacter
 
     //----- Attack -----
     private String enemyType;          //"melee" (if the enemy has a sword or dagger,...) or "ranged" (if the enemy has a bow) 
-        
+
     private int bowRange;              //The range of the bow if the enemy has a bow
     private int bowSpeed;              //The speed of the bow if the enemy has a bow
-    
+
     private int detectPlayerRange;     //Player detection range of the enemy     
     private int attackRange;           //Attack range of the enemy
-    
+
     private int damage;                //Attack damage of the enemy
 
     //----- Cooldowns -----
@@ -73,7 +73,7 @@ public abstract class Enemy extends AnimatedCharacter
         this.damage = damage;
         this.hitCooldown = hitCooldown;
         this.removeCooldown = removeCooldown;
-        
+
         //Set full health
         health = maxHealth;
     }
@@ -203,6 +203,44 @@ public abstract class Enemy extends AnimatedCharacter
                         bar.setLocation(getX(), getY() - 30);
                     }
                 }                                
+            }
+        }
+    }
+
+    /**
+     * Method 'turnToPlayer': Is called every tick by the 'act' method in every Enemy subclass.
+     * The enemy will turn to the player if the player is in range and the enemy is a ranged type.
+     */
+    public void turnToPlayer()
+    {
+        if(alive && enemyType == "ranged")
+        {
+            if (Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) < detectPlayerRange) //If distance to player < detectPlayerRange
+            {
+                int dx = playerX - getX();
+                int dy = playerY - getY();
+
+                double rotation = Math.atan2(dy, dx);
+                rotation = Math.toDegrees(rotation);
+
+                int rotationInt = (int) Math.round(rotation);
+
+                if(rotationInt > -45 && rotationInt < 45)
+                {
+                    direction = 0;
+                }
+                else if(rotationInt > 135 && rotationInt < 180 || rotationInt > -180 && rotationInt < -135)
+                {
+                    direction = 1;
+                }
+                else if(rotationInt > -135 && rotationInt < -45)
+                {
+                    direction = 2;
+                }
+                else if(rotationInt > 45 && rotationInt < 135)
+                {
+                    direction = 3;
+                }  
             }
         }
     }

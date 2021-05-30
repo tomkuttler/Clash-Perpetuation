@@ -629,7 +629,7 @@ class Animation
      */
     public static GreenfootImage updateSpriteSheet(GreenfootImage[] layers)
     {
-        GreenfootImage spriteSheet = new GreenfootImage (layers[0].getWidth(), layers[0].getHeight());
+        GreenfootImage spriteSheet = new GreenfootImage(layers[0].getWidth(), layers[0].getHeight());
 
         for(int i = 0; i < layers.length; i++)
         {

@@ -31,7 +31,7 @@ public class Skeleton extends Enemy
     private int damage = 30;                      //Attack damage of this enemy   
     
     //----- Cooldowns -----
-    private double hitCooldown = 1000000000.0;    //Cooldown of 1 bilion nanosec (1sec) between hits
+    private double hitCooldown = 2000000000.0;    //Cooldown of 2 bilion nanosec (2sec) between hits
 
     private double removeCooldown = 2000000000.0; //Enemy will be removed after Cooldown of 2 bilion nanosec (2sec) (after Health <= 0)
     
@@ -95,6 +95,8 @@ public class Skeleton extends Enemy
         updatePlayerPosition(player);        
         
         moveToPlayer();
+        
+        turnToPlayer();
 
         hit(player);
 
