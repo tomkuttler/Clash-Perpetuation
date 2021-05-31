@@ -10,7 +10,7 @@ public class TestWorld extends World
 {
     public TestWorld()
     {    
-        // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
+        // Create a new world with 1696x928 cells with a cell size of 1x1 pixels.
         super(1696, 928, 1);
         
         //Spawn Health bar: title, units used in bar, initial value, maximum value
@@ -35,18 +35,28 @@ public class TestWorld extends World
         addObject(new Potion("blue", 64), 300, 300);
         addObject(new Potion("purple", 64), 400, 300);
         addObject(new Potion("white", 64), 500, 300);
+                
+        addObject(new MeleeWeapon("dagger"), 100, 400);
+        addObject(new MeleeWeapon("axe"), 200, 400);
+        addObject(new MeleeWeapon("warhammer"), 300, 400);
         
-        addObject(new MeleeWeapon("longsword"), 100, 400);
-        addObject(new MeleeWeapon("dagger"), 200, 400);
-        addObject(new MeleeWeapon("axe"), 300, 400);
-        addObject(new MeleeWeapon("warhammer"), 400, 400);
+        addObject(new MeleeWeapon("longsword"), 400, 400);
+        addObject(new MeleeWeapon("flail"), 500, 400);
+        addObject(new MeleeWeapon("halberd"), 600, 400);
+        addObject(new MeleeWeapon("mace"), 700, 400);
+        addObject(new MeleeWeapon("rapier"), 800, 400);
+        addObject(new MeleeWeapon("saber"), 900, 400);
+        addObject(new MeleeWeapon("scythe"), 1000, 400);
+        addObject(new MeleeWeapon("waraxe"), 1100, 400);
         
-        addObject(new Bow("bow1"), 500, 400);
+        addObject(new MeleeWeapon("cane"), 1200, 400);
         
-        addObject(new ArrowItem("arrow1", 5), 600, 400);
+        addObject(new Bow("bow1"), 100, 500);
         
-        addObject(new Chest(1, new String[] {"redPotion", "longsword", null, null, null, null, null, null, null, null}, new int[] {5, 1, 0, 0, 0, 0, 0, 0, 0, 0}), 100, 500);
-        addObject(new Chest(2, new String[] {"redPotion", "longsword", null, null, null, null, null, null, null, null}, new int[] {5, 1, 0, 0, 0, 0, 0, 0, 0, 0}), 200, 500);
+        addObject(new ArrowItem("arrow1", 5), 200, 500);
+        
+        addObject(new Chest(1, new String[] {"redPotion", "longsword", null, null, null, null, null, null, null, null}, new int[] {5, 1, 0, 0, 0, 0, 0, 0, 0, 0}), 100, 600);
+        addObject(new Chest(2, new String[] {"redPotion", "longsword", null, null, null, null, null, null, null, null}, new int[] {5, 1, 0, 0, 0, 0, 0, 0, 0, 0}), 200, 600);
                 
         //Spawn Enemys and health bars 
         EnemyHealthBar bar1 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
