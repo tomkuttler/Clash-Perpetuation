@@ -25,7 +25,7 @@ public class PlayerHealthBar extends UI
     private boolean showTextualUnits = true;               //Determines whether or not the textual quantity of the bar is to show
 
     /**
-     * PlayerHealthBar Constructor: saves the initial values that are brought in and creates the bar image through the 'add(initValue)' call,
+     * PlayerHealthBar Constructor: Saves the initial values that are brought in and creates the bar image through the 'add(initValue)' call,
      * which sets the initial value of the bar and calls the 'newImage' method to build and set a new image for the bar.
      *
      * @param 'initValue': the value the bar should be initially set to
@@ -38,7 +38,7 @@ public class PlayerHealthBar extends UI
     }
 
     /**
-     * Method 'newImage': builds a new image for the bar, determined by the values set for it
+     * Method 'newImage': Builds a new image for the bar, determined by the values set for it.
      */
     private void newImage()
     {
@@ -92,7 +92,7 @@ public class PlayerHealthBar extends UI
     }
 
     /**
-     * Method 'add': add an amount to the value of the bar, checks to make sure the new value is between minimumValue and maximumValue,
+     * Method 'add': Add an amount to the value of the bar, checks to make sure the new value is between minimumValue and maximumValue,
      * then, calls 'newImage' to build and set the new image for the bar.
      *
      * @param 'amount': the amount to add (if positive) or subtract (if negative) to the current value of the bar
@@ -105,7 +105,7 @@ public class PlayerHealthBar extends UI
     }
 
     /**
-     * Method 'subtract': subtracts an amount from the value of the bar, checks to make sure the new value does not overstep its bounds,
+     * Method 'subtract': Subtracts an amount from the value of the bar, checks to make sure the new value does not overstep its bounds,
      * then, calls 'newImage' to build and set the new image for the bar.
      *
      * @param 'amount': the amount to subtract (if positive) or add (if negative) to the current value of the bar
@@ -118,7 +118,7 @@ public class PlayerHealthBar extends UI
     }
 
     /**
-     * Method 'checkValue': ensures that the new value in between the minimum value and the maximum value for the bar
+     * Method 'checkValue': Ensures that the new value in between the minimum value and the maximum value for the bar
      */
     private void checkValue()
     {
@@ -134,7 +134,7 @@ public class PlayerHealthBar extends UI
     }
 
     /**
-     * Method 'getValue': returns the current value of the bar
+     * Method 'getValue': Returns the current value of the bar
      *
      * @return: the current value of the bar
      */
@@ -144,7 +144,7 @@ public class PlayerHealthBar extends UI
     }
 
     /**
-     * Method 'setValue': sets a new value for the bar, if in bounds
+     * Method 'setValue': Sets a new value for the bar, if in bounds
      *
      * @param 'value': the new value for the bar
      */

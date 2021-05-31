@@ -1,0 +1,19 @@
+#BlueJ class context
+comment0.target=HitCooldownBar
+comment0.text=\r\n\ The\ HitCooldownBar\ class\ is\ used\ as\ a\ cooldown\ bar\ to\ show\ how\ long\ the\ player\ has\ to\ wait\ until\ he\ can\ use\ an\ item\ again.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=initValue\ maxValue
+comment1.target=HitCooldownBar(int,\ int)
+comment1.text=\r\n\ HitCooldownBar\ Constructor\:\ Saves\ the\ initial\ values\ that\ are\ brought\ in\ and\ creates\ the\ bar\ image.\r\n\r\n\ @param\ 'initValue'\:\ the\ value\ the\ bar\ should\ be\ initially\ set\ to\r\n\ @param\ 'maxValue'\:\ the\ highest\ value\ the\ bar\ is\ allowed\ to\ hold\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Method\ 'act'\:\ Is\ called\ every\ tick\ or\ whenever\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n\ It\ calls\ the\ 'checkDecrese'\ method\ to\ decrease\ the\ value\ if\ neccesary.\r\n
+comment3.params=
+comment3.target=void\ newImage()
+comment3.text=\r\n\ Method\ 'newImage'\:\ Builds\ a\ new\ image\ for\ the\ bar,\ determined\ by\ the\ values\ set\ for\ it.\r\n
+comment4.params=useCooldown
+comment4.target=void\ itemUsed(double)
+comment4.text=\r\n\ Method\ 'itemUsed'\:\ Is\ called\ in\ the\ 'useItem'\ method\ in\ player\ class,\ if\ an\ item\ was\ used.\r\n\ It\ sets\ the\ maximum\ value\ and\ the\ value\ to\ the\ use\ cooldown\ of\ the\ currently\ used\ item\ (in\ millisecons\ (ms)\ NOT\ in\ nanoseconds).\r\n\ It\ updates\ the\ image\ and\ saves\ the\ time\ of\ the\ current\ tick\ and\ sets\ the\ cecrease\ boolean\ to\ true.\r\n\r\n\ @param\ 'useCooldown'\:\ The\ use\ cooldown\ of\ the\ currently\ used\ item\r\n
+comment5.params=
+comment5.target=void\ checkDecrease()
+comment5.text=\r\n\ Method\ 'checkDecrease'\:\ Is\ called\ every\ tick\ by\ the\ 'act'\ method.\r\n\ If\ an\ item\ was\ used\ and\ the\ bar\ value\ should\ decrease\ now,\ the\ delta\ time\ (in\ millisecons\ (ms)\ NOT\ in\ nanoseconds)\ between\ now\ and\ the\ last\ tick\ will\ be\ calculated.\r\n\ The\ delta\ time\ will\ be\ subtracted\ from\ the\ current\ value\ and\ the\ image\ will\ be\ updated.\r\n\ If\ the\ value\ is\ <\=\ 0,\ the\ value\ will\ be\ set\ to\ the\ maximum\ value\ again.\r\n
+numComments=6

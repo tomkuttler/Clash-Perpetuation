@@ -16,9 +16,13 @@ public class WorldMap1 extends World
         super(1696, 928, 1);
         setBackground(map1);
         
-        //Spawn Health bar: title, units used in bar, initial value, maximum value
+        //Spawn Health bar
         PlayerHealthBar bar = new PlayerHealthBar(100, 100);
-        addObject(bar, 186, 29);
+        addObject(bar, 186, 29);        
+        
+        //Spawn hit cooldown bar
+        HitCooldownBar hitBar = new HitCooldownBar(100, 100);
+        addObject(hitBar, 178, 49);
         addObject(new HealthBarUI(), 150, 50);
         
         //Store Inventory and Hotbar
@@ -29,7 +33,7 @@ public class WorldMap1 extends World
         Hotbar hotbar = new Hotbar(hUI, hH, inventory);
         
         //Spawn Player
-        Player p = new Player(bar, inventory, hotbar);
+        Player p = new Player(bar, hitBar, inventory, hotbar);
         addObject(p, 300, 200);
         
         //Spawn Objects        
@@ -44,7 +48,7 @@ public class WorldMap1 extends World
         addObject(new Potion("red", 32), 300, 350);
         addObject(new Potion("red", 32), 350, 350);
         
-        addObject(new MeleeWeapon("longsword"), 400, 350);
+        addObject(new Melee("longsword"), 400, 350);
         addObject(new Bow("bow1"), 450, 350);
         
         addObject(new ArrowItem("arrow1", 5), 200, 700);

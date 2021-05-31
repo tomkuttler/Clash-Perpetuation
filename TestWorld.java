@@ -13,9 +13,13 @@ public class TestWorld extends World
         // Create a new world with 1696x928 cells with a cell size of 1x1 pixels.
         super(1696, 928, 1);
         
-        //Spawn Health bar: title, units used in bar, initial value, maximum value
+        //Spawn Health bar
         PlayerHealthBar bar = new PlayerHealthBar(100, 100);
-        addObject(bar, 186, 29);
+        addObject(bar, 186, 29);        
+        
+        //Spawn hit cooldown bar
+        HitCooldownBar hitBar = new HitCooldownBar(100, 100);
+        addObject(hitBar, 178, 49);
         addObject(new HealthBarUI(), 150, 50);
         
         //Store Inventory and Hotbar
@@ -26,7 +30,7 @@ public class TestWorld extends World
         Hotbar hotbar = new Hotbar(hUI, hH, inventory);
         
         //Spawn Player
-        Player p = new Player(bar, inventory, hotbar);
+        Player p = new Player(bar, hitBar, inventory, hotbar);
         addObject(p, 100, 800);
         
         //Spawn Objects        
@@ -36,20 +40,20 @@ public class TestWorld extends World
         addObject(new Potion("purple", 64), 400, 300);
         addObject(new Potion("white", 64), 500, 300);
                 
-        addObject(new MeleeWeapon("dagger"), 100, 400);
-        addObject(new MeleeWeapon("axe"), 200, 400);
-        addObject(new MeleeWeapon("warhammer"), 300, 400);
+        addObject(new Melee("dagger"), 100, 400);
+        addObject(new Melee("axe"), 200, 400);
+        addObject(new Melee("warhammer"), 300, 400);
         
-        addObject(new MeleeWeapon("longsword"), 400, 400);
-        addObject(new MeleeWeapon("flail"), 500, 400);
-        addObject(new MeleeWeapon("halberd"), 600, 400);
-        addObject(new MeleeWeapon("mace"), 700, 400);
-        addObject(new MeleeWeapon("rapier"), 800, 400);
-        addObject(new MeleeWeapon("saber"), 900, 400);
-        addObject(new MeleeWeapon("scythe"), 1000, 400);
-        addObject(new MeleeWeapon("waraxe"), 1100, 400);
+        addObject(new Melee("longsword"), 400, 400);
+        addObject(new Melee("flail"), 500, 400);
+        addObject(new Melee("halberd"), 600, 400);
+        addObject(new Melee("mace"), 700, 400);
+        addObject(new Melee("rapier"), 800, 400);
+        addObject(new Melee("saber"), 900, 400);
+        addObject(new Melee("scythe"), 1000, 400);
+        addObject(new Melee("waraxe"), 1100, 400);
         
-        addObject(new MeleeWeapon("cane"), 1200, 400);
+        addObject(new Melee("cane"), 1200, 400);
         
         addObject(new Bow("bow1"), 100, 500);
         

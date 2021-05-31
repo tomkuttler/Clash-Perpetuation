@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class MeleeWeapon extends Weapons
+public class Melee extends Weapons
 {
     private String name;
     private int amount = 1;
@@ -35,7 +35,7 @@ public class MeleeWeapon extends Weapons
      * 
      * @param 'name': Which melee wapon will be picked up
      */
-    public MeleeWeapon(String name)
+    public Melee(String name)
     {
         dagger.scale(dagger.getWidth() * 2, dagger.getHeight() * 2);
         mace.scale(mace.getWidth() * 2, mace.getHeight() * 2);

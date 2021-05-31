@@ -44,6 +44,7 @@ public class Player extends AnimatedCharacter
 
     //----- References -----
     private PlayerHealthBar bar;                  //Reference to the health bar manager
+    private HitCooldownBar hitBar;                //Reference to the hit cooldown bar manager
     public Inventory inventory;                   //Reference to the inventory manager
     public Hotbar hotbar;                         //Reference to the hotbar manager    
 
@@ -51,7 +52,7 @@ public class Player extends AnimatedCharacter
     private GreenfootImage dagger = new GreenfootImage("weapons/melee/dagger.png");
     private GreenfootImage axe = new GreenfootImage("weapons/melee/axe.png");
     private GreenfootImage warhammer = new GreenfootImage("weapons/melee/warhammer.png");
-    
+
     private GreenfootImage longsword1 = new GreenfootImage("weapons/melee/oversize/longsword-universal.png");           
     private GreenfootImage longsword2 = new GreenfootImage("weapons/melee/oversize/longsword-attack.png");
     private GreenfootImage flail1 = new GreenfootImage("weapons/melee/oversize/flail-universal.png");           
@@ -68,9 +69,9 @@ public class Player extends AnimatedCharacter
     private GreenfootImage scythe2 = new GreenfootImage("weapons/melee/oversize/scythe-attack.png");
     private GreenfootImage waraxe1 = new GreenfootImage("weapons/melee/oversize/waraxe-universal.png");           
     private GreenfootImage waraxe2 = new GreenfootImage("weapons/melee/oversize/waraxe-attack.png");
-    
+
     private GreenfootImage cane = new GreenfootImage("weapons/melee/cane.png");
-    
+
     private GreenfootImage bow1 = new GreenfootImage("weapons/ranged/bow1.png");
     private GreenfootImage arrow = new GreenfootImage("weapons/ranged/arrow.png");
 
@@ -78,10 +79,11 @@ public class Player extends AnimatedCharacter
      * Player Constructor: Sets the speed, creates the spriteSheet of the character, creates the animations and sets variables.
      * 
      * @param 'newBar': Reference to the health bar manager
+     * @param 'newHitBar': Reference to the hit cooldown bar manager
      * @param 'newInventory': Reference to the inventory manager
      * @param 'newHotbar': Reference to the hotbar manager
      */ 
-    public Player(PlayerHealthBar newBar, Inventory newInventory, Hotbar newHotbar) 
+    public Player(PlayerHealthBar newBar, HitCooldownBar newHitBar, Inventory newInventory, Hotbar newHotbar) 
     {        
         //Set the speed
         changeSpeed(walkSpeed, animationSpeed);
@@ -122,6 +124,7 @@ public class Player extends AnimatedCharacter
 
         //Set References
         bar = newBar;
+        hitBar = newHitBar;
         inventory = newInventory;
         hotbar = newHotbar;
     }
@@ -223,241 +226,87 @@ public class Player extends AnimatedCharacter
             {
                 setLayer(1, null);
                 setLayer(2, null);
-
-                refresh(primaryAnimation);
-                refresh(animations.get("slash"));
-                refresh(animations.get("slashOversize"));                
-                refresh(animations.get("thrust"));
-                refresh(animations.get("thrustOversize"));
-                refresh(animations.get("shoot"));
-                refresh(animations.get("die"));
-
-                currentSlotItemType = null;
             }            
-
-            if(currentSlotItem == "dagger")
+            else if(currentSlotItem == "dagger")
             {
                 setLayer(1, dagger);
                 setLayer(2, null);
-
-                refresh(primaryAnimation);
-                refresh(animations.get("slash"));
-                refresh(animations.get("slashOversize"));                
-                refresh(animations.get("thrust"));
-                refresh(animations.get("thrustOversize"));
-                refresh(animations.get("shoot"));
-                refresh(animations.get("die"));
-
-                currentSlotItemType = inventory.itemData.getItemType(currentSlotItem);
             }
-
-            if(currentSlotItem == "axe")
+            else if(currentSlotItem == "axe")
             {
                 setLayer(1, axe);
                 setLayer(2, null);
-
-                refresh(primaryAnimation);
-                refresh(animations.get("slash"));
-                refresh(animations.get("slashOversize"));                
-                refresh(animations.get("thrust"));
-                refresh(animations.get("thrustOversize"));
-                refresh(animations.get("shoot"));
-                refresh(animations.get("die"));
-
-                currentSlotItemType = inventory.itemData.getItemType(currentSlotItem);
             }
-
-            if(currentSlotItem == "warhammer")
+            else if(currentSlotItem == "warhammer")
             {
                 setLayer(1, warhammer);
                 setLayer(2, null);
-
-                refresh(primaryAnimation);
-                refresh(animations.get("slash"));
-                refresh(animations.get("slashOversize"));                
-                refresh(animations.get("thrust"));
-                refresh(animations.get("thrustOversize"));
-                refresh(animations.get("shoot"));
-                refresh(animations.get("die"));
-
-                currentSlotItemType = inventory.itemData.getItemType(currentSlotItem);
             }
-
-            if(currentSlotItem == "longsword")
+            else if(currentSlotItem == "longsword")
             {
                 setLayer(1, longsword1);
                 setLayer(2, longsword2);
-
-                refresh(primaryAnimation);
-                refresh(animations.get("slash"));
-                refresh(animations.get("slashOversize"));                
-                refresh(animations.get("thrust"));
-                refresh(animations.get("thrustOversize"));
-                refresh(animations.get("shoot"));
-                refresh(animations.get("die"));
-
-                currentSlotItemType = inventory.itemData.getItemType(currentSlotItem);
             }
-            
-            if(currentSlotItem == "flail")
+            else if(currentSlotItem == "flail")
             {
                 setLayer(1, flail1);
                 setLayer(2, flail2);
-
-                refresh(primaryAnimation);
-                refresh(animations.get("slash"));
-                refresh(animations.get("slashOversize"));                
-                refresh(animations.get("thrust"));
-                refresh(animations.get("thrustOversize"));
-                refresh(animations.get("shoot"));
-                refresh(animations.get("die"));
-
-                currentSlotItemType = inventory.itemData.getItemType(currentSlotItem);
             }
-            
-            if(currentSlotItem == "halberd")
+            else if(currentSlotItem == "halberd")
             {
                 setLayer(1, halberd1);
                 setLayer(2, halberd2);
-
-                refresh(primaryAnimation);
-                refresh(animations.get("slash"));
-                refresh(animations.get("slashOversize"));                
-                refresh(animations.get("thrust"));
-                refresh(animations.get("thrustOversize"));
-                refresh(animations.get("shoot"));
-                refresh(animations.get("die"));
-
-                currentSlotItemType = inventory.itemData.getItemType(currentSlotItem);
             }
-            
-            if(currentSlotItem == "mace")
+            else if(currentSlotItem == "mace")
             {
                 setLayer(1, mace1);
                 setLayer(2, mace2);
-
-                refresh(primaryAnimation);
-                refresh(animations.get("slash"));
-                refresh(animations.get("slashOversize"));                
-                refresh(animations.get("thrust"));
-                refresh(animations.get("thrustOversize"));
-                refresh(animations.get("shoot"));
-                refresh(animations.get("die"));
-
-                currentSlotItemType = inventory.itemData.getItemType(currentSlotItem);
             }
-            
-            if(currentSlotItem == "rapier")
+            else if(currentSlotItem == "rapier")
             {
                 setLayer(1, rapier1);
                 setLayer(2, rapier2);
-
-                refresh(primaryAnimation);
-                refresh(animations.get("slash"));
-                refresh(animations.get("slashOversize"));                
-                refresh(animations.get("thrust"));
-                refresh(animations.get("thrustOversize"));
-                refresh(animations.get("shoot"));
-                refresh(animations.get("die"));
-
-                currentSlotItemType = inventory.itemData.getItemType(currentSlotItem);
             }
-            
-            if(currentSlotItem == "saber")
+            else if(currentSlotItem == "saber")
             {
                 setLayer(1, saber1);
                 setLayer(2, saber2);
-
-                refresh(primaryAnimation);
-                refresh(animations.get("slash"));
-                refresh(animations.get("slashOversize"));                
-                refresh(animations.get("thrust"));
-                refresh(animations.get("thrustOversize"));
-                refresh(animations.get("shoot"));
-                refresh(animations.get("die"));
-
-                currentSlotItemType = inventory.itemData.getItemType(currentSlotItem);
             }
-            
-            if(currentSlotItem == "scythe")
+            else if(currentSlotItem == "scythe")
             {
                 setLayer(1, scythe1);
                 setLayer(2, scythe2);
-
-                refresh(primaryAnimation);
-                refresh(animations.get("slash"));
-                refresh(animations.get("slashOversize"));                
-                refresh(animations.get("thrust"));
-                refresh(animations.get("thrustOversize"));
-                refresh(animations.get("shoot"));
-                refresh(animations.get("die"));
-
-                currentSlotItemType = inventory.itemData.getItemType(currentSlotItem);
             }
-            
-            if(currentSlotItem == "waraxe")
+            else if(currentSlotItem == "waraxe")
             {
                 setLayer(1, waraxe1);
                 setLayer(2, waraxe2);
-
-                refresh(primaryAnimation);
-                refresh(animations.get("slash"));
-                refresh(animations.get("slashOversize"));                
-                refresh(animations.get("thrust"));
-                refresh(animations.get("thrustOversize"));
-                refresh(animations.get("shoot"));
-                refresh(animations.get("die"));
-
-                currentSlotItemType = inventory.itemData.getItemType(currentSlotItem);
             }
-            
-            if(currentSlotItem == "cane")
+            else if(currentSlotItem == "cane")
             {
                 setLayer(1, cane);
                 setLayer(2, null);
-
-                refresh(primaryAnimation);
-                refresh(animations.get("slash"));
-                refresh(animations.get("slashOversize"));                
-                refresh(animations.get("thrust"));
-                refresh(animations.get("thrustOversize"));
-                refresh(animations.get("shoot"));
-                refresh(animations.get("die"));
-
-                currentSlotItemType = inventory.itemData.getItemType(currentSlotItem);
             }
-            
-            if(currentSlotItem == "bow1")
+            else if(currentSlotItem == "bow1")
             {
                 setLayer(1, bow1);
                 setLayer(2, arrow);
-
-                refresh(primaryAnimation);
-                refresh(animations.get("slash"));
-                refresh(animations.get("slashOversize"));                
-                refresh(animations.get("thrust"));
-                refresh(animations.get("thrustOversize"));
-                refresh(animations.get("shoot"));
-                refresh(animations.get("die"));
-
-                currentSlotItemType = inventory.itemData.getItemType(currentSlotItem);
             }
-
-            if(currentSlotItem == "greenPotion" || currentSlotItem == "redPotion" || currentSlotItem == "bluePotion" || currentSlotItem == "purplePotion" || currentSlotItem == "whitePotion")
+            else if(currentSlotItem == "greenPotion" || currentSlotItem == "redPotion" || currentSlotItem == "bluePotion" || currentSlotItem == "purplePotion" || currentSlotItem == "whitePotion")
             {
                 setLayer(1, null);
-                setLayer(2, null);
-
-                refresh(primaryAnimation);
-                refresh(animations.get("slash"));
-                refresh(animations.get("slashOversize"));                
-                refresh(animations.get("thrust"));
-                refresh(animations.get("thrustOversize"));
-                refresh(animations.get("shoot"));
-                refresh(animations.get("die"));
-
-                currentSlotItemType = inventory.itemData.getItemType(currentSlotItem);
+                setLayer(2, null);                                
             }
+
+            refresh(primaryAnimation);
+            refresh(animations.get("slash"));
+            refresh(animations.get("slashOversize"));                
+            refresh(animations.get("thrust"));
+            refresh(animations.get("thrustOversize"));
+            refresh(animations.get("shoot"));
+            refresh(animations.get("die"));
+
+            currentSlotItemType = inventory.itemData.getItemType(currentSlotItem);
         }        
     }
 
@@ -483,6 +332,8 @@ public class Player extends AnimatedCharacter
                         {
                             lastUse = t;
 
+                            hitBar.itemUsed(inventory.itemData.getUseCooldown(currentSlotItem));
+
                             if(currentSlotItem == "dagger" || currentSlotItem == "axe" || currentSlotItem == "warhammer")
                             {
                                 runTerminalAnimation("slash", direction);
@@ -495,7 +346,7 @@ public class Player extends AnimatedCharacter
                             {
                                 runTerminalAnimation("thrust", direction);
                             }
-                            
+
                             //Look for an Enemy 1 pixel away in the direction I'm facing
                             Enemy enemy = (Enemy)getOneObjectAtOffset(xOffset * (getImage().getWidth()/2 + 1), yOffset * (getImage().getWidth()/2 + 1), Enemy.class);
 
@@ -522,6 +373,8 @@ public class Player extends AnimatedCharacter
                             {
                                 lastUse = t;
 
+                                hitBar.itemUsed(inventory.itemData.getUseCooldown(currentSlotItem));
+                                
                                 runTerminalAnimation("shoot", direction);
 
                                 if(direction == 0 || direction == 1)
@@ -558,6 +411,8 @@ public class Player extends AnimatedCharacter
                             {
                                 lastUse = t;
 
+                                hitBar.itemUsed(inventory.itemData.getUseCooldown(currentSlotItem));
+                                
                                 runTerminalAnimation("slash", direction);
 
                                 heal(inventory.itemData.getHealthPoints(currentSlotItem));
@@ -675,7 +530,7 @@ public class Player extends AnimatedCharacter
         {
             if(getX() > 1690)
             {
-                Greenfoot.setWorld(new WorldMap2(this, bar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
+                Greenfoot.setWorld(new WorldMap2(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
             }
         }
     }

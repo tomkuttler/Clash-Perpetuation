@@ -674,51 +674,51 @@ public class ItemData
     {        
         if(item == "dagger")
         {
-            hotbar.getWorld().addObject(new MeleeWeapon("dagger"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+            hotbar.getWorld().addObject(new Melee("dagger"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
         }
         else if(item == "axe")
         {
-            hotbar.getWorld().addObject(new MeleeWeapon("axe"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+            hotbar.getWorld().addObject(new Melee("axe"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
         }
         else if(item == "warhammer")
         {
-            hotbar.getWorld().addObject(new MeleeWeapon("warhammer"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+            hotbar.getWorld().addObject(new Melee("warhammer"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
         }
         else if(item == "longsword")
         {
-            hotbar.getWorld().addObject(new MeleeWeapon("longsword"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+            hotbar.getWorld().addObject(new Melee("longsword"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
         }
         else if(item == "flail")
         {
-            hotbar.getWorld().addObject(new MeleeWeapon("flail"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+            hotbar.getWorld().addObject(new Melee("flail"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
         }
         else if(item == "halberd")
         {
-            hotbar.getWorld().addObject(new MeleeWeapon("halberd"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+            hotbar.getWorld().addObject(new Melee("halberd"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
         }
         else if(item == "mace")
         {
-            hotbar.getWorld().addObject(new MeleeWeapon("mace"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+            hotbar.getWorld().addObject(new Melee("mace"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
         }
         else if(item == "rapier")
         {
-            hotbar.getWorld().addObject(new MeleeWeapon("rapier"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+            hotbar.getWorld().addObject(new Melee("rapier"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
         }
         else if(item == "saber")
         {
-            hotbar.getWorld().addObject(new MeleeWeapon("saber"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+            hotbar.getWorld().addObject(new Melee("saber"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
         }
         else if(item == "scythe")
         {
-            hotbar.getWorld().addObject(new MeleeWeapon("scythe"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+            hotbar.getWorld().addObject(new Melee("scythe"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
         }
         else if(item == "waraxe")
         {
-            hotbar.getWorld().addObject(new MeleeWeapon("waraxe"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+            hotbar.getWorld().addObject(new Melee("waraxe"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
         }
         else if(item == "cane")
         {
-            hotbar.getWorld().addObject(new MeleeWeapon("cane"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+            hotbar.getWorld().addObject(new Melee("cane"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
         }
         else if(item == "bow1")
         {
@@ -761,51 +761,51 @@ public class ItemData
     {        
         if(item == "dagger")
         {
-            enemy.getWorld().addObject(new MeleeWeapon("dagger"), enemy.getX(), enemy.getY());
+            enemy.getWorld().addObject(new Melee("dagger"), enemy.getX(), enemy.getY());
         }
         else if(item == "axe")
         {
-            enemy.getWorld().addObject(new MeleeWeapon("axe"), enemy.getX(), enemy.getY());
+            enemy.getWorld().addObject(new Melee("axe"), enemy.getX(), enemy.getY());
         }
         else if(item == "warhammer")
         {
-            enemy.getWorld().addObject(new MeleeWeapon("warhammer"), enemy.getX(), enemy.getY());
+            enemy.getWorld().addObject(new Melee("warhammer"), enemy.getX(), enemy.getY());
         }
         else if(item == "longsword")
         {
-            enemy.getWorld().addObject(new MeleeWeapon("longsword"), enemy.getX(), enemy.getY());
+            enemy.getWorld().addObject(new Melee("longsword"), enemy.getX(), enemy.getY());
         }
         else if(item == "flail")
         {
-            enemy.getWorld().addObject(new MeleeWeapon("flail"), enemy.getX(), enemy.getY());
+            enemy.getWorld().addObject(new Melee("flail"), enemy.getX(), enemy.getY());
         }
         else if(item == "halberd")
         {
-            enemy.getWorld().addObject(new MeleeWeapon("halberd"), enemy.getX(), enemy.getY());
+            enemy.getWorld().addObject(new Melee("halberd"), enemy.getX(), enemy.getY());
         }
         else if(item == "mace")
         {
-            enemy.getWorld().addObject(new MeleeWeapon("mace"), enemy.getX(), enemy.getY());
+            enemy.getWorld().addObject(new Melee("mace"), enemy.getX(), enemy.getY());
         }
         else if(item == "rapier")
         {
-            enemy.getWorld().addObject(new MeleeWeapon("rapier"), enemy.getX(), enemy.getY());
+            enemy.getWorld().addObject(new Melee("rapier"), enemy.getX(), enemy.getY());
         }
         else if(item == "saber")
         {
-            enemy.getWorld().addObject(new MeleeWeapon("saber"), enemy.getX(), enemy.getY());
+            enemy.getWorld().addObject(new Melee("saber"), enemy.getX(), enemy.getY());
         }
         else if(item == "scythe")
         {
-            enemy.getWorld().addObject(new MeleeWeapon("scythe"), enemy.getX(), enemy.getY());
+            enemy.getWorld().addObject(new Melee("scythe"), enemy.getX(), enemy.getY());
         }
         else if(item == "waraxe")
         {
-            enemy.getWorld().addObject(new MeleeWeapon("waraxe"), enemy.getX(), enemy.getY());
+            enemy.getWorld().addObject(new Melee("waraxe"), enemy.getX(), enemy.getY());
         }
         else if(item == "cane")
         {
-            enemy.getWorld().addObject(new MeleeWeapon("cane"), enemy.getX(), enemy.getY());
+            enemy.getWorld().addObject(new Melee("cane"), enemy.getX(), enemy.getY());
         }
         else if(item == "bow1")
         {
