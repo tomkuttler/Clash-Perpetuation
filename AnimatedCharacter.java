@@ -18,7 +18,7 @@ public abstract class AnimatedCharacter extends Actor
     protected HashMap<String, Animation> animations; //This HashMap stores the animations
 
     protected Animation primaryAnimation;            //The primary animation is generally movement - this is the base animation
-    protected Animation currentAnimation;            //The animation currenty playing
+    protected Animation currentAnimation;            //The animation currently playing
 
     protected int direction;                         //Direction: 0 = Right, 1 = Left, 2 = Up, 3 = Down
 
