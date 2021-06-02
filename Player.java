@@ -49,28 +49,28 @@ public class Player extends AnimatedCharacter
     public Hotbar hotbar;                         //Reference to the hotbar manager    
 
     //----- Layer images -----    
-    private GreenfootImage dagger = new GreenfootImage("weapons/melee/dagger.png");
-    private GreenfootImage axe = new GreenfootImage("weapons/melee/axe.png");
-    private GreenfootImage warhammer = new GreenfootImage("weapons/melee/warhammer.png");
+    private GreenfootImage dagger = new GreenfootImage("weapons/melee/slash/dagger.png");
+    private GreenfootImage axe = new GreenfootImage("weapons/melee/slash/axe.png");
+    private GreenfootImage warhammer = new GreenfootImage("weapons/melee/slash/warhammer.png");
 
-    private GreenfootImage longsword1 = new GreenfootImage("weapons/melee/oversize/longsword-universal.png");           
-    private GreenfootImage longsword2 = new GreenfootImage("weapons/melee/oversize/longsword-attack.png");
-    private GreenfootImage flail1 = new GreenfootImage("weapons/melee/oversize/flail-universal.png");           
-    private GreenfootImage flail2 = new GreenfootImage("weapons/melee/oversize/flail-attack.png");
-    private GreenfootImage halberd1 = new GreenfootImage("weapons/melee/oversize/halberd-universal.png");           
-    private GreenfootImage halberd2 = new GreenfootImage("weapons/melee/oversize/halberd-attack.png");
-    private GreenfootImage mace1 = new GreenfootImage("weapons/melee/oversize/mace-universal.png");           
-    private GreenfootImage mace2 = new GreenfootImage("weapons/melee/oversize/mace-attack.png");
-    private GreenfootImage rapier1 = new GreenfootImage("weapons/melee/oversize/rapier-universal.png");           
-    private GreenfootImage rapier2 = new GreenfootImage("weapons/melee/oversize/rapier-attack.png");
-    private GreenfootImage saber1 = new GreenfootImage("weapons/melee/oversize/saber-universal.png");           
-    private GreenfootImage saber2 = new GreenfootImage("weapons/melee/oversize/saber-attack.png");
-    private GreenfootImage scythe1 = new GreenfootImage("weapons/melee/oversize/scythe-universal.png");           
-    private GreenfootImage scythe2 = new GreenfootImage("weapons/melee/oversize/scythe-attack.png");
-    private GreenfootImage waraxe1 = new GreenfootImage("weapons/melee/oversize/waraxe-universal.png");           
-    private GreenfootImage waraxe2 = new GreenfootImage("weapons/melee/oversize/waraxe-attack.png");
+    private GreenfootImage longsword1 = new GreenfootImage("weapons/melee/oversize/slash/longsword-universal.png");           
+    private GreenfootImage longsword2 = new GreenfootImage("weapons/melee/oversize/slash/longsword-attack.png");
+    private GreenfootImage flail1 = new GreenfootImage("weapons/melee/oversize/slash/flail-universal.png");           
+    private GreenfootImage flail2 = new GreenfootImage("weapons/melee/oversize/slash/flail-attack.png");
+    private GreenfootImage halberd1 = new GreenfootImage("weapons/melee/oversize/slash/halberd-universal.png");           
+    private GreenfootImage halberd2 = new GreenfootImage("weapons/melee/oversize/slash/halberd-attack.png");
+    private GreenfootImage mace1 = new GreenfootImage("weapons/melee/oversize/slash/mace-universal.png");           
+    private GreenfootImage mace2 = new GreenfootImage("weapons/melee/oversize/slash/mace-attack.png");
+    private GreenfootImage rapier1 = new GreenfootImage("weapons/melee/oversize/slash/rapier-universal.png");           
+    private GreenfootImage rapier2 = new GreenfootImage("weapons/melee/oversize/slash/rapier-attack.png");
+    private GreenfootImage saber1 = new GreenfootImage("weapons/melee/oversize/slash/saber-universal.png");           
+    private GreenfootImage saber2 = new GreenfootImage("weapons/melee/oversize/slash/saber-attack.png");
+    private GreenfootImage scythe1 = new GreenfootImage("weapons/melee/oversize/slash/scythe-universal.png");           
+    private GreenfootImage scythe2 = new GreenfootImage("weapons/melee/oversize/slash/scythe-attack.png");
+    private GreenfootImage waraxe1 = new GreenfootImage("weapons/melee/oversize/slash/waraxe-universal.png");           
+    private GreenfootImage waraxe2 = new GreenfootImage("weapons/melee/oversize/slash/waraxe-attack.png");
 
-    private GreenfootImage cane = new GreenfootImage("weapons/melee/cane.png");
+    private GreenfootImage cane = new GreenfootImage("weapons/melee/thrust/cane.png");
 
     private GreenfootImage bow1 = new GreenfootImage("weapons/ranged/bow1.png");
     private GreenfootImage arrow = new GreenfootImage("weapons/ranged/arrow.png");

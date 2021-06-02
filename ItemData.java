@@ -88,13 +88,126 @@ public class ItemData
     private int waraxeMaxStackSize = 1;
     private GreenfootImage waraxeIcon = new GreenfootImage("objects/weapons/waraxeIcon.png");
     
-    //----- Standart slash ----- 
+    //----- Standart thrust ----- 
     //----- cane -----
     private String caneItemType = "meleeWeapon";
     private int caneDamage = 30;
     private double caneUseCooldown = 750000000.0;
     private int caneMaxStackSize = 1;
     private GreenfootImage caneIcon = new GreenfootImage("objects/weapons/caneIcon.png");
+    
+    //----- Oversize thrust -----
+    //----- crystalBlue -----
+    private String crystalBlueItemType = "meleeWeapon";
+    private int crystalBlueDamage = 30;
+    private double crystalBlueUseCooldown = 750000000.0;
+    private int crystalBlueMaxStackSize = 1;
+    private GreenfootImage crystalBlueIcon = new GreenfootImage("objects/weapons/crystalBlueIcon.png");
+    
+    //----- crystalPink -----
+    private String crystalPinkItemType = "meleeWeapon";
+    private int crystalPinkDamage = 30;
+    private double crystalPinkUseCooldown = 750000000.0;
+    private int crystalPinkMaxStackSize = 1;
+    private GreenfootImage crystalPinkIcon = new GreenfootImage("objects/weapons/crystalPinkIcon.png");
+    
+    //----- crystalRed -----
+    private String crystalRedItemType = "meleeWeapon";
+    private int crystalRedDamage = 30;
+    private double crystalRedUseCooldown = 750000000.0;
+    private int crystalRedMaxStackSize = 1;
+    private GreenfootImage crystalRedIcon = new GreenfootImage("objects/weapons/crystalRedIcon.png");
+    
+    //----- crystalYellow -----
+    private String crystalYellowItemType = "meleeWeapon";
+    private int crystalYellowDamage = 30;
+    private double crystalYellowUseCooldown = 750000000.0;
+    private int crystalYellowMaxStackSize = 1;
+    private GreenfootImage crystalYellowIcon = new GreenfootImage("objects/weapons/crystalYellowIcon.png");
+    
+    //----- dragonSpear -----
+    private String dragonSpearItemType = "meleeWeapon";
+    private int dragonSpearDamage = 30;
+    private double dragonSpearUseCooldown = 750000000.0;
+    private int dragonSpearMaxStackSize = 1;
+    private GreenfootImage dragonSpearIcon = new GreenfootImage("objects/weapons/dragonSpearIcon.png");
+    
+    //----- dragonSpearMetall -----
+    private String dragonSpearMetallItemType = "meleeWeapon";
+    private int dragonSpearMetallDamage = 30;
+    private double dragonSpearMetallUseCooldown = 750000000.0;
+    private int dragonSpearMetallMaxStackSize = 1;
+    private GreenfootImage dragonSpearMetallIcon = new GreenfootImage("objects/weapons/dragonSpearMetallIcon.png");
+    
+    //----- spear -----
+    private String spearItemType = "meleeWeapon";
+    private int spearDamage = 30;
+    private double spearUseCooldown = 750000000.0;
+    private int spearMaxStackSize = 1;
+    private GreenfootImage spearIcon = new GreenfootImage("objects/weapons/spearIcon.png");
+    
+    //----- spearMetall -----
+    private String spearMetallItemType = "meleeWeapon";
+    private int spearMetallDamage = 30;
+    private double spearMetallUseCooldown = 750000000.0;
+    private int spearMetallMaxStackSize = 1;
+    private GreenfootImage spearMetallIcon = new GreenfootImage("objects/weapons/spearMetallIcon.png");
+    
+    //----- staffBlue -----
+    private String staffBlueItemType = "meleeWeapon";
+    private int staffBlueDamage = 30;
+    private double staffBlueUseCooldown = 750000000.0;
+    private int staffBlueMaxStackSize = 1;
+    private GreenfootImage staffBlueIcon = new GreenfootImage("objects/weapons/staffBlueIcon.png");
+    
+    //----- staffOrange -----
+    private String staffOrangeItemType = "meleeWeapon";
+    private int staffOrangeDamage = 30;
+    private double staffOrangeUseCooldown = 750000000.0;
+    private int staffOrangeMaxStackSize = 1;
+    private GreenfootImage staffOrangeIcon = new GreenfootImage("objects/weapons/staffOrangeIcon.png");
+    
+    //----- staffPink -----
+    private String staffPinkItemType = "meleeWeapon";
+    private int staffPinkDamage = 30;
+    private double staffPinkUseCooldown = 750000000.0;
+    private int staffPinkMaxStackSize = 1;
+    private GreenfootImage staffPinkIcon = new GreenfootImage("objects/weapons/staffPinkIcon.png");
+    
+    //----- staffYellow -----
+    private String staffYellowItemType = "meleeWeapon";
+    private int staffYellowDamage = 30;
+    private double staffYellowUseCooldown = 750000000.0;
+    private int staffYellowMaxStackSize = 1;
+    private GreenfootImage staffYellowIcon = new GreenfootImage("objects/weapons/staffYellowIcon.png");
+    
+    //----- trident -----
+    private String tridentItemType = "meleeWeapon";
+    private int tridentDamage = 30;
+    private double tridentUseCooldown = 750000000.0;
+    private int tridentMaxStackSize = 1;
+    private GreenfootImage tridentIcon = new GreenfootImage("objects/weapons/tridentIcon.png");
+    
+    //----- tridentMetall -----
+    private String tridentMetallItemType = "meleeWeapon";
+    private int tridentMetallDamage = 30;
+    private double tridentMetallUseCooldown = 750000000.0;
+    private int tridentMetallMaxStackSize = 1;
+    private GreenfootImage tridentMetallIcon = new GreenfootImage("objects/weapons/tridentMetallIcon.png");
+    
+    //----- tridentOrange -----
+    private String tridentOrangeItemType = "meleeWeapon";
+    private int tridentOrangeDamage = 30;
+    private double tridentOrangeUseCooldown = 750000000.0;
+    private int tridentOrangeMaxStackSize = 1;
+    private GreenfootImage tridentOrangeIcon = new GreenfootImage("objects/weapons/tridentOrangeIcon.png");
+    
+    //----- tridentYellow -----
+    private String tridentYellowItemType = "meleeWeapon";
+    private int tridentYellowDamage = 30;
+    private double tridentYellowUseCooldown = 750000000.0;
+    private int tridentYellowMaxStackSize = 1;
+    private GreenfootImage tridentYellowIcon = new GreenfootImage("objects/weapons/tridentYellowIcon.png");
     
     //----- RANGED WEAPONS -----
     //----- bow1 -----
@@ -215,6 +328,70 @@ public class ItemData
         else if(item == "waraxe")
         {
             return waraxeItemType;
+        }
+        else if(item == "cane")
+        {
+            return caneItemType;
+        }
+        else if(item == "cane")
+        {
+            return caneItemType;
+        }
+        else if(item == "cane")
+        {
+            return caneItemType;
+        }
+        else if(item == "cane")
+        {
+            return caneItemType;
+        }
+        else if(item == "cane")
+        {
+            return caneItemType;
+        }
+        else if(item == "cane")
+        {
+            return caneItemType;
+        }
+        else if(item == "cane")
+        {
+            return caneItemType;
+        }
+        else if(item == "cane")
+        {
+            return caneItemType;
+        }
+        else if(item == "cane")
+        {
+            return caneItemType;
+        }
+        else if(item == "cane")
+        {
+            return caneItemType;
+        }
+        else if(item == "cane")
+        {
+            return caneItemType;
+        }
+        else if(item == "cane")
+        {
+            return caneItemType;
+        }
+        else if(item == "cane")
+        {
+            return caneItemType;
+        }
+        else if(item == "cane")
+        {
+            return caneItemType;
+        }
+        else if(item == "cane")
+        {
+            return caneItemType;
+        }
+        else if(item == "cane")
+        {
+            return caneItemType;
         }
         else if(item == "cane")
         {

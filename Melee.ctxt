@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Melee
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Sword\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Melee\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=name
 comment1.target=Melee(java.lang.String)
 comment1.text=\r\n\ MeleeWeapon\ Constructor\:\ Scales\ the\ image\ to\ the\ right\ size,\ sets\ the\ right\ image\ and\ name\ and\ passes\ the\ variabes\ to\ the\ PickUpItems\ superclass.\r\n\ \r\n\ @param\ 'name'\:\ Which\ melee\ wapon\ will\ be\ picked\ up\r\n
