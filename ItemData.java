@@ -333,69 +333,69 @@ public class ItemData
         {
             return caneItemType;
         }
-        else if(item == "cane")
+        else if(item == "crystalBlue")
         {
-            return caneItemType;
+            return crystalBlueItemType;
         }
-        else if(item == "cane")
+        else if(item == "crystalPink")
         {
-            return caneItemType;
+            return crystalPinkItemType;
         }
-        else if(item == "cane")
+        else if(item == "crystalRed")
         {
-            return caneItemType;
+            return crystalRedItemType;
         }
-        else if(item == "cane")
+        else if(item == "crystalYellow")
         {
-            return caneItemType;
+            return crystalYellowItemType;
         }
-        else if(item == "cane")
+        else if(item == "dragonSpear")
         {
-            return caneItemType;
+            return dragonSpearItemType;
         }
-        else if(item == "cane")
+        else if(item == "dragonSpearMetall")
         {
-            return caneItemType;
+            return dragonSpearMetallItemType;
         }
-        else if(item == "cane")
+        else if(item == "spear")
         {
-            return caneItemType;
+            return spearItemType;
         }
-        else if(item == "cane")
+        else if(item == "spearMetall")
         {
-            return caneItemType;
+            return spearMetallItemType;
         }
-        else if(item == "cane")
+        else if(item == "staffBlue")
         {
-            return caneItemType;
+            return staffBlueItemType;
         }
-        else if(item == "cane")
+        else if(item == "staffOrange")
         {
-            return caneItemType;
+            return staffOrangeItemType;
         }
-        else if(item == "cane")
+        else if(item == "staffPink")
         {
-            return caneItemType;
+            return staffPinkItemType;
         }
-        else if(item == "cane")
+        else if(item == "staffYellow")
         {
-            return caneItemType;
+            return staffYellowItemType;
         }
-        else if(item == "cane")
+        else if(item == "trident")
         {
-            return caneItemType;
+            return tridentItemType;
         }
-        else if(item == "cane")
+        else if(item == "tridentMetall")
         {
-            return caneItemType;
+            return tridentMetallItemType;
         }
-        else if(item == "cane")
+        else if(item == "tridentOrange")
         {
-            return caneItemType;
+            return tridentOrangeItemType;
         }
-        else if(item == "cane")
+        else if(item == "tridentYellow")
         {
-            return caneItemType;
+            return tridentYellowItemType;
         }
         else if(item == "bow1")
         {
@@ -488,6 +488,70 @@ public class ItemData
         {
             return caneDamage;
         }
+        else if(item == "crystalBlue")
+        {
+            return crystalBlueDamage;
+        }
+        else if(item == "crystalPink")
+        {
+            return crystalPinkDamage;
+        }
+        else if(item == "crystalRed")
+        {
+            return crystalRedDamage;
+        }
+        else if(item == "crystalYellow")
+        {
+            return crystalYellowDamage;
+        }
+        else if(item == "dragonSpear")
+        {
+            return dragonSpearDamage;
+        }
+        else if(item == "dragonSpearMetall")
+        {
+            return dragonSpearMetallDamage;
+        }
+        else if(item == "spear")
+        {
+            return spearDamage;
+        }
+        else if(item == "spearMetall")
+        {
+            return spearMetallDamage;
+        }
+        else if(item == "staffBlue")
+        {
+            return staffBlueDamage;
+        }
+        else if(item == "staffOrange")
+        {
+            return staffOrangeDamage;
+        }
+        else if(item == "staffPink")
+        {
+            return staffPinkDamage;
+        }
+        else if(item == "staffYellow")
+        {
+            return staffYellowDamage;
+        }
+        else if(item == "trident")
+        {
+            return tridentDamage;
+        }
+        else if(item == "tridentMetall")
+        {
+            return tridentMetallDamage;
+        }
+        else if(item == "tridentOrange")
+        {
+            return tridentOrangeDamage;
+        }
+        else if(item == "tridentYellow")
+        {
+            return tridentYellowDamage;
+        }
         else if(item == "bow1")
         {
             return bow1Damage;
@@ -554,6 +618,70 @@ public class ItemData
         else if(item == "cane")
         {
             return caneUseCooldown;
+        }
+        else if(item == "crystalBlue")
+        {
+            return crystalBlueUseCooldown;
+        }
+        else if(item == "crystalPink")
+        {
+            return crystalPinkUseCooldown;
+        }
+        else if(item == "crystalRed")
+        {
+            return crystalRedUseCooldown;
+        }
+        else if(item == "crystalYellow")
+        {
+            return crystalYellowUseCooldown;
+        }
+        else if(item == "dragonSpear")
+        {
+            return dragonSpearUseCooldown;
+        }
+        else if(item == "dragonSpearMetall")
+        {
+            return dragonSpearMetallUseCooldown;
+        }
+        else if(item == "spear")
+        {
+            return spearUseCooldown;
+        }
+        else if(item == "spearMetall")
+        {
+            return spearMetallUseCooldown;
+        }
+        else if(item == "staffBlue")
+        {
+            return staffBlueUseCooldown;
+        }
+        else if(item == "staffOrange")
+        {
+            return staffOrangeUseCooldown;
+        }
+        else if(item == "staffPink")
+        {
+            return staffPinkUseCooldown;
+        }
+        else if(item == "staffYellow")
+        {
+            return staffYellowUseCooldown;
+        }
+        else if(item == "trident")
+        {
+            return tridentUseCooldown;
+        }
+        else if(item == "tridentMetall")
+        {
+            return tridentMetallUseCooldown;
+        }
+        else if(item == "tridentOrange")
+        {
+            return tridentOrangeUseCooldown;
+        }
+        else if(item == "tridentYellow")
+        {
+            return tridentYellowUseCooldown;
         }
         else if(item == "bow1")
         {
@@ -641,6 +769,70 @@ public class ItemData
         else if(item == "cane")
         {
             return caneMaxStackSize;
+        }
+        else if(item == "crystalBlue")
+        {
+            return crystalBlueMaxStackSize;
+        }
+        else if(item == "crystalPink")
+        {
+            return crystalPinkMaxStackSize;
+        }
+        else if(item == "crystalRed")
+        {
+            return crystalRedMaxStackSize;
+        }
+        else if(item == "crystalYellow")
+        {
+            return crystalYellowMaxStackSize;
+        }
+        else if(item == "dragonSpear")
+        {
+            return dragonSpearMaxStackSize;
+        }
+        else if(item == "dragonSpearMetall")
+        {
+            return dragonSpearMetallMaxStackSize;
+        }
+        else if(item == "spear")
+        {
+            return spearMaxStackSize;
+        }
+        else if(item == "spearMetall")
+        {
+            return spearMetallMaxStackSize;
+        }
+        else if(item == "staffBlue")
+        {
+            return staffBlueMaxStackSize;
+        }
+        else if(item == "staffOrange")
+        {
+            return staffOrangeMaxStackSize;
+        }
+        else if(item == "staffPink")
+        {
+            return staffPinkMaxStackSize;
+        }
+        else if(item == "staffYellow")
+        {
+            return staffYellowMaxStackSize;
+        }
+        else if(item == "trident")
+        {
+            return tridentMaxStackSize;
+        }
+        else if(item == "tridentMetall")
+        {
+            return tridentMetallMaxStackSize;
+        }
+        else if(item == "tridentOrange")
+        {
+            return tridentOrangeMaxStackSize;
+        }
+        else if(item == "tridentYellow")
+        {
+            return tridentYellowMaxStackSize;
         }
         else if(item == "bow1")
         {
@@ -806,6 +998,70 @@ public class ItemData
         {
             return caneIcon;
         }
+        else if(item == "crystalBlue")
+        {
+            return crystalBlueIcon;
+        }
+        else if(item == "crystalPink")
+        {
+            return crystalPinkIcon;
+        }
+        else if(item == "crystalRed")
+        {
+            return crystalRedIcon;
+        }
+        else if(item == "crystalYellow")
+        {
+            return crystalYellowIcon;
+        }
+        else if(item == "dragonSpear")
+        {
+            return dragonSpearIcon;
+        }
+        else if(item == "dragonSpearMetall")
+        {
+            return dragonSpearMetallIcon;
+        }
+        else if(item == "spear")
+        {
+            return spearIcon;
+        }
+        else if(item == "spearMetall")
+        {
+            return spearMetallIcon;
+        }
+        else if(item == "staffBlue")
+        {
+            return staffBlueIcon;
+        }
+        else if(item == "staffOrange")
+        {
+            return staffOrangeIcon;
+        }
+        else if(item == "staffPink")
+        {
+            return staffPinkIcon;
+        }
+        else if(item == "staffYellow")
+        {
+            return staffYellowIcon;
+        }
+        else if(item == "trident")
+        {
+            return tridentIcon;
+        }
+        else if(item == "tridentMetall")
+        {
+            return tridentMetallIcon;
+        }
+        else if(item == "tridentOrange")
+        {
+            return tridentOrangeIcon;
+        }
+        else if(item == "tridentYellow")
+        {
+            return tridentYellowIcon;
+        }
         else if(item == "bow1")
         {
             return bow1Icon;
@@ -897,6 +1153,70 @@ public class ItemData
         {
             hotbar.getWorld().addObject(new Melee("cane"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
         }
+        else if(item == "crystalBlue")
+        {
+            hotbar.getWorld().addObject(new Melee("crystalBlue"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
+        else if(item == "crystalPink")
+        {
+            hotbar.getWorld().addObject(new Melee("crystalPink"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
+        else if(item == "crystalRed")
+        {
+            hotbar.getWorld().addObject(new Melee("crystalRed"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
+        else if(item == "crystalYellow")
+        {
+            hotbar.getWorld().addObject(new Melee("crystalYellow"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
+        else if(item == "dragonSpear")
+        {
+            hotbar.getWorld().addObject(new Melee("dragonSpear"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
+        else if(item == "dragonSpearMetall")
+        {
+            hotbar.getWorld().addObject(new Melee("dragonSpearMetall"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
+        else if(item == "spear")
+        {
+            hotbar.getWorld().addObject(new Melee("spear"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
+        else if(item == "spearMetall")
+        {
+            hotbar.getWorld().addObject(new Melee("spearMetall"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
+        else if(item == "staffBlue")
+        {
+            hotbar.getWorld().addObject(new Melee("staffBlue"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
+        else if(item == "staffOrange")
+        {
+            hotbar.getWorld().addObject(new Melee("staffOrange"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
+        else if(item == "staffPink")
+        {
+            hotbar.getWorld().addObject(new Melee("staffPink"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
+        else if(item == "staffYellow")
+        {
+            hotbar.getWorld().addObject(new Melee("staffYellow"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
+        else if(item == "trident")
+        {
+            hotbar.getWorld().addObject(new Melee("trident"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
+        else if(item == "tridentMetall")
+        {
+            hotbar.getWorld().addObject(new Melee("tridentMetall"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
+        else if(item == "tridentOrange")
+        {
+            hotbar.getWorld().addObject(new Melee("tridentOrange"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
+        else if(item == "tridentYellow")
+        {
+            hotbar.getWorld().addObject(new Melee("tridentYellow"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
+        }
         else if(item == "bow1")
         {
             hotbar.getWorld().addObject(new Bow("bow1"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
@@ -983,6 +1303,70 @@ public class ItemData
         else if(item == "cane")
         {
             enemy.getWorld().addObject(new Melee("cane"), enemy.getX(), enemy.getY());
+        }
+        else if(item == "crystalBlue")
+        {
+            enemy.getWorld().addObject(new Melee("crystalBlue"), enemy.getX(), enemy.getY());
+        }
+        else if(item == "crystalPink")
+        {
+            enemy.getWorld().addObject(new Melee("crystalPink"), enemy.getX(), enemy.getY());
+        }
+        else if(item == "crystalRed")
+        {
+            enemy.getWorld().addObject(new Melee("crystalRed"), enemy.getX(), enemy.getY());
+        }
+        else if(item == "crystalYellow")
+        {
+            enemy.getWorld().addObject(new Melee("crystalYellow"), enemy.getX(), enemy.getY());
+        }
+        else if(item == "dragonSpear")
+        {
+            enemy.getWorld().addObject(new Melee("dragonSpear"), enemy.getX(), enemy.getY());
+        }
+        else if(item == "dragonSpearMetall")
+        {
+            enemy.getWorld().addObject(new Melee("dragonSpearMetall"), enemy.getX(), enemy.getY());
+        }
+        else if(item == "spear")
+        {
+            enemy.getWorld().addObject(new Melee("spear"), enemy.getX(), enemy.getY());
+        }
+        else if(item == "spearMetall")
+        {
+            enemy.getWorld().addObject(new Melee("spearMetall"), enemy.getX(), enemy.getY());
+        }
+        else if(item == "staffBlue")
+        {
+            enemy.getWorld().addObject(new Melee("staffBlue"), enemy.getX(), enemy.getY());
+        }
+        else if(item == "staffOrange")
+        {
+            enemy.getWorld().addObject(new Melee("staffOrange"), enemy.getX(), enemy.getY());
+        }
+        else if(item == "staffPink")
+        {
+            enemy.getWorld().addObject(new Melee("staffPink"), enemy.getX(), enemy.getY());
+        }
+        else if(item == "staffYellow")
+        {
+            enemy.getWorld().addObject(new Melee("staffYellow"), enemy.getX(), enemy.getY());
+        }
+        else if(item == "trident")
+        {
+            enemy.getWorld().addObject(new Melee("trident"), enemy.getX(), enemy.getY());
+        }
+        else if(item == "tridentMetall")
+        {
+            enemy.getWorld().addObject(new Melee("tridentMetall"), enemy.getX(), enemy.getY());
+        }
+        else if(item == "tridentOrange")
+        {
+            enemy.getWorld().addObject(new Melee("tridentOrange"), enemy.getX(), enemy.getY());
+        }
+        else if(item == "tridentYellow")
+        {
+            enemy.getWorld().addObject(new Melee("tridentYellow"), enemy.getX(), enemy.getY());
         }
         else if(item == "bow1")
         {

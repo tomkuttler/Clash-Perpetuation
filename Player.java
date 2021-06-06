@@ -72,6 +72,23 @@ public class Player extends AnimatedCharacter
 
     private GreenfootImage cane = new GreenfootImage("weapons/melee/thrust/cane.png");
 
+    private GreenfootImage crystalBlue = new GreenfootImage("weapons/melee/oversize/thrust/crystalBlue.png");
+    private GreenfootImage crystalPink = new GreenfootImage("weapons/melee/oversize/thrust/crystalPink.png");
+    private GreenfootImage crystalRed = new GreenfootImage("weapons/melee/oversize/thrust/crystalRed.png");
+    private GreenfootImage crystalYellow = new GreenfootImage("weapons/melee/oversize/thrust/crystalYellow.png");
+    private GreenfootImage dragonSpear = new GreenfootImage("weapons/melee/oversize/thrust/dragonSpear.png");
+    private GreenfootImage dragonSpearMetall = new GreenfootImage("weapons/melee/oversize/thrust/dragonSpearMetall.png");
+    private GreenfootImage spear = new GreenfootImage("weapons/melee/oversize/thrust/spear.png");
+    private GreenfootImage spearMetall = new GreenfootImage("weapons/melee/oversize/thrust/spearMetall.png");
+    private GreenfootImage staffBlue = new GreenfootImage("weapons/melee/oversize/thrust/staffBlue.png");
+    private GreenfootImage staffOrange = new GreenfootImage("weapons/melee/oversize/thrust/staffOrange.png");
+    private GreenfootImage staffPink = new GreenfootImage("weapons/melee/oversize/thrust/staffPink.png");
+    private GreenfootImage staffYellow = new GreenfootImage("weapons/melee/oversize/thrust/staffYellow.png");
+    private GreenfootImage trident = new GreenfootImage("weapons/melee/oversize/thrust/trident.png");
+    private GreenfootImage tridentMetall = new GreenfootImage("weapons/melee/oversize/thrust/tridentMetall.png");
+    private GreenfootImage tridentOrange = new GreenfootImage("weapons/melee/oversize/thrust/tridentOrange.png");
+    private GreenfootImage tridentYellow = new GreenfootImage("weapons/melee/oversize/thrust/tridentYellow.png");    
+    
     private GreenfootImage bow1 = new GreenfootImage("weapons/ranged/bow1.png");
     private GreenfootImage arrow = new GreenfootImage("weapons/ranged/arrow.png");
 
@@ -287,6 +304,86 @@ public class Player extends AnimatedCharacter
                 setLayer(1, cane);
                 setLayer(2, null);
             }
+            else if(currentSlotItem == "crystalBlue")
+            {
+                setLayer(1, crystalBlue);
+                setLayer(2, null);
+            }
+            else if(currentSlotItem == "crystalPink")
+            {
+                setLayer(1, crystalPink);
+                setLayer(2, null);
+            }
+            else if(currentSlotItem == "crystalRed")
+            {
+                setLayer(1, crystalRed);
+                setLayer(2, null);
+            }
+            else if(currentSlotItem == "crystalYellow")
+            {
+                setLayer(1, crystalYellow);
+                setLayer(2, null);
+            }
+            else if(currentSlotItem == "dragonSpear")
+            {
+                setLayer(1, dragonSpear);
+                setLayer(2, null);
+            }
+            else if(currentSlotItem == "dragonSpearMetall")
+            {
+                setLayer(1, dragonSpearMetall);
+                setLayer(2, null);
+            }
+            else if(currentSlotItem == "spear")
+            {
+                setLayer(1, spear);
+                setLayer(2, null);
+            }
+            else if(currentSlotItem == "spearMetall")
+            {
+                setLayer(1, spearMetall);
+                setLayer(2, null);
+            }
+            else if(currentSlotItem == "staffBlue")
+            {
+                setLayer(1, staffBlue);
+                setLayer(2, null);
+            }
+            else if(currentSlotItem == "staffOrange")
+            {
+                setLayer(1, staffOrange);
+                setLayer(2, null);
+            }
+            else if(currentSlotItem == "staffPink")
+            {
+                setLayer(1, staffPink);
+                setLayer(2, null);
+            }
+            else if(currentSlotItem == "staffYellow")
+            {
+                setLayer(1, staffYellow);
+                setLayer(2, null);
+            }
+            else if(currentSlotItem == "trident")
+            {
+                setLayer(1, trident);
+                setLayer(2, null);
+            }
+            else if(currentSlotItem == "tridentMetall")
+            {
+                setLayer(1, tridentMetall);
+                setLayer(2, null);
+            }
+            else if(currentSlotItem == "tridentOrange")
+            {
+                setLayer(1, tridentOrange);
+                setLayer(2, null);
+            }
+            else if(currentSlotItem == "tridentYellow")
+            {
+                setLayer(1, tridentYellow);
+                setLayer(2, null);
+            }            
             else if(currentSlotItem == "bow1")
             {
                 setLayer(1, bow1);
@@ -345,6 +442,10 @@ public class Player extends AnimatedCharacter
                             else if(currentSlotItem == "cane")
                             {
                                 runTerminalAnimation("thrust", direction);
+                            }
+                            else
+                            {
+                                runTerminalAnimation("thrustOversize", direction);
                             }
 
                             //Look for an Enemy 1 pixel away in the direction I'm facing
