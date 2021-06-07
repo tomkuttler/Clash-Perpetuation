@@ -53,22 +53,14 @@ public class Player extends AnimatedCharacter
     private GreenfootImage axe = new GreenfootImage("weapons/melee/slash/axe.png");
     private GreenfootImage warhammer = new GreenfootImage("weapons/melee/slash/warhammer.png");
 
-    private GreenfootImage longsword1 = new GreenfootImage("weapons/melee/oversize/slash/longsword-universal.png");           
-    private GreenfootImage longsword2 = new GreenfootImage("weapons/melee/oversize/slash/longsword-attack.png");
-    private GreenfootImage flail1 = new GreenfootImage("weapons/melee/oversize/slash/flail-universal.png");           
-    private GreenfootImage flail2 = new GreenfootImage("weapons/melee/oversize/slash/flail-attack.png");
-    private GreenfootImage halberd1 = new GreenfootImage("weapons/melee/oversize/slash/halberd-universal.png");           
-    private GreenfootImage halberd2 = new GreenfootImage("weapons/melee/oversize/slash/halberd-attack.png");
-    private GreenfootImage mace1 = new GreenfootImage("weapons/melee/oversize/slash/mace-universal.png");           
-    private GreenfootImage mace2 = new GreenfootImage("weapons/melee/oversize/slash/mace-attack.png");
-    private GreenfootImage rapier1 = new GreenfootImage("weapons/melee/oversize/slash/rapier-universal.png");           
-    private GreenfootImage rapier2 = new GreenfootImage("weapons/melee/oversize/slash/rapier-attack.png");
-    private GreenfootImage saber1 = new GreenfootImage("weapons/melee/oversize/slash/saber-universal.png");           
-    private GreenfootImage saber2 = new GreenfootImage("weapons/melee/oversize/slash/saber-attack.png");
-    private GreenfootImage scythe1 = new GreenfootImage("weapons/melee/oversize/slash/scythe-universal.png");           
-    private GreenfootImage scythe2 = new GreenfootImage("weapons/melee/oversize/slash/scythe-attack.png");
-    private GreenfootImage waraxe1 = new GreenfootImage("weapons/melee/oversize/slash/waraxe-universal.png");           
-    private GreenfootImage waraxe2 = new GreenfootImage("weapons/melee/oversize/slash/waraxe-attack.png");
+    private GreenfootImage longsword = new GreenfootImage("weapons/melee/oversize/slash/longsword.png");           
+    private GreenfootImage flail = new GreenfootImage("weapons/melee/oversize/slash/flail.png");           
+    private GreenfootImage halberd = new GreenfootImage("weapons/melee/oversize/slash/halberd.png");           
+    private GreenfootImage mace = new GreenfootImage("weapons/melee/oversize/slash/mace.png");           
+    private GreenfootImage rapier = new GreenfootImage("weapons/melee/oversize/slash/rapier.png");           
+    private GreenfootImage saber = new GreenfootImage("weapons/melee/oversize/slash/saber.png");           
+    private GreenfootImage scythe = new GreenfootImage("weapons/melee/oversize/slash/scythe.png");           
+    private GreenfootImage waraxe = new GreenfootImage("weapons/melee/oversize/slash/waraxe.png");           
 
     private GreenfootImage cane = new GreenfootImage("weapons/melee/thrust/cane.png");
 
@@ -261,43 +253,43 @@ public class Player extends AnimatedCharacter
             }
             else if(currentSlotItem == "longsword")
             {
-                setLayer(1, longsword1);
-                setLayer(2, longsword2);
+                setLayer(1, longsword);
+                setLayer(2, null);
             }
             else if(currentSlotItem == "flail")
             {
-                setLayer(1, flail1);
-                setLayer(2, flail2);
+                setLayer(1, flail);
+                setLayer(2, null);
             }
             else if(currentSlotItem == "halberd")
             {
-                setLayer(1, halberd1);
-                setLayer(2, halberd2);
+                setLayer(1, halberd);
+                setLayer(2, null);
             }
             else if(currentSlotItem == "mace")
             {
-                setLayer(1, mace1);
-                setLayer(2, mace2);
+                setLayer(1, mace);
+                setLayer(2, null);
             }
             else if(currentSlotItem == "rapier")
             {
-                setLayer(1, rapier1);
-                setLayer(2, rapier2);
+                setLayer(1, rapier);
+                setLayer(2, null);
             }
             else if(currentSlotItem == "saber")
             {
-                setLayer(1, saber1);
-                setLayer(2, saber2);
+                setLayer(1, saber);
+                setLayer(2, null);
             }
             else if(currentSlotItem == "scythe")
             {
-                setLayer(1, scythe1);
-                setLayer(2, scythe2);
+                setLayer(1, scythe);
+                setLayer(2, null);
             }
             else if(currentSlotItem == "waraxe")
             {
-                setLayer(1, waraxe1);
-                setLayer(2, waraxe2);
+                setLayer(1, waraxe);
+                setLayer(2, null);
             }
             else if(currentSlotItem == "cane")
             {
