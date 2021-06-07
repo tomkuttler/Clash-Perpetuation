@@ -107,5 +107,8 @@ public class WorldMap1 extends World
         addObject(new Collider(615, 22, 0, 0), 672, 238);
         addObject(new Collider(551, 22, 0, 0), 703, 46);
         addObject(new Collider(39, 22, 0, 0), 416, 79);
+        
+        //Spawn Tutorial Manager
+        addObject(new Tutorial(), 848, 140);
     }
 }

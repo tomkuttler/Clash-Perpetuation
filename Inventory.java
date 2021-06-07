@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The Hotbar class stores the items in the inventory and manages the tranfer of items between slots.
+ * The Inventory class stores the items in the inventory and manages the tranfer of items between slots.
  * 
  * @author (your name) 
  * @version (a version number or a date)
