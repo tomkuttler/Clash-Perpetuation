@@ -9,80 +9,80 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Player extends AnimatedCharacter
 {
     //----- Animation -----    
-    private int animationSpeed = 20;              //Number of animation frames per second
+    private static final int animationSpeed = 20;              //Number of animation frames per second
 
     //----- Movement -----
-    private int walkSpeed = 60;                   //Move 60 pixel per second
-    private int moveX;                            //The direction for x movement. (-1, 0 or 1)
-    private int moveY;                            //The direction for y movement. (-1, 0 or 1)
-    private int xOffset, yOffset;                 //Direction for attacking
+    private static final int walkSpeed = 60;                   //Move 60 pixel per second
+    private int moveX;                                         //The direction for x movement. (-1, 0 or 1)
+    private int moveY;                                         //The direction for y movement. (-1, 0 or 1)
+    private int xOffset, yOffset;                              //Direction for attacking
 
     //----- Collision -----
-    private int oldX;                             //Stores the x position from the last tick. Used for collision
-    private int oldY;                             //Stores the y position from the last tick. Used for collision
+    private int oldX;                                          //Stores the x position from the last tick. Used for collision
+    private int oldY;                                          //Stores the y position from the last tick. Used for collision
 
     //----- Health -----
-    private int health;                           //Current health of the player
-    private int maxHealth = 100;                  //Max health of the player
-    private boolean alive = true;                 //True if player is alive, false if dead  
+    private int health;                                        //Current health of the player
+    private static final int maxHealth = 100;                  //Max health of the player
+    private boolean alive = true;                              //True if player is alive, false if dead  
 
     //----- Pick up items -----
-    private int pickUpRange = 65;                 //How close the player needs to be to pick up a PickUpItem
+    private static final int pickUpRange = 65;                 //How close the player needs to be to pick up a PickUpItem
 
     //----- Hotbar -----
-    private String currentSlotItem = "";          //Stores the name of the item that is in the current slot
-    private String currentSlotItemType = "";      //Stores the type of the item that is in the current slot
+    private String currentSlotItem = "";                       //Stores the name of the item that is in the current slot
+    private String currentSlotItemType = "";                   //Stores the type of the item that is in the current slot
 
     //----- Cooldowns -----
-    private double lastUse;                       //Stores the time of the last use of an item     
+    private double lastUse;                                    //Stores the time of the last use of an item     
 
-    private double pressCooldown = 250000000.0;   //Cooldown of 250 milion nanosec (0,25sec) between pressing a key
-    private double lastPressedKeyTime;            //Stores the time of the last key press
+    private static final double pressCooldown = 250000000.0;   //Cooldown of 250 milion nanosec (0,25sec) between pressing a key
+    private double lastPressedKeyTime;                         //Stores the time of the last key press
 
-    private double removeCooldown = 2000000000.0; //Player will be removed after Cooldown of 2 bilion nanosec (2sec) (after Health <= 0)
-    private double deathTime;                     //Stores the time the player died
+    private static final double removeCooldown = 2000000000.0; //Player will be removed after Cooldown of 2 bilion nanosec (2sec) (after Health <= 0)
+    private double deathTime;                                  //Stores the time the player died
 
     //----- References -----
-    private PlayerHealthBar bar;                  //Reference to the health bar manager
-    private HitCooldownBar hitBar;                //Reference to the hit cooldown bar manager
-    public Inventory inventory;                   //Reference to the inventory manager
-    public Hotbar hotbar;                         //Reference to the hotbar manager    
+    private PlayerHealthBar bar;                               //Reference to the health bar manager
+    private HitCooldownBar hitBar;                             //Reference to the hit cooldown bar manager
+    public Inventory inventory;                                //Reference to the inventory manager
+    public Hotbar hotbar;                                      //Reference to the hotbar manager    
 
     //----- Layer images -----    
-    private GreenfootImage dagger = new GreenfootImage("weapons/melee/slash/dagger.png");
-    private GreenfootImage axe = new GreenfootImage("weapons/melee/slash/axe.png");
-    private GreenfootImage warhammer = new GreenfootImage("weapons/melee/slash/warhammer.png");
+    private static final GreenfootImage dagger = new GreenfootImage("weapons/melee/slash/dagger.png");
+    private static final GreenfootImage axe = new GreenfootImage("weapons/melee/slash/axe.png");
+    private static final GreenfootImage warhammer = new GreenfootImage("weapons/melee/slash/warhammer.png");
 
-    private GreenfootImage longsword = new GreenfootImage("weapons/melee/oversize/slash/longsword.png");           
-    private GreenfootImage flail = new GreenfootImage("weapons/melee/oversize/slash/flail.png");           
-    private GreenfootImage halberd = new GreenfootImage("weapons/melee/oversize/slash/halberd.png");           
-    private GreenfootImage mace = new GreenfootImage("weapons/melee/oversize/slash/mace.png");           
-    private GreenfootImage rapier = new GreenfootImage("weapons/melee/oversize/slash/rapier.png");           
-    private GreenfootImage saber = new GreenfootImage("weapons/melee/oversize/slash/saber.png");           
-    private GreenfootImage scythe = new GreenfootImage("weapons/melee/oversize/slash/scythe.png");           
-    private GreenfootImage waraxe = new GreenfootImage("weapons/melee/oversize/slash/waraxe.png");           
+    private static final GreenfootImage longsword = new GreenfootImage("weapons/melee/oversize/slash/longsword.png");           
+    private static final GreenfootImage flail = new GreenfootImage("weapons/melee/oversize/slash/flail.png");           
+    private static final GreenfootImage halberd = new GreenfootImage("weapons/melee/oversize/slash/halberd.png");           
+    private static final GreenfootImage mace = new GreenfootImage("weapons/melee/oversize/slash/mace.png");           
+    private static final GreenfootImage rapier = new GreenfootImage("weapons/melee/oversize/slash/rapier.png");           
+    private static final GreenfootImage saber = new GreenfootImage("weapons/melee/oversize/slash/saber.png");           
+    private static final GreenfootImage scythe = new GreenfootImage("weapons/melee/oversize/slash/scythe.png");           
+    private static final GreenfootImage waraxe = new GreenfootImage("weapons/melee/oversize/slash/waraxe.png");           
 
-    private GreenfootImage cane = new GreenfootImage("weapons/melee/thrust/cane.png");
+    private static final GreenfootImage cane = new GreenfootImage("weapons/melee/thrust/cane.png");
 
-    private GreenfootImage crystalBlue = new GreenfootImage("weapons/melee/oversize/thrust/crystalBlue.png");
-    private GreenfootImage crystalPink = new GreenfootImage("weapons/melee/oversize/thrust/crystalPink.png");
-    private GreenfootImage crystalRed = new GreenfootImage("weapons/melee/oversize/thrust/crystalRed.png");
-    private GreenfootImage crystalYellow = new GreenfootImage("weapons/melee/oversize/thrust/crystalYellow.png");
-    private GreenfootImage dragonSpear = new GreenfootImage("weapons/melee/oversize/thrust/dragonSpear.png");
-    private GreenfootImage dragonSpearMetall = new GreenfootImage("weapons/melee/oversize/thrust/dragonSpearMetall.png");
-    private GreenfootImage spear = new GreenfootImage("weapons/melee/oversize/thrust/spear.png");
-    private GreenfootImage spearMetall = new GreenfootImage("weapons/melee/oversize/thrust/spearMetall.png");
-    private GreenfootImage staffBlue = new GreenfootImage("weapons/melee/oversize/thrust/staffBlue.png");
-    private GreenfootImage staffOrange = new GreenfootImage("weapons/melee/oversize/thrust/staffOrange.png");
-    private GreenfootImage staffPink = new GreenfootImage("weapons/melee/oversize/thrust/staffPink.png");
-    private GreenfootImage staffYellow = new GreenfootImage("weapons/melee/oversize/thrust/staffYellow.png");
-    private GreenfootImage trident = new GreenfootImage("weapons/melee/oversize/thrust/trident.png");
-    private GreenfootImage tridentMetall = new GreenfootImage("weapons/melee/oversize/thrust/tridentMetall.png");
-    private GreenfootImage tridentOrange = new GreenfootImage("weapons/melee/oversize/thrust/tridentOrange.png");
-    private GreenfootImage tridentYellow = new GreenfootImage("weapons/melee/oversize/thrust/tridentYellow.png");    
+    private static final GreenfootImage crystalBlue = new GreenfootImage("weapons/melee/oversize/thrust/crystalBlue.png");
+    private static final GreenfootImage crystalPink = new GreenfootImage("weapons/melee/oversize/thrust/crystalPink.png");
+    private static final GreenfootImage crystalRed = new GreenfootImage("weapons/melee/oversize/thrust/crystalRed.png");
+    private static final GreenfootImage crystalYellow = new GreenfootImage("weapons/melee/oversize/thrust/crystalYellow.png");
+    private static final GreenfootImage dragonSpear = new GreenfootImage("weapons/melee/oversize/thrust/dragonSpear.png");
+    private static final GreenfootImage dragonSpearMetall = new GreenfootImage("weapons/melee/oversize/thrust/dragonSpearMetall.png");
+    private static final GreenfootImage spear = new GreenfootImage("weapons/melee/oversize/thrust/spear.png");
+    private static final GreenfootImage spearMetall = new GreenfootImage("weapons/melee/oversize/thrust/spearMetall.png");
+    private static final GreenfootImage staffBlue = new GreenfootImage("weapons/melee/oversize/thrust/staffBlue.png");
+    private static final GreenfootImage staffOrange = new GreenfootImage("weapons/melee/oversize/thrust/staffOrange.png");
+    private static final GreenfootImage staffPink = new GreenfootImage("weapons/melee/oversize/thrust/staffPink.png");
+    private static final GreenfootImage staffYellow = new GreenfootImage("weapons/melee/oversize/thrust/staffYellow.png");
+    private static final GreenfootImage trident = new GreenfootImage("weapons/melee/oversize/thrust/trident.png");
+    private static final GreenfootImage tridentMetall = new GreenfootImage("weapons/melee/oversize/thrust/tridentMetall.png");
+    private static final GreenfootImage tridentOrange = new GreenfootImage("weapons/melee/oversize/thrust/tridentOrange.png");
+    private static final GreenfootImage tridentYellow = new GreenfootImage("weapons/melee/oversize/thrust/tridentYellow.png");    
     
-    private GreenfootImage bow1 = new GreenfootImage("weapons/ranged/bow1.png");
-    private GreenfootImage arrow = new GreenfootImage("weapons/ranged/arrow.png");
+    private static final GreenfootImage bow1 = new GreenfootImage("weapons/ranged/bow1.png");
+    private static final GreenfootImage arrow = new GreenfootImage("weapons/ranged/arrow.png");
 
     /**
      * Player Constructor: Sets the speed, creates the spriteSheet of the character, creates the animations and sets variables.

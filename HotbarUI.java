@@ -9,14 +9,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class HotbarUI extends UI
 {
     //----- Object image -----
-    GreenfootImage hotbar = new GreenfootImage("ui/hotbar.png");
+    private static final GreenfootImage hotbar = new GreenfootImage("ui/hotbar.png");
     
     /**
-     * HotbarUI Constructor: Makes the image 2 times bigger and sets it.
+     * HotbarUI Constructor: Sets the object image.
      */
     public HotbarUI()
     {
-        hotbar.scale(hotbar.getWidth() * 2, hotbar.getHeight() * 2);
         setImage(hotbar);
     }
 }

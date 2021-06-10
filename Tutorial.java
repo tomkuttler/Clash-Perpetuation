@@ -9,7 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Tutorial extends UI
 {
     //----- Object image -----
-    public GreenfootImage window = new GreenfootImage("ui/window.png");
+    private static final GreenfootImage window = new GreenfootImage("ui/window.png");
     
     /**
      * Tutorial Constructor: Sets the tutorial first tutorial text image.

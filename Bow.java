@@ -12,11 +12,7 @@ public class Bow extends Weapons
     private int amount = 1;
     
     //Object pictures
-    GreenfootImage bow1 = new GreenfootImage("objects/weapons/bow1Icon.png");
-    //GreenfootImage  = new GreenfootImage("objects/weapons/.png");
-    //GreenfootImage  = new GreenfootImage("objects/weapons/.png");
-    //GreenfootImage  = new GreenfootImage("objects/weapons/.png");
-    //GreenfootImage  = new GreenfootImage("objects/weapons/.png");
+    private static final GreenfootImage bow1 = new GreenfootImage("objects/weapons/bow1Icon.png");
     
     public Bow(String name)
     {

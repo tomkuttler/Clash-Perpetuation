@@ -52,7 +52,7 @@ public class Collider extends Actor
     }
 
     /**
-     * Method 'getXOffset': Is called in the 'positionCollider' method in AnimatedCharacter class to set the correct position.
+     * Method 'getXOffset': Is called in the 'positionCollider' method in AnimatedCharacter class to get the correct position.
      * 
      * @return: The offset in pixel of the Collider in x direction 
      */
@@ -62,7 +62,7 @@ public class Collider extends Actor
     }
 
     /**
-     * Method 'getYOffset': Is called in the 'positionCollider' method in AnimatedCharacter class to set the correct position.
+     * Method 'getYOffset': Is called in the 'positionCollider' method in AnimatedCharacter class to get the correct position.
      * 
      * @return: The offset in pixel of the Collider in y direction 
      */

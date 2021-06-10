@@ -1,16 +1,22 @@
 #BlueJ class context
 comment0.target=Chest
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Chest\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ chest\ class\ manages\ all\ chests.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=chestNumber\ items\ amount
 comment1.target=Chest(int,\ java.lang.String[],\ int[])
+comment1.text=\r\n\ Chest\ Constructor\:\ Sets\ the\ correct\ chest\ images\ and\ arrays.\r\n\ \r\n\ @param\ 'chestNumber'\:\ The\ number\ of\ the\ chest\ image\r\n\ @param\ 'items'\:\ The\ array\ that\ contains\ the\ name\ of\ the\ items\ that\ should\ be\ in\ the\ chest\r\n\ @param\ 'amount'\:\ The\ array\ that\ contains\ the\ amount\ of\ the\ items\ that\ should\ be\ in\ the\ chest\r\n
 comment2.params=
 comment2.target=int\ getMaxSlots()
+comment2.text=\r\n\ Method\ 'getMaxSlots'\:\ Is\ called\ in\ the\ 'checkPickUp'\ method\ in\ Player\ class\ to\ get\ the\ max\ amount\ of\ slots\ of\ the\ chest.\r\n\ \r\n\ @return\:\ The\ max\ amount\ of\ slots\ of\ the\ chest\r\n
 comment3.params=
 comment3.target=java.lang.String[]\ getItems()
+comment3.text=\r\n\ Method\ 'getItems'\:\ Is\ called\ in\ the\ 'checkPickUp'\ method\ in\ Player\ class\ to\ get\ the\ names\ of\ the\ items\ in\ the\ chest.\r\n\ \r\n\ @return\:\ The\ names\ of\ the\ items\ in\ the\ chest\r\n
 comment4.params=
 comment4.target=int[]\ getAmount()
+comment4.text=\r\n\ Method\ 'getAmount'\:\ Is\ called\ in\ the\ 'checkPickUp'\ method\ in\ Player\ class\ to\ get\ the\ amount\ of\ the\ items\ in\ the\ chest.\r\n\ \r\n\ @return\:\ The\ amount\ of\ the\ items\ in\ the\ chest\r\n
 comment5.params=
 comment5.target=boolean\ isClosed()
+comment5.text=\r\n\ Method\ 'isClosed'\:\ Is\ called\ in\ the\ 'checkPickUp'\ method\ in\ Player\ class\ to\ check\ if\ the\ chest\ was\ already\ opened.\r\n\ \r\n\ @return\:\ True\ if\ the\ chest\ can\ be\ opened,\ false\ if\ the\ chest\ was\ already\ opened\r\n
 comment6.params=
 comment6.target=void\ open()
+comment6.text=\r\n\ Method\ 'open'\:\ Is\ called\ in\ the\ 'checkPickUp'\ method\ in\ Player\ class,\ if\ the\ player\ opened\ this\ chest.\ \r\n\ The\ isCloed\ boolean\ will\ be\ set\ to\ false\ and\ the\ open\ image\ of\ the\ chest\ will\ be\ displayed.\r\n
 numComments=7

@@ -9,36 +9,36 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Cyclope extends Enemy
 {
     //----- Animation -----     
-    private int animationSpeed = 15;              //Number of animation frames per second
+    private static final int animationSpeed = 15;              //Number of animation frames per second
 
     //----- Movement -----
-    private int walkSpeed = 20;                   //Move 20 pixel per second
+    private static final int walkSpeed = 20;                   //Move 20 pixel per second
 
-    private int minDistance = 47;                 //Minimum distance between the enemy and the player
+    private static final int minDistance = 47;                 //Minimum distance between the enemy and the player
 
     //----- Health -----
-    public final static int maxHealth = 100;      //Max health of the enemy
+    public static final int maxHealth = 100;                   //Max health of the enemy
 
     //----- Attack -----
-    private String enemyType = "melee";           //"melee" (if the enemy has a sword or dagger,...) or "ranged" (if the enemy has a bow) 
+    private static final String enemyType = "melee";           //"melee" (if the enemy has a sword or dagger,...) or "ranged" (if the enemy has a bow) 
 
-    private int bowRange = 0;                     //The range of the bow if this enemy has a bow
-    private int bowSpeed = 0;                     //The speed of the bow if this enemy has a bow
+    private static final int bowRange = 0;                     //The range of the bow if this enemy has a bow
+    private static final int bowSpeed = 0;                     //The speed of the bow if this enemy has a bow
 
-    private int detectPlayerRange = 200;          //Player detection range of this enemy    
-    private int attackRange = 47;                 //Attack range of this enemy 
+    private static final int detectPlayerRange = 200;          //Player detection range of this enemy    
+    private static final int attackRange = 47;                 //Attack range of this enemy 
 
-    private int damage = 20;                      //Attack damage of this enemy   
+    private static final int damage = 20;                      //Attack damage of this enemy   
 
     //----- Cooldowns -----
-    private double hitCooldown = 1000000000.0;    //Cooldown of 1 bilion nanosec (1sec) between hits
+    private static final double hitCooldown = 1000000000.0;    //Cooldown of 1 bilion nanosec (1sec) between hits
 
-    private double removeCooldown = 2000000000.0; //Enemy will be removed after Cooldown of 2 bilion nanosec (2sec) (after Health <= 0)
+    private static final double removeCooldown = 2000000000.0; //Enemy will be removed after Cooldown of 2 bilion nanosec (2sec) (after Health <= 0)
 
     //----- Drop item -----
-    private String[] dropItems = new String[] {"redPotion", "arrow1", null, null, null}; //Array that contins the items that will be dropped if this enemy dies
-    private int[] dropAmount = new int[] {5, 3, 0, 0, 0};                                //Array that contins the amount of items that will be dropped if this enemy dies
-    private int[] probability = new int[] {50, 20, 0, 0, 0};                             //Array that contins the probability of dropping that item
+    private static final String[] dropItems = new String[] {"redPotion", "arrow1", null, null, null}; //Array that contins the items that will be dropped if this enemy dies
+    private static final int[] dropAmount = new int[] {5, 3, 0, 0, 0};                                //Array that contins the amount of items that will be dropped if this enemy dies
+    private static final int[] probability = new int[] {50, 20, 0, 0, 0};                             //Array that contins the probability of dropping that item
 
     //----- Reference -----
     private Player player;                        //Reference to the player

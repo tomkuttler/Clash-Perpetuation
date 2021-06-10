@@ -12,11 +12,7 @@ public class ArrowItem extends Weapons
     private int amount;
     
     //Object pictures
-    GreenfootImage arrow1 = new GreenfootImage("objects/arrows/arrow1.png");
-    //GreenfootImage  = new GreenfootImage("objects/weapons/.png");
-    //GreenfootImage  = new GreenfootImage("objects/weapons/.png");
-    //GreenfootImage  = new GreenfootImage("objects/weapons/.png");
-    //GreenfootImage  = new GreenfootImage("objects/weapons/.png");
+    private static final GreenfootImage arrow1 = new GreenfootImage("objects/arrows/arrow1.png");
     
     public ArrowItem(String name, int amount)
     {

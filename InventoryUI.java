@@ -9,14 +9,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class InventoryUI extends UI
 {
     //----- Object image -----
-    GreenfootImage inventory = new GreenfootImage("ui/inventory.png");
+    private static final GreenfootImage inventory = new GreenfootImage("ui/inventory.png");
     
     /**
-     * InventoryUI Constructor: Makes the image 2 times bigger and sets it.
+     * InventoryUI Constructor: Sets the object image.
      */
     public InventoryUI()
     {
-        inventory.scale(inventory.getWidth() * 2, inventory.getHeight() * 2);
         setImage((GreenfootImage)null);
     }
     

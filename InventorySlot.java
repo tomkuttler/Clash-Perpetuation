@@ -16,11 +16,11 @@ public class InventorySlot extends UI
     private boolean drag = false; //True if mouse draggs this slot around currenty, false if not
     
     //----- Object image -----
-    GreenfootImage emptySlot = new GreenfootImage("ui/emptyInventorySlot.png");
+    private static final GreenfootImage emptySlot = new GreenfootImage("ui/emptyInventorySlot.png");
     
     //----- Debug image -----
     //Uncomment the line below and comment the standart emptySlot image
-    //GreenfootImage emptySlot = new GreenfootImage("ui/testInventorySlot.png");
+    //private static final GreenfootImage emptySlot = new GreenfootImage("ui/testInventorySlot.png");
 
     /**
      * Method 'act': Is called every tick or whenever the 'Act' or 'Run' button gets pressed in the environment.

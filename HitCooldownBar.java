@@ -8,22 +8,22 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class HitCooldownBar extends UI
 {
-    private int barWidth = 184;                            //The width of the color portion of the bar
-    private int barHeight = 10;                            //The height of the color portion of the bar
+    private static final int barWidth = 184;                            //The width of the color portion of the bar
+    private static final int barHeight = 10;                            //The height of the color portion of the bar
 
-    private Color backgroundColor = new Color(0, 0, 0, 0); //The background color of the entire object (Transparent)
-    private Color textColor = Color.BLACK;                 //The color of all text
-    private Color barColor = Color.BLUE;                   //The color of the bar
+    private static final Color backgroundColor = new Color(0, 0, 0, 0); //The background color of the entire object (Transparent)
+    private static final Color textColor = Color.BLACK;                 //The color of all text
+    private static final Color barColor = Color.BLUE;                   //The color of the bar
 
-    private float fontSize = 18.0f;                        //The size of the text
-    private int value = 0;                                 //The current value of the bar
-    private int maximumValue;                              //The maximum value of the bar (Here useCooldown)
-    private int minimumValue = 0;                          //The minimum value of the bar
-    private String unitOfMeasure = "";                     //The unit of measure of the bar (will apear right next to the bar)
-    private boolean showTextualUnits = false;              //Determines whether or not the textual quantity of the bar is to show
+    private static final float fontSize = 18.0f;                        //The size of the text
+    private int value = 0;                                              //The current value of the bar
+    private int maximumValue;                                           //The maximum value of the bar (Here useCooldown)
+    private static final int minimumValue = 0;                          //The minimum value of the bar
+    private static final String unitOfMeasure = "";                     //The unit of measure of the bar (will apear right next to the bar)
+    private static final boolean showTextualUnits = false;              //Determines whether or not the textual quantity of the bar is to show
 
-    private double lastTickTime;                            //Stores the time of the tick 
-    private boolean decrease = false;                      //True if an item was used and the value of the bar is currently decreasing
+    private double lastTickTime;                                        //Stores the time of the tick 
+    private boolean decrease = false;                                   //True if an item was used and the value of the bar is currently decreasing
 
     /**
      * HitCooldownBar Constructor: Saves the initial values that are brought in and creates the bar image.

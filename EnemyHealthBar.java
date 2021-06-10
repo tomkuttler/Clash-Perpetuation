@@ -8,19 +8,19 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class EnemyHealthBar extends UI
 {
-    private int barWidth = 40;                             //The width of the color portion of the bar
-    private int barHeight = 5;                             //The height of the color portion of the bar
-    private int breakValue = 20;                           //The amount at which the color of the bar changes
+    private static final int barWidth = 40;                             //The width of the color portion of the bar
+    private static final int barHeight = 5;                             //The height of the color portion of the bar
+    private static final int breakValue = 20;                           //The amount at which the color of the bar changes
     
-    private Color backgroundColor = new Color(0, 0, 0, 0); //The background color of the entire object (Transparent)
-    private Color textColor = Color.BLACK;                 //The color of all text and the rectangle frame of the bar
-    private Color safeColor = Color.GREEN;                 //The color of the bar while in the safe range
-    private Color dangerColor = Color.RED;                 //The color of the bar while in the danger range
+    private static final Color backgroundColor = new Color(0, 0, 0, 0); //The background color of the entire object (Transparent)
+    private static final Color textColor = Color.BLACK;                 //The color of all text and the rectangle frame of the bar
+    private static final Color safeColor = Color.GREEN;                 //The color of the bar while in the safe range
+    private static final Color dangerColor = Color.RED;                 //The color of the bar while in the danger range
     
-    private float fontSize = 18.0f;                        //The size of the text
-    private int value = 0;                                 //The current value of the bar
-    private int maximumValue;                              //The maximum value of the bar
-    private int minimumValue = 0;                          //The minimum value of the bar 
+    private static final float fontSize = 18.0f;                        //The size of the text
+    private int value = 0;                                              //The current value of the bar
+    private int maximumValue;                                           //The maximum value of the bar
+    private static final int minimumValue = 0;                          //The minimum value of the bar 
 
     /**
      * EnemyHealthBar Constructor: Saves the initial values that are brought in and creates the bar image through the 'add(initValue)' call,

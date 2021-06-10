@@ -9,31 +9,31 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Arrow extends AnimatedCharacter
 {    
     //----- arrow attributes -----
-    private int direction;                    //Direction: 0 = Right, 1 = Left, 2 = Up, 3 = Down
-    private int damage;                       //The damage of this arrow
-    private int range;                        //The range of this arrow
-    private int speed;                        //The speed of this arrow
+    private int direction;                                 //Direction: 0 = Right, 1 = Left, 2 = Up, 3 = Down
+    private int damage;                                    //The damage of this arrow
+    private int range;                                     //The range of this arrow
+    private int speed;                                     //The speed of this arrow
 
     //----- Spawn location -----
-    private int spawnX;                       //The x coordinate where the arrow was spawned
-    private int spawnY;                       //The y coordinate where the arrow was spawned
+    private int spawnX;                                    //The x coordinate where the arrow was spawned
+    private int spawnY;                                    //The y coordinate where the arrow was spawned
     
     //----- Alive -----
-    private boolean alive = true;             //True if arrow is "alive", false if not
+    private boolean alive = true;                          //True if arrow is "alive", false if not
 
     //----- Fly -----
-    private boolean flying = false;           //True if arrow is flying, false if not
-    private double flyCooldown = 500000000.0; //Object will fly after Cooldown of 500 milion nanosec (0,5sec)
-    private double spawnTime;                 //The time when the arrow was spawned
+    private boolean flying = false;                        //True if arrow is flying, false if not
+    private static final double flyCooldown = 500000000.0; //Object will fly after Cooldown of 500 milion nanosec (0,5sec)
+    private double spawnTime;                              //The time when the arrow was spawned
     
     //----- Target -----
-    private String target;                    //"enemy" if player shoot the arrow, "player" if enemy shoot the arrow
+    private String target;                                 //"enemy" if player shoot the arrow, "player" if enemy shoot the arrow
 
     //----- Object images -----
-    private GreenfootImage arrowLeft = new GreenfootImage("bullets/arrowLeft.png");
-    private GreenfootImage arrowRight = new GreenfootImage("bullets/arrowRight.png");
-    private GreenfootImage arrowUp = new GreenfootImage("bullets/arrowUp.png");
-    private GreenfootImage arrowDown = new GreenfootImage("bullets/arrowDown.png");
+    private static final GreenfootImage arrowLeft = new GreenfootImage("bullets/arrowLeft.png");
+    private static final GreenfootImage arrowRight = new GreenfootImage("bullets/arrowRight.png");
+    private static final GreenfootImage arrowUp = new GreenfootImage("bullets/arrowUp.png");
+    private static final GreenfootImage arrowDown = new GreenfootImage("bullets/arrowDown.png");
 
     /**
      * Arrow Constructor: Sets the arrow attributes.

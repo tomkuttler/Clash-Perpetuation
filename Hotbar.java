@@ -8,17 +8,17 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Hotbar extends UI 
 {
-    private HotbarSlot[] slots = new HotbarSlot[10];   //This array contains the 10 hotbar slots
+    private HotbarSlot[] slots = new HotbarSlot[10];                //This array contains the 10 hotbar slots
 
-    private int currentSlot = 0;                       //The slot number of the currently selected slot of the hotbar
-    private String currentSlotItem;                    //The item that is in the currently selected slot of the hotbar
+    private int currentSlot = 0;                                    //The slot number of the currently selected slot of the hotbar
+    private String currentSlotItem;                                 //The item that is in the currently selected slot of the hotbar
         
-    private double pressCooldown = 100000000.0;        //Cooldown of 100 milion nanosec (0,1sec) between pressing a key (Prevents "jumping" over hotbar slots)
-    private double lastPressedKeyTime;                 //Saves the time of the last key press (left / right key or 'q' key)
+    private static final double pressCooldown = 100000000.0;        //Cooldown of 100 milion nanosec (0,1sec) between pressing a key (Prevents "jumping" over hotbar slots)
+    private double lastPressedKeyTime;                              //Saves the time of the last key press (left / right key or 'q' key)
 
-    private HotbarUI hotbarUI;                         //Reference to the background image of the hotbar
-    private HotbarHighlight hotbarHighlight;           //Reference to the image that indicates the currently selected hotbar slot
-    private Inventory inventory;                       //Reference to the inventory manager
+    private HotbarUI hotbarUI;                                      //Reference to the background image of the hotbar
+    private HotbarHighlight hotbarHighlight;                        //Reference to the image that indicates the currently selected hotbar slot
+    private Inventory inventory;                                    //Reference to the inventory manager
 
     /**
      * Hotbar Constructor: Sets the hotbar image to null, because this class just manages the hotbar and is not the image of the hotbar,

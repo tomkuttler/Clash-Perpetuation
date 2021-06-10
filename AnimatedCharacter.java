@@ -39,7 +39,7 @@ public abstract class AnimatedCharacter extends Actor
 
     private double moveSpeed;                        //How many pixels per SECOND
 
-    private final static int maxLayers = 12;         //How many layers can be rendered together to one spriteSheet
+    private static final int maxLayers = 3;          //How many layers can be rendered together to one spriteSheet
 
     private GreenfootImage[] currentImages;          //Current set of images. This is one dimension of an Animation, and will be cycled through in the animation code.
     private GreenfootImage[] spriteSheetLayers;      //Array that contains the layers of the spriteSheet

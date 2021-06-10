@@ -3,5 +3,5 @@ comment0.target=HotbarUI
 comment0.text=\r\n\ The\ HotbarUI\ class\ is\ used\ to\ display\ a\ hotbar\ image\ under\ the\ hotbar\ slots.\ All\ functionality\ is\ located\ in\ the\ Hotbar\ class\ and\ the\ HotbarSlot\ class.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=HotbarUI()
-comment1.text=\r\n\ HotbarUI\ Constructor\:\ Makes\ the\ image\ 2\ times\ bigger\ and\ sets\ it.\r\n
+comment1.text=\r\n\ HotbarUI\ Constructor\:\ Sets\ the\ object\ image.\r\n
 numComments=2

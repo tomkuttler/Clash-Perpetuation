@@ -3,5 +3,5 @@ comment0.target=Potion
 comment0.text=\r\n\ The\ Potion\ class\ manages\ the\ potion\ item\ that\ the\ player\ can\ pick\ up.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=color\ amount
 comment1.target=Potion(java.lang.String,\ int)
-comment1.text=\r\n\ Potion\ Constructor\:\ Scales\ the\ image\ to\ the\ right\ size,\ sets\ the\ right\ image,\ name\ and\ amount\ and\ passes\ the\ variabes\ to\ the\ PickUpItems\ superclass.\r\n\ \r\n\ @param\ 'color'\:\ Which\ color\ should\ the\ potion\ have\ ("green"\ heals\ 5\ HP,\ "red"\ heals\ 10\ HP,\ "blue"\ heals\ 15\ HP,\ "purple"\ heals\ 20\ HP,\ "white"\ heals\ 25\ HP)\r\n\ @param\ 'amount'\:\ How\ many\ potions\ will\ be\ picked\ up\r\n
+comment1.text=\r\n\ Potion\ Constructor\:\ Sets\ the\ right\ image,\ name\ and\ amount\ and\ passes\ the\ variabes\ to\ the\ PickUpItems\ superclass.\r\n\ \r\n\ @param\ 'color'\:\ Which\ color\ should\ the\ potion\ have\ ("green"\ heals\ 5\ HP,\ "red"\ heals\ 10\ HP,\ "blue"\ heals\ 15\ HP,\ "purple"\ heals\ 20\ HP,\ "white"\ heals\ 25\ HP)\r\n\ @param\ 'amount'\:\ How\ many\ potions\ will\ be\ picked\ up\r\n
 numComments=2
