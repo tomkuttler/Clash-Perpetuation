@@ -44,6 +44,9 @@ public class Cyclope extends Enemy
     private Player player;                        //Reference to the player
     private EnemyHealthBar bar;                   //Reference to the HealthBar of the enemy
 
+    //----- Layer images -----    
+    private static final GreenfootImage cyclope = new GreenfootImage("enemys/cyclope.png");
+    
     /**
      * Cyclope Constructor: Sets the speed, creates the spriteSheet of the character, creates the animations and sets variables.
      * 
@@ -57,7 +60,7 @@ public class Cyclope extends Enemy
         changeSpeed(walkSpeed, animationSpeed);
 
         //Create spriteSheet
-        setLayer(0, new GreenfootImage("enemys/cyclope.png"));
+        setLayer(0, cyclope);
 
         //----- BUILD ANIMATIONS -----
         //Build walking animation (primary animation)                
