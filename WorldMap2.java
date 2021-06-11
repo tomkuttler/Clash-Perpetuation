@@ -8,13 +8,13 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class WorldMap2 extends World
 {
-    GreenfootImage map1 = new GreenfootImage("WorldMap2.png");
+    private static final GreenfootImage map2 = new GreenfootImage("WorldMap2.png");
     
     public WorldMap2(Player p, PlayerHealthBar bar, HitCooldownBar hitBar, Inventory inventory, InventoryUI iUI, Hotbar hotbar, HotbarUI hUI, HotbarHighlight hH)
     {    
         // Create a new world with 1696x928 cells with a cell size of 1x1 pixels.
         super(1696, 928, 1);
-        setBackground(map1);
+        setBackground(map2);
         
         //Add Health bar
         addObject(bar, 186, 29);

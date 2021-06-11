@@ -8,7 +8,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class WorldMap1 extends World
 {
-    GreenfootImage map1 = new GreenfootImage("WorldMap1.png");
+    private static final GreenfootImage map1 = new GreenfootImage("WorldMap1.png");
     
     public WorldMap1()
     {    
