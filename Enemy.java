@@ -24,6 +24,8 @@ public abstract class Enemy extends AnimatedCharacter
     private int health;                //Current health of the enemy
     private int maxHealth;             //Max health of the enemy
     private boolean alive = true;      //True if enemy is alive, false if dead
+    
+    private int barYOffset;            //The offset of the enemy health bar relative to the enemy in y direction (in pixel)
 
     //----- Attack -----
     private String enemyType;          //"melee" (if the enemy has a sword or dagger,...) or "ranged" (if the enemy has a bow) 
@@ -52,6 +54,7 @@ public abstract class Enemy extends AnimatedCharacter
      * It sets the variables in this superclass to the values in the Enemy subclass.
      * 
      * @param 'maxHealth': Max health of the enemy
+     * @param 'barYOffset': The offset of the enemy health bar relative to the enemy in y direction (in pixel)
      * @param 'enemyType': "melee" (if the enemy has a sword or dagger,...) or "ranged" (if the enemy has a bow) 
      * @param 'detectPlayerRange': Player detection range of the enemy (in pixel) 
      * @param 'minDistance': Minimum distance between the enemy and the player
@@ -64,9 +67,10 @@ public abstract class Enemy extends AnimatedCharacter
      * @param 'bar': Reference to the HealthBar of the enemy
      * @param 'player': Reference to the player
      */
-    public void setup(int maxHealth, String enemyType, int detectPlayerRange, int minDistance, int attackRange, int bowRange, int bowSpeed, int damage, double hitCooldown, double removeCooldown, EnemyHealthBar bar, Player player)
+    public void setup(int maxHealth, int barYOffset, String enemyType, int detectPlayerRange, int minDistance, int attackRange, int bowRange, int bowSpeed, int damage, double hitCooldown, double removeCooldown, EnemyHealthBar bar, Player player)
     {
         this.maxHealth = maxHealth;
+        this.barYOffset = barYOffset;
         this.enemyType = enemyType;
         this.detectPlayerRange = detectPlayerRange;
         this.minDistance = minDistance;
@@ -149,22 +153,22 @@ public abstract class Enemy extends AnimatedCharacter
                     if (getX() < playerX && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (1, 0);
-                        bar.setLocation(getX(), getY() - 30);
+                        bar.setLocation(getX(), getY() - barYOffset);
                     }
                     else if (getX() > playerX && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (-1, 0);
-                        bar.setLocation(getX(), getY() - 30);
+                        bar.setLocation(getX(), getY() - barYOffset);
                     }
                     else if (getY() < playerY && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (0, 1);
-                        bar.setLocation(getX(), getY() - 30);
+                        bar.setLocation(getX(), getY() - barYOffset);
                     }
                     else if (getY() > playerY && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (0, -1);
-                        bar.setLocation(getX(), getY() - 30);
+                        bar.setLocation(getX(), getY() - barYOffset);
                     }
                 }
                 else
@@ -172,22 +176,22 @@ public abstract class Enemy extends AnimatedCharacter
                     if (getY() < playerY && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (0, 1);
-                        bar.setLocation(getX(), getY() - 30);
+                        bar.setLocation(getX(), getY() - barYOffset);
                     }
                     else if (getY() > playerY && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (0, -1);
-                        bar.setLocation(getX(), getY() - 30);
+                        bar.setLocation(getX(), getY() - barYOffset);
                     }
                     else if (getX() < playerX && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (1, 0);
-                        bar.setLocation(getX(), getY() - 30);
+                        bar.setLocation(getX(), getY() - barYOffset);
                     }
                     else if (getX() > playerX && Math.sqrt((getX()-playerX)*(getX()-playerX) + (getY()-playerY)*(getY()-playerY)) > attackRange)
                     {
                         moveInDirection (-1, 0);
-                        bar.setLocation(getX(), getY() - 30);
+                        bar.setLocation(getX(), getY() - barYOffset);
                     }
                 }                                
             }

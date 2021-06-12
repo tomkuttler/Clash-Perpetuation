@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Skeleton here.
+ * The skeleton will shoot an arrow into your direction, if you are in range.
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -18,6 +18,8 @@ public class Skeleton extends Enemy
     
     //----- Health -----
     public static final int maxHealth = 100;                   //Max health of the enemy
+    
+    private static final int barYOffset = 30;                  //The offset of the enemy health bar relative to the enemy in y direction (in pixel)
     
     //----- Attack -----
     private static final String enemyType = "ranged";          //"melee" (if the enemy has a sword or dagger,...) or "ranged" (if the enemy has a bow) 
@@ -90,7 +92,7 @@ public class Skeleton extends Enemy
         bar.setImage((GreenfootImage)null);
         
         //Set the variables in superclass
-        setup(maxHealth, enemyType, detectPlayerRange, minDistance, attackRange, bowRange, bowSpeed, damage, hitCooldown, removeCooldown, bar, player);
+        setup(maxHealth, barYOffset, enemyType, detectPlayerRange, minDistance, attackRange, bowRange, bowSpeed, damage, hitCooldown, removeCooldown, bar, player);
     }
    
     /**

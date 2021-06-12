@@ -8,8 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class EnemyHealthBar extends UI
 {
-    private static final int barWidth = 40;                             //The width of the color portion of the bar
-    private static final int barHeight = 5;                             //The height of the color portion of the bar
+    public int barWidth = 40;                                           //The width of the color portion of the bar
+    public int barHeight = 5;                                           //The height of the color portion of the bar
     private static final int breakValue = 20;                           //The amount at which the color of the bar changes
     
     private static final Color backgroundColor = new Color(0, 0, 0, 0); //The background color of the entire object (Transparent)

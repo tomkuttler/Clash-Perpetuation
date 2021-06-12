@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Skeleton
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Skeleton\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ skeleton\ will\ shoot\ an\ arrow\ into\ your\ direction,\ if\ you\ are\ in\ range.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=newPlayer\ newBar\ startDirection
 comment1.target=Skeleton(Player,\ EnemyHealthBar,\ int)
 comment1.text=\r\n\ Skeleton\ Constructor\:\ Sets\ the\ speed,\ creates\ the\ spriteSheet\ of\ the\ character,\ creates\ the\ animations\ and\ sets\ variables.\r\n\ \r\n\ @param\ 'newPlayer'\:\ Reference\ to\ the\ player\r\n\ @param\ 'newBar'\:\ Reference\ to\ the\ health\ bar\ of\ the\ enemy\r\n\ @param\ 'startDirection'\:\ The\ direction\ in\ which\ the\ character\ will\ face\ at\ the\ start\ (0\ \=\ Right,\ 1\ \=\ Left,\ 2\ \=\ Up,\ 3\ \=\ Down)\r\n
