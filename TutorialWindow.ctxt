@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=TutorialWindow
+comment0.text=\r\n\ The\ TutorialWindow\ class\ displays\ the\ tutorial\ window.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=newText
+comment1.target=TutorialWindow(TutorialText)
+comment1.text=\r\n\ TutorialWindow\ Constructor\:\r\n
+comment2.params=
+comment2.target=void\ act()
+comment2.text=\r\n\ Method\ 'act'\:\ Is\ called\ every\ tick\ or\ whenever\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n\ \r\n
+comment3.params=
+comment3.target=void\ fade()
+comment4.params=
+comment4.target=void\ fadeIn()
+comment5.params=
+comment5.target=void\ fadeOut()
+comment6.params=
+comment6.target=void\ fadeOutIn()
+comment7.params=text
+comment7.target=void\ updateText(java.lang.String)
+numComments=8

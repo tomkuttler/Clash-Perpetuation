@@ -108,7 +108,12 @@ public class WorldMap1 extends World
         addObject(new Collider(551, 22, 0, 0), 703, 46);
         addObject(new Collider(39, 22, 0, 0), 416, 79);
         
-        //Spawn Tutorial Manager
-        addObject(new Tutorial(), 848, 140);
+        //Spawn Tutorial manager, window and text
+        TutorialText text = new TutorialText();
+        TutorialWindow window = new TutorialWindow(text);
+                        
+        addObject(window, 848, 140);
+        addObject(text, 848, 140);
+        addObject(new Tutorial(window), 0, 0);        
     }
 }
