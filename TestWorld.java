@@ -10,7 +10,7 @@ public class TestWorld extends World
 {
     public TestWorld()
     {    
-        // Create a new world with 1696x928 cells with a cell size of 1x1 pixels.
+        //Create a new world with 1696x928 cells with a cell size of 1x1 pixels.
         super(1696, 928, 1);
         
         //Spawn Health bar

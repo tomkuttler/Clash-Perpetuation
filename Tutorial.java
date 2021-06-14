@@ -15,7 +15,7 @@ public class Tutorial extends UI
 
     private String changeVariableTo;                           //The name to which the textToDisplayNext String should be set after the cooldown
     
-    private static final double updateCooldown = 5000000000.0; //Cooldown after the player fullfilled the tutorial message
+    private static final double updateCooldown = 3000000000.0; //Cooldown after the player fullfilled the tutorial message
     private double lastActionTime;                             //Time when the player fullfilled the tutorial message
 
     //----- Reference -----
@@ -66,6 +66,14 @@ public class Tutorial extends UI
                 window.updateText(textToDisplayNext);
                 window.fadeOutIn();
 
+                checkPlayer = "walk2";
+                textToDisplayNext = "";
+            }
+            else if(textToDisplayNext == "tutorialText3")
+            {
+                window.fadeOutEnd();
+
+                checkPlayer = "";
                 textToDisplayNext = "";
             }
         }
@@ -90,6 +98,17 @@ public class Tutorial extends UI
                 checkPlayer = "";
             }
         }
+        else if(checkPlayer == "walk2")
+        {
+            if(Greenfoot.isKeyDown("i"))
+            {
+                changeVariableTo = "tutorialText3";
+                
+                lastActionTime = System.nanoTime();
+                
+                checkPlayer = "";
+            }
+        }
     }
 
     /**
@@ -105,6 +124,11 @@ public class Tutorial extends UI
             if(changeVariableTo == "tutorialText2")
             {
                 textToDisplayNext = "tutorialText2";
+                changeVariableTo = "";
+            }
+            else if(changeVariableTo == "tutorialText3")
+            {
+                textToDisplayNext = "tutorialText3";
                 changeVariableTo = "";
             }
         }

@@ -158,7 +158,7 @@ public class Player extends AnimatedCharacter
 
         toggleInventory();
 
-        changeMap();
+        checkChangeMap();
 
         checkRemove();
 
@@ -614,10 +614,10 @@ public class Player extends AnimatedCharacter
     }
 
     /**
-     * Method 'changeMap': Is called every tick by the 'act' method.
+     * Method 'checkChangeMap': Is called every tick by the 'act' method.
      * If the player walked to a specific place, change the map.
      */
-    public void changeMap() 
+    public void checkChangeMap() 
     {
         if(this.getWorld().getClass() == WorldMap1.class)
         {

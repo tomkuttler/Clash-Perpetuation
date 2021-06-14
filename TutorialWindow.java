@@ -98,6 +98,11 @@ public class TutorialWindow extends UI
         fadeOutIn = true;
     }
     
+    public void fadeOutEnd()
+    {                        
+        tutorialText.fadeOut();                
+    }
+    
     public void updateText(String text)
     {
         this.text = text;
