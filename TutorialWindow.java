@@ -23,7 +23,9 @@ public class TutorialWindow extends UI
     private static final GreenfootImage window = new GreenfootImage("ui/window.png");
 
     /**
-     * TutorialWindow Constructor:
+     * TutorialWindow Constructor: Sets the window image transparent and sets the reference.
+     * 
+     * @param 'newText': The reference to the TutorialText
      */
     public TutorialWindow(TutorialText newText)
     {
@@ -35,13 +37,17 @@ public class TutorialWindow extends UI
 
     /**
      * Method 'act': Is called every tick or whenever the 'Act' or 'Run' button gets pressed in the environment.
-     * 
+     * It calls the 'fade' method.
      */
     public void act() 
     {
         fade();
     }
 
+    /**
+     * Method 'fade': Is called every tick by the 'act' method.
+     * If the fade boolean is set to true the window will fade in or out (corresponding to the speed variable set in the 'fadeIn' / 'fadeOut' method).
+     */
     public void fade()
     {
         if(fade)
@@ -77,20 +83,21 @@ public class TutorialWindow extends UI
         }
     }
     
+    /**
+     * Method 'fadeIn': Is called in the Tutorial class.
+     * The window will start fading in.
+     */
     public void fadeIn()
     {                
         speed = 3;        
         
         fade = true;
-    }
+    }    
     
-    public void fadeOut()
-    {        
-        speed = -3;
-        
-        fade = true;
-    }
-    
+    /**
+     * Method 'fadeOutIn': Is called in the Tutorial class.
+     * The window will start fading out and in again.
+     */
     public void fadeOutIn()
     {
         tutorialText.fadeOut();
@@ -98,11 +105,32 @@ public class TutorialWindow extends UI
         fadeOutIn = true;
     }
     
-    public void fadeOutEnd()
+    /**
+     * Method 'fadeOut': Is called in the Tutorial class.
+     * The window will start fading out.
+     */
+    public void fadeOut()
     {                        
         tutorialText.fadeOut();                
     }
     
+    /**
+     * Method 'fadeOutCalledInTutorialText': Is called in the Tutorial Text class.
+     * The window will start fading out and in again.
+     */
+    public void fadeOutCalledInTutorialText()
+    {        
+        speed = -3;
+        
+        fade = true;
+    }
+    
+    /**
+     * Method 'updateText': Is called in the Tutorial class.
+     * It updates the name of the text that should be displayed next.
+     * 
+     * @param 'text': The name of the text that should be displayed next.
+     */
     public void updateText(String text)
     {
         this.text = text;

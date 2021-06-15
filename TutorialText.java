@@ -18,9 +18,7 @@ public class TutorialText extends UI
     private static final GreenfootImage tutorialText2 = new GreenfootImage("ui/tutorialText/tutorialText1.png");
     
     /**
-     * TutorialText Constructor: Sets the correct text image.
-     * 
-     * @param 'text': The name of the text that should be displayed
+     * TutorialText Constructor: Sets the image to null.
      */
     public TutorialText()
     {
@@ -28,14 +26,18 @@ public class TutorialText extends UI
     }
     
     /**
-     * Act - do whatever the TutorialText wants to do. This method is called whenever
-     * the 'Act' or 'Run' button gets pressed in the environment.
+     * Method 'act': Is called every tick or whenever the 'Act' or 'Run' button gets pressed in the environment.
+     * It calls the 'fade' method.
      */
     public void act() 
     {
         fade();
     }
     
+    /**
+     * Method 'fade': Is called every tick by the 'act' method.
+     * If the fade boolean is set to true the text will fade in or out (corresponding to the speed variable set in the 'fadeIn' / 'fadeOut' method).
+     */
     public void fade()
     {
         if(fade)
@@ -57,11 +59,15 @@ public class TutorialText extends UI
                 fade = false;
                 
                 TutorialWindow window = getWorld().getObjects(TutorialWindow.class).get(0);
-                window.fadeOut();
+                window.fadeOutCalledInTutorialText();
             }
         }
     }
     
+    /**
+     * Method 'fadeIn': Is called in the TutorialWindow class.
+     * The text will start fading in.
+     */
     public void fadeIn()
     {        
         speed = 3;       
@@ -69,6 +75,10 @@ public class TutorialText extends UI
         fade = true;
     }
     
+    /**
+     * Method 'fadeOut': Is called in the TutorialWindow class.
+     * The text will start fading out.
+     */
     public void fadeOut()
     {        
         speed = -3;        
@@ -76,6 +86,10 @@ public class TutorialText extends UI
         fade = true;
     }
     
+    /**
+     * Method 'updateText': Is called in the TutorialWindow class.
+     * The correct image will be set.
+     */
     public void updateText(String text)
     {
         if(text == "tutorialText1")

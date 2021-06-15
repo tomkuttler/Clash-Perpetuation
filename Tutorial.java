@@ -46,8 +46,7 @@ public class Tutorial extends UI
 
     /**
      * Method 'updateTutorialText': Is called every tick by the 'act' method.
-     * It calls the 'updateText' method and the 'fadeIn' method or 'fadeOutIn' method in TutorialWindow class to start the fading of the window.
-     * It sets the checkPlayer variable to the action that the player has to do.
+     * If the textToDisplayNext variable was updated in the 'changeText' method, the text will be updated and the window will fade in (out and in again / out).
      */ 
     public void updateTutorialText()
     {
@@ -71,10 +70,12 @@ public class Tutorial extends UI
             }
             else if(textToDisplayNext == "tutorialText3")
             {
-                window.fadeOutEnd();
+                window.fadeOut();
 
                 checkPlayer = "";
                 textToDisplayNext = "";
+                
+                tutorialFinished = true;
             }
         }
     }

@@ -1,12 +1,16 @@
 #BlueJ class context
 comment0.target=StartScreenText
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ StartScreenText\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ StartScreenText\ is\ the\ 'Press\ enter\ to\ continue'\ text\ that\ fades\ in\ and\ out\ until\ the\ player\ begins\ the\ game.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=StartScreenText()
+comment1.text=\r\n\ StartScreenText\ Constructor\:\ Sets\ the\ image\ completly\ transparent.\r\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\r\n\ Method\ 'act'\:\ Is\ called\ every\ tick\ or\ whenever\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n\ It\ sets\ the\ transparency\ of\ the\ image\ to\ the\ counter\ variable\ and\ calls\ the\ 'appear'\ method\ and\ the\ 'checkStart'\ method.\r\n
 comment3.params=
 comment3.target=void\ appear()
+comment3.text=\r\n\ Method\ 'appear'\:\ Is\ called\ every\ tick\ by\ the\ 'act'\ method.\r\n\ It\ adds\ the\ speed\ to\ the\ counter.\ \r\n\ If\ the\ counter\ reaches\ 252\ the\ speed\ will\ be\ set\ to\ a\ negative\ value.\r\n\ If\ the\ counter\ reaches\ 0\ the\ speed\ will\ be\ set\ to\ a\ positive\ value.\r\n\ This\ will\ create\ the\ fade\ in\ and\ out\ animation.\r\n
 comment4.params=
 comment4.target=void\ checkStart()
+comment4.text=\r\n\ Method\ 'checkStart'\:\ Is\ called\ every\ tick\ by\ the\ 'act'\ method.\r\n\ If\r\n
 numComments=5
