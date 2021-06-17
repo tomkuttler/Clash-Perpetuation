@@ -16,6 +16,7 @@ public class TutorialText extends UI
     //----- Object images -----
     private static final GreenfootImage tutorialText1 = new GreenfootImage("ui/tutorialText/tutorialText1.png");
     private static final GreenfootImage tutorialText2 = new GreenfootImage("ui/tutorialText/tutorialText1.png");
+    private static final GreenfootImage killAllEnemysText = new GreenfootImage("ui/tutorialText/killAllEnemysText.png");
     
     /**
      * TutorialText Constructor: Sets the image to null.
@@ -100,6 +101,11 @@ public class TutorialText extends UI
         else if(text == "tutorialText2")
         {
             setImage(tutorialText2);
+            getImage().setTransparency(0);
+        }
+        else if(text == "killAllEnemysText")
+        {
+            setImage(killAllEnemysText);
             getImage().setTransparency(0);
         }
     }

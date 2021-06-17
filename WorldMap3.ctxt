@@ -1,0 +1,6 @@
+#BlueJ class context
+comment0.target=WorldMap3
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ WorldMap3\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=p\ bar\ hitBar\ inventory\ iUI\ hotbar\ hUI\ hH
+comment1.target=WorldMap3(Player,\ PlayerHealthBar,\ HitCooldownBar,\ Inventory,\ InventoryUI,\ Hotbar,\ HotbarUI,\ HotbarHighlight)
+numComments=2

@@ -1,12 +1,12 @@
 #BlueJ class context
 comment0.target=Tutorial
 comment0.text=\r\n\ The\ Tutorial\ class\ manages\ the\ tutorial\ window\ and\ the\ tutorial\ text.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
-comment1.params=newWindow
-comment1.target=Tutorial(TutorialWindow)
-comment1.text=\r\n\ Tutorial\ Constructor\:\ Sets\ the\ image\ to\ null\ and\ sets\ the\ reference\ to\ the\ window.\r\n
+comment1.params=newWindow\ showTutorial
+comment1.target=Tutorial(TutorialWindow,\ boolean)
+comment1.text=\r\n\ Tutorial\ Constructor\:\ Sets\ the\ image\ to\ null\ and\ sets\ the\ reference\ to\ the\ window.\r\n\ \r\n\ @param\ 'newWindow'\:\ Reference\ to\ the\ tutorial\ window\r\n\ @param\ 'showTutorial'\:\ Only\ true\ in\ the\ first\ world\ to\ show\ the\ tutorial\ only\ once.\r\n
 comment2.params=
 comment2.target=void\ act()
-comment2.text=\r\n\ Method\ 'act'\:\ Is\ called\ every\ tick\ or\ whenever\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n\ It\ calls\ the\ 'updateTutorialText'\ method,\ the\ 'checkPlayer'\ method\ and\ the\ 'changeText'\ method.\r\n
+comment2.text=\r\n\ Method\ 'act'\:\ Is\ called\ every\ tick\ or\ whenever\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n\ It\ calls\ the\ 'updateTutorialText'\ method,\ the\ 'checkPlayer'\ method,\ the\ 'changeText'\ method\ and\ the\ 'removeKillAllEnemysText'\ method.\r\n
 comment3.params=
 comment3.target=void\ updateTutorialText()
 comment3.text=\r\n\ Method\ 'updateTutorialText'\:\ Is\ called\ every\ tick\ by\ the\ 'act'\ method.\r\n\ If\ the\ textToDisplayNext\ variable\ was\ updated\ in\ the\ 'changeText'\ method,\ the\ text\ will\ be\ updated\ and\ the\ window\ will\ fade\ in\ (out\ and\ in\ again\ /\ out).\r\n
@@ -16,4 +16,8 @@ comment4.text=\r\n\ Method\ 'checkPlayer'\:\ Is\ called\ every\ tick\ by\ the\ '
 comment5.params=
 comment5.target=void\ changeText()
 comment5.text=\r\n\ Method\ 'changeText'\:\ Is\ called\ every\ tick\ by\ the\ 'act'\ method.\r\n\ If\ the\ changeVariableTo\ variable\ was\ changed\ to\ the\ name\ of\ the\ next\ tutorial\ text\ in\ the\ 'checkPlayer'\ method,\ \r\n\ the\ textToDisplayNext\ variable\ will\ be\ changed\ to\ the\ name\ of\ the\ next\ tutorial\ text\ after\ the\ updateCooldown.\r\n
-numComments=6
+comment6.params=
+comment6.target=void\ removeKillAllEnemysText()
+comment7.params=
+comment7.target=void\ killAllEnemysText()
+numComments=8

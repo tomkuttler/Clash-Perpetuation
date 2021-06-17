@@ -12,5 +12,5 @@ comment3.target=void\ appear()
 comment3.text=\r\n\ Method\ 'appear'\:\ Is\ called\ every\ tick\ by\ the\ 'act'\ method.\r\n\ It\ adds\ the\ speed\ to\ the\ counter.\ \r\n\ If\ the\ counter\ reaches\ 252\ the\ speed\ will\ be\ set\ to\ a\ negative\ value.\r\n\ If\ the\ counter\ reaches\ 0\ the\ speed\ will\ be\ set\ to\ a\ positive\ value.\r\n\ This\ will\ create\ the\ fade\ in\ and\ out\ animation.\r\n
 comment4.params=
 comment4.target=void\ checkStart()
-comment4.text=\r\n\ Method\ 'checkStart'\:\ Is\ called\ every\ tick\ by\ the\ 'act'\ method.\r\n\ If\r\n
+comment4.text=\r\n\ Method\ 'checkStart'\:\ Is\ called\ every\ tick\ by\ the\ 'act'\ method.\r\n\ If\ the\ player\ pressed\ 'enter'\ the\ first\ world\ will\ be\ created.\r\n
 numComments=5

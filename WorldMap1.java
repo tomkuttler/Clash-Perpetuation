@@ -61,33 +61,33 @@ public class WorldMap1 extends World
         addObject(bar1, 0, 0);
         addObject(new Cyclope(p, bar1, 2), 100, 800);
         
-        EnemyHealthBar bar2 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
-        addObject(bar2, 0, 0);
-        addObject(new Cyclope(p, bar2, 2), 200, 800);
+        // EnemyHealthBar bar2 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        // addObject(bar2, 0, 0);
+        // addObject(new Cyclope(p, bar2, 2), 200, 800);
         
-        EnemyHealthBar bar3 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
-        addObject(bar3, 0, 0);
-        addObject(new Cyclope(p, bar3, 2), 300, 800);
+        // EnemyHealthBar bar3 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        // addObject(bar3, 0, 0);
+        // addObject(new Cyclope(p, bar3, 2), 300, 800);
         
-        EnemyHealthBar bar4 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
-        addObject(bar4, 0, 0);
-        addObject(new Cyclope(p, bar4, 2), 400, 800);
+        // EnemyHealthBar bar4 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        // addObject(bar4, 0, 0);
+        // addObject(new Cyclope(p, bar4, 2), 400, 800);
         
-        EnemyHealthBar bar5 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
-        addObject(bar5, 0, 0);
-        addObject(new Cyclope(p, bar5, 2), 500, 800);
+        // EnemyHealthBar bar5 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        // addObject(bar5, 0, 0);
+        // addObject(new Cyclope(p, bar5, 2), 500, 800);
         
-        EnemyHealthBar bar6 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
-        addObject(bar6, 0, 0);
-        addObject(new Cyclope(p, bar6, 2), 600, 800);
+        // EnemyHealthBar bar6 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        // addObject(bar6, 0, 0);
+        // addObject(new Cyclope(p, bar6, 2), 600, 800);
         
-        EnemyHealthBar bar7 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
-        addObject(bar7, 0, 0);
-        addObject(new Cyclope(p, bar7, 2), 700, 800);
+        // EnemyHealthBar bar7 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        // addObject(bar7, 0, 0);
+        // addObject(new Cyclope(p, bar7, 2), 700, 800);
         
-        EnemyHealthBar bar8 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
-        addObject(bar8, 0, 0);
-        addObject(new Cyclope(p, bar8, 2), 800, 800);
+        // EnemyHealthBar bar8 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        // addObject(bar8, 0, 0);
+        // addObject(new Cyclope(p, bar8, 2), 800, 800);
         
         EnemyHealthBar bar9 = new EnemyHealthBar(Skeleton.maxHealth, Skeleton.maxHealth);
         addObject(bar9, 0, 0);
@@ -114,6 +114,6 @@ public class WorldMap1 extends World
                         
         addObject(window, 848, 140);
         addObject(text, 848, 140);
-        addObject(new Tutorial(window), 0, 0);        
+        addObject(new Tutorial(window, true), 0, 0);        
     }
 }

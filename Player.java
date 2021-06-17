@@ -40,7 +40,10 @@ public class Player extends AnimatedCharacter
     private double lastPressedKeyTime;                         //Stores the time of the last key press
 
     private static final double removeCooldown = 2000000000.0; //Player will be removed after Cooldown of 2 bilion nanosec (2sec) (after Health <= 0)
-    private double deathTime;                                  //Stores the time the player died
+    private double deathTime;                                  //Stores the time when the player died
+
+    private static final double textCooldown = 10000000000.0;  //A new kill all enemys text will be spawned after Cooldown of 10 bilion nanosec (10sec) (after the last spawn if player didnt move)
+    private double lastTextTime;                               //Stores the time when the last kill all enemys text was displayed
 
     //----- References -----
     private PlayerHealthBar bar;                               //Reference to the health bar manager
@@ -80,7 +83,7 @@ public class Player extends AnimatedCharacter
     private static final GreenfootImage tridentMetall = new GreenfootImage("weapons/melee/oversize/thrust/tridentMetall.png");
     private static final GreenfootImage tridentOrange = new GreenfootImage("weapons/melee/oversize/thrust/tridentOrange.png");
     private static final GreenfootImage tridentYellow = new GreenfootImage("weapons/melee/oversize/thrust/tridentYellow.png");    
-    
+
     private static final GreenfootImage bow1 = new GreenfootImage("weapons/ranged/bow1.png");
     private static final GreenfootImage arrow = new GreenfootImage("weapons/ranged/arrow.png");
 
@@ -467,7 +470,7 @@ public class Player extends AnimatedCharacter
                                 lastUse = t;
 
                                 hitBar.itemUsed(inventory.itemData.getUseCooldown(currentSlotItem));
-                                
+
                                 runTerminalAnimation("shoot", direction);
 
                                 if(direction == 0 || direction == 1)
@@ -505,7 +508,7 @@ public class Player extends AnimatedCharacter
                                 lastUse = t;
 
                                 hitBar.itemUsed(inventory.itemData.getUseCooldown(currentSlotItem));
-                                
+
                                 runTerminalAnimation("slash", direction);
 
                                 heal(inventory.itemData.getHealthPoints(currentSlotItem));
@@ -615,7 +618,8 @@ public class Player extends AnimatedCharacter
 
     /**
      * Method 'checkChangeMap': Is called every tick by the 'act' method.
-     * If the player walked to a specific place, change the map.
+     * If the player walked to a specific place, change the map, if the player killed all enemys in the current map.
+     * If the player did not kill all enemys a tutorial message will appear.
      */
     public void checkChangeMap() 
     {
@@ -623,7 +627,40 @@ public class Player extends AnimatedCharacter
         {
             if(getX() > 1690)
             {
-                Greenfoot.setWorld(new WorldMap2(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
+                if(this.getWorld().getObjects(Enemy.class).isEmpty())
+                {
+                    Greenfoot.setWorld(new WorldMap2(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
+                }
+                else
+                {
+                    double t = System.nanoTime();
+                    if(t - lastTextTime >= textCooldown)
+                    {
+                        lastTextTime = System.nanoTime();
+
+                        this.getWorld().getObjects(Tutorial.class).get(0).killAllEnemysText();
+                    }
+                }
+            }
+        }
+        else if(this.getWorld().getClass() == WorldMap2.class)
+        {
+            if(getX() > 1690)
+            {
+                if(this.getWorld().getObjects(Enemy.class).isEmpty())
+                {
+                    Greenfoot.setWorld(new WorldMap3(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
+                }
+                else
+                {
+                    double t = System.nanoTime();
+                    if(t - lastTextTime >= textCooldown)
+                    {
+                        lastTextTime = System.nanoTime();
+
+                        this.getWorld().getObjects(Tutorial.class).get(0).killAllEnemysText();
+                    }
+                }
             }
         }
     }

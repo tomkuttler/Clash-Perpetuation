@@ -14,34 +14,44 @@ public class Tutorial extends UI
     private String checkPlayer;                                //The action the player has to do
 
     private String changeVariableTo;                           //The name to which the textToDisplayNext String should be set after the cooldown
-    
+
     private static final double updateCooldown = 3000000000.0; //Cooldown after the player fullfilled the tutorial message
     private double lastActionTime;                             //Time when the player fullfilled the tutorial message
+
+    private boolean killAllEnemysText = false;                 //True if the kill all enemy text is currently being displayed
+    private static final double removeCooldown = 5000000000.0; //Cooldown after the kill all enemy text was displayed
+    private double lastKillAllEnemysTextTime;                  //Time when the kill all enemy text was displayed
 
     //----- Reference -----
     private TutorialWindow window;                             //Reference to the tutorial window
 
     /**
      * Tutorial Constructor: Sets the image to null and sets the reference to the window.
+     * 
+     * @param 'newWindow': Reference to the tutorial window
+     * @param 'showTutorial': Only true in the first world to show the tutorial only once.
      */
-    public Tutorial(TutorialWindow newWindow)
+    public Tutorial(TutorialWindow newWindow, boolean showTutorial)
     {
         setImage((GreenfootImage)null);
 
+        tutorialFinished = !showTutorial;
         window = newWindow;
     }
 
     /**
      * Method 'act': Is called every tick or whenever the 'Act' or 'Run' button gets pressed in the environment.
-     * It calls the 'updateTutorialText' method, the 'checkPlayer' method and the 'changeText' method.
+     * It calls the 'updateTutorialText' method, the 'checkPlayer' method, the 'changeText' method and the 'removeKillAllEnemysText' method.
      */
     public void act() 
     {
         updateTutorialText();
 
         checkPlayer();
-        
+
         changeText();
+
+        removeKillAllEnemysText();
     }
 
     /**
@@ -74,7 +84,7 @@ public class Tutorial extends UI
 
                 checkPlayer = "";
                 textToDisplayNext = "";
-                
+
                 tutorialFinished = true;
             }
         }
@@ -93,9 +103,9 @@ public class Tutorial extends UI
             if(Greenfoot.isKeyDown("w") || Greenfoot.isKeyDown("a") || Greenfoot.isKeyDown("s") || Greenfoot.isKeyDown("d"))
             {
                 changeVariableTo = "tutorialText2";
-                
+
                 lastActionTime = System.nanoTime();
-                
+
                 checkPlayer = "";
             }
         }
@@ -104,9 +114,9 @@ public class Tutorial extends UI
             if(Greenfoot.isKeyDown("i"))
             {
                 changeVariableTo = "tutorialText3";
-                
+
                 lastActionTime = System.nanoTime();
-                
+
                 checkPlayer = "";
             }
         }
@@ -133,5 +143,29 @@ public class Tutorial extends UI
                 changeVariableTo = "";
             }
         }
+    }
+
+    public void removeKillAllEnemysText()
+    {
+        if(killAllEnemysText)
+        {
+            double t = System.nanoTime();
+            if(t - lastKillAllEnemysTextTime >= removeCooldown)
+            {
+                window.fadeOut();
+                
+                killAllEnemysText = false;
+            }
+        }
+    }
+
+    public void killAllEnemysText()
+    {
+        lastKillAllEnemysTextTime = System.nanoTime();
+        
+        killAllEnemysText = true;
+        
+        window.updateText("killAllEnemysText");
+        window.fadeIn();
     }
 }
