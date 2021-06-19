@@ -668,6 +668,7 @@ public class Player extends AnimatedCharacter
     /**
      * Method 'checkRemove': Is called every tick by the 'act' method.
      * If the player is dead and the remove cooldown has expired, the player and his collider will be removed from the world.
+     * The lose screen will be displayed.
      */
     public void checkRemove()
     {
@@ -677,6 +678,8 @@ public class Player extends AnimatedCharacter
             {
                 disableCollision();
                 getWorld().removeObject(this);
+                
+                Greenfoot.setWorld(new LoseScreen());
             }
         }
     }

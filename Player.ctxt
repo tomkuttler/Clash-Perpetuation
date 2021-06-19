@@ -9,7 +9,7 @@ comment10.target=void\ checkChangeMap()
 comment10.text=\r\n\ Method\ 'checkChangeMap'\:\ Is\ called\ every\ tick\ by\ the\ 'act'\ method.\r\n\ If\ the\ player\ walked\ to\ a\ specific\ place,\ change\ the\ map,\ if\ the\ player\ killed\ all\ enemys\ in\ the\ current\ map.\r\n\ If\ the\ player\ did\ not\ kill\ all\ enemys\ a\ tutorial\ message\ will\ appear.\r\n
 comment11.params=
 comment11.target=void\ checkRemove()
-comment11.text=\r\n\ Method\ 'checkRemove'\:\ Is\ called\ every\ tick\ by\ the\ 'act'\ method.\r\n\ If\ the\ player\ is\ dead\ and\ the\ remove\ cooldown\ has\ expired,\ the\ player\ and\ his\ collider\ will\ be\ removed\ from\ the\ world.\r\n
+comment11.text=\r\n\ Method\ 'checkRemove'\:\ Is\ called\ every\ tick\ by\ the\ 'act'\ method.\r\n\ If\ the\ player\ is\ dead\ and\ the\ remove\ cooldown\ has\ expired,\ the\ player\ and\ his\ collider\ will\ be\ removed\ from\ the\ world.\r\n\ The\ lose\ screen\ will\ be\ displayed.\r\n
 comment12.params=damage
 comment12.target=void\ gotHit(int)
 comment12.text=\r\n\ Method\ 'gotHit'\:\ Is\ called\ by\ the\ 'hit'\ method\ in\ Enemy\ class\ or\ the\ 'checkHit'\ method\ in\ Arrow\ class,\ \r\n\ if\ the\ enemy\ hit\ the\ player\ or\ an\ arrow\ hit\ the\ player.\r\n\ It\ subtracts\ the\ damage\ from\ the\ health\ and\ updates\ the\ health\ bar.\r\n\ If\ the\ health\ is\ <\=\ 0\ the\ player\ is\ dead\ the\ inventory\ wil\ be\ closed\ and\ the\ die\ animation\ will\ be\ played.\r\n\ \r\n\ @param\ 'damage'\:\ The\ damage\ that\ the\ enemy\ deals\r\n
