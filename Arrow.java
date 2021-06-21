@@ -84,7 +84,7 @@ public class Arrow extends AnimatedCharacter
      * Method 'checkHit': Is called every tick by the 'act' method.
      * If the arrow intersects an enemy and the target is an enemy the 'gotHit' method in Enemy class will be called and the arrow will be removed.
      * If the arrow intersects a player and the target is a player the 'gotHit' method in Player class will be called and the arrow will be removed.
-     * If the arrow intersects an object, the arrow will be removed.
+     * If the arrow intersects an object or a collider, the arrow will be removed.
      * If the arrow is at the world border, the arrow will be removed.
      */
     public void checkHit()
@@ -113,7 +113,7 @@ public class Arrow extends AnimatedCharacter
                 alive = false;
             }
 
-            if(actor instanceof Objects)
+            if(actor instanceof Objects || actor instanceof Collider)
             {
                 getWorld().removeObject(this);
                 alive = false;
