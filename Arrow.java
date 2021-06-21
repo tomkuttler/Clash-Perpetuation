@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Arrow extends AnimatedCharacter
+public class Arrow extends Actor
 {    
     //----- arrow attributes -----
     private int direction;                                 //Direction: 0 = Right, 1 = Left, 2 = Up, 3 = Down
