@@ -43,7 +43,7 @@ public class WorldMap3 extends World
         TutorialWindow window = new TutorialWindow(text);
                         
         addObject(window, 848, 140);
-        addObject(text, 848, 140);
+        addObject(text, 848, 155);
         addObject(new Tutorial(window, false), 0, 0);
     }
 }

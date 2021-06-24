@@ -75,10 +75,26 @@ public class Tutorial extends UI
                 window.updateText(textToDisplayNext);
                 window.fadeOutIn();
 
-                checkPlayer = "walk2";
+                checkPlayer = "pickUpPotion";
                 textToDisplayNext = "";
             }
             else if(textToDisplayNext == "tutorialText3")
+            {
+                window.updateText(textToDisplayNext);
+                window.fadeOutIn();
+
+                checkPlayer = "openInventory";
+                textToDisplayNext = "";
+            }
+            else if(textToDisplayNext == "tutorialText4")
+            {
+                window.updateText(textToDisplayNext);
+                window.fadeOutIn();
+
+                checkPlayer = "dragPotion";
+                textToDisplayNext = "";
+            }
+            else if(textToDisplayNext == "tutorialFinished")
             {
                 window.fadeOut();
 
@@ -109,11 +125,33 @@ public class Tutorial extends UI
                 checkPlayer = "";
             }
         }
-        else if(checkPlayer == "walk2")
+        else if(checkPlayer == "pickUpPotion")
+        {
+            if(getWorld().getObjects(Potion.class).isEmpty())
+            {
+                changeVariableTo = "tutorialText3";
+
+                lastActionTime = System.nanoTime();
+
+                checkPlayer = "";
+            }
+        }
+        else if(checkPlayer == "openInventory")
         {
             if(Greenfoot.isKeyDown("i"))
             {
-                changeVariableTo = "tutorialText3";
+                changeVariableTo = "tutorialText4";
+
+                lastActionTime = System.nanoTime();
+
+                checkPlayer = "";
+            }
+        }
+        else if(checkPlayer == "dragPotion")
+        {
+            if(getWorld().getObjects(Hotbar.class).get(0).isInHotbar("redPotion"))
+            {
+                changeVariableTo = "tutorialFinished";
 
                 lastActionTime = System.nanoTime();
 
@@ -132,16 +170,8 @@ public class Tutorial extends UI
         double t = System.nanoTime();
         if(t - lastActionTime >= updateCooldown)
         {
-            if(changeVariableTo == "tutorialText2")
-            {
-                textToDisplayNext = "tutorialText2";
-                changeVariableTo = "";
-            }
-            else if(changeVariableTo == "tutorialText3")
-            {
-                textToDisplayNext = "tutorialText3";
-                changeVariableTo = "";
-            }
+            textToDisplayNext = changeVariableTo;
+            changeVariableTo = "";
         }
     }
 
@@ -153,7 +183,7 @@ public class Tutorial extends UI
             if(t - lastKillAllEnemysTextTime >= removeCooldown)
             {
                 window.fadeOut();
-                
+
                 killAllEnemysText = false;
             }
         }
@@ -162,9 +192,9 @@ public class Tutorial extends UI
     public void killAllEnemysText()
     {
         lastKillAllEnemysTextTime = System.nanoTime();
-        
+
         killAllEnemysText = true;
-        
+
         window.updateText("killAllEnemysText");
         window.fadeIn();
     }
