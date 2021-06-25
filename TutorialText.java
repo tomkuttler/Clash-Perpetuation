@@ -18,6 +18,10 @@ public class TutorialText extends UI
     private static final GreenfootImage tutorialText2 = new GreenfootImage("ui/tutorialText/tutorialText2.png");
     private static final GreenfootImage tutorialText3 = new GreenfootImage("ui/tutorialText/tutorialText3.png");
     private static final GreenfootImage tutorialText4 = new GreenfootImage("ui/tutorialText/tutorialText4.png");
+    private static final GreenfootImage tutorialText5 = new GreenfootImage("ui/tutorialText/tutorialText5.png");
+    private static final GreenfootImage tutorialText6 = new GreenfootImage("ui/tutorialText/tutorialText6.png");
+    private static final GreenfootImage tutorialText7 = new GreenfootImage("ui/tutorialText/tutorialText7.png");
+    private static final GreenfootImage tutorialText8 = new GreenfootImage("ui/tutorialText/tutorialText8.png");
     
     private static final GreenfootImage killAllEnemysText = new GreenfootImage("ui/tutorialText/killAllEnemysText.png");
     
@@ -99,27 +103,40 @@ public class TutorialText extends UI
         if(text == "tutorialText1")
         {
             setImage(tutorialText1);
-            getImage().setTransparency(0);
         }
         else if(text == "tutorialText2")
         {
             setImage(tutorialText2);
-            getImage().setTransparency(0);
         }
         else if(text == "tutorialText3")
         {
             setImage(tutorialText3);
-            getImage().setTransparency(0);
         }
         else if(text == "tutorialText4")
         {
             setImage(tutorialText4);
-            getImage().setTransparency(0);
+        }
+        else if(text == "tutorialText5")
+        {
+            setImage(tutorialText5);
+        }
+        else if(text == "tutorialText6")
+        {
+            setImage(tutorialText6);
+        }
+        else if(text == "tutorialText7")
+        {
+            setImage(tutorialText7);
+        }
+        else if(text == "tutorialText8")
+        {
+            setImage(tutorialText8);
         }
         else if(text == "killAllEnemysText")
         {
-            setImage(killAllEnemysText);
-            getImage().setTransparency(0);
+            setImage(killAllEnemysText);            
         }
+        
+        getImage().setTransparency(0);
     }
 }
