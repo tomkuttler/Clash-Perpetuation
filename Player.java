@@ -86,7 +86,7 @@ public class Player extends AnimatedCharacter
 
     private static final GreenfootImage bow1 = new GreenfootImage("weapons/ranged/bow1.png");
     private static final GreenfootImage arrow = new GreenfootImage("weapons/ranged/arrow.png");
-
+    
     /**
      * Player Constructor: Sets the speed, creates the spriteSheet of the character, creates the animations and sets variables.
      * 
@@ -208,11 +208,11 @@ public class Player extends AnimatedCharacter
                     xOffset = moveX;
                     yOffset = moveY;
 
-                    moveInDirection(moveX, moveY);
+                    moveInDirection(moveX, moveY);                    
                 } 
                 else 
                 {
-                    stopMoving();
+                    stopMoving();                    
                 }
             }
             else
@@ -442,7 +442,7 @@ public class Player extends AnimatedCharacter
                             {
                                 runTerminalAnimation("thrustOversize", direction);
                             }
-
+                            
                             //Look for an Enemy 1 pixel away in the direction I'm facing
                             Enemy enemy = (Enemy)getOneObjectAtOffset(xOffset * (getImage().getWidth()/2 + 1), yOffset * (getImage().getWidth()/2 + 1), Enemy.class);
 
@@ -472,7 +472,7 @@ public class Player extends AnimatedCharacter
                                 hitBar.itemUsed(inventory.itemData.getUseCooldown(currentSlotItem));
 
                                 runTerminalAnimation("shoot", direction);
-
+                                
                                 if(direction == 0 || direction == 1)
                                 {
                                     getWorld().addObject(new Arrow(direction, inventory.itemData.getDamage(currentSlotItem), inventory.itemData.getRange(currentSlotItem), inventory.itemData.getSpeed(currentSlotItem), "enemy"), getX() + 11, getY() - 1);
