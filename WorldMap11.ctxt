@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=WorldMap11
+comment0.text=\r\n\ This\ is\ the\ second\ world\ after\ the\ start\ screen.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment1.params=p\ bar\ hitBar\ inventory\ iUI\ hotbar\ hUI\ hH
+comment1.target=WorldMap11(Player,\ PlayerHealthBar,\ HitCooldownBar,\ Inventory,\ InventoryUI,\ Hotbar,\ HotbarUI,\ HotbarHighlight)
+comment1.text=\r\n\ WorldMap11\ Constructor\:\ Creates\ the\ world,\ sets\ the\ background\ and\ spawns\ all\ objects\ of\ the\ world.\r\n\ \r\n\ @param\ 'p'\:\ Reference\ to\ the\ player\ of\ the\ last\ world\r\n\ @param\ 'bar'\:\ Reference\ to\ the\ player\ health\ bar\ of\ the\ last\ world\r\n\ @param\ 'hitBar'\:\ Reference\ to\ the\ hit\ bar\ of\ the\ last\ world\r\n\ @param\ 'inventory'\:\ Reference\ to\ the\ inventory\ manager\ of\ the\ last\ world\r\n\ @param\ 'iUI'\:\ Reference\ to\ the\ inventory\ UI\ of\ the\ last\ world\r\n\ @param\ 'hotbar'\:\ Reference\ to\ the\ hotbar\ manager\ of\ the\ last\ world\r\n\ @param\ 'hUI'\:\ Reference\ to\ the\ hotbar\ UI\ of\ the\ last\ world\r\n\ @param\ 'hH'\:\ Reference\ to\ the\ hotbar\ highlight\ of\ the\ last\ world\r\n
+numComments=2

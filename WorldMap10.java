@@ -1,18 +1,18 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * This is the third world after the start screen.
+ * This is the second world after the start screen.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class WorldMap3 extends World
+public class WorldMap10 extends World
 {
     //----- World Background -----
-    private static final GreenfootImage map3 = new GreenfootImage("worlds/worldMap3.png");
+    private static final GreenfootImage map10 = new GreenfootImage("worlds/worldMap10.png");
     
     /**
-     * WorldMap3 Constructor: Creates the world, sets the background and spawns all objects of the world.
+     * WorldMap10 Constructor: Creates the world, sets the background and spawns all objects of the world.
      * 
      * @param 'p': Reference to the player of the last world
      * @param 'bar': Reference to the player health bar of the last world
@@ -23,11 +23,11 @@ public class WorldMap3 extends World
      * @param 'hUI': Reference to the hotbar UI of the last world
      * @param 'hH': Reference to the hotbar highlight of the last world
      */
-    public WorldMap3(Player p, PlayerHealthBar bar, HitCooldownBar hitBar, Inventory inventory, InventoryUI iUI, Hotbar hotbar, HotbarUI hUI, HotbarHighlight hH)
+    public WorldMap10(Player p, PlayerHealthBar bar, HitCooldownBar hitBar, Inventory inventory, InventoryUI iUI, Hotbar hotbar, HotbarUI hUI, HotbarHighlight hH)
     {    
         // Create a new world with 1696x928 cells with a cell size of 1x1 pixels.
         super(1696, 928, 1);
-        setBackground(map3);
+        setBackground(map10);
         
         //Add Health bar
         addObject(bar, 186, 29);

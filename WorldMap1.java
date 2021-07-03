@@ -1,15 +1,19 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class WorldMap1 here.
+ * This is the first world after the start screen.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
 public class WorldMap1 extends World
 {
+    //----- World Background -----
     private static final GreenfootImage map1 = new GreenfootImage("worlds/worldMap1.png");
-    
+        
+    /**
+     * WorldMap1 Constructor: Creates the world, sets the background and spawns all objects of the world.
+     */
     public WorldMap1()
     {    
         //Create a new world with 1696x928 cells with a cell size of 1x1 pixels.

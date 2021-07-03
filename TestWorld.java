@@ -1,13 +1,16 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class TestWorld here.
+ * The TestWorld contains everything from this project.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
 public class TestWorld extends World
 {
+    /**
+     * TestWorld Constructor: Creates the world, sets the background and spawns all objects of the world.
+     */
     public TestWorld()
     {    
         //Create a new world with 1696x928 cells with a cell size of 1x1 pixels.

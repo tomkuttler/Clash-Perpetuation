@@ -363,7 +363,13 @@ public abstract class Enemy extends AnimatedCharacter
                     player.inventory.itemData.spawnDroppedItemFromEnemy(dropItems[4], dropAmount[4],  this);
                 }
 
-                getWorld().removeObject(this);                
+                getWorld().removeObject(this);
+                
+                //If the devil was removed, display the win screen
+                if(barYOffset == 60)
+                {
+                    Greenfoot.setWorld(new WinScreen());
+                }
             }
         }
     }

@@ -1,15 +1,28 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class WorldMap2 here.
+ * This is the second world after the start screen.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
 public class WorldMap2 extends World
 {
-    private static final GreenfootImage map2 = new GreenfootImage("WorldMap2.png");
+    //----- World Background -----
+    private static final GreenfootImage map2 = new GreenfootImage("worlds/worldMap2.png");
     
+    /**
+     * WorldMap2 Constructor: Creates the world, sets the background and spawns all objects of the world.
+     * 
+     * @param 'p': Reference to the player of the last world
+     * @param 'bar': Reference to the player health bar of the last world
+     * @param 'hitBar': Reference to the hit bar of the last world
+     * @param 'inventory': Reference to the inventory manager of the last world
+     * @param 'iUI': Reference to the inventory UI of the last world
+     * @param 'hotbar': Reference to the hotbar manager of the last world
+     * @param 'hUI': Reference to the hotbar UI of the last world
+     * @param 'hH': Reference to the hotbar highlight of the last world
+     */
     public WorldMap2(Player p, PlayerHealthBar bar, HitCooldownBar hitBar, Inventory inventory, InventoryUI iUI, Hotbar hotbar, HotbarUI hUI, HotbarHighlight hH)
     {    
         // Create a new world with 1696x928 cells with a cell size of 1x1 pixels.
@@ -26,7 +39,7 @@ public class WorldMap2 extends World
         //Add Player
         addObject(p, 30, 200);
         
-        //Spawn Enemys
+        //Spawn Enemys and enemy health bars 
         EnemyHealthBar bar1 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
         addObject(bar1, 0, 0);
         addObject(new Cyclope(p, bar1, 3), 100, 100);

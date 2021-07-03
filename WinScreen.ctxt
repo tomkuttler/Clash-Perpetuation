@@ -1,8 +1,10 @@
 #BlueJ class context
 comment0.target=WinScreen
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ WinScreen\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ is\ the\ world\ that\ will\ appear\ if\ you\ win.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=WinScreen()
+comment1.text=\r\n\ WinScreen\ Constructor\:\ Creates\ the\ world,\ sets\ the\ background\ and\ saves\ the\ time\ when\ the\ win\ screen\ was\ displayed.\r\n
 comment2.params=
 comment2.target=void\ act()
+comment2.text=\r\n\ Method\ 'act'\:\ Is\ called\ every\ tick\ or\ whenever\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n\ It\ sets\ the\ world\ to\ the\ cast\ screen\ 5\ sec\ after\ the\ win\ screen\ was\ displayed.\r\n
 numComments=3

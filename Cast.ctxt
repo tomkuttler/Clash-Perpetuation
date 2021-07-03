@@ -1,6 +1,7 @@
 #BlueJ class context
 comment0.target=Cast
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Cast\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ last\ World.\ Shows\ credits.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=Cast()
+comment1.text=\r\n\ Cast\ Constructor\:\ Creates\ the\ world,\ sets\ the\ background\ and\ adds\ the\ cast\ text.\r\n
 numComments=2
