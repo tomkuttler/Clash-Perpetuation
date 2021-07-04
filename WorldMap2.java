@@ -70,6 +70,47 @@ public class WorldMap2 extends World
         addObject(hH, 632, 897);
         addObject(hotbar, 0, 0);
         
+        //Spawn Collider
+        addObject(new Collider(220, 30, 0, 0), 110, 847);
+        addObject(new Collider(220, 30, 0, 0), 114, 591);
+        addObject(new Collider(30, 30, 0, 0), 207, 620);
+        addObject(new Collider(30, 60, 0, 0), 209, 800);
+        addObject(new Collider(150, 150, 0, 0), 485, 786);
+        addObject(new Collider(150, 150, 0, 0), 603, 419);
+        addObject(new Collider(150, 150, 0, 0), 754, 421);
+        addObject(new Collider(150, 150, 0, 0), 960, 569);
+        addObject(new Collider(150, 150, 0, 0), 145, 142);
+        addObject(new Collider(150, 150, 0, 0), 246, 1);
+        addObject(new Collider(150, 150, 0, 0), 1691, 800);
+        addObject(new Collider(150, 150, 0, 0), 1251, 915);
+        addObject(new Collider(150, 150, 0, 0), 1426, 796);
+        addObject(new Collider(150, 150, 0, 0), 1694, 499);
+        addObject(new Collider(150, 150, 0, 0), 1536, 367);
+        addObject(new Collider(150, 150, 0, 0), 1064, 8);
+        addObject(new Collider(150, 150, 0, 0), 397, 64);
+        addObject(new Collider(150, 150, 0, 0), 40, 432);
+        addObject(new Collider(64, 82, 0, 0), 606, 776);
+        addObject(new Collider(100, 100, 0, 0), 1377, 205);
+        addObject(new Collider(100, 100, 0, 0), 1617, 142);
+        addObject(new Collider(100, 100, 0, 0), 1643, 279);
+        addObject(new Collider(100, 100, 0, 0), 1339, 491);
+        addObject(new Collider(100, 100, 0, 0), 1265, 373);
+        addObject(new Collider(100, 100, 0, 0), 1135, 147);
+        addObject(new Collider(50, 50, 0, 0), 1325, 125);
+        addObject(new Collider(50, 50, 0, 0), 1569, 697);
+        addObject(new Collider(50, 50, 0, 0), 1474, 570);
+        addObject(new Collider(50, 50, 0, 0), 1248, 764);
+        addObject(new Collider(50, 50, 0, 0), 865, 92);
+        addObject(new Collider(50, 50, 0, 0), 766, 42);
+        addObject(new Collider(50, 50, 0, 0), 113, 315);
+        addObject(new Collider(50, 50, 0, 0), 672, 30);
+        addObject(new Collider(50, 50, 0, 0), 131, 255);
+        addObject(new Collider(426, 64, 0, 0), 1373, 30);
+        addObject(new Collider(60, 124, 0, 0), 191, 342);
+        addObject(new Collider(70, 25, 0, 0), 800, 688);
+        addObject(new Collider(70, 25, 0, 0), 815, 614);
+        addObject(new Collider(70, 25, 0, 0), 687, 652);        
+        
         //Spawn Tutorial manager, window and text
         TutorialText text = new TutorialText();
         TutorialWindow window = new TutorialWindow(text);

@@ -48,7 +48,7 @@ public class Collider extends Actor
         
         //----- Debug image -----
         //Uncomment the line below
-        //setImage(debug);
+        setImage(debug);
     }
 
     /**

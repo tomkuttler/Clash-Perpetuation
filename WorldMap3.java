@@ -74,6 +74,42 @@ public class WorldMap3 extends World
         addObject(hH, 632, 897);
         addObject(hotbar, 0, 0);
         
+        //Spawn Collider
+        addObject(new Collider(350, 35, 0, 0), 687, 732);
+        addObject(new Collider(200, 10, 0, 0), 740, 643);        
+        
+        Collider c1 = new Collider(500, 10, 0, 0);
+        addObject(c1, 132, 862);
+        c1.setRotation(40);
+        
+        Collider c2 = new Collider(500, 10, 0, 0);
+        addObject(c2, 1193, 22);
+        c2.setRotation(-55);
+        
+        Collider c3 = new Collider(800, 10, 0, 0);
+        addObject(c3, 902, 340);
+        c3.setRotation(-50);
+        
+        Collider c4 = new Collider(800, 10, 0, 0);
+        addObject(c4, 1086, 342);
+        c4.setRotation(-50);
+        
+        Collider c5 = new Collider(300, 10, 0, 0);
+        addObject(c5, 476, 850);
+        c5.setRotation(-50);
+        
+        Collider c6 = new Collider(300, 10, 0, 0);
+        addObject(c6, 703, 849);
+        c6.setRotation(-50);
+        
+        Collider c7 = new Collider(800, 10, 0, 0);
+        addObject(c7, 1410, 177);
+        c7.setRotation(-10);
+        
+        Collider c8 = new Collider(800, 10, 0, 0);
+        addObject(c8, 147, 300);
+        c8.setRotation(-50);
+        
         //Spawn Tutorial manager, window and text
         TutorialText text = new TutorialText();
         TutorialWindow window = new TutorialWindow(text);

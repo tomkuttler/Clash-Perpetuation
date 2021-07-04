@@ -77,6 +77,32 @@ public class WorldMap4 extends World
         addObject(hH, 632, 897);
         addObject(hotbar, 0, 0);
         
+        //Spawn Collider
+        addObject(new Collider(186, 83, 0, 0), 382, 391);
+        addObject(new Collider(128, 109, 0, 0), 703, 438);
+        addObject(new Collider(95, 206, 0, 0), 849, 462);
+        addObject(new Collider(208, 103, 0, 0), 1000, 372);
+        addObject(new Collider(60, 45, 0, 0), 960, 544);
+        addObject(new Collider(112, 177, 0, 0), 1252, 438);
+        addObject(new Collider(100, 120, 0, 0), 1202, 540);
+        addObject(new Collider(180, 100, 0, 0), 1077, 786);
+        addObject(new Collider(50, 60, 0, 0), 1480, 671);
+        addObject(new Collider(120, 120, 0, 0), 1565, 700);
+        addObject(new Collider(863, 251, 0, 0), 430, 125);
+        addObject(new Collider(63, 73, 0, 0), 1040, 36);
+        addObject(new Collider(63, 73, 0, 0), 944, 68);
+        addObject(new Collider(63, 73, 0, 0), 1008, 132);
+        addObject(new Collider(60, 34, 0, 0), 765, 690);
+        addObject(new Collider(60, 34, 0, 0), 558, 846);
+        addObject(new Collider(60, 34, 0, 0), 385, 782);
+        addObject(new Collider(60, 34, 0, 0), 242, 717);
+        addObject(new Collider(95, 28, 0, 0), 690, 820);
+        addObject(new Collider(100, 80, 0, 0), 463, 367);        
+        
+        Collider c1 = new Collider(800, 10, 0, 0);
+        addObject(c1, 1435, 308);
+        c1.setRotation(50);
+        
         //Spawn Tutorial manager, window and text
         TutorialText text = new TutorialText();
         TutorialWindow window = new TutorialWindow(text);

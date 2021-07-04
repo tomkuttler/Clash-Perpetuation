@@ -69,6 +69,25 @@ public class WorldMap5 extends World
         addObject(hH, 632, 897);
         addObject(hotbar, 0, 0);
         
+        //Spawn Collider
+        addObject(new Collider(40, 133, 0, 0), 1135, 620);
+        addObject(new Collider(175, 250, 0, 0), 882, 696);
+        addObject(new Collider(450, 210, 0, 0), 405, 614);
+        addObject(new Collider(305, 175, 0, 0), 372, 182);
+        addObject(new Collider(140, 210, 0, 0), 833, 293);
+        addObject(new Collider(300, 210, 0, 0), 1203, 362);
+        addObject(new Collider(60, 45, 0, 0), 577, 408);
+        addObject(new Collider(10, 800, 0, 0), 1565, 550);
+        addObject(new Collider(27, 93, 0, 0), 946, 46);        
+        
+        Collider c1 = new Collider(800, 10, 0, 0);
+        addObject(c1, 1302, 236);
+        c1.setRotation(25);
+        
+        Collider c2 = new Collider(800, 10, 0, 0);
+        addObject(c2, 1554, 719);
+        c2.setRotation(330);
+        
         //Spawn Tutorial manager, window and text
         TutorialText text = new TutorialText();
         TutorialWindow window = new TutorialWindow(text);

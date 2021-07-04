@@ -58,11 +58,35 @@ public class WorldMap1 extends World
         addObject(hotbar, 0, 0);
         
         //Spawn Collider
-        addObject(new Collider(7, 150, 0, 0), 367, 175);
-        addObject(new Collider(7, 214, 0, 0), 975, 143);
-        addObject(new Collider(615, 22, 0, 0), 672, 238);
-        addObject(new Collider(551, 22, 0, 0), 703, 46);
-        addObject(new Collider(39, 22, 0, 0), 416, 79);
+        addObject(new Collider(200, 120, 0, 0), 850, 290);
+        addObject(new Collider(80, 30, 0, 0), 684, 308);
+        addObject(new Collider(55, 23, 0, 0), 574, 300);
+        addObject(new Collider(55, 23, 0, 0), 478, 362);
+        addObject(new Collider(55, 23, 0, 0), 446, 618);
+        addObject(new Collider(144, 133, 0, 0), 317, 421);
+        addObject(new Collider(121, 63, 0, 0), 476, 235);
+        addObject(new Collider(26, 20, 0, 0), 624, 246);
+        addObject(new Collider(30, 30, 0, 0), 221, 314);
+        addObject(new Collider(30, 30, 0, 0), 304, 287);
+        addObject(new Collider(285, 20, 0, 0), 273, 233);
+        addObject(new Collider(30, 350, 0, 0), 144, 405);
+        addObject(new Collider(30, 100, 0, 0), 174, 591);
+        addObject(new Collider(100, 30, 0, 0), 238, 624);
+        addObject(new Collider(130, 30, 0, 0), 319, 656);
+        addObject(new Collider(280, 30, 0, 0), 531, 689);
+        addObject(new Collider(150, 30, 0, 0), 725, 722);
+        addObject(new Collider(230, 30, 0, 0), 879, 753);
+        addObject(new Collider(190, 30, 0, 0), 1055, 785);
+        addObject(new Collider(60, 30, 0, 0), 1153, 815);
+        addObject(new Collider(515, 30, 0, 0), 1436, 850);
+        addObject(new Collider(505, 71, 0, 0), 1444, 535);
+        addObject(new Collider(30, 100, 0, 0), 848, 526);
+        addObject(new Collider(20, 20, 0, 0), 784, 530);
+        addObject(new Collider(20, 20, 0, 0), 912, 530);        
+        
+        Collider c1 = new Collider(400, 10, 0, 0);
+        addObject(c1, 1082, 412);
+        c1.setRotation(40);
         
         //Spawn Tutorial manager, window and text
         TutorialText text = new TutorialText();

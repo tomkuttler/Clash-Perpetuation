@@ -59,6 +59,15 @@ public class WorldMap6 extends World
         addObject(hH, 632, 897);
         addObject(hotbar, 0, 0);
         
+        //Spawn Collider
+        addObject(new Collider(129, 172, 0, 0), 670, 810);
+        addObject(new Collider(129, 172, 0, 0), 1055, 810);
+        addObject(new Collider(415, 641, 0, 0), 496, 320);
+        addObject(new Collider(415, 641, 0, 0), 1246, 320);
+        addObject(new Collider(319, 81, 0, 0), 864, 482);
+        addObject(new Collider(131, 95, 0, 0), 770, 563);
+        addObject(new Collider(131, 95, 0, 0), 962, 563);        
+        
         //Spawn Tutorial manager, window and text
         TutorialText text = new TutorialText();
         TutorialWindow window = new TutorialWindow(text);
