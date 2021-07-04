@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * The Potion class manages the potion item that the player can pick up.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Tom Kuttler, Robert Cockshott 
+ * @version 1.0.0
  */
 public class Potion extends HealingItems
 {

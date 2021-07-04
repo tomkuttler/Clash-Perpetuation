@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=HitCooldownBar
-comment0.text=\r\n\ The\ HitCooldownBar\ class\ is\ used\ as\ a\ cooldown\ bar\ to\ show\ how\ long\ the\ player\ has\ to\ wait\ until\ he\ can\ use\ an\ item\ again.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ HitCooldownBar\ class\ is\ used\ as\ a\ cooldown\ bar\ to\ show\ how\ long\ the\ player\ has\ to\ wait\ until\ he\ can\ use\ an\ item\ again.\r\n\ \r\n\ @author\ Tom\ Kuttler,\ Robert\ Cockshott\ \r\n\ @version\ 1.0.0\r\n
 comment1.params=initValue\ maxValue
 comment1.target=HitCooldownBar(int,\ int)
 comment1.text=\r\n\ HitCooldownBar\ Constructor\:\ Saves\ the\ initial\ values\ that\ are\ brought\ in\ and\ creates\ the\ bar\ image.\r\n\r\n\ @param\ 'initValue'\:\ the\ value\ the\ bar\ should\ be\ initially\ set\ to\r\n\ @param\ 'maxValue'\:\ the\ highest\ value\ the\ bar\ is\ allowed\ to\ hold\r\n

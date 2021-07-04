@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * This is the second world after the start screen.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Tom Kuttler, Robert Cockshott 
+ * @version 1.0.0
  */
 public class WorldMap9 extends World
 {

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Chest
-comment0.text=\r\n\ The\ chest\ class\ manages\ all\ chests.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ chest\ class\ manages\ all\ chests.\r\n\ \r\n\ @author\ Tom\ Kuttler,\ Robert\ Cockshott\ \r\n\ @version\ 1.0.0\r\n
 comment1.params=chestNumber\ items\ amount
 comment1.target=Chest(int,\ java.lang.String[],\ int[])
 comment1.text=\r\n\ Chest\ Constructor\:\ Sets\ the\ correct\ chest\ images\ and\ arrays.\r\n\ \r\n\ @param\ 'chestNumber'\:\ The\ number\ of\ the\ chest\ image\r\n\ @param\ 'items'\:\ The\ array\ that\ contains\ the\ name\ of\ the\ items\ that\ should\ be\ in\ the\ chest\r\n\ @param\ 'amount'\:\ The\ array\ that\ contains\ the\ amount\ of\ the\ items\ that\ should\ be\ in\ the\ chest\r\n

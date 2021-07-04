@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=ItemData
-comment0.text=\r\n\ The\ ItemData\ class\ stores\ all\ important\ item\ attributes,\ that\ can\ be\ accessed\ by\ other\ objects.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ ItemData\ class\ stores\ all\ important\ item\ attributes,\ that\ can\ be\ accessed\ by\ other\ objects.\r\n\ \r\n\ @author\ Tom\ Kuttler,\ Robert\ Cockshott\ \r\n\ @version\ 1.0.0\r\n
 comment1.params=item
 comment1.target=java.lang.String\ getItemType(java.lang.String)
 comment1.text=\r\n\ Method\ 'getItemType'\:\ Is\ called\ by\ an\ object,\ which\ wants\ to\ know\ the\ type\ of\ an\ item.\r\n\ \r\n\ @param\ 'item'\:\ The\ name\ of\ the\ item\r\n\ \r\n\ @return\:\ The\ type\ of\ the\ item\r\n

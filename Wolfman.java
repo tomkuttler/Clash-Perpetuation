@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * The wolfman is a wolf and a man at the same time.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Tom Kuttler, Robert Cockshott 
+ * @version 1.0.0
  */
 public class Wolfman extends Enemy
 {

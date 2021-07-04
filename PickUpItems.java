@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * The PickUpItems is the superclass of all items that can be picked up.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Tom Kuttler, Robert Cockshott 
+ * @version 1.0.0
  */
 public abstract class PickUpItems extends Objects
 {

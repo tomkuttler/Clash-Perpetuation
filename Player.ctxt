@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Player
-comment0.text=\r\n\ The\ Player\ class\ is\ the\ main\ character\ the\ golden\ knight.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ Player\ class\ is\ the\ main\ character\ the\ golden\ knight.\r\n\ \r\n\ @author\ Tom\ Kuttler,\ Robert\ Cockshott\ \r\n\ @version\ 1.0.0\r\n
 comment1.params=newBar\ newHitBar\ newInventory\ newHotbar
 comment1.target=Player(PlayerHealthBar,\ HitCooldownBar,\ Inventory,\ Hotbar)
 comment1.text=\r\n\ Player\ Constructor\:\ Sets\ the\ speed,\ creates\ the\ spriteSheet\ of\ the\ character,\ creates\ the\ animations\ and\ sets\ variables.\r\n\ \r\n\ @param\ 'newBar'\:\ Reference\ to\ the\ health\ bar\ manager\r\n\ @param\ 'newHitBar'\:\ Reference\ to\ the\ hit\ cooldown\ bar\ manager\r\n\ @param\ 'newInventory'\:\ Reference\ to\ the\ inventory\ manager\r\n\ @param\ 'newHotbar'\:\ Reference\ to\ the\ hotbar\ manager\r\n
@@ -19,8 +19,9 @@ comment13.text=\r\n\ Method\ 'isAlive'\:\ Is\ called\ by\ the\ 'hit'\ method\ in
 comment14.params=healthPointsToAdd
 comment14.target=void\ heal(int)
 comment14.text=\r\n\ Method\ 'heal'\:\ Is\ called\ by\ the\ 'useItem'\ method,\ if\ the\ player\ used\ a\ healing\ item.\r\n\ It\ adds\ the\ health\ points\ that\ the\ item\ heals\ to\ the\ health\ of\ the\ player\ and\ updates\ the\ health\ bar.\r\n\ \r\n\ @param\ 'healthPointsToAdd'\:\ The\ health\ points\ that\ the\ healing\ item\ restores\r\n
-comment15.params=i
-comment15.target=void\ changeMap(int)
+comment15.params=mapNumber
+comment15.target=void\ debugChangeMap(int)
+comment15.text=\r\n\ Method\ 'debugChangeMap'\:\ Is\ a\ debug\ method.\ Will\ not\ be\ called\ in\ game.\r\n\ Change\ the\ map\ instantly\ without\ having\ to\ kill\ all\ enemys.\r\n\ \r\n\ @param\ 'mapNumber'\:\ The\ number\ of\ the\ map\ that\ should\ be\ displayed.\r\n
 comment2.params=
 comment2.target=void\ act()
 comment2.text=\r\n\ Method\ 'act'\:\ Is\ called\ every\ tick\ or\ whenever\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n\ It\ calls\ the\ 'act'\ method\ of\ the\ AnimatedCharacter\ superclass\ to\ perform\ animations\ and\ movement.\r\n

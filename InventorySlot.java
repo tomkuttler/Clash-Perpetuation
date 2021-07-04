@@ -4,8 +4,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * The InventorySlot class saves the item name and amount of a slot. The inventory slots can be dragged to transfer items. Empty orange debug slots can be shown for debugging. 
  * Otherwise, empty slots have a transparent image (necessary for Greenfoot intersecting detection).
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Tom Kuttler, Robert Cockshott 
+ * @version 1.0.0
  */
 public class InventorySlot extends UI
 {

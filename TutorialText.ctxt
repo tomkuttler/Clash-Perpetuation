@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=TutorialText
-comment0.text=\r\n\ The\ TutorialText\ class\ displays\ the\ tutorial\ text\ messages.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ TutorialText\ class\ displays\ the\ tutorial\ text\ messages.\r\n\ \r\n\ @author\ Tom\ Kuttler,\ Robert\ Cockshott\ \r\n\ @version\ 1.0.0\r\n
 comment1.params=
 comment1.target=TutorialText()
 comment1.text=\r\n\ TutorialText\ Constructor\:\ Sets\ the\ image\ to\ null.\r\n

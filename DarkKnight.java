@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * The dark knight monitores the castle.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Tom Kuttler, Robert Cockshott 
+ * @version 1.0.0
  */
 public class DarkKnight extends Enemy
 {
@@ -17,7 +17,7 @@ public class DarkKnight extends Enemy
     private static final int minDistance = 47;                 //Minimum distance between the enemy and the player
 
     //----- Health -----
-    public static final int maxHealth = 120;                   //Max health of the enemy
+    public static final int maxHealth = 100;                   //Max health of the enemy
     
     private static final int barYOffset = 30;                  //The offset of the enemy health bar relative to the enemy in y direction (in pixel)
 
@@ -27,7 +27,7 @@ public class DarkKnight extends Enemy
     private static final int bowRange = 0;                     //The range of the bow if this enemy has a bow
     private static final int bowSpeed = 0;                     //The speed of the bow if this enemy has a bow
 
-    private static final int detectPlayerRange = 300;          //Player detection range of this enemy    
+    private static final int detectPlayerRange = 100;          //Player detection range of this enemy    
     private static final int attackRange = 47;                 //Attack range of this enemy 
 
     private static final int damage = 25;                      //Attack damage of this enemy   

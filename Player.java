@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * The Player class is the main character the golden knight.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Tom Kuttler, Robert Cockshott 
+ * @version 1.0.0
  */
 public class Player extends AnimatedCharacter
 {
@@ -866,49 +866,55 @@ public class Player extends AnimatedCharacter
         bar.setValue(health);
     }
     
-    public void changeMap(int i)
+    /**
+     * Method 'debugChangeMap': Is a debug method. Will not be called in game.
+     * Change the map instantly without having to kill all enemys.
+     * 
+     * @param 'mapNumber': The number of the map that should be displayed.
+     */
+    public void debugChangeMap(int mapNumber)
     {
-        if(i == 1)
+        if(mapNumber == 1)
         {
             Greenfoot.setWorld(new WorldMap1());
         }
-        else if(i == 2)
+        else if(mapNumber == 2)
         {
             Greenfoot.setWorld(new WorldMap2(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
         }
-        else if(i == 3)
+        else if(mapNumber == 3)
         {
             Greenfoot.setWorld(new WorldMap3(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
         }
-        else if(i == 4)
+        else if(mapNumber == 4)
         {
             Greenfoot.setWorld(new WorldMap4(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
         }
-        else if(i == 5)
+        else if(mapNumber == 5)
         {
             Greenfoot.setWorld(new WorldMap5(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
         }
-        else if(i == 6)
+        else if(mapNumber == 6)
         {
             Greenfoot.setWorld(new WorldMap6(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
         }
-        else if(i == 7)
+        else if(mapNumber == 7)
         {
             Greenfoot.setWorld(new WorldMap7(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
         }
-        else if(i == 8)
+        else if(mapNumber == 8)
         {
             Greenfoot.setWorld(new WorldMap8(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
         }
-        else if(i == 9)
+        else if(mapNumber == 9)
         {
             Greenfoot.setWorld(new WorldMap9(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
         }
-        else if(i == 10)
+        else if(mapNumber == 10)
         {
             Greenfoot.setWorld(new WorldMap10(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
         }
-        else if(i == 11)
+        else if(mapNumber == 11)
         {
             Greenfoot.setWorld(new WorldMap11(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
         }

@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=PlayerHealthBar
-comment0.text=\r\n\ The\ PlayerHealthBar\ class\ is\ used\ as\ a\ health\ bar\ to\ show\ the\ health\ points\ of\ the\ player\ in\ the\ top\ left\ corner.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ PlayerHealthBar\ class\ is\ used\ as\ a\ health\ bar\ to\ show\ the\ health\ points\ of\ the\ player\ in\ the\ top\ left\ corner.\r\n\ \r\n\ @author\ Tom\ Kuttler,\ Robert\ Cockshott\ \r\n\ @version\ 1.0.0\r\n
 comment1.params=initValue\ maxValue
 comment1.target=PlayerHealthBar(int,\ int)
 comment1.text=\r\n\ PlayerHealthBar\ Constructor\:\ Saves\ the\ initial\ values\ that\ are\ brought\ in\ and\ creates\ the\ bar\ image\ through\ the\ 'add(initValue)'\ call,\r\n\ which\ sets\ the\ initial\ value\ of\ the\ bar\ and\ calls\ the\ 'newImage'\ method\ to\ build\ and\ set\ a\ new\ image\ for\ the\ bar.\r\n\r\n\ @param\ 'initValue'\:\ the\ value\ the\ bar\ should\ be\ initially\ set\ to\r\n\ @param\ 'maxValue'\:\ the\ highest\ value\ the\ bar\ is\ allowed\ to\ hold\r\n

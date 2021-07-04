@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=TutorialWindow
-comment0.text=\r\n\ The\ TutorialWindow\ class\ displays\ the\ tutorial\ window.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ TutorialWindow\ class\ displays\ the\ tutorial\ window.\r\n\ \r\n\ @author\ Tom\ Kuttler,\ Robert\ Cockshott\ \r\n\ @version\ 1.0.0\r\n
 comment1.params=newText
 comment1.target=TutorialWindow(TutorialText)
 comment1.text=\r\n\ TutorialWindow\ Constructor\:\ Sets\ the\ window\ image\ transparent\ and\ sets\ the\ reference.\r\n\ \r\n\ @param\ 'newText'\:\ The\ reference\ to\ the\ TutorialText\r\n

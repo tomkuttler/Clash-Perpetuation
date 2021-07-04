@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Hotbar
-comment0.text=\r\n\ The\ Hotbar\ class\ stores\ the\ items\ in\ the\ hotbar\ and\ manages\ the\ tranfer\ of\ items\ between\ slots\ and\ the\ selection\ of\ the\ current\ hotbar\ slot\ by\ clicking\ /\ pressing\ the\ left\ or\ right\ key.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ Hotbar\ class\ stores\ the\ items\ in\ the\ hotbar\ and\ manages\ the\ tranfer\ of\ items\ between\ slots\ and\ the\ selection\ of\ the\ current\ hotbar\ slot\ by\ clicking\ /\ pressing\ the\ left\ or\ right\ key.\r\n\ \r\n\ @author\ Tom\ Kuttler,\ Robert\ Cockshott\ \r\n\ @version\ 1.0.0\r\n
 comment1.params=newHotbarUI\ newHotbarHighlight\ newInventory
 comment1.target=Hotbar(HotbarUI,\ HotbarHighlight,\ Inventory)
 comment1.text=\r\n\ Hotbar\ Constructor\:\ Sets\ the\ hotbar\ image\ to\ null,\ because\ this\ class\ just\ manages\ the\ hotbar\ and\ is\ not\ the\ image\ of\ the\ hotbar,\r\n\ creates\ 10\ new\ empty\ hotbar\ slots\ and\ sets\ the\ references.\r\n\ \r\n\ @param\ 'newHotbarUI'\:\ Reference\ to\ the\ background\ image\ of\ the\ hotbar\r\n\ @param\ 'newHotbarHighlight'\:\ Reference\ to\ the\ image\ that\ indicates\ the\ currently\ selected\ hotbar\ slot\r\n\ @param\ 'newInventory'\:\ Reference\ to\ the\ inventory\ manager\r\n

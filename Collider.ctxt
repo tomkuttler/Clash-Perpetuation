@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Collider
-comment0.text=\r\n\ The\ Collider\ class\ manages\ collision\ between\ characters\ and\ objects.\ Red\ debug\ image\ can\ be\ shown\ for\ debugging.\ \r\n\ Otherwise,\ colliders\ have\ a\ transparent\ image\ (necessary\ for\ Greenfoot\ intersecting\ detection).\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ Collider\ class\ manages\ collision\ between\ characters\ and\ objects.\ Red\ debug\ image\ can\ be\ shown\ for\ debugging.\ \r\n\ Otherwise,\ colliders\ have\ a\ transparent\ image\ (necessary\ for\ Greenfoot\ intersecting\ detection).\r\n\ \r\n\ @author\ Tom\ Kuttler,\ Robert\ Cockshott\ \r\n\ @version\ 1.0.0\r\n
 comment1.params=xSize\ ySize\ xOffset\ yOffset
 comment1.target=Collider(int,\ int,\ int,\ int)
 comment1.text=\r\n\ Collider\ Constructor\:\ Sets\ the\ collider\ variables\ and\ creates\ the\ collider\ image.\r\n\ \r\n\ @param\ 'xSize'\:\ The\ width\ in\ pixel\ of\ the\ new\ Collider\r\n\ @param\ 'ySize'\:\ The\ height\ in\ pixel\ of\ the\ new\ Collider\r\n\ @param\ 'xOffset'\:\ The\ offset\ in\ pixel\ of\ the\ new\ Collider\ in\ x\ direction\ \r\n\ @param\ 'yOffset'\:\ The\ offset\ in\ pixel\ of\ the\ new\ Collider\ in\ y\ direction\r\n

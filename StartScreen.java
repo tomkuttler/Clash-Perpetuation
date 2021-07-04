@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * This is the first world.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Tom Kuttler, Robert Cockshott 
+ * @version 1.0.0
  */
 public class StartScreen extends World
 {
@@ -16,10 +16,10 @@ public class StartScreen extends World
      */
     public StartScreen()
     {    
-        //Create a new world with 1696x928 cells with a cell size of 1x1 pixels.
-        super(1696, 928, 1);        
+        //Create a new world with 1392x928 cells with a cell size of 1x1 pixels.
+        super(1392, 928, 1);        
         setBackground(startScreen);
         
-        addObject(new StartScreenText(), 848, 580);
+        addObject(new StartScreenText(), 696, 580);
     }
 }

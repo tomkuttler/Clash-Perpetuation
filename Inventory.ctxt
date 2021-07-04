@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Inventory
-comment0.text=\r\n\ The\ Inventory\ class\ stores\ the\ items\ in\ the\ inventory\ and\ manages\ the\ tranfer\ of\ items\ between\ slots.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ Inventory\ class\ stores\ the\ items\ in\ the\ inventory\ and\ manages\ the\ tranfer\ of\ items\ between\ slots.\r\n\ \r\n\ @author\ Tom\ Kuttler,\ Robert\ Cockshott\ \r\n\ @version\ 1.0.0\r\n
 comment1.params=newInventoryUI
 comment1.target=Inventory(InventoryUI)
 comment1.text=\r\n\ Inventory\ Constructor\:\ Sets\ the\ inventory\ image\ to\ null,\ because\ this\ class\ just\ manages\ the\ inventory\ and\ is\ not\ the\ image\ of\ the\ inventory,\r\n\ creates\ 40\ new\ empty\ hotbar\ slots\ and\ sets\ the\ reference\ to\ the\ InventoryUI\ object.\r\n\ \r\n\ @param\ 'newInventoryUI'\:\ Reference\ to\ the\ background\ image\ of\ the\ inventory\r\n

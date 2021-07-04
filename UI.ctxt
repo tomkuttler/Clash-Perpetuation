@@ -1,4 +1,4 @@
 #BlueJ class context
 comment0.target=UI
-comment0.text=\r\n\ The\ UI\ class\ is\ the\ superclass\ of\ all\ user\ interfaces\ in\ the\ world.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ UI\ class\ is\ the\ superclass\ of\ all\ user\ interfaces\ in\ the\ world.\r\n\ \r\n\ @author\ Tom\ Kuttler,\ Robert\ Cockshott\ \r\n\ @version\ 1.0.0\r\n
 numComments=1

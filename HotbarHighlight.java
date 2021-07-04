@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * The HotbarHighlight class is used to show the player which hotbar slot is currently selected. This is an image which will be displayed over the currently selected hotbar slot.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Tom Kuttler, Robert Cockshott 
+ * @version 1.0.0
  */
 public class HotbarHighlight extends UI
 {

@@ -8,8 +8,8 @@ import java.util.HashMap;
  * Primary Animation: Usually movement - this is the base animation.
  * Terminal Animations: Animations that run, then end, and return to the primary animation.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Tom Kuttler, Robert Cockshott 
+ * @version 1.0.0
  */
 
 public abstract class AnimatedCharacter extends Actor

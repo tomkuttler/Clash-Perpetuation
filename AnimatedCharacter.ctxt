@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=AnimatedCharacter
-comment0.text=\r\n\ The\ AnimatedCharacter\ superclass\ manages\ animations\ for\ 2d\ sprites.\r\n\ It\ implements\ time\ based\ frame\ changing\ and\ moving\ to\ create\ smoothness\ and\ preciseness.\ \r\n\ \ \r\n\ Primary\ Animation\:\ Usually\ movement\ -\ this\ is\ the\ base\ animation.\r\n\ Terminal\ Animations\:\ Animations\ that\ run,\ then\ end,\ and\ return\ to\ the\ primary\ animation.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ AnimatedCharacter\ superclass\ manages\ animations\ for\ 2d\ sprites.\r\n\ It\ implements\ time\ based\ frame\ changing\ and\ moving\ to\ create\ smoothness\ and\ preciseness.\ \r\n\ \ \r\n\ Primary\ Animation\:\ Usually\ movement\ -\ this\ is\ the\ base\ animation.\r\n\ Terminal\ Animations\:\ Animations\ that\ run,\ then\ end,\ and\ return\ to\ the\ primary\ animation.\r\n\ \r\n\ @author\ Tom\ Kuttler,\ Robert\ Cockshott\ \r\n\ @version\ 1.0.0\r\n
 comment1.params=
 comment1.target=AnimatedCharacter()
 comment1.text=\r\n\ AnimatedCharacter\ Constructor\:\ Creates\ a\ new\ HashMap\ for\ all\ animations\ and\ a\ new\ array\ for\ the\ layers\ of\ the\ spritesheet\ and\ sets\ the\ first\ lastFrame.\r\n

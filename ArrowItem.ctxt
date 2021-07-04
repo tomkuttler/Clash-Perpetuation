@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=ArrowItem
-comment0.text=\r\n\ This\ is\ the\ arrow\ item\ that\ can\ be\ picked\ up\ and\ NOT\ the\ flying\ arrow.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ is\ the\ arrow\ item\ that\ can\ be\ picked\ up\ and\ NOT\ the\ flying\ arrow.\r\n\ \r\n\ @author\ Tom\ Kuttler,\ Robert\ Cockshott\ \r\n\ @version\ 1.0.0\r\n
 comment1.params=name\ amount
 comment1.target=ArrowItem(java.lang.String,\ int)
 numComments=2

@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * The Hotbar class stores the items in the hotbar and manages the tranfer of items between slots and the selection of the current hotbar slot by clicking / pressing the left or right key.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Tom Kuttler, Robert Cockshott 
+ * @version 1.0.0
  */
 public class Hotbar extends UI 
 {

@@ -3,8 +3,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 /**
  * The InventoryUI class is used to display a inventory image under the inventory slots. All functionality is located in the Inventory class and the InventorySlot class.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Tom Kuttler, Robert Cockshott 
+ * @version 1.0.0
  */
 public class InventoryUI extends UI
 {

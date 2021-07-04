@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=CastText
-comment0.text=\r\n\ The\ Text\ that\ will\ be\ displayed\ on\ the\ cast\ screen.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ Text\ that\ will\ be\ displayed\ on\ the\ cast\ screen.\r\n\ \r\n\ @author\ Tom\ Kuttler,\ Robert\ Cockshott\ \r\n\ @version\ 1.0.0\r\n
 comment1.params=
 comment1.target=CastText()
 comment1.text=\r\n\ CastText\ Constructor\:\ Sets\ the\ object\ image.\r\n

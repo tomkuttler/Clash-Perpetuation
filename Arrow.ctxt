@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=Arrow
-comment0.text=\r\n\ The\ arrow\ class\ manges\ the\ flight\ of\ an\ arrow.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ arrow\ class\ manges\ the\ flight\ of\ an\ arrow.\r\n\ \r\n\ @author\ Tom\ Kuttler,\ Robert\ Cockshott\ \r\n\ @version\ 1.0.0\r\n
 comment1.params=direction\ damage\ range\ speed\ target
 comment1.target=Arrow(int,\ int,\ int,\ int,\ java.lang.String)
 comment1.text=\r\n\ Arrow\ Constructor\:\ Sets\ the\ arrow\ attributes.\r\n\ \r\n\ @param\ 'direction'\:\ The\ direction\ in\ which\ the\ arrow\ is\ flying\ (0\ \=\ Right,\ 1\ \=\ Left,\ 2\ \=\ Up,\ 3\ \=\ Down)\r\n\ @param\ 'damage'\:\ The\ damage\ of\ this\ arrow\r\n\ @param\ 'range'\:\ The\ range\ of\ this\ arrow\r\n\ @param\ 'speed'\:\ The\ speed\ of\ this\ arrow\r\n\ @param\ 'target'\:\ The\ target\ of\ the\ arrow\ ("enemy"\ if\ player\ shoot\ the\ arrow,\ "player"\ if\ enemy\ shoot\ the\ arrow)\r\n

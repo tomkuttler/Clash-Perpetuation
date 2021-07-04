@@ -4,8 +4,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * The Collider class manages collision between characters and objects. Red debug image can be shown for debugging. 
  * Otherwise, colliders have a transparent image (necessary for Greenfoot intersecting detection).
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Tom Kuttler, Robert Cockshott 
+ * @version 1.0.0
  */
 public class Collider extends Actor
 {

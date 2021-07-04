@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=InventorySlot
-comment0.text=\r\n\ The\ InventorySlot\ class\ saves\ the\ item\ name\ and\ amount\ of\ a\ slot.\ The\ inventory\ slots\ can\ be\ dragged\ to\ transfer\ items.\ Empty\ orange\ debug\ slots\ can\ be\ shown\ for\ debugging.\ \r\n\ Otherwise,\ empty\ slots\ have\ a\ transparent\ image\ (necessary\ for\ Greenfoot\ intersecting\ detection).\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ InventorySlot\ class\ saves\ the\ item\ name\ and\ amount\ of\ a\ slot.\ The\ inventory\ slots\ can\ be\ dragged\ to\ transfer\ items.\ Empty\ orange\ debug\ slots\ can\ be\ shown\ for\ debugging.\ \r\n\ Otherwise,\ empty\ slots\ have\ a\ transparent\ image\ (necessary\ for\ Greenfoot\ intersecting\ detection).\r\n\ \r\n\ @author\ Tom\ Kuttler,\ Robert\ Cockshott\ \r\n\ @version\ 1.0.0\r\n
 comment1.params=
 comment1.target=void\ act()
 comment1.text=\r\n\ Method\ 'act'\:\ Is\ called\ every\ tick\ or\ whenever\ the\ 'Act'\ or\ 'Run'\ button\ gets\ pressed\ in\ the\ environment.\r\n\ It\ calls\ the\ 'checkDrag'\ method.\r\n

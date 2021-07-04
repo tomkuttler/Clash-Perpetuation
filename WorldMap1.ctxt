@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=WorldMap1
-comment0.text=\r\n\ This\ is\ the\ first\ world\ after\ the\ start\ screen.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ is\ the\ first\ world\ after\ the\ start\ screen.\r\n\ \r\n\ @author\ Tom\ Kuttler,\ Robert\ Cockshott\ \r\n\ @version\ 1.0.0\r\n
 comment1.params=
 comment1.target=WorldMap1()
 comment1.text=\r\n\ WorldMap1\ Constructor\:\ Creates\ the\ world,\ sets\ the\ background\ and\ spawns\ all\ objects\ of\ the\ world.\r\n

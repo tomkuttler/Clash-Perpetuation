@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=PickUpItems
-comment0.text=\r\n\ The\ PickUpItems\ is\ the\ superclass\ of\ all\ items\ that\ can\ be\ picked\ up.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ PickUpItems\ is\ the\ superclass\ of\ all\ items\ that\ can\ be\ picked\ up.\r\n\ \r\n\ @author\ Tom\ Kuttler,\ Robert\ Cockshott\ \r\n\ @version\ 1.0.0\r\n
 comment1.params=name\ amount
 comment1.target=void\ setup(java.lang.String,\ int)
 comment1.text=\r\n\ Method\ 'setup'\:\ Is\ called\ in\ the\ constructor\ in\ every\ PickUpItems\ subclass,\ to\ pass\ the\ important\ variables.\r\n\ \r\n\ @param\ 'name'\:\ The\ name\ of\ the\ item\ that\ can\ be\ picked\ up\r\n\ @param\ 'amount'\:\ The\ amount\ of\ items\ that\ can\ be\ picked\ up\r\n

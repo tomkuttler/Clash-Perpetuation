@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=InventoryUI
-comment0.text=\r\n\ The\ InventoryUI\ class\ is\ used\ to\ display\ a\ inventory\ image\ under\ the\ inventory\ slots.\ All\ functionality\ is\ located\ in\ the\ Inventory\ class\ and\ the\ InventorySlot\ class.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ The\ InventoryUI\ class\ is\ used\ to\ display\ a\ inventory\ image\ under\ the\ inventory\ slots.\ All\ functionality\ is\ located\ in\ the\ Inventory\ class\ and\ the\ InventorySlot\ class.\r\n\ \r\n\ @author\ Tom\ Kuttler,\ Robert\ Cockshott\ \r\n\ @version\ 1.0.0\r\n
 comment1.params=
 comment1.target=InventoryUI()
 comment1.text=\r\n\ InventoryUI\ Constructor\:\ Sets\ the\ object\ image.\r\n

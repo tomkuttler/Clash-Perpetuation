@@ -1,6 +1,6 @@
 #BlueJ class context
 comment0.target=LoseScreen
-comment0.text=\r\n\ This\ is\ the\ world\ that\ will\ appear\ if\ you\ lose.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ This\ is\ the\ world\ that\ will\ appear\ if\ you\ lose.\r\n\ \r\n\ @author\ Tom\ Kuttler,\ Robert\ Cockshott\ \r\n\ @version\ 1.0.0\r\n
 comment1.params=
 comment1.target=LoseScreen()
 comment1.text=\r\n\ LoseScreen\ Constructor\:\ Creates\ the\ world\ and\ sets\ the\ background.\r\n
