@@ -39,10 +39,28 @@ public class WorldMap5 extends World
         //Add Player
         addObject(p, 1163, 904);
         
+        //Spawn Objects
+        addObject(new Potion("red", 3), 459, 732);
+        addObject(new Potion("blue", 3), 1166, 228);
+        
+        addObject(new Chest(2, new String[] {"redPotion", "bluePotion", "spear", null, null, null, null, null, null, null}, new int[] {7, 4, 1, 0, 0, 0, 0, 0, 0, 0}), 491, 304);
+        
         //Spawn Enemys and enemy health bars 
-        EnemyHealthBar bar1 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        EnemyHealthBar bar1 = new EnemyHealthBar(Bandit.maxHealth, Bandit.maxHealth);
         addObject(bar1, 0, 0);
-        addObject(new Cyclope(p, bar1, 3), 100, 100);
+        addObject(new Bandit(p, bar1, 2), 301, 310);
+        
+        EnemyHealthBar bar2 = new EnemyHealthBar(Bandit.maxHealth, Bandit.maxHealth);
+        addObject(bar2, 0, 0);
+        addObject(new Bandit(p, bar2, 3), 576, 350);
+        
+        EnemyHealthBar bar3 = new EnemyHealthBar(Bandit.maxHealth, Bandit.maxHealth);
+        addObject(bar3, 0, 0);
+        addObject(new Bandit(p, bar3, 0), 440, 764);
+        
+        EnemyHealthBar bar4 = new EnemyHealthBar(Bandit.maxHealth, Bandit.maxHealth);
+        addObject(bar4, 0, 0);
+        addObject(new Bandit(p, bar4, 3), 1119, 508);
         
         //Add Inventory and Hotbar
         addObject(iUI, 848, 464);

@@ -43,14 +43,12 @@ public class WorldMap1 extends World
         //Spawn Objects        
         addObject(new Potion("red", 1), 753, 439);
         
-        addObject(new Melee("longsword"), 1028, 537);
-        
-        addObject(new Chest(1, new String[] {"redPotion", "longsword", null, null, null, null, null, null, null, null}, new int[] {5, 1, 0, 0, 0, 0, 0, 0, 0, 0}), 639, 392);
+        addObject(new Melee("saber"), 1028, 537);                
                 
         //Spawn Enemys and enemy health bars 
-        EnemyHealthBar bar1 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        EnemyHealthBar bar1 = new EnemyHealthBar(Wolfman.maxHealth, Wolfman.maxHealth);
         addObject(bar1, 0, 0);
-        addObject(new Cyclope(p, bar1, 3), 1348, 646);
+        addObject(new Wolfman(p, bar1, 3), 1348, 646);
         
         //Spawn Inventory and Hotbar
         addObject(iUI, 848, 464);

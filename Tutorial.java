@@ -197,7 +197,7 @@ public class Tutorial extends UI
         }
         else if(checkPlayer == "pickUpSword")
         {
-            if(getWorld().getObjects(Hotbar.class).get(0).getCurrentSlotItem() == "longsword")
+            if(getWorld().getObjects(Hotbar.class).get(0).getCurrentSlotItem() == "saber")
             {
                 changeVariableTo = "tutorialText6";
 

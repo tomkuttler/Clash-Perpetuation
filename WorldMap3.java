@@ -39,10 +39,33 @@ public class WorldMap3 extends World
         //Add Player
         addObject(p, 769, 15);
         
+        //Spawn Objects
+        addObject(new Potion("green", 3), 349, 63);
+        addObject(new Potion("red", 2), 560, 454);
+        addObject(new Potion("red", 3), 1490, 255);
+        
+        addObject(new Chest(1, new String[] {"greenPotion", "redPotion", "waraxe", null, null, null, null, null, null, null}, new int[] {6, 3, 1, 0, 0, 0, 0, 0, 0, 0}), 921, 510);
+        
         //Spawn Enemys and enemy health bars 
         EnemyHealthBar bar1 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
         addObject(bar1, 0, 0);
-        addObject(new Cyclope(p, bar1, 3), 100, 100);
+        addObject(new Cyclope(p, bar1, 3), 319, 551);
+        
+        EnemyHealthBar bar2 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        addObject(bar2, 0, 0);
+        addObject(new Cyclope(p, bar2, 3), 324, 244);
+        
+        EnemyHealthBar bar3 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        addObject(bar3, 0, 0);
+        addObject(new Cyclope(p, bar3, 3), 379, 755);
+        
+        EnemyHealthBar bar4 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        addObject(bar4, 0, 0);
+        addObject(new Cyclope(p, bar4, 3), 1160, 546);
+        
+        EnemyHealthBar bar5 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        addObject(bar5, 0, 0);
+        addObject(new Cyclope(p, bar5, 3), 1453, 754);
         
         //Add Inventory and Hotbar
         addObject(iUI, 848, 464);

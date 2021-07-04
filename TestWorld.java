@@ -84,11 +84,15 @@ public class TestWorld extends World
         addObject(bar2, 0, 0);
         addObject(new Skeleton(p, bar2, 3), 200, 200);
         
-        EnemyHealthBar bar3 = new EnemyHealthBar(Devil.maxHealth, Devil.maxHealth);
-        bar3.barWidth = 80;
-        bar3.barHeight = 8;
+        EnemyHealthBar bar3 = new EnemyHealthBar(Wolfman.maxHealth, Wolfman.maxHealth);
         addObject(bar3, 0, 0);
-        addObject(new Devil(p, bar3, 3), 300, 200);
+        addObject(new Wolfman(p, bar3, 3), 300, 200);
+        
+        EnemyHealthBar bar4 = new EnemyHealthBar(Devil.maxHealth, Devil.maxHealth);
+        bar4.barWidth = 80;
+        bar4.barHeight = 8;
+        addObject(bar4, 0, 0);
+        addObject(new Devil(p, bar4, 3), 400, 200);
         
         //Spawn Inventory and Hotbar
         addObject(iUI, 848, 464);

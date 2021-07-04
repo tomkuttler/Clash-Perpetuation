@@ -35,7 +35,7 @@ public class ItemData
     //----- longsword -----
     private static final String longswordItemType = "meleeWeapon";
     private static final int longswordDamage = 30;
-    private static final double longswordUseCooldown = 750000000.0;
+    private static final double longswordUseCooldown = 700000000.0;
     private static final int longswordMaxStackSize = 1;
     private static final GreenfootImage longswordIcon = new GreenfootImage("objects/weapons/longswordIcon.png");
 
@@ -48,7 +48,7 @@ public class ItemData
     
     //----- halberd -----
     private static final String halberdItemType = "meleeWeapon";
-    private static final int halberdDamage = 35;
+    private static final int halberdDamage = 45;
     private static final double halberdUseCooldown = 1000000000.0;
     private static final int halberdMaxStackSize = 1;
     private static final GreenfootImage halberdIcon = new GreenfootImage("objects/weapons/halberdIcon.png");
@@ -62,14 +62,14 @@ public class ItemData
     
     //----- rapier -----
     private static final String rapierItemType = "meleeWeapon";
-    private static final int rapierDamage = 30;
+    private static final int rapierDamage = 35;
     private static final double rapierUseCooldown = 650000000.0;
     private static final int rapierMaxStackSize = 1;
     private static final GreenfootImage rapierIcon = new GreenfootImage("objects/weapons/rapierIcon.png");
     
     //----- saber -----
     private static final String saberItemType = "meleeWeapon";
-    private static final int saberDamage = 20;
+    private static final int saberDamage = 15;
     private static final double saberUseCooldown = 600000000.0;
     private static final int saberMaxStackSize = 1;
     private static final GreenfootImage saberIcon = new GreenfootImage("objects/weapons/saberIcon.png");
@@ -84,7 +84,7 @@ public class ItemData
     //----- waraxe -----
     private static final String waraxeItemType = "meleeWeapon";
     private static final int waraxeDamage = 50;
-    private static final double waraxeUseCooldown = 750000000.0;
+    private static final double waraxeUseCooldown = 1500000000.0;
     private static final int waraxeMaxStackSize = 1;
     private static final GreenfootImage waraxeIcon = new GreenfootImage("objects/weapons/waraxeIcon.png");
     
@@ -99,14 +99,14 @@ public class ItemData
     //----- Oversize thrust -----        
     //----- crystalRed -----
     private static final String crystalRedItemType = "meleeWeapon";
-    private static final int crystalRedDamage = 30;
+    private static final int crystalRedDamage = 35;
     private static final double crystalRedUseCooldown = 750000000.0;
     private static final int crystalRedMaxStackSize = 1;
     private static final GreenfootImage crystalRedIcon = new GreenfootImage("objects/weapons/crystalRedIcon.png");
     
     //----- crystalYellow -----
     private static final String crystalYellowItemType = "meleeWeapon";
-    private static final int crystalYellowDamage = 30;
+    private static final int crystalYellowDamage = 37;
     private static final double crystalYellowUseCooldown = 750000000.0;
     private static final int crystalYellowMaxStackSize = 1;
     private static final GreenfootImage crystalYellowIcon = new GreenfootImage("objects/weapons/crystalYellowIcon.png");
@@ -134,7 +134,7 @@ public class ItemData
     
     //----- spearMetall -----
     private static final String spearMetallItemType = "meleeWeapon";
-    private static final int spearMetallDamage = 30;
+    private static final int spearMetallDamage = 34;
     private static final double spearMetallUseCooldown = 750000000.0;
     private static final int spearMetallMaxStackSize = 1;
     private static final GreenfootImage spearMetallIcon = new GreenfootImage("objects/weapons/spearMetallIcon.png");
@@ -142,28 +142,28 @@ public class ItemData
     //----- staffOrange -----
     private static final String staffOrangeItemType = "meleeWeapon";
     private static final int staffOrangeDamage = 30;
-    private static final double staffOrangeUseCooldown = 750000000.0;
+    private static final double staffOrangeUseCooldown = 650000000.0;
     private static final int staffOrangeMaxStackSize = 1;
     private static final GreenfootImage staffOrangeIcon = new GreenfootImage("objects/weapons/staffOrangeIcon.png");        
             
     //----- tridentOrange -----
     private static final String tridentOrangeItemType = "meleeWeapon";
     private static final int tridentOrangeDamage = 30;
-    private static final double tridentOrangeUseCooldown = 750000000.0;
+    private static final double tridentOrangeUseCooldown = 1250000000.0;
     private static final int tridentOrangeMaxStackSize = 1;
     private static final GreenfootImage tridentOrangeIcon = new GreenfootImage("objects/weapons/tridentOrangeIcon.png");
     
     //----- tridentYellow -----
     private static final String tridentYellowItemType = "meleeWeapon";
-    private static final int tridentYellowDamage = 30;
-    private static final double tridentYellowUseCooldown = 750000000.0;
+    private static final int tridentYellowDamage = 35;
+    private static final double tridentYellowUseCooldown = 1250000000.0;
     private static final int tridentYellowMaxStackSize = 1;
     private static final GreenfootImage tridentYellowIcon = new GreenfootImage("objects/weapons/tridentYellowIcon.png");
     
     //----- RANGED WEAPONS -----
     //----- bow1 -----
     private static final String bow1ItemType = "bow";
-    private static final int bow1Damage = 30;
+    private static final int bow1Damage = 35;
     private static final double bow1UseCooldown = 1000000000.0;
     private static final int bow1MaxStackSize = 1;
     private static final int bow1Range = 200;

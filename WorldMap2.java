@@ -39,10 +39,29 @@ public class WorldMap2 extends World
         //Add Player
         addObject(p, 10, 733);
         
+        //Spawn Objects
+        addObject(new Potion("green", 3), 1362, 300);
+        addObject(new Potion("red", 1), 141, 453);
+        
+        addObject(new Chest(1, new String[] {"redPotion", "dagger", null, null, null, null, null, null, null, null}, new int[] {3, 1, 0, 0, 0, 0, 0, 0, 0, 0}), 1294, 195);
+        addObject(new Chest(1, new String[] {"greenPotion", "redPotion", null, null, null, null, null, null, null, null}, new int[] {5, 2, 0, 0, 0, 0, 0, 0, 0, 0}), 846, 565);
+        
         //Spawn Enemys and enemy health bars 
-        EnemyHealthBar bar1 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        EnemyHealthBar bar1 = new EnemyHealthBar(Wolfman.maxHealth, Wolfman.maxHealth);
         addObject(bar1, 0, 0);
-        addObject(new Cyclope(p, bar1, 3), 100, 100);
+        addObject(new Wolfman(p, bar1, 3), 736, 516);
+        
+        EnemyHealthBar bar2 = new EnemyHealthBar(Wolfman.maxHealth, Wolfman.maxHealth);
+        addObject(bar2, 0, 0);
+        addObject(new Wolfman(p, bar2, 3), 461, 154);
+        
+        EnemyHealthBar bar3 = new EnemyHealthBar(Wolfman.maxHealth, Wolfman.maxHealth);
+        addObject(bar3, 0, 0);
+        addObject(new Wolfman(p, bar3, 1), 1270, 581);
+        
+        EnemyHealthBar bar4 = new EnemyHealthBar(Wolfman.maxHealth, Wolfman.maxHealth);
+        addObject(bar4, 0, 0);
+        addObject(new Wolfman(p, bar4, 1), 1472, 202);
         
         //Add Inventory and Hotbar
         addObject(iUI, 848, 464);
