@@ -96,21 +96,7 @@ public class ItemData
     private static final int caneMaxStackSize = 1;
     private static final GreenfootImage caneIcon = new GreenfootImage("objects/weapons/caneIcon.png");
     
-    //----- Oversize thrust -----
-    //----- crystalBlue -----
-    private static final String crystalBlueItemType = "meleeWeapon";
-    private static final int crystalBlueDamage = 30;
-    private static final double crystalBlueUseCooldown = 750000000.0;
-    private static final int crystalBlueMaxStackSize = 1;
-    private static final GreenfootImage crystalBlueIcon = new GreenfootImage("objects/weapons/crystalBlueIcon.png");
-    
-    //----- crystalPink -----
-    private static final String crystalPinkItemType = "meleeWeapon";
-    private static final int crystalPinkDamage = 30;
-    private static final double crystalPinkUseCooldown = 750000000.0;
-    private static final int crystalPinkMaxStackSize = 1;
-    private static final GreenfootImage crystalPinkIcon = new GreenfootImage("objects/weapons/crystalPinkIcon.png");
-    
+    //----- Oversize thrust -----        
     //----- crystalRed -----
     private static final String crystalRedItemType = "meleeWeapon";
     private static final int crystalRedDamage = 30;
@@ -152,34 +138,13 @@ public class ItemData
     private static final double spearMetallUseCooldown = 750000000.0;
     private static final int spearMetallMaxStackSize = 1;
     private static final GreenfootImage spearMetallIcon = new GreenfootImage("objects/weapons/spearMetallIcon.png");
-    
-    //----- staffBlue -----
-    private static final String staffBlueItemType = "meleeWeapon";
-    private static final int staffBlueDamage = 30;
-    private static final double staffBlueUseCooldown = 750000000.0;
-    private static final int staffBlueMaxStackSize = 1;
-    private static final GreenfootImage staffBlueIcon = new GreenfootImage("objects/weapons/staffBlueIcon.png");
-    
+            
     //----- staffOrange -----
     private static final String staffOrangeItemType = "meleeWeapon";
     private static final int staffOrangeDamage = 30;
     private static final double staffOrangeUseCooldown = 750000000.0;
     private static final int staffOrangeMaxStackSize = 1;
-    private static final GreenfootImage staffOrangeIcon = new GreenfootImage("objects/weapons/staffOrangeIcon.png");
-    
-    //----- staffPink -----
-    private static final String staffPinkItemType = "meleeWeapon";
-    private static final int staffPinkDamage = 30;
-    private static final double staffPinkUseCooldown = 750000000.0;
-    private static final int staffPinkMaxStackSize = 1;
-    private static final GreenfootImage staffPinkIcon = new GreenfootImage("objects/weapons/staffPinkIcon.png");
-    
-    //----- staffYellow -----
-    private static final String staffYellowItemType = "meleeWeapon";
-    private static final int staffYellowDamage = 30;
-    private static final double staffYellowUseCooldown = 750000000.0;
-    private static final int staffYellowMaxStackSize = 1;
-    private static final GreenfootImage staffYellowIcon = new GreenfootImage("objects/weapons/staffYellowIcon.png");
+    private static final GreenfootImage staffOrangeIcon = new GreenfootImage("objects/weapons/staffOrangeIcon.png");        
     
     //----- trident -----
     private static final String tridentItemType = "meleeWeapon";
@@ -317,15 +282,7 @@ public class ItemData
         else if(item == "cane")
         {
             return caneItemType;
-        }
-        else if(item == "crystalBlue")
-        {
-            return crystalBlueItemType;
-        }
-        else if(item == "crystalPink")
-        {
-            return crystalPinkItemType;
-        }
+        }        
         else if(item == "crystalRed")
         {
             return crystalRedItemType;
@@ -350,21 +307,9 @@ public class ItemData
         {
             return spearMetallItemType;
         }
-        else if(item == "staffBlue")
-        {
-            return staffBlueItemType;
-        }
         else if(item == "staffOrange")
         {
             return staffOrangeItemType;
-        }
-        else if(item == "staffPink")
-        {
-            return staffPinkItemType;
-        }
-        else if(item == "staffYellow")
-        {
-            return staffYellowItemType;
         }
         else if(item == "trident")
         {
@@ -472,15 +417,7 @@ public class ItemData
         else if(item == "cane")
         {
             return caneDamage;
-        }
-        else if(item == "crystalBlue")
-        {
-            return crystalBlueDamage;
-        }
-        else if(item == "crystalPink")
-        {
-            return crystalPinkDamage;
-        }
+        }        
         else if(item == "crystalRed")
         {
             return crystalRedDamage;
@@ -504,23 +441,11 @@ public class ItemData
         else if(item == "spearMetall")
         {
             return spearMetallDamage;
-        }
-        else if(item == "staffBlue")
-        {
-            return staffBlueDamage;
-        }
+        }        
         else if(item == "staffOrange")
         {
             return staffOrangeDamage;
-        }
-        else if(item == "staffPink")
-        {
-            return staffPinkDamage;
-        }
-        else if(item == "staffYellow")
-        {
-            return staffYellowDamage;
-        }
+        }        
         else if(item == "trident")
         {
             return tridentDamage;
@@ -603,15 +528,7 @@ public class ItemData
         else if(item == "cane")
         {
             return caneUseCooldown;
-        }
-        else if(item == "crystalBlue")
-        {
-            return crystalBlueUseCooldown;
-        }
-        else if(item == "crystalPink")
-        {
-            return crystalPinkUseCooldown;
-        }
+        }        
         else if(item == "crystalRed")
         {
             return crystalRedUseCooldown;
@@ -635,23 +552,11 @@ public class ItemData
         else if(item == "spearMetall")
         {
             return spearMetallUseCooldown;
-        }
-        else if(item == "staffBlue")
-        {
-            return staffBlueUseCooldown;
-        }
+        }        
         else if(item == "staffOrange")
         {
             return staffOrangeUseCooldown;
-        }
-        else if(item == "staffPink")
-        {
-            return staffPinkUseCooldown;
-        }
-        else if(item == "staffYellow")
-        {
-            return staffYellowUseCooldown;
-        }
+        }        
         else if(item == "trident")
         {
             return tridentUseCooldown;
@@ -754,15 +659,7 @@ public class ItemData
         else if(item == "cane")
         {
             return caneMaxStackSize;
-        }
-        else if(item == "crystalBlue")
-        {
-            return crystalBlueMaxStackSize;
-        }
-        else if(item == "crystalPink")
-        {
-            return crystalPinkMaxStackSize;
-        }
+        }        
         else if(item == "crystalRed")
         {
             return crystalRedMaxStackSize;
@@ -786,23 +683,11 @@ public class ItemData
         else if(item == "spearMetall")
         {
             return spearMetallMaxStackSize;
-        }
-        else if(item == "staffBlue")
-        {
-            return staffBlueMaxStackSize;
-        }
+        }        
         else if(item == "staffOrange")
         {
             return staffOrangeMaxStackSize;
-        }
-        else if(item == "staffPink")
-        {
-            return staffPinkMaxStackSize;
-        }
-        else if(item == "staffYellow")
-        {
-            return staffYellowMaxStackSize;
-        }
+        }        
         else if(item == "trident")
         {
             return tridentMaxStackSize;
@@ -982,15 +867,7 @@ public class ItemData
         else if(item == "cane")
         {
             return caneIcon;
-        }
-        else if(item == "crystalBlue")
-        {
-            return crystalBlueIcon;
-        }
-        else if(item == "crystalPink")
-        {
-            return crystalPinkIcon;
-        }
+        }        
         else if(item == "crystalRed")
         {
             return crystalRedIcon;
@@ -1014,23 +891,11 @@ public class ItemData
         else if(item == "spearMetall")
         {
             return spearMetallIcon;
-        }
-        else if(item == "staffBlue")
-        {
-            return staffBlueIcon;
-        }
+        }        
         else if(item == "staffOrange")
         {
             return staffOrangeIcon;
-        }
-        else if(item == "staffPink")
-        {
-            return staffPinkIcon;
-        }
-        else if(item == "staffYellow")
-        {
-            return staffYellowIcon;
-        }
+        }        
         else if(item == "trident")
         {
             return tridentIcon;
@@ -1137,15 +1002,7 @@ public class ItemData
         else if(item == "cane")
         {
             hotbar.getWorld().addObject(new Melee("cane"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
-        }
-        else if(item == "crystalBlue")
-        {
-            hotbar.getWorld().addObject(new Melee("crystalBlue"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
-        }
-        else if(item == "crystalPink")
-        {
-            hotbar.getWorld().addObject(new Melee("crystalPink"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
-        }
+        }        
         else if(item == "crystalRed")
         {
             hotbar.getWorld().addObject(new Melee("crystalRed"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
@@ -1169,23 +1026,11 @@ public class ItemData
         else if(item == "spearMetall")
         {
             hotbar.getWorld().addObject(new Melee("spearMetall"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
-        }
-        else if(item == "staffBlue")
-        {
-            hotbar.getWorld().addObject(new Melee("staffBlue"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
-        }
+        }        
         else if(item == "staffOrange")
         {
             hotbar.getWorld().addObject(new Melee("staffOrange"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
-        }
-        else if(item == "staffPink")
-        {
-            hotbar.getWorld().addObject(new Melee("staffPink"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
-        }
-        else if(item == "staffYellow")
-        {
-            hotbar.getWorld().addObject(new Melee("staffYellow"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
-        }
+        }        
         else if(item == "trident")
         {
             hotbar.getWorld().addObject(new Melee("trident"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
@@ -1288,15 +1133,7 @@ public class ItemData
         else if(item == "cane")
         {
             enemy.getWorld().addObject(new Melee("cane"), enemy.getX(), enemy.getY());
-        }
-        else if(item == "crystalBlue")
-        {
-            enemy.getWorld().addObject(new Melee("crystalBlue"), enemy.getX(), enemy.getY());
-        }
-        else if(item == "crystalPink")
-        {
-            enemy.getWorld().addObject(new Melee("crystalPink"), enemy.getX(), enemy.getY());
-        }
+        }        
         else if(item == "crystalRed")
         {
             enemy.getWorld().addObject(new Melee("crystalRed"), enemy.getX(), enemy.getY());
@@ -1320,23 +1157,11 @@ public class ItemData
         else if(item == "spearMetall")
         {
             enemy.getWorld().addObject(new Melee("spearMetall"), enemy.getX(), enemy.getY());
-        }
-        else if(item == "staffBlue")
-        {
-            enemy.getWorld().addObject(new Melee("staffBlue"), enemy.getX(), enemy.getY());
-        }
+        }        
         else if(item == "staffOrange")
         {
             enemy.getWorld().addObject(new Melee("staffOrange"), enemy.getX(), enemy.getY());
-        }
-        else if(item == "staffPink")
-        {
-            enemy.getWorld().addObject(new Melee("staffPink"), enemy.getX(), enemy.getY());
-        }
-        else if(item == "staffYellow")
-        {
-            enemy.getWorld().addObject(new Melee("staffYellow"), enemy.getX(), enemy.getY());
-        }
+        }        
         else if(item == "trident")
         {
             enemy.getWorld().addObject(new Melee("trident"), enemy.getX(), enemy.getY());

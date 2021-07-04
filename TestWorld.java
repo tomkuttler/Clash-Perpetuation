@@ -57,23 +57,18 @@ public class TestWorld extends World
         addObject(new Melee("waraxe"), 1100, 400);
         
         addObject(new Melee("cane"), 100, 500);
-        
-        addObject(new Melee("crystalBlue"), 200, 500);
-        addObject(new Melee("crystalPink"), 300, 500);
-        addObject(new Melee("crystalRed"), 400, 500);
-        addObject(new Melee("crystalYellow"), 500, 500);
-        addObject(new Melee("dragonSpear"), 600, 500);
-        addObject(new Melee("dragonSpearMetall"), 700, 500);
-        addObject(new Melee("spear"), 800, 500);
-        addObject(new Melee("spearMetall"), 900, 500);
-        addObject(new Melee("staffBlue"), 1000, 500);
-        addObject(new Melee("staffOrange"), 1100, 500);
-        addObject(new Melee("staffPink"), 1200, 500);
-        addObject(new Melee("staffYellow"), 1300, 500);
-        addObject(new Melee("trident"), 1400, 500);
-        addObject(new Melee("tridentMetall"), 1500, 500);
-        addObject(new Melee("tridentOrange"), 1600, 500);
-        addObject(new Melee("tridentYellow"), 1700, 500);
+                
+        addObject(new Melee("crystalRed"), 200, 500);
+        addObject(new Melee("crystalYellow"), 300, 500);
+        addObject(new Melee("dragonSpear"), 400, 500);
+        addObject(new Melee("dragonSpearMetall"), 500, 500);
+        addObject(new Melee("spear"), 600, 500);
+        addObject(new Melee("spearMetall"), 700, 500);        
+        addObject(new Melee("staffOrange"), 800, 500);        
+        addObject(new Melee("trident"), 900, 500);
+        addObject(new Melee("tridentMetall"), 1000, 500);
+        addObject(new Melee("tridentOrange"), 1100, 500);
+        addObject(new Melee("tridentYellow"), 1200, 500);
         
         addObject(new Bow("bow1"), 100, 600);
         

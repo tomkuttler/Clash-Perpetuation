@@ -31,19 +31,14 @@ public class Melee extends Weapons
     //----- Standart thrust -----
     private static final GreenfootImage cane = new GreenfootImage("objects/weapons/caneIcon.png");
     
-    //----- Oversize thrust -----
-    private static final GreenfootImage crystalBlue = new GreenfootImage("objects/weapons/crystalBlueIcon.png");
-    private static final GreenfootImage crystalPink = new GreenfootImage("objects/weapons/crystalPinkIcon.png");
+    //----- Oversize thrust -----    
     private static final GreenfootImage crystalRed = new GreenfootImage("objects/weapons/crystalRedIcon.png");
     private static final GreenfootImage crystalYellow = new GreenfootImage("objects/weapons/crystalYellowIcon.png");
     private static final GreenfootImage dragonSpear = new GreenfootImage("objects/weapons/dragonSpearIcon.png");
     private static final GreenfootImage dragonSpearMetall = new GreenfootImage("objects/weapons/dragonSpearMetallIcon.png");
     private static final GreenfootImage spear = new GreenfootImage("objects/weapons/spearIcon.png");
-    private static final GreenfootImage spearMetall = new GreenfootImage("objects/weapons/spearMetallIcon.png");
-    private static final GreenfootImage staffBlue = new GreenfootImage("objects/weapons/staffBlueIcon.png");
-    private static final GreenfootImage staffOrange = new GreenfootImage("objects/weapons/staffOrangeIcon.png");
-    private static final GreenfootImage staffPink = new GreenfootImage("objects/weapons/staffPinkIcon.png");
-    private static final GreenfootImage staffYellow = new GreenfootImage("objects/weapons/staffYellowIcon.png");
+    private static final GreenfootImage spearMetall = new GreenfootImage("objects/weapons/spearMetallIcon.png");    
+    private static final GreenfootImage staffOrange = new GreenfootImage("objects/weapons/staffOrangeIcon.png");    
     private static final GreenfootImage trident = new GreenfootImage("objects/weapons/tridentIcon.png");
     private static final GreenfootImage tridentMetall = new GreenfootImage("objects/weapons/tridentMetallIcon.png");
     private static final GreenfootImage tridentOrange = new GreenfootImage("objects/weapons/tridentOrangeIcon.png");
@@ -123,16 +118,6 @@ public class Melee extends Weapons
         }
         
         //----- Oversize thrust -----
-        else if(name == "crystalBlue")
-        {
-            setImage(crystalBlue);
-            this.name = name;
-        }
-        else if(name == "crystalPink")
-        {
-            setImage(crystalPink);
-            this.name = name;
-        }
         else if(name == "crystalRed")
         {
             setImage(crystalRed);
@@ -163,24 +148,9 @@ public class Melee extends Weapons
             setImage(spearMetall);
             this.name = name;
         }
-        else if(name == "staffBlue")
-        {
-            setImage(staffBlue);
-            this.name = name;
-        }
         else if(name == "staffOrange")
         {
             setImage(staffOrange);
-            this.name = name;
-        }
-        else if(name == "staffPink")
-        {
-            setImage(staffPink);
-            this.name = name;
-        }
-        else if(name == "staffYellow")
-        {
-            setImage(staffYellow);
             this.name = name;
         }
         else if(name == "trident")

@@ -51,7 +51,9 @@ public class Player extends AnimatedCharacter
     public Inventory inventory;                                //Reference to the inventory manager
     public Hotbar hotbar;                                      //Reference to the hotbar manager    
 
-    //----- Layer images -----    
+    //----- Layer images -----
+    private static final GreenfootImage player = new GreenfootImage("player/goldenKnightNoWeapon.png");
+    
     private static final GreenfootImage dagger = new GreenfootImage("weapons/melee/slash/dagger.png");
     private static final GreenfootImage axe = new GreenfootImage("weapons/melee/slash/axe.png");
     private static final GreenfootImage warhammer = new GreenfootImage("weapons/melee/slash/warhammer.png");
@@ -66,19 +68,14 @@ public class Player extends AnimatedCharacter
     private static final GreenfootImage waraxe = new GreenfootImage("weapons/melee/oversize/slash/waraxe.png");           
 
     private static final GreenfootImage cane = new GreenfootImage("weapons/melee/thrust/cane.png");
-
-    private static final GreenfootImage crystalBlue = new GreenfootImage("weapons/melee/oversize/thrust/crystalBlue.png");
-    private static final GreenfootImage crystalPink = new GreenfootImage("weapons/melee/oversize/thrust/crystalPink.png");
+    
     private static final GreenfootImage crystalRed = new GreenfootImage("weapons/melee/oversize/thrust/crystalRed.png");
     private static final GreenfootImage crystalYellow = new GreenfootImage("weapons/melee/oversize/thrust/crystalYellow.png");
     private static final GreenfootImage dragonSpear = new GreenfootImage("weapons/melee/oversize/thrust/dragonSpear.png");
     private static final GreenfootImage dragonSpearMetall = new GreenfootImage("weapons/melee/oversize/thrust/dragonSpearMetall.png");
     private static final GreenfootImage spear = new GreenfootImage("weapons/melee/oversize/thrust/spear.png");
-    private static final GreenfootImage spearMetall = new GreenfootImage("weapons/melee/oversize/thrust/spearMetall.png");
-    private static final GreenfootImage staffBlue = new GreenfootImage("weapons/melee/oversize/thrust/staffBlue.png");
-    private static final GreenfootImage staffOrange = new GreenfootImage("weapons/melee/oversize/thrust/staffOrange.png");
-    private static final GreenfootImage staffPink = new GreenfootImage("weapons/melee/oversize/thrust/staffPink.png");
-    private static final GreenfootImage staffYellow = new GreenfootImage("weapons/melee/oversize/thrust/staffYellow.png");
+    private static final GreenfootImage spearMetall = new GreenfootImage("weapons/melee/oversize/thrust/spearMetall.png");    
+    private static final GreenfootImage staffOrange = new GreenfootImage("weapons/melee/oversize/thrust/staffOrange.png");    
     private static final GreenfootImage trident = new GreenfootImage("weapons/melee/oversize/thrust/trident.png");
     private static final GreenfootImage tridentMetall = new GreenfootImage("weapons/melee/oversize/thrust/tridentMetall.png");
     private static final GreenfootImage tridentOrange = new GreenfootImage("weapons/melee/oversize/thrust/tridentOrange.png");
@@ -101,7 +98,7 @@ public class Player extends AnimatedCharacter
         changeSpeed(walkSpeed, animationSpeed);
 
         //Create spriteSheet
-        setLayer(0, new GreenfootImage("player/goldenKnightNoWeapon.png"));
+        setLayer(0, player);
 
         //----- BUILD ANIMATIONS -----
         //Build walking animation (primary animation)
@@ -298,17 +295,7 @@ public class Player extends AnimatedCharacter
             {
                 setLayer(1, cane);
                 setLayer(2, null);
-            }
-            else if(currentSlotItem == "crystalBlue")
-            {
-                setLayer(1, crystalBlue);
-                setLayer(2, null);
-            }
-            else if(currentSlotItem == "crystalPink")
-            {
-                setLayer(1, crystalPink);
-                setLayer(2, null);
-            }
+            }            
             else if(currentSlotItem == "crystalRed")
             {
                 setLayer(1, crystalRed);
@@ -338,27 +325,12 @@ public class Player extends AnimatedCharacter
             {
                 setLayer(1, spearMetall);
                 setLayer(2, null);
-            }
-            else if(currentSlotItem == "staffBlue")
-            {
-                setLayer(1, staffBlue);
-                setLayer(2, null);
-            }
+            }            
             else if(currentSlotItem == "staffOrange")
             {
                 setLayer(1, staffOrange);
                 setLayer(2, null);
-            }
-            else if(currentSlotItem == "staffPink")
-            {
-                setLayer(1, staffPink);
-                setLayer(2, null);
-            }
-            else if(currentSlotItem == "staffYellow")
-            {
-                setLayer(1, staffYellow);
-                setLayer(2, null);
-            }
+            }            
             else if(currentSlotItem == "trident")
             {
                 setLayer(1, trident);
@@ -645,11 +617,171 @@ public class Player extends AnimatedCharacter
         }
         else if(this.getWorld().getClass() == WorldMap2.class)
         {
-            if(getX() > 1690)
+            if(getY() > 875 && getX() > 800 && getX() < 1000)
             {
                 if(this.getWorld().getObjects(Enemy.class).isEmpty())
                 {
                     Greenfoot.setWorld(new WorldMap3(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
+                }
+                else
+                {
+                    double t = System.nanoTime();
+                    if(t - lastTextTime >= textCooldown)
+                    {
+                        lastTextTime = System.nanoTime();
+
+                        this.getWorld().getObjects(Tutorial.class).get(0).killAllEnemysText();
+                    }
+                }
+            }
+        }
+        else if(this.getWorld().getClass() == WorldMap3.class)
+        {
+            if(getX() > 1690 && getY() > 380 && getY() < 480)
+            {
+                if(this.getWorld().getObjects(Enemy.class).isEmpty())
+                {
+                    Greenfoot.setWorld(new WorldMap4(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
+                }
+                else
+                {
+                    double t = System.nanoTime();
+                    if(t - lastTextTime >= textCooldown)
+                    {
+                        lastTextTime = System.nanoTime();
+
+                        this.getWorld().getObjects(Tutorial.class).get(0).killAllEnemysText();
+                    }
+                }
+            }
+        }
+        else if(this.getWorld().getClass() == WorldMap4.class)
+        {
+            if(getY() < 10 && getX() > 1080 && getX() < 1200)
+            {
+                if(this.getWorld().getObjects(Enemy.class).isEmpty())
+                {
+                    Greenfoot.setWorld(new WorldMap5(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
+                }
+                else
+                {
+                    double t = System.nanoTime();
+                    if(t - lastTextTime >= textCooldown)
+                    {
+                        lastTextTime = System.nanoTime();
+
+                        this.getWorld().getObjects(Tutorial.class).get(0).killAllEnemysText();
+                    }
+                }
+            }
+        }
+        else if(this.getWorld().getClass() == WorldMap5.class)
+        {
+            if(getY() < 10 && getX() > 730 && getX() < 900)
+            {
+                if(this.getWorld().getObjects(Enemy.class).isEmpty())
+                {
+                    Greenfoot.setWorld(new WorldMap6(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
+                }
+                else
+                {
+                    double t = System.nanoTime();
+                    if(t - lastTextTime >= textCooldown)
+                    {
+                        lastTextTime = System.nanoTime();
+
+                        this.getWorld().getObjects(Tutorial.class).get(0).killAllEnemysText();
+                    }
+                }
+            }
+        }
+        else if(this.getWorld().getClass() == WorldMap6.class)
+        {
+            if(getY() < 590 && getX() > 855 && getX() < 875)
+            {
+                if(this.getWorld().getObjects(Enemy.class).isEmpty())
+                {
+                    Greenfoot.setWorld(new WorldMap7(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
+                }
+                else
+                {
+                    double t = System.nanoTime();
+                    if(t - lastTextTime >= textCooldown)
+                    {
+                        lastTextTime = System.nanoTime();
+
+                        this.getWorld().getObjects(Tutorial.class).get(0).killAllEnemysText();
+                    }
+                }
+            }
+        }
+        else if(this.getWorld().getClass() == WorldMap7.class)
+        {
+            if(getY() < 190 && getX() > 840 && getX() < 860)
+            {
+                if(this.getWorld().getObjects(Enemy.class).isEmpty())
+                {
+                    Greenfoot.setWorld(new WorldMap8(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
+                }
+                else
+                {
+                    double t = System.nanoTime();
+                    if(t - lastTextTime >= textCooldown)
+                    {
+                        lastTextTime = System.nanoTime();
+
+                        this.getWorld().getObjects(Tutorial.class).get(0).killAllEnemysText();
+                    }
+                }
+            }
+        }
+        else if(this.getWorld().getClass() == WorldMap8.class)
+        {
+            if(getY() < 10 && getX() > 790 && getX() < 950)
+            {
+                if(this.getWorld().getObjects(Enemy.class).isEmpty())
+                {
+                    Greenfoot.setWorld(new WorldMap9(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
+                }
+                else
+                {
+                    double t = System.nanoTime();
+                    if(t - lastTextTime >= textCooldown)
+                    {
+                        lastTextTime = System.nanoTime();
+
+                        this.getWorld().getObjects(Tutorial.class).get(0).killAllEnemysText();
+                    }
+                }
+            }
+        }
+        else if(this.getWorld().getClass() == WorldMap9.class)
+        {
+            if(getY() < 315 && getX() > 1015 && getX() < 1030)
+            {
+                if(this.getWorld().getObjects(Enemy.class).isEmpty())
+                {
+                    Greenfoot.setWorld(new WorldMap10(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
+                }
+                else
+                {
+                    double t = System.nanoTime();
+                    if(t - lastTextTime >= textCooldown)
+                    {
+                        lastTextTime = System.nanoTime();
+
+                        this.getWorld().getObjects(Tutorial.class).get(0).killAllEnemysText();
+                    }
+                }
+            }
+        }
+        else if(this.getWorld().getClass() == WorldMap10.class)
+        {
+            if(getY() < 85 && getX() > 855 && getX() < 875)
+            {
+                if(this.getWorld().getObjects(Enemy.class).isEmpty())
+                {
+                    Greenfoot.setWorld(new WorldMap11(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
                 }
                 else
                 {
@@ -744,5 +876,53 @@ public class Player extends AnimatedCharacter
         }
 
         bar.setValue(health);
+    }
+    
+    public void changeMap(int i)
+    {
+        if(i == 1)
+        {
+            Greenfoot.setWorld(new WorldMap1());
+        }
+        else if(i == 2)
+        {
+            Greenfoot.setWorld(new WorldMap2(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
+        }
+        else if(i == 3)
+        {
+            Greenfoot.setWorld(new WorldMap3(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
+        }
+        else if(i == 4)
+        {
+            Greenfoot.setWorld(new WorldMap4(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
+        }
+        else if(i == 5)
+        {
+            Greenfoot.setWorld(new WorldMap5(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
+        }
+        else if(i == 6)
+        {
+            Greenfoot.setWorld(new WorldMap6(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
+        }
+        else if(i == 7)
+        {
+            Greenfoot.setWorld(new WorldMap7(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
+        }
+        else if(i == 8)
+        {
+            Greenfoot.setWorld(new WorldMap8(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
+        }
+        else if(i == 9)
+        {
+            Greenfoot.setWorld(new WorldMap9(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
+        }
+        else if(i == 10)
+        {
+            Greenfoot.setWorld(new WorldMap10(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
+        }
+        else if(i == 11)
+        {
+            Greenfoot.setWorld(new WorldMap11(this, bar, hitBar, inventory, inventory.getInventoryUI(), hotbar, hotbar.getHotbarUI(), hotbar.getHighlight()));
+        }
     }
 }

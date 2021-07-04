@@ -37,7 +37,7 @@ public class WorldMap5 extends World
         addObject(new HealthBarUI(), 150, 50);
         
         //Add Player
-        addObject(p, 30, 200);
+        addObject(p, 1163, 904);
         
         //Spawn Enemys and enemy health bars 
         EnemyHealthBar bar1 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
