@@ -3,7 +3,7 @@ import java.util.HashMap;
 
 /**
  * The AnimatedCharacter superclass manages animations for 2d sprites.
- * It implements time based frame changing and moving to create both smoothness and preciseness. 
+ * It implements time based frame changing and moving to create smoothness and preciseness. 
  *  
  * Primary Animation: Usually movement - this is the base animation.
  * Terminal Animations: Animations that run, then end, and return to the primary animation.
@@ -125,7 +125,7 @@ public abstract class AnimatedCharacter extends Actor
      */
     public void disableCollision() 
     {
-        if (myCollider != null && myCollider.getWorld() != null)
+        if(myCollider != null && myCollider.getWorld() != null)
         {
             getWorld().removeObject(myCollider);
         }
@@ -196,7 +196,8 @@ public abstract class AnimatedCharacter extends Actor
     protected void changeSpeed(int moveSpeed, int framesPerSecond)
     {
         //Only run code if something has changed
-        if (this.moveSpeed != moveSpeed || this.framesPerSecond != framesPerSecond){
+        if(this.moveSpeed != moveSpeed || this.framesPerSecond != framesPerSecond)
+        {
             this.framesPerSecond = framesPerSecond;
             this.moveSpeed = moveSpeed;
 
@@ -221,9 +222,9 @@ public abstract class AnimatedCharacter extends Actor
      */
     protected void moveInDirection(int dirX, int dirY)
     {        
-        if (this.dirX != dirX || this.dirY != dirY) //If there has been a change in direction
+        if(this.dirX != dirX || this.dirY != dirY) //If there has been a change in direction
         {
-            if (dirX == 0 && dirY == 0)
+            if(dirX == 0 && dirY == 0)
             {
                 idle = true; 
                 lastFrame = System.nanoTime(); //Reset animation timer to start fresh
@@ -235,24 +236,24 @@ public abstract class AnimatedCharacter extends Actor
                 idle = false; 
 
                 //Set the facing direction if direction has changed
-                if (dirX == 1)
+                if(dirX == 1)
                 {
                     direction = 0;
                 } 
-                else if (dirX == -1)
+                else if(dirX == -1)
                 {
                     direction = 1;
                 }
-                else if (dirY == -1)
+                else if(dirY == -1)
                 {
                     direction = 2;
                 }
-                else if (dirY == 1)
+                else if(dirY == 1)
                 {
                     direction = 3;
                 }                 
             }
-            setCurrentImages (currentAnimation.getDirectionalImages()[direction]);
+            setCurrentImages(currentAnimation.getDirectionalImages()[direction]);
 
             //Set these variables so that they can be checked next frame for changes
             this.dirX = dirX;
@@ -269,7 +270,7 @@ public abstract class AnimatedCharacter extends Actor
         dirX = 0;
         dirY = 0;
 
-        if (!stopAtEnd)
+        if(!stopAtEnd)
         {
             lastFrame = System.nanoTime();
         }
@@ -291,7 +292,7 @@ public abstract class AnimatedCharacter extends Actor
         currentAnimation = animations.get(animationName);
         this.direction = direction;
 
-        if (currentAnimation.isDirectional())
+        if(currentAnimation.isDirectional())
         {
             setCurrentImages(currentAnimation.getDirectionalImages()[direction]);
         } 
@@ -312,7 +313,7 @@ public abstract class AnimatedCharacter extends Actor
     {
         currentImages = new GreenfootImage[images.length];
 
-        for (int i = 0; i < images.length; i++)
+        for(int i = 0; i < images.length; i++)
         {
             currentImages[i] = images[i];
         }
@@ -421,6 +422,7 @@ class Animation
 
     private boolean directional;                   //True if an animation is directional (must be 4 directions), false if not
     private int directions;                        //How many directions does this animation have (1 or 4)
+    
     /**
      * Animation Constructor for directional animations: Is called in the 'createAnimation' method. Sets the animation variables and saves the animation in the directionalImages array.
      * 

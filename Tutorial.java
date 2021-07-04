@@ -256,7 +256,11 @@ public class Tutorial extends UI
             changeVariableTo = "";
         }
     }
-
+    
+    /**
+     * Method 'removeKillAllEnemysText': Is called every tick by the 'act' method.
+     * If the kill all enemys text is currently displayed and enough time passed since the display time, the text will be removed again.
+     */
     public void removeKillAllEnemysText()
     {
         if(killAllEnemysText)
@@ -270,7 +274,11 @@ public class Tutorial extends UI
             }
         }
     }
-
+    
+    /**
+     * Method 'killAllEnemysText': Is called by the 'checkChangeMap' method in Player class if the player wants to advance to the next stage, but there are still enemys in the world of the player.
+     * The kill all enemys text will be displayed and time will be stored.
+     */
     public void killAllEnemysText()
     {
         lastKillAllEnemysTextTime = System.nanoTime();

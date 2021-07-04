@@ -8,6 +8,8 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Chest extends Objects
 {
+    private int chestNumber;                         //Determines the image of the chest
+    
     private boolean isClosed = true;                 //True if the chest can be opened, false if the chest was already opened
     
     private static final int maxSlots = 10;          //Max slots the chest can hold
@@ -16,8 +18,10 @@ public class Chest extends Objects
     private int[] amount = new int[maxSlots];        //Saves the amount of the chest items
     
     //----- Object images -----
-    GreenfootImage chestClosed;
-    GreenfootImage chestOpened;
+    private static final GreenfootImage chestClosed1 = new GreenfootImage("objects/chests/chestClosed1.png");
+    private static final GreenfootImage chestOpened1 = new GreenfootImage("objects/chests/chestOpened1.png");
+    private static final GreenfootImage chestClosed2 = new GreenfootImage("objects/chests/chestClosed2.png");
+    private static final GreenfootImage chestOpened2 = new GreenfootImage("objects/chests/chestOpened2.png");
     
     /**
      * Chest Constructor: Sets the correct chest images and arrays.
@@ -28,18 +32,16 @@ public class Chest extends Objects
      */
     public Chest(int chestNumber, String[] items, int[] amount)
     {
+        this.chestNumber = chestNumber;
+        
         if(chestNumber == 1)
         {
-            chestClosed = new GreenfootImage("objects/chests/chestClosed1.png");
-            chestOpened = new GreenfootImage("objects/chests/chestOpened1.png");
+            setImage(chestClosed1);
         }
         else if(chestNumber == 2)
         {
-            chestClosed = new GreenfootImage("objects/chests/chestClosed2.png");
-            chestOpened = new GreenfootImage("objects/chests/chestOpened2.png");
-        }
-        
-        setImage(chestClosed);
+            setImage(chestClosed2);
+        }                
         
         for(int i = 0; i < maxSlots; i++)
         {
@@ -100,6 +102,13 @@ public class Chest extends Objects
     {
         isClosed = false;
         
-        setImage(chestOpened);
+        if(chestNumber == 1)
+        {
+            setImage(chestOpened1);
+        }
+        else if(chestNumber == 2)
+        {
+            setImage(chestOpened2);
+        }
     }
 }
