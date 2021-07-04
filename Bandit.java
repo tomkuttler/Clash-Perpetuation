@@ -33,7 +33,7 @@ public class Bandit extends Enemy
     private static final int damage = 20;                      //Attack damage of this enemy   
 
     //----- Cooldowns -----
-    private static final double hitCooldown = 750000000.0;    //Cooldown of 750 milion nanosec (0,75 sec) between hits
+    private static final double hitCooldown = 900000000.0;    //Cooldown of 900 milion nanosec (0,9 sec) between hits
 
     private static final double removeCooldown = 2000000000.0; //Enemy will be removed after Cooldown of 2 bilion nanosec (2sec) (after Health <= 0)
 

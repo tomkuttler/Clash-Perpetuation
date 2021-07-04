@@ -39,10 +39,18 @@ public class WorldMap6 extends World
         //Add Player
         addObject(p, 860, 860);
         
+        //Spawn Objects                
+        addObject(new Chest(1, new String[] {"redPotion", "bluePotion", "longsword", "arrow1", null, null, null, null, null, null}, new int[] {9, 4, 1, 9, 0, 0, 0, 0, 0, 0}), 480, 656);
+        addObject(new Chest(1, new String[] {"greenPotion", "redPotion", "bluePotion", null, null, null, null, null, null, null}, new int[] {15, 6, 2, 0, 0, 0, 0, 0, 0, 0}), 1247, 656);
+        
         //Spawn Enemys and enemy health bars 
-        EnemyHealthBar bar1 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        EnemyHealthBar bar1 = new EnemyHealthBar(DarkKnight.maxHealth, DarkKnight.maxHealth);
         addObject(bar1, 0, 0);
-        addObject(new Cyclope(p, bar1, 3), 100, 100);
+        addObject(new DarkKnight(p, bar1, 3), 768, 637);
+        
+        EnemyHealthBar bar2 = new EnemyHealthBar(DarkKnight.maxHealth, DarkKnight.maxHealth);
+        addObject(bar2, 0, 0);
+        addObject(new DarkKnight(p, bar2, 3), 960, 637);
         
         //Add Inventory and Hotbar
         addObject(iUI, 848, 464);

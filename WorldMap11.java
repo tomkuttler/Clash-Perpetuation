@@ -40,9 +40,19 @@ public class WorldMap11 extends World
         addObject(p, 848, 809);
         
         //Spawn Enemys and enemy health bars 
-        EnemyHealthBar bar1 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        EnemyHealthBar bar1 = new EnemyHealthBar(Devil.maxHealth, Devil.maxHealth);
+        bar1.barWidth = 80;
+        bar1.barHeight = 8;
         addObject(bar1, 0, 0);
-        addObject(new Cyclope(p, bar1, 3), 100, 100);
+        addObject(new Devil(p, bar1, 3), 848, 347);
+        
+        EnemyHealthBar bar2 = new EnemyHealthBar(Skeleton.maxHealth, Skeleton.maxHealth);
+        addObject(bar2, 0, 0);
+        addObject(new Skeleton(p, bar2, 3), 748, 347);
+        
+        EnemyHealthBar bar3 = new EnemyHealthBar(Skeleton.maxHealth, Skeleton.maxHealth);
+        addObject(bar3, 0, 0);
+        addObject(new Skeleton(p, bar3, 3), 948, 347);
         
         //Add Inventory and Hotbar
         addObject(iUI, 848, 464);

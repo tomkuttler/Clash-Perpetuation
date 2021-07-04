@@ -39,10 +39,28 @@ public class WorldMap9 extends World
         //Add Player
         addObject(p, 845, 829);
         
+        //Spawn Objects
+        addObject(new Potion("purple", 3), 528, 484);
+        addObject(new Potion("purple", 3), 173, 222);
+        
+        addObject(new Chest(2, new String[] {"bluePotion", "purplePotion", "rapier", "arrow1", null, null, null, null, null, null}, new int[] {9, 4, 1, 7, 0, 0, 0, 0, 0, 0}), 1555, 396);
+        
         //Spawn Enemys and enemy health bars 
-        EnemyHealthBar bar1 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        EnemyHealthBar bar1 = new EnemyHealthBar(Reptile.maxHealth, Reptile.maxHealth);
         addObject(bar1, 0, 0);
-        addObject(new Cyclope(p, bar1, 3), 100, 100);
+        addObject(new Reptile(p, bar1, 1), 1222, 563);
+        
+        EnemyHealthBar bar2 = new EnemyHealthBar(Reptile.maxHealth, Reptile.maxHealth);
+        addObject(bar2, 0, 0);
+        addObject(new Reptile(p, bar2, 3), 1082, 350);
+        
+        EnemyHealthBar bar3 = new EnemyHealthBar(Reptile.maxHealth, Reptile.maxHealth);
+        addObject(bar3, 0, 0);
+        addObject(new Reptile(p, bar3, 3), 350, 526);
+        
+        EnemyHealthBar bar4 = new EnemyHealthBar(Reptile.maxHealth, Reptile.maxHealth);
+        addObject(bar4, 0, 0);
+        addObject(new Reptile(p, bar4, 0), 679, 436);
         
         //Add Inventory and Hotbar
         addObject(iUI, 848, 464);

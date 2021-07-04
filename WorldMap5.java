@@ -43,7 +43,7 @@ public class WorldMap5 extends World
         addObject(new Potion("red", 3), 459, 732);
         addObject(new Potion("blue", 3), 1166, 228);
         
-        addObject(new Chest(2, new String[] {"redPotion", "bluePotion", "spear", null, null, null, null, null, null, null}, new int[] {7, 4, 1, 0, 0, 0, 0, 0, 0, 0}), 491, 304);
+        addObject(new Chest(2, new String[] {"redPotion", "bluePotion", "spear", "bow1", "arrow1", null, null, null, null, null}, new int[] {7, 4, 1, 1, 7, 0, 0, 0, 0, 0}), 491, 304);
         
         //Spawn Enemys and enemy health bars 
         EnemyHealthBar bar1 = new EnemyHealthBar(Bandit.maxHealth, Bandit.maxHealth);

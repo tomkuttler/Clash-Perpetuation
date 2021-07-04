@@ -39,10 +39,35 @@ public class WorldMap7 extends World
         //Add Player
         addObject(p, 848, 800);
         
+        //Spawn Objects
+        addObject(new Potion("blue", 3), 481, 377);
+        addObject(new Potion("blue", 3), 1551, 664);
+        
+        addObject(new Melee("cane"), 367, 145);
+        
+        addObject(new Chest(1, new String[] {"redPotion", "bluePotion", "longsword", "arrow1", null, null, null, null, null, null}, new int[] {9, 4, 1, 7, 0, 0, 0, 0, 0, 0}), 1071, 238);
+        addObject(new Chest(1, new String[] {"redPotion", "bluePotion", "purplePotion", null, null, null, null, null, null, null}, new int[] {10, 4, 2, 0, 0, 0, 0, 0, 0, 0}), 554, 770);
+        
         //Spawn Enemys and enemy health bars 
-        EnemyHealthBar bar1 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        EnemyHealthBar bar1 = new EnemyHealthBar(Legionnaire.maxHealth, Legionnaire.maxHealth);
         addObject(bar1, 0, 0);
-        addObject(new Cyclope(p, bar1, 3), 100, 100);
+        addObject(new Legionnaire(p, bar1, 3), 287, 300);
+        
+        EnemyHealthBar bar2 = new EnemyHealthBar(Legionnaire.maxHealth, Legionnaire.maxHealth);
+        addObject(bar2, 0, 0);
+        addObject(new Legionnaire(p, bar2, 1), 920, 245);
+        
+        EnemyHealthBar bar3 = new EnemyHealthBar(Legionnaire.maxHealth, Legionnaire.maxHealth);
+        addObject(bar3, 0, 0);
+        addObject(new Legionnaire(p, bar3, 0), 785, 245);
+        
+        EnemyHealthBar bar4 = new EnemyHealthBar(Legionnaire.maxHealth, Legionnaire.maxHealth);
+        addObject(bar4, 0, 0);
+        addObject(new Legionnaire(p, bar4, 0), 196, 640);
+        
+        EnemyHealthBar bar5 = new EnemyHealthBar(Legionnaire.maxHealth, Legionnaire.maxHealth);
+        addObject(bar5, 0, 0);
+        addObject(new Legionnaire(p, bar5, 3), 1461, 290);
         
         //Add Inventory and Hotbar
         addObject(iUI, 848, 464);

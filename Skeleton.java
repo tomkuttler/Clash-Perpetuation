@@ -38,9 +38,9 @@ public class Skeleton extends Enemy
     private static final double removeCooldown = 2000000000.0; //Enemy will be removed after Cooldown of 2 bilion nanosec (2sec) (after Health <= 0)
     
     //----- Drop item -----
-    private static final String[] dropItems = new String[] {"redPotion", "arrow1", null, null, null}; //Array that contins the items that will be dropped if this enemy dies
-    private static final int[] dropAmount = new int[] {5, 3, 0, 0, 0};                                //Array that contins the amount of items that will be dropped if this enemy dies
-    private static final int[] probability = new int[] {50, 20, 0, 0, 0};                             //Array that contins the probability of dropping that item
+    private static final String[] dropItems = new String[] {"purplePotion", "whitePotion", "arrow1", null, null}; //Array that contins the items that will be dropped if this enemy dies
+    private static final int[] dropAmount = new int[] {5, 3, 3, 0, 0};                                //Array that contins the amount of items that will be dropped if this enemy dies
+    private static final int[] probability = new int[] {50, 20, 20, 0, 0};                             //Array that contins the probability of dropping that item
 
     //----- Reference -----
     private Player player;                        //Reference to the player

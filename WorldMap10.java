@@ -39,10 +39,32 @@ public class WorldMap10 extends World
         //Add Player
         addObject(p, 848, 809);
         
+        //Spawn Objects
+        addObject(new Potion("white", 2), 189, 456);
+        addObject(new Potion("white", 2), 513, 845);
+        
+        addObject(new Chest(1, new String[] {"greenPotion", "redPotion", "bluePotion", "purplePotion", "whitePotion", "arrow1", null, null, null, null}, new int[] {15, 6, 3, 2, 1, 15, 0, 0, 0, 0}), 1529, 117);
+        
         //Spawn Enemys and enemy health bars 
-        EnemyHealthBar bar1 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
+        EnemyHealthBar bar1 = new EnemyHealthBar(Skeleton.maxHealth, Skeleton.maxHealth);
         addObject(bar1, 0, 0);
-        addObject(new Cyclope(p, bar1, 3), 100, 100);
+        addObject(new Skeleton(p, bar1, 1), 1400, 275);
+        
+        EnemyHealthBar bar2 = new EnemyHealthBar(Skeleton.maxHealth, Skeleton.maxHealth);
+        addObject(bar2, 0, 0);
+        addObject(new Skeleton(p, bar2, 3), 1070, 617);
+        
+        EnemyHealthBar bar3 = new EnemyHealthBar(Skeleton.maxHealth, Skeleton.maxHealth);
+        addObject(bar3, 0, 0);
+        addObject(new Skeleton(p, bar3, 1), 1403, 723);
+        
+        EnemyHealthBar bar4 = new EnemyHealthBar(Skeleton.maxHealth, Skeleton.maxHealth);
+        addObject(bar4, 0, 0);
+        addObject(new Skeleton(p, bar4, 3), 590, 250);
+        
+        EnemyHealthBar bar5 = new EnemyHealthBar(Skeleton.maxHealth, Skeleton.maxHealth);
+        addObject(bar5, 0, 0);
+        addObject(new Skeleton(p, bar5, 3), 380, 250);
         
         //Add Inventory and Hotbar
         addObject(iUI, 848, 464);

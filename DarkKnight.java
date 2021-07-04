@@ -1,23 +1,23 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * The wolfman is a wolf and a man at the same time.
+ * The dark knight monitores the castle.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Wolfman extends Enemy
+public class DarkKnight extends Enemy
 {
     //----- Animation -----     
     private static final int animationSpeed = 20;              //Number of animation frames per second
 
     //----- Movement -----
-    private static final int walkSpeed = 40;                   //Move 40 pixel per second
+    private static final int walkSpeed = 35;                   //Move 40 pixel per second
 
     private static final int minDistance = 47;                 //Minimum distance between the enemy and the player
 
     //----- Health -----
-    public static final int maxHealth = 60;                    //Max health of the enemy
+    public static final int maxHealth = 120;                   //Max health of the enemy
     
     private static final int barYOffset = 30;                  //The offset of the enemy health bar relative to the enemy in y direction (in pixel)
 
@@ -30,16 +30,16 @@ public class Wolfman extends Enemy
     private static final int detectPlayerRange = 300;          //Player detection range of this enemy    
     private static final int attackRange = 47;                 //Attack range of this enemy 
 
-    private static final int damage = 8;                       //Attack damage of this enemy   
+    private static final int damage = 25;                      //Attack damage of this enemy   
 
     //----- Cooldowns -----
-    private static final double hitCooldown = 500000000.0;     //Cooldown of 500 milion nanosec (0,5 sec) between hits
+    private static final double hitCooldown = 950000000.0;     //Cooldown of 950 milion nanosec (0,95 sec) between hits
 
     private static final double removeCooldown = 2000000000.0; //Enemy will be removed after Cooldown of 2 bilion nanosec (2sec) (after Health <= 0)
 
     //----- Drop item -----
-    private static final String[] dropItems = new String[] {"greenPotion", "redPotion", "dagger", null, null};   //Array that contins the items that will be dropped if this enemy dies
-    private static final int[] dropAmount = new int[] {3, 2, 1, 0, 0};                                 //Array that contins the amount of items that will be dropped if this enemy dies
+    private static final String[] dropItems = new String[] {"redPotion", "bluePotion", "longsword", null, null};   //Array that contins the items that will be dropped if this enemy dies
+    private static final int[] dropAmount = new int[] {5, 3, 1, 0, 0};                                 //Array that contins the amount of items that will be dropped if this enemy dies
     private static final int[] probability = new int[] {50, 20, 10, 0, 0};                             //Array that contins the probability of dropping that item
 
     //----- Reference -----
@@ -47,28 +47,28 @@ public class Wolfman extends Enemy
     private EnemyHealthBar bar;                   //Reference to the HealthBar of the enemy
 
     //----- Layer images -----    
-    private static final GreenfootImage wolfman = new GreenfootImage("enemys/wolfman.png");
+    private static final GreenfootImage darkKnight = new GreenfootImage("enemys/darkKnight.png");
     
     /**
-     * Wolfman Constructor: Sets the speed, creates the spriteSheet of the character, creates the animations and sets variables.
+     * DarkKnight Constructor: Sets the speed, creates the spriteSheet of the character, creates the animations and sets variables.
      * 
      * @param 'newPlayer': Reference to the player
      * @param 'newBar': Reference to the health bar of the enemy
      * @param 'startDirection': The direction in which the character will face at the start (0 = Right, 1 = Left, 2 = Up, 3 = Down)
      */ 
-    public Wolfman(Player newPlayer, EnemyHealthBar newBar, int startDirection)
+    public DarkKnight(Player newPlayer, EnemyHealthBar newBar, int startDirection)
     {
         //Set the speed
         changeSpeed(walkSpeed, animationSpeed);
 
         //Create spriteSheet
-        setLayer(0, wolfman);
+        setLayer(0, darkKnight);
 
         //----- BUILD ANIMATIONS -----
         //Build walking animation (primary animation)                
         animations.put("move", Animation.createAnimation(getSpriteSheet(), 9, 4, 9, 64, 64));
         //Build a swing animation for attacking
-        animations.put("attack", Animation.createAnimation(getSpriteSheet(), 13, 4, 6, 64, 64));
+        animations.put("attack", Animation.createAnimation(getSpriteSheet(), 8, 4, 6, 192, 192));
         //Build dying animation
         animations.put("die", Animation.createAnimation(getSpriteSheet(), 21, 1, 6, 64, 64));
 

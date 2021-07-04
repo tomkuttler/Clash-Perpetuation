@@ -39,11 +39,6 @@ public class WorldMap8 extends World
         //Add Player
         addObject(p, 860, 125);
         
-        //Spawn Enemys and enemy health bars 
-        EnemyHealthBar bar1 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
-        addObject(bar1, 0, 0);
-        addObject(new Cyclope(p, bar1, 3), 100, 100);
-        
         //Add Inventory and Hotbar
         addObject(iUI, 848, 464);
         addObject(inventory, 0, 0);
