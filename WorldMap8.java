@@ -46,6 +46,11 @@ public class WorldMap8 extends World
         addObject(hH, 632, 897);
         addObject(hotbar, 0, 0);
         
+        //Spawn Collider
+        addObject(new Collider(641, 29, 0, 0), 863, 186);
+        addObject(new Collider(43, 175, 0, 0), 682, 88);
+        addObject(new Collider(43, 175, 0, 0), 1042, 88);
+        
         //Spawn Tutorial manager, window and text
         TutorialText text = new TutorialText();
         TutorialWindow window = new TutorialWindow(text);

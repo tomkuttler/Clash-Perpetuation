@@ -60,7 +60,7 @@ public class WorldMap9 extends World
         
         EnemyHealthBar bar4 = new EnemyHealthBar(Reptile.maxHealth, Reptile.maxHealth);
         addObject(bar4, 0, 0);
-        addObject(new Reptile(p, bar4, 0), 679, 436);
+        addObject(new Reptile(p, bar4, 0), 733, 436);
         
         //Add Inventory and Hotbar
         addObject(iUI, 848, 464);
@@ -68,6 +68,33 @@ public class WorldMap9 extends World
         addObject(hUI, 848, 882);
         addObject(hH, 632, 897);
         addObject(hotbar, 0, 0);
+        
+        //Spawn Collider
+        addObject(new Collider(116, 89, 0, 0), 611, 812);
+        addObject(new Collider(125, 125, 0, 0), 1151, 764);
+        addObject(new Collider(125, 125, 0, 0), 1567, 652);
+        addObject(new Collider(125, 125, 0, 0), 1476, 501);
+        addObject(new Collider(125, 125, 0, 0), 1219, 443);
+        addObject(new Collider(125, 125, 0, 0), 1618, 326);
+        addObject(new Collider(125, 125, 0, 0), 1315, 636);
+        addObject(new Collider(125, 125, 0, 0), 195, 749);
+        addObject(new Collider(125, 125, 0, 0), 129, 322);
+        addObject(new Collider(125, 125, 0, 0), 370, 199);
+        addObject(new Collider(125, 125, 0, 0), 206, 117);
+        addObject(new Collider(64, 64, 0, 0), 1120, 638);
+        addObject(new Collider(64, 64, 0, 0), 1441, 633);
+        addObject(new Collider(64, 64, 0, 0), 1344, 802);
+        addObject(new Collider(64, 64, 0, 0), 1472, 827);
+        addObject(new Collider(64, 64, 0, 0), 1407, 374);
+        addObject(new Collider(64, 64, 0, 0), 447, 283);
+        addObject(new Collider(64, 64, 0, 0), 96, 154);
+        addObject(new Collider(64, 64, 0, 0), 32, 60);
+        addObject(new Collider(645, 328, 0, 0), 1374, 161);
+        addObject(new Collider(791, 332, 0, 0), 602, 165);
+        addObject(new Collider(58, 16, 0, 0), 1021, 263);
+        addObject(new Collider(609, 147, 0, 0), 394, 431);
+        addObject(new Collider(609, 158, 0, 0), 399, 664);
+        addObject(new Collider(32, 218, 0, 0), 111, 560);
         
         //Spawn Tutorial manager, window and text
         TutorialText text = new TutorialText();

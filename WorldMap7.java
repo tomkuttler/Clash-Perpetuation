@@ -77,7 +77,25 @@ public class WorldMap7 extends World
         addObject(hotbar, 0, 0);
         
         //Spawn Collider
-        //addObject(new Collider(, , 0, 0), 100, 100);
+        addObject(new Collider(1696, 97, 0, 0), 848, 881);
+        addObject(new Collider(829, 193, 0, 0), 413, 95);
+        addObject(new Collider(829, 193, 0, 0), 1281, 95);
+        addObject(new Collider(97, 928, 0, 0), 48, 465);
+        addObject(new Collider(97, 928, 0, 0), 1649, 465);
+        addObject(new Collider(97, 640, 0, 0), 690, 321);
+        addObject(new Collider(97, 640, 0, 0), 1022, 321);
+        addObject(new Collider(225, 192, 0, 0), 1167, 481);
+        addObject(new Collider(225, 192, 0, 0), 1490, 481);
+        addObject(new Collider(96, 96, 0, 0), 688, 785);
+        addObject(new Collider(96, 96, 0, 0), 1006, 785);
+        addObject(new Collider(145, 68, 0, 0), 1328, 688);
+        addObject(new Collider(48, 39, 0, 0), 1504, 768);
+        addObject(new Collider(95, 50, 0, 0), 1199, 279);
+        addObject(new Collider(61, 49, 0, 0), 1538, 287);
+        addObject(new Collider(64, 64, 0, 0), 192, 722);
+        addObject(new Collider(126, 76, 0, 0), 511, 518);
+        addObject(new Collider(64, 112, 0, 0), 192, 293);
+        addObject(new Collider(182, 153, 0, 0), 484, 336);        
         
         //Spawn Tutorial manager, window and text
         TutorialText text = new TutorialText();

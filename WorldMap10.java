@@ -73,6 +73,54 @@ public class WorldMap10 extends World
         addObject(hH, 632, 897);
         addObject(hotbar, 0, 0);
         
+        //Spawn Collider
+        addObject(new Collider(400, 10, 0, 0), 1367, 894);
+        addObject(new Collider(400, 10, 0, 0), 636, 84);
+        addObject(new Collider(400, 10, 0, 0), 1093, 83);
+        addObject(new Collider(400, 10, 0, 0), 859, 41);
+        addObject(new Collider(10, 400, 0, 0), 1496, 316);
+        addObject(new Collider(500, 10, 0, 0), 964, 443);
+        addObject(new Collider(800, 10, 0, 0), 1066, 542);
+        addObject(new Collider(10, 300, 0, 0), 1569, 315);
+        addObject(new Collider(22, 122, 0, 0), 675, 495);
+        addObject(new Collider(112, 45, 0, 0), 1175, 904);
+        
+        Collider c1 = new Collider(400, 10, 0, 0);
+        addObject(c1, 1559, 736);
+        c1.setRotation(135);
+        
+        Collider c2 = new Collider(400, 10, 0, 0);
+        addObject(c2, 376, 857);
+        c2.setRotation(15);
+        
+        Collider c3 = new Collider(400, 10, 0, 0);
+        addObject(c3, 132, 592);
+        c3.setRotation(80);
+        
+        Collider c4 = new Collider(400, 10, 0, 0);
+        addObject(c4, 156, 314);
+        c4.setRotation(120);
+        
+        Collider c5 = new Collider(400, 10, 0, 0);
+        addObject(c5, 443, 159);
+        c5.setRotation(160);
+        
+        Collider c6 = new Collider(400, 10, 0, 0);
+        addObject(c6, 1296, 172);
+        c6.setRotation(27);
+        
+        Collider c7 = new Collider(400, 10, 0, 0);
+        addObject(c7, 1313, 404);
+        c7.setRotation(170);
+        
+        Collider c8 = new Collider(400, 10, 0, 0);
+        addObject(c8, 1415, 484);
+        c8.setRotation(160);
+        
+        Collider c9 = new Collider(400, 10, 0, 0);
+        addObject(c9, 1422, 109);
+        c9.setRotation(30);
+        
         //Spawn Tutorial manager, window and text
         TutorialText text = new TutorialText();
         TutorialWindow window = new TutorialWindow(text);

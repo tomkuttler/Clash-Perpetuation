@@ -61,6 +61,29 @@ public class WorldMap11 extends World
         addObject(hH, 632, 897);
         addObject(hotbar, 0, 0);
         
+        //Spawn Collider
+        addObject(new Collider(160, 151, 0, 0), 709, 852);
+        addObject(new Collider(150, 150, 0, 0), 991, 855);
+        addObject(new Collider(130, 137, 0, 0), 1612, 493);
+        addObject(new Collider(135, 137, 0, 0), 89, 490);
+        addObject(new Collider(554, 128, 0, 0), 863, 148);
+        
+        Collider c1 = new Collider(550, 10, 0, 0);
+        addObject(c1, 1308, 676);
+        c1.setRotation(155);
+        
+        Collider c2 = new Collider(550, 10, 0, 0);
+        addObject(c2, 366, 313);
+        c2.setRotation(155);
+        
+        Collider c3 = new Collider(550, 10, 0, 0);
+        addObject(c3, 390, 683);
+        c3.setRotation(25);
+        
+        Collider c4 = new Collider(550, 10, 0, 0);
+        addObject(c4, 1356, 311);
+        c4.setRotation(25);
+        
         //Spawn Tutorial manager, window and text
         TutorialText text = new TutorialText();
         TutorialWindow window = new TutorialWindow(text);

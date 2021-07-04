@@ -97,7 +97,7 @@ public class WorldMap4 extends World
         addObject(new Collider(60, 34, 0, 0), 385, 782);
         addObject(new Collider(60, 34, 0, 0), 242, 717);
         addObject(new Collider(95, 28, 0, 0), 690, 820);
-        addObject(new Collider(100, 80, 0, 0), 463, 367);        
+        addObject(new Collider(100, 80, 0, 0), 463, 572);        
         
         Collider c1 = new Collider(800, 10, 0, 0);
         addObject(c1, 1435, 308);
