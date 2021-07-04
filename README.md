@@ -1,17 +1,26 @@
 #Clash Perpetuation
                                                                                                                                              
 PROJECT TITLE: Clash Perpetuation
+
 PURPOSE OF PROJECT: Informatik Project 10n
+
 VERSION or DATE: 1.0.0
+
 HOW TO START THIS PROJECT: Open project.greenfoot
+
 AUTHORS: Tom Kuttler, Robert Cockshott
+
 USER INSTRUCTIONS: Start the game and follow the tutorial.
 
 ------------------------------------------------------------------------
 Arbeitsteilung:
+
 Map design: Robert
+
 Win/Lose Screen: Robert
+
 Start Screen: Robert, Tom
+
 Rest: Robert, Tom
 
 ------------------------------------------------------------------------
