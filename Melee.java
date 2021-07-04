@@ -38,9 +38,7 @@ public class Melee extends Weapons
     private static final GreenfootImage dragonSpearMetall = new GreenfootImage("objects/weapons/dragonSpearMetallIcon.png");
     private static final GreenfootImage spear = new GreenfootImage("objects/weapons/spearIcon.png");
     private static final GreenfootImage spearMetall = new GreenfootImage("objects/weapons/spearMetallIcon.png");    
-    private static final GreenfootImage staffOrange = new GreenfootImage("objects/weapons/staffOrangeIcon.png");    
-    private static final GreenfootImage trident = new GreenfootImage("objects/weapons/tridentIcon.png");
-    private static final GreenfootImage tridentMetall = new GreenfootImage("objects/weapons/tridentMetallIcon.png");
+    private static final GreenfootImage staffOrange = new GreenfootImage("objects/weapons/staffOrangeIcon.png");        
     private static final GreenfootImage tridentOrange = new GreenfootImage("objects/weapons/tridentOrangeIcon.png");
     private static final GreenfootImage tridentYellow = new GreenfootImage("objects/weapons/tridentYellowIcon.png");
     
@@ -152,17 +150,7 @@ public class Melee extends Weapons
         {
             setImage(staffOrange);
             this.name = name;
-        }
-        else if(name == "trident")
-        {
-            setImage(trident);
-            this.name = name;
-        }
-        else if(name == "tridentMetall")
-        {
-            setImage(tridentMetall);
-            this.name = name;
-        }
+        }        
         else if(name == "tridentOrange")
         {
             setImage(tridentOrange);

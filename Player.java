@@ -75,9 +75,7 @@ public class Player extends AnimatedCharacter
     private static final GreenfootImage dragonSpearMetall = new GreenfootImage("weapons/melee/oversize/thrust/dragonSpearMetall.png");
     private static final GreenfootImage spear = new GreenfootImage("weapons/melee/oversize/thrust/spear.png");
     private static final GreenfootImage spearMetall = new GreenfootImage("weapons/melee/oversize/thrust/spearMetall.png");    
-    private static final GreenfootImage staffOrange = new GreenfootImage("weapons/melee/oversize/thrust/staffOrange.png");    
-    private static final GreenfootImage trident = new GreenfootImage("weapons/melee/oversize/thrust/trident.png");
-    private static final GreenfootImage tridentMetall = new GreenfootImage("weapons/melee/oversize/thrust/tridentMetall.png");
+    private static final GreenfootImage staffOrange = new GreenfootImage("weapons/melee/oversize/thrust/staffOrange.png");        
     private static final GreenfootImage tridentOrange = new GreenfootImage("weapons/melee/oversize/thrust/tridentOrange.png");
     private static final GreenfootImage tridentYellow = new GreenfootImage("weapons/melee/oversize/thrust/tridentYellow.png");    
 
@@ -330,17 +328,7 @@ public class Player extends AnimatedCharacter
             {
                 setLayer(1, staffOrange);
                 setLayer(2, null);
-            }            
-            else if(currentSlotItem == "trident")
-            {
-                setLayer(1, trident);
-                setLayer(2, null);
-            }
-            else if(currentSlotItem == "tridentMetall")
-            {
-                setLayer(1, tridentMetall);
-                setLayer(2, null);
-            }
+            }                        
             else if(currentSlotItem == "tridentOrange")
             {
                 setLayer(1, tridentOrange);

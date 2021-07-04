@@ -1,7 +1,7 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class ArrowInventory here.
+ * This is the arrow item that can be picked up and NOT the flying arrow.
  * 
  * @author (your name) 
  * @version (a version number or a date)
@@ -11,7 +11,7 @@ public class ArrowItem extends Weapons
     private String name;
     private int amount;
     
-    //Object pictures
+    //----- Object image -----
     private static final GreenfootImage arrow1 = new GreenfootImage("objects/arrows/arrow1.png");
     
     public ArrowItem(String name, int amount)

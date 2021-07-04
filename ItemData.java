@@ -145,21 +145,7 @@ public class ItemData
     private static final double staffOrangeUseCooldown = 750000000.0;
     private static final int staffOrangeMaxStackSize = 1;
     private static final GreenfootImage staffOrangeIcon = new GreenfootImage("objects/weapons/staffOrangeIcon.png");        
-    
-    //----- trident -----
-    private static final String tridentItemType = "meleeWeapon";
-    private static final int tridentDamage = 30;
-    private static final double tridentUseCooldown = 750000000.0;
-    private static final int tridentMaxStackSize = 1;
-    private static final GreenfootImage tridentIcon = new GreenfootImage("objects/weapons/tridentIcon.png");
-    
-    //----- tridentMetall -----
-    private static final String tridentMetallItemType = "meleeWeapon";
-    private static final int tridentMetallDamage = 30;
-    private static final double tridentMetallUseCooldown = 750000000.0;
-    private static final int tridentMetallMaxStackSize = 1;
-    private static final GreenfootImage tridentMetallIcon = new GreenfootImage("objects/weapons/tridentMetallIcon.png");
-    
+            
     //----- tridentOrange -----
     private static final String tridentOrangeItemType = "meleeWeapon";
     private static final int tridentOrangeDamage = 30;
@@ -310,15 +296,7 @@ public class ItemData
         else if(item == "staffOrange")
         {
             return staffOrangeItemType;
-        }
-        else if(item == "trident")
-        {
-            return tridentItemType;
-        }
-        else if(item == "tridentMetall")
-        {
-            return tridentMetallItemType;
-        }
+        }        
         else if(item == "tridentOrange")
         {
             return tridentOrangeItemType;
@@ -445,15 +423,7 @@ public class ItemData
         else if(item == "staffOrange")
         {
             return staffOrangeDamage;
-        }        
-        else if(item == "trident")
-        {
-            return tridentDamage;
-        }
-        else if(item == "tridentMetall")
-        {
-            return tridentMetallDamage;
-        }
+        }                
         else if(item == "tridentOrange")
         {
             return tridentOrangeDamage;
@@ -556,15 +526,7 @@ public class ItemData
         else if(item == "staffOrange")
         {
             return staffOrangeUseCooldown;
-        }        
-        else if(item == "trident")
-        {
-            return tridentUseCooldown;
-        }
-        else if(item == "tridentMetall")
-        {
-            return tridentMetallUseCooldown;
-        }
+        }                
         else if(item == "tridentOrange")
         {
             return tridentOrangeUseCooldown;
@@ -687,15 +649,7 @@ public class ItemData
         else if(item == "staffOrange")
         {
             return staffOrangeMaxStackSize;
-        }        
-        else if(item == "trident")
-        {
-            return tridentMaxStackSize;
-        }
-        else if(item == "tridentMetall")
-        {
-            return tridentMetallMaxStackSize;
-        }
+        }                
         else if(item == "tridentOrange")
         {
             return tridentOrangeMaxStackSize;
@@ -895,15 +849,7 @@ public class ItemData
         else if(item == "staffOrange")
         {
             return staffOrangeIcon;
-        }        
-        else if(item == "trident")
-        {
-            return tridentIcon;
-        }
-        else if(item == "tridentMetall")
-        {
-            return tridentMetallIcon;
-        }
+        }                
         else if(item == "tridentOrange")
         {
             return tridentOrangeIcon;
@@ -1030,15 +976,7 @@ public class ItemData
         else if(item == "staffOrange")
         {
             hotbar.getWorld().addObject(new Melee("staffOrange"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
-        }        
-        else if(item == "trident")
-        {
-            hotbar.getWorld().addObject(new Melee("trident"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
-        }
-        else if(item == "tridentMetall")
-        {
-            hotbar.getWorld().addObject(new Melee("tridentMetall"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
-        }
+        }                
         else if(item == "tridentOrange")
         {
             hotbar.getWorld().addObject(new Melee("tridentOrange"), hotbar.getWorld().getObjects(Player.class).get(0).getX(), hotbar.getWorld().getObjects(Player.class).get(0).getY() + 50);
@@ -1161,15 +1099,7 @@ public class ItemData
         else if(item == "staffOrange")
         {
             enemy.getWorld().addObject(new Melee("staffOrange"), enemy.getX(), enemy.getY());
-        }        
-        else if(item == "trident")
-        {
-            enemy.getWorld().addObject(new Melee("trident"), enemy.getX(), enemy.getY());
-        }
-        else if(item == "tridentMetall")
-        {
-            enemy.getWorld().addObject(new Melee("tridentMetall"), enemy.getX(), enemy.getY());
-        }
+        }                
         else if(item == "tridentOrange")
         {
             enemy.getWorld().addObject(new Melee("tridentOrange"), enemy.getX(), enemy.getY());

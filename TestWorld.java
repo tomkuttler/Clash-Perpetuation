@@ -65,10 +65,8 @@ public class TestWorld extends World
         addObject(new Melee("spear"), 600, 500);
         addObject(new Melee("spearMetall"), 700, 500);        
         addObject(new Melee("staffOrange"), 800, 500);        
-        addObject(new Melee("trident"), 900, 500);
-        addObject(new Melee("tridentMetall"), 1000, 500);
-        addObject(new Melee("tridentOrange"), 1100, 500);
-        addObject(new Melee("tridentYellow"), 1200, 500);
+        addObject(new Melee("tridentOrange"), 900, 500);
+        addObject(new Melee("tridentYellow"), 1000, 500);
         
         addObject(new Bow("bow1"), 100, 600);
         
