@@ -64,14 +64,7 @@ public class WorldMap10 extends World
         
         EnemyHealthBar bar5 = new EnemyHealthBar(Skeleton.maxHealth, Skeleton.maxHealth);
         addObject(bar5, 0, 0);
-        addObject(new Skeleton(p, bar5, 3), 380, 250);
-        
-        //Add Inventory and Hotbar
-        addObject(iUI, 848, 464);
-        addObject(inventory, 0, 0);
-        addObject(hUI, 848, 882);
-        addObject(hH, 632, 897);
-        addObject(hotbar, 0, 0);
+        addObject(new Skeleton(p, bar5, 3), 380, 250);        
         
         //Spawn Collider
         addObject(new Collider(400, 10, 0, 0), 1367, 894);
@@ -120,6 +113,13 @@ public class WorldMap10 extends World
         Collider c9 = new Collider(400, 10, 0, 0);
         addObject(c9, 1422, 109);
         c9.setRotation(30);
+        
+        //Add Inventory and Hotbar
+        addObject(iUI, 848, 464);
+        addObject(inventory, 0, 0);
+        addObject(hUI, 848, 882);
+        addObject(hH, 632, 897);
+        addObject(hotbar, 0, 0);
         
         //Spawn Tutorial manager, window and text
         TutorialText text = new TutorialText();

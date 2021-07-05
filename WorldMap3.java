@@ -65,14 +65,7 @@ public class WorldMap3 extends World
         
         EnemyHealthBar bar5 = new EnemyHealthBar(Cyclope.maxHealth, Cyclope.maxHealth);
         addObject(bar5, 0, 0);
-        addObject(new Cyclope(p, bar5, 3), 1453, 754);
-        
-        //Add Inventory and Hotbar
-        addObject(iUI, 848, 464);
-        addObject(inventory, 0, 0);
-        addObject(hUI, 848, 882);
-        addObject(hH, 632, 897);
-        addObject(hotbar, 0, 0);
+        addObject(new Cyclope(p, bar5, 3), 1453, 754);        
         
         //Spawn Collider
         addObject(new Collider(350, 35, 0, 0), 687, 732);
@@ -109,6 +102,13 @@ public class WorldMap3 extends World
         Collider c8 = new Collider(800, 10, 0, 0);
         addObject(c8, 147, 300);
         c8.setRotation(-50);
+        
+        //Add Inventory and Hotbar
+        addObject(iUI, 848, 464);
+        addObject(inventory, 0, 0);
+        addObject(hUI, 848, 882);
+        addObject(hH, 632, 897);
+        addObject(hotbar, 0, 0);
         
         //Spawn Tutorial manager, window and text
         TutorialText text = new TutorialText();

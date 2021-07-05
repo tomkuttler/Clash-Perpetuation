@@ -67,14 +67,7 @@ public class WorldMap7 extends World
         
         EnemyHealthBar bar5 = new EnemyHealthBar(Legionnaire.maxHealth, Legionnaire.maxHealth);
         addObject(bar5, 0, 0);
-        addObject(new Legionnaire(p, bar5, 3), 1461, 290);
-        
-        //Add Inventory and Hotbar
-        addObject(iUI, 848, 464);
-        addObject(inventory, 0, 0);
-        addObject(hUI, 848, 882);
-        addObject(hH, 632, 897);
-        addObject(hotbar, 0, 0);
+        addObject(new Legionnaire(p, bar5, 3), 1461, 290);        
         
         //Spawn Collider
         addObject(new Collider(1696, 97, 0, 0), 848, 881);
@@ -96,6 +89,13 @@ public class WorldMap7 extends World
         addObject(new Collider(126, 76, 0, 0), 511, 518);
         addObject(new Collider(64, 112, 0, 0), 192, 293);
         addObject(new Collider(182, 153, 0, 0), 484, 336);        
+        
+        //Add Inventory and Hotbar
+        addObject(iUI, 848, 464);
+        addObject(inventory, 0, 0);
+        addObject(hUI, 848, 882);
+        addObject(hH, 632, 897);
+        addObject(hotbar, 0, 0);
         
         //Spawn Tutorial manager, window and text
         TutorialText text = new TutorialText();

@@ -61,14 +61,7 @@ public class WorldMap2 extends World
         
         EnemyHealthBar bar4 = new EnemyHealthBar(Wolfman.maxHealth, Wolfman.maxHealth);
         addObject(bar4, 0, 0);
-        addObject(new Wolfman(p, bar4, 1), 1472, 202);
-        
-        //Add Inventory and Hotbar
-        addObject(iUI, 848, 464);
-        addObject(inventory, 0, 0);
-        addObject(hUI, 848, 882);
-        addObject(hH, 632, 897);
-        addObject(hotbar, 0, 0);
+        addObject(new Wolfman(p, bar4, 1), 1472, 202);        
         
         //Spawn Collider
         addObject(new Collider(220, 30, 0, 0), 110, 847);
@@ -110,6 +103,13 @@ public class WorldMap2 extends World
         addObject(new Collider(70, 25, 0, 0), 800, 688);
         addObject(new Collider(70, 25, 0, 0), 815, 614);
         addObject(new Collider(70, 25, 0, 0), 687, 652);        
+        
+        //Add Inventory and Hotbar
+        addObject(iUI, 848, 464);
+        addObject(inventory, 0, 0);
+        addObject(hUI, 848, 882);
+        addObject(hH, 632, 897);
+        addObject(hotbar, 0, 0);
         
         //Spawn Tutorial manager, window and text
         TutorialText text = new TutorialText();

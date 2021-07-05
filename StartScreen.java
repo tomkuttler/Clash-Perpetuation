@@ -21,5 +21,7 @@ public class StartScreen extends World
         setBackground(startScreen);
         
         addObject(new StartScreenText(), 696, 580);
+        
+        Greenfoot.start();
     }
 }

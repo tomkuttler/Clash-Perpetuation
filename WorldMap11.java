@@ -52,14 +52,7 @@ public class WorldMap11 extends World
         
         EnemyHealthBar bar3 = new EnemyHealthBar(Skeleton.maxHealth, Skeleton.maxHealth);
         addObject(bar3, 0, 0);
-        addObject(new Skeleton(p, bar3, 3), 948, 347);
-        
-        //Add Inventory and Hotbar
-        addObject(iUI, 848, 464);
-        addObject(inventory, 0, 0);
-        addObject(hUI, 848, 882);
-        addObject(hH, 632, 897);
-        addObject(hotbar, 0, 0);
+        addObject(new Skeleton(p, bar3, 3), 948, 347);        
         
         //Spawn Collider
         addObject(new Collider(160, 151, 0, 0), 709, 852);
@@ -83,6 +76,13 @@ public class WorldMap11 extends World
         Collider c4 = new Collider(550, 10, 0, 0);
         addObject(c4, 1356, 311);
         c4.setRotation(25);
+        
+        //Add Inventory and Hotbar
+        addObject(iUI, 848, 464);
+        addObject(inventory, 0, 0);
+        addObject(hUI, 848, 882);
+        addObject(hH, 632, 897);
+        addObject(hotbar, 0, 0);
         
         //Spawn Tutorial manager, window and text
         TutorialText text = new TutorialText();

@@ -48,14 +48,7 @@ public class WorldMap1 extends World
         //Spawn Enemys and enemy health bars 
         EnemyHealthBar bar1 = new EnemyHealthBar(Wolfman.maxHealth, Wolfman.maxHealth);
         addObject(bar1, 0, 0);
-        addObject(new Wolfman(p, bar1, 3), 1348, 646);
-        
-        //Spawn Inventory and Hotbar
-        addObject(iUI, 848, 464);
-        addObject(inventory, 0, 0);
-        addObject(hUI, 848, 882);
-        addObject(hH, 632, 897);
-        addObject(hotbar, 0, 0);
+        addObject(new Wolfman(p, bar1, 3), 1348, 646);                
         
         //Spawn Collider
         addObject(new Collider(200, 120, 0, 0), 850, 290);
@@ -87,6 +80,13 @@ public class WorldMap1 extends World
         Collider c1 = new Collider(400, 10, 0, 0);
         addObject(c1, 1082, 412);
         c1.setRotation(40);
+        
+        //Spawn Inventory and Hotbar
+        addObject(iUI, 848, 464);
+        addObject(inventory, 0, 0);
+        addObject(hUI, 848, 882);
+        addObject(hH, 632, 897);
+        addObject(hotbar, 0, 0);
         
         //Spawn Tutorial manager, window and text
         TutorialText text = new TutorialText();

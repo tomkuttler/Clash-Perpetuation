@@ -60,14 +60,7 @@ public class WorldMap5 extends World
         
         EnemyHealthBar bar4 = new EnemyHealthBar(Bandit.maxHealth, Bandit.maxHealth);
         addObject(bar4, 0, 0);
-        addObject(new Bandit(p, bar4, 3), 1119, 508);
-        
-        //Add Inventory and Hotbar
-        addObject(iUI, 848, 464);
-        addObject(inventory, 0, 0);
-        addObject(hUI, 848, 882);
-        addObject(hH, 632, 897);
-        addObject(hotbar, 0, 0);
+        addObject(new Bandit(p, bar4, 3), 1119, 508);        
         
         //Spawn Collider
         addObject(new Collider(40, 133, 0, 0), 1135, 620);
@@ -87,6 +80,13 @@ public class WorldMap5 extends World
         Collider c2 = new Collider(800, 10, 0, 0);
         addObject(c2, 1554, 719);
         c2.setRotation(330);
+        
+        //Add Inventory and Hotbar
+        addObject(iUI, 848, 464);
+        addObject(inventory, 0, 0);
+        addObject(hUI, 848, 882);
+        addObject(hH, 632, 897);
+        addObject(hotbar, 0, 0);
         
         //Spawn Tutorial manager, window and text
         TutorialText text = new TutorialText();

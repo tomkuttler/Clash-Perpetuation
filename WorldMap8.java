@@ -37,7 +37,12 @@ public class WorldMap8 extends World
         addObject(new HealthBarUI(), 150, 50);
         
         //Add Player
-        addObject(p, 860, 125);
+        addObject(p, 860, 125);        
+        
+        //Spawn Collider
+        addObject(new Collider(641, 29, 0, 0), 863, 186);
+        addObject(new Collider(43, 175, 0, 0), 682, 88);
+        addObject(new Collider(43, 175, 0, 0), 1042, 88);
         
         //Add Inventory and Hotbar
         addObject(iUI, 848, 464);
@@ -45,11 +50,6 @@ public class WorldMap8 extends World
         addObject(hUI, 848, 882);
         addObject(hH, 632, 897);
         addObject(hotbar, 0, 0);
-        
-        //Spawn Collider
-        addObject(new Collider(641, 29, 0, 0), 863, 186);
-        addObject(new Collider(43, 175, 0, 0), 682, 88);
-        addObject(new Collider(43, 175, 0, 0), 1042, 88);
         
         //Spawn Tutorial manager, window and text
         TutorialText text = new TutorialText();

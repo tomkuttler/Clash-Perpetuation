@@ -50,14 +50,7 @@ public class WorldMap6 extends World
         
         EnemyHealthBar bar2 = new EnemyHealthBar(DarkKnight.maxHealth, DarkKnight.maxHealth);
         addObject(bar2, 0, 0);
-        addObject(new DarkKnight(p, bar2, 3), 960, 637);
-        
-        //Add Inventory and Hotbar
-        addObject(iUI, 848, 464);
-        addObject(inventory, 0, 0);
-        addObject(hUI, 848, 882);
-        addObject(hH, 632, 897);
-        addObject(hotbar, 0, 0);
+        addObject(new DarkKnight(p, bar2, 3), 960, 637);        
         
         //Spawn Collider
         addObject(new Collider(129, 172, 0, 0), 670, 810);
@@ -67,6 +60,13 @@ public class WorldMap6 extends World
         addObject(new Collider(319, 81, 0, 0), 864, 482);
         addObject(new Collider(131, 95, 0, 0), 770, 563);
         addObject(new Collider(131, 95, 0, 0), 962, 563);        
+        
+        //Add Inventory and Hotbar
+        addObject(iUI, 848, 464);
+        addObject(inventory, 0, 0);
+        addObject(hUI, 848, 882);
+        addObject(hH, 632, 897);
+        addObject(hotbar, 0, 0);
         
         //Spawn Tutorial manager, window and text
         TutorialText text = new TutorialText();

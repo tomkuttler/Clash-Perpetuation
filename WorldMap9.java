@@ -61,14 +61,7 @@ public class WorldMap9 extends World
         EnemyHealthBar bar4 = new EnemyHealthBar(Reptile.maxHealth, Reptile.maxHealth);
         addObject(bar4, 0, 0);
         addObject(new Reptile(p, bar4, 0), 733, 436);
-        
-        //Add Inventory and Hotbar
-        addObject(iUI, 848, 464);
-        addObject(inventory, 0, 0);
-        addObject(hUI, 848, 882);
-        addObject(hH, 632, 897);
-        addObject(hotbar, 0, 0);
-        
+                
         //Spawn Collider
         addObject(new Collider(116, 89, 0, 0), 611, 812);
         addObject(new Collider(125, 125, 0, 0), 1151, 764);
@@ -95,6 +88,13 @@ public class WorldMap9 extends World
         addObject(new Collider(609, 147, 0, 0), 394, 431);
         addObject(new Collider(609, 158, 0, 0), 399, 664);
         addObject(new Collider(32, 218, 0, 0), 111, 560);
+        
+        //Add Inventory and Hotbar
+        addObject(iUI, 848, 464);
+        addObject(inventory, 0, 0);
+        addObject(hUI, 848, 882);
+        addObject(hH, 632, 897);
+        addObject(hotbar, 0, 0);
         
         //Spawn Tutorial manager, window and text
         TutorialText text = new TutorialText();
