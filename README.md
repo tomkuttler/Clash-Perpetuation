@@ -31,7 +31,7 @@ To install and play the game, follow these steps:
 1. Clone the repository
 2. Open Greenfoot
 3. Click on Open Project and navigate to the cloned repository directory
-4. Select the project.greenfoot file and click Open
+4. Select the `Clash Perpetuation` folder and click Open
 5. Press enter to start the game
 
 > [!WARNING]
@@ -43,14 +43,14 @@ To install and play the game, follow these steps:
 - Use WASD to move the character
 - Click to attack with a melee weapon or to shoot an arrow with a ranged weapon
 - Defeat all enemies to advance to the next map
-- Collect potions to heal your character
+- Open chests and collect new weapons and potions to heal your character
 - Defeat the boss in the last map to win the game
 
 ## Game Features
 
 - Top-down view
 - Multiple maps to explore
-- Upgradable weapons with different stats
+- Upgradable weapons with different stats (see [stats.md](https://github.com/tomkuttler/Clash-Perpetuation/blob/main/stats.md))
 - Challenging enemy AI
 - Simple and intuitive controls
 
