@@ -2,21 +2,27 @@
 
 # Clash Perpetuation
 
-![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white)
+<a href="https://www.java.com">
+    <img alt="Java" src="https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=java&logoColor=white" /></a>
+<br>
+<br>
 
 Clash Perpetuation is a top-down RPG game created using Java programming language and Greenfoot game engine. It was developed as a school project for 10th grade computer science. The objective of the game is to control a golden knight character who must defeat all enemies to advance to different maps and win the game.
 
 </div>
 
-![screenshot](https://github.com/tomkuttler/Clash-Perpetuation/blob/main/Clash%20Perpetuation/images/worlds/worldMap1.png)
+![demo](https://github.com/tomkuttler/Clash-Perpetuation/blob/main/demo.gif)
 
-## Table of contents
+<details>
+<summary>Table of Contents</summary>
 
 - [Installation](#installation)
 - [How to play](#how-to-play)
 - [Game Features](#game-features)
+- [Credits](#credits)
 - [Contributing](#contributing)
 - [License](#license)
+</details>
 
 ## Installation
 
@@ -27,6 +33,10 @@ To install and play the game, follow these steps:
 3. Click on Open Project and navigate to the cloned repository directory
 4. Select the project.greenfoot file and click Open
 5. Press enter to start the game
+
+> [!WARNING]
+> The size of the maps fits to a fullscreen window of Greenfoot on Windows 10.
+> If you are using Windows 11 and the maps are cut off because of the larger Taskbar, activate this setting: Automatically hide the taskbar
 
 ## How to Play
 
@@ -43,6 +53,17 @@ To install and play the game, follow these steps:
 - Upgradable weapons with different stats
 - Challenging enemy AI
 - Simple and intuitive controls
+
+## Credits
+
+This game uses several assets that were created by various artists. I would like to give full credit to the creators of these resources:
+
+The character sprites were generated using the [Universal LPC Spritesheet Generator](https://sanderfrenken.github.io/Universal-LPC-Spritesheet-Character-Generator) created by Sander Frenken. The generator is based on the assets from the [Liberated Pixel Cup](https://lpc.opengameart.org), which are available on [OpenGameArt.org](OpenGameArt.org).
+
+The Liberated Pixel Cup assets are also used for the maps, objects and items.
+
+Please check out these resources if you're interested in creating your own game.
+A complete list of is included in [README.txt](https://github.com/tomkuttler/Clash-Perpetuation/blob/main/Clash%20Perpetuation/README.txt).
 
 ## Contributing
 
