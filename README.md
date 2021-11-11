@@ -28,7 +28,7 @@ Clash Perpetuation is a top-down RPG game created using Java programming languag
 
 To install and play the game, follow these steps:
 
-1. Clone the repository: `git clone https://github.com/tomkuttler/Clash-Perpetuation`
+1. Clone the repository
 2. Open Greenfoot
 3. Click on Open Project and navigate to the cloned repository directory
 4. Select the project.greenfoot file and click Open
