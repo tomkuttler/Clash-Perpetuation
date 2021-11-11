@@ -9,9 +9,9 @@
 
 Clash Perpetuation is a top-down RPG game created using Java programming language and Greenfoot game engine. It was developed as a school project for 10th grade computer science. The objective of the game is to control a golden knight character who must defeat all enemies to advance to different maps and win the game.
 
-</div>
-
 ![demo](https://github.com/tomkuttler/Clash-Perpetuation/blob/main/demo.gif)
+
+</div>
 
 <details>
 <summary>Table of Contents</summary>
@@ -63,7 +63,7 @@ The character sprites were generated using the [Universal LPC Spritesheet Genera
 The Liberated Pixel Cup assets are also used for the maps, objects and items.
 
 Please check out these resources if you're interested in creating your own game.
-A complete list of is included in [README.txt](https://github.com/tomkuttler/Clash-Perpetuation/blob/main/Clash%20Perpetuation/README.txt).
+A complete list of is included in [README.txt](https://github.com/tomkuttler/Clash-Perpetuation/blob/main/README.txt).
 
 ## Contributing
 
